@@ -1,6 +1,9 @@
 .newco-header {
   position: relative;
+  width: 100%;
   height: 120px;
+  box-shadow: 0px 0px 30px 0px rgba(0,0,0,0);
+  transition: height 200ms;
   @include not-desktop {
       height: 100px;
   }
@@ -13,7 +16,7 @@
     bottom: 0;
     margin: auto;
     background: white;
-    z-index: 2;
+    z-index: 20;
   }
   .newco-search {
     display:none;
@@ -22,7 +25,7 @@
     top: 100%;
     width: 100%;
     padding: 9px 0 9px 0;
-    z-index: 1;
+    z-index: 10;
     transform: translate(0, 0);
     transition: transform 200ms;
     background: grey;
@@ -118,6 +121,8 @@
       max-width: 155px;
       max-height: 55px;
       margin: 0 auto;
+      transform: scale(1);
+      transition: transform 200ms;
       @include not-desktop {
         &.logo-img-small {
           display: block;
@@ -174,33 +179,66 @@
         position: relative;
         .textbox{
           position: absolute;
-          right: 34px;
+          right: 20px;
+          @include bootstrap-mobile {
+            display:none;
+            top: 100px;
+            width: 100%;
+            left: 0;
+            right: 0;
+            position: fixed;
+            text-align: center;
+            width: 100%;
+            padding: 17px 0px;
+            background-color: $newcoprimarycolor;
+            height: 40px;
+            padding: 8px 0px;
+            &.active{
+              display:block;
+            }
+          }
           input[type="text"]{
-            width: 200px;
-            height: 100%;
+            width: 250px;
+            height: 37px;
             border-radius: 29px;
-            border: 1px solid #000;
-            padding: 8px 10px;
+            border: 1px solid #a8abb5;
+            padding: 8px 35px 8px 10px;
             font-weight: 200;
             color: #000;
             font-size: 14px;
             display: block;
             @include bootstrap-mobile {
-              width:180px;
-              right: 20px;
+              width: 320px;
+              height: 24px;
+              margin: 0 auto;
+              border-radius: 0;
+              border: 1px solid transparent;
             }
            }
         }
       .newco-gobtn-2{
         position: absolute;
-        right: 50px;
+        right: 30px;
         z-index: 9;   
         top: 7px;
+        &[data-submit="sector-search"]{
+        display:block;
+        @include bootstarp-md-max {
+          display:none;
+        }
+        }
+        &#mobile-search{
+          display:none;
+          @include bootstarp-md-max {
+            display:block;
+          }
+        }
         @include bootstrap-mobile {
           right: 32px;
+          top:10px;
         }
         i{
-          font-size: 14px;
+          font-size: 18px;
           color:#000;
           cursor: pointer;
           
@@ -210,8 +248,45 @@
     }
     .newco-clientlogin{
       cursor: pointer;
-      span{
-        color:$black;
+      a {
+          &::after{
+          background-image: url(../../Static/images/tmt-newco/images/lock-icon/lock-icon-black.jpg);
+          background-repeat: no-repeat;
+          content: "";
+          width: 18px;
+          height: 18px;
+          position: absolute;
+          top: 50px;
+          right: -10px;
+          background-size: contain;
+          @include bootstarp-md-max {
+            top: 44px;
+            right: 10px;
+          }
+        }
+        
+        span{
+          color:$black;
+          font-weight: normal;
+          line-height: 25px;
+          @include bootstarp-md-max{
+            display:none;
+          }
+        }
+      }
+      &:hover {
+        span {
+          color:$newcoprimarycolor;
+        }
+        a{
+          &::after {
+            background-image: url(../../Static/images/tmt-newco/images/lock-icon/lock-icon.jpg);
+            @include bootstarp-md-max {
+              top: 44px;
+              right: 10px;
+            }
+        }
+        }
       }
       img {
         margin-left: 8px;
@@ -227,7 +302,7 @@
     bottom: 0;
     width: 33.33%;
     visibility: hidden;
-    z-index: 1;
+    z-index: 10;
     @include mobile {
       width: 100%;
     }
@@ -239,13 +314,13 @@
     }
     & + .row {
       position: relative;
-      z-index: 3;
+      z-index: 30;
     }
     .top-menu-items {
       overflow-x: hidden;
       overflow-y: auto;
       position: absolute;
-      top: 100%;
+      top: calc(100% - 1px);
       width: calc(100% - 30px);
       max-height: calc(100vh - 150px);
       margin-left: 15px;
@@ -255,7 +330,7 @@
       direction: rtl;
       text-align: left;
       background: $white;
-      box-shadow: 0px 0px 50px 8px rgba(0,0,0,0.06);
+      box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.04);
       transform: translate(0, 0);
       @include not-desktop {
         width: calc(100% - 15px);
@@ -353,6 +428,7 @@
     .newco-nav {
       .top-menu-items {
         transform: translate(0, -100%);
+        box-shadow: 0px 0px 30px 0px rgba(0,0,0,0);
       }
     }
   }
@@ -373,16 +449,43 @@
     .newco-search {
       transform: translate(0, -100%);
     }
-    &.nav-closed.scrolled{
-      position: fixed;
-      width: 100%;
-      z-index: 999;
-      top: 0px;
-      .newco-logo img{
-        width: 85px;
+  }
+}
+header#informa-main-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  &.scrolled {
+    & + * {
+      transform: translateY(80px);
+    }
+    .newco-header {
+      height: 80px;
+      box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.04);
+      .newco-logo img {
+        transform: scale(0.74);
       }
     }
-    
+    .informa-header-copyright {
+      display: none;
+    }
+  }
+  .informa-header-copyright {
+    z-index: 35;
+  }
+  & + * {
+    transition: transform 200ms;
+    transform: translateY(158px);
+    @include not-desktop {
+      transform: translateY(138px);
+    }
+  }
+  &.scrolled{
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    top: 0px;
   }
    
 }

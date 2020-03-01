@@ -69,10 +69,16 @@
 					@include mobile {
 						margin-top: 10px;
 					}
+					&:before {
+						background: none;
+					}
 				}
 				p.experience {
 					padding-left: 0px;
 					margin-top: 5px;
+					&:before {
+						background: none;
+					}
 				}
 			}
 			.image {
@@ -99,6 +105,7 @@
 			.nav-links {
 				.at-icon {
 					fill: #8e96e9;
+					color: #8e96e9;
 				}
 			}
 		}
@@ -120,6 +127,9 @@
 					width: 100%;
 					float: none;
 					padding-right: 0px;
+					&:before {
+						content: '';
+					}
 				}
 			}
 		}
@@ -138,7 +148,7 @@
 			}
 			li {
 				background-color: #fff;
-				.addthis_button_email {
+				.addthis_button_twitter_follow, .addthis_button_linkedin_follow {
 					.at-icon-wrapper {
 						.at-icon {
 							margin-top: 2px;
@@ -163,6 +173,18 @@
 		}
 		.btn-container {
 			padding-right: 0px;
+		}
+		.show-options {
+			border-bottom: 2px solid #fff;
+			color: #000;
+			&:after {
+				color: #a54eac;
+			}
+			&:hover {
+				&:after {
+					color: #b650be;
+				}
+			}
 		}
 	}
 	.feature li {

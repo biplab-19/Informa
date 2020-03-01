@@ -349,6 +349,9 @@
                 position: absolute;
                 left: 0px;
                 top: 0px;
+                @include mobile{
+                  position: static;
+                }
                 .panel-body{
                   border: 1px solid #a8abb5;
                   border-radius: 0px 0px 22px 22px;
@@ -384,7 +387,7 @@
                     overflow: auto;
                     padding-bottom: 0px;
                     @include mobile{
-                      max-height: unset;
+                      max-height: 305px;
                       overflow: auto;
                     }
                   }
@@ -691,6 +694,7 @@
         }
        }
        .list-items{
+        overflow: hidden;
         &:hover {
           box-shadow: 5px 1px 22px #ece9e9;
         }

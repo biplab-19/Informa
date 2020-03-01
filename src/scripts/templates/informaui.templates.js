@@ -532,6 +532,97 @@ var INFORMA = window.INFORMA || {};
                     '</div>'+
                 '</div>'+
             '</section>',
+        'AnalystListNewCo': '<section class="analyst-views newco-analyst-views">' +
+                                '<div class="container">' +
+                                    '<h2 class="header">{{results.header}}</h2>' +
+                                    '<div class="row">' +
+                                        '{{#each results.ModelItem}}' +
+                                        '<div class="col-md-4 col-sm-12 col-xs-12 analyst-view-container">' +
+                                            '<div class="row">' +
+                                                '<div class="col-lg-12  image ">' +
+                                                    '<div class="analyst-img">' +
+                                                        '{{#if ProfileImage}}' +
+                                                        '<a href="{{ProfileUrl}}">' +
+                                                            '<img src="{{ProfileImage}}" alt="{{image}}" />' +
+                                                        '</a>' +
+                                                        '{{/if}}' +
+                                                    '</div>' +
+                                                '</div>' +
+                                                '<div class="col-lg-12  content">' +
+                                                    '<div class="row">' +
+                                                        '<div class="col-md-12">' +
+                                                            '<div class="meet-anlyst-section">' +
+                                                                '<div class="anlyst-heading">' +
+                                                                    '<div class="analyst-heading-content">' +
+                                                                        '<div class="analyst-details">' +
+                                                                            '<span class="analyst-type">{{Type}}</span>' +
+                                                                            '<a href="{{ProfileUrl}}">' +
+                                                                                '<h4>{{Name}}</h4>' +
+                                                                            '</a>' +
+                                                                            '<h5>' +
+                                                                                '<span class="designation">{{Type}}{{#if Type}}{{#if JobTitle}},{{/if}}{{/if}} {{JobTitle}}</span>' +
+                                                                                '<span class="newco-location">{{State}}{{#if Country}}{{#if State}},{{/if}}{{/if}} {{Country}}</span>' +
+                                                                                '<span class="experiance">{{YearsOfExperience}}+ +{{ExperienceText}}</span>' +
+                                                                            '</h5>' +
+                                                                        '</div>' +
+                                                                    '</div>' +
+                                                                '</div>' +
+                                                            '</div>' +
+                                                        '</div>' +
+                                                    '</div>' +
+                                                    '<div class="row discription">' +
+                                                        '<div class="profile-discription">' +
+                                                            '<div class="col-md-12">' +
+                                                                '<strong>' +
+                                                                    'Specialities include ' +
+                                                                '</strong>' + '{{#each Specialization}}' +
+                                                                '{{this}}, ' +
+                                                                '{{/each}}' +
+                                                            '</div>' +
+                                                        '<div class="col-md-12">' +
+                                                            '<strong>' +
+                                                                'Product covered include ' +
+                                                            '</strong>' + '{{#each ProductDetails}}' +
+                                                            '{{this.Key}} ' +
+                                                            '{{/each}}' +
+                                                        '</div>' +
+                                                    '</div>' +
+                                                    '<div class="col-md-12 meet-anlyst-section">' +
+                                                        '<div class="analyst-footer">' +
+                                                            '<div class="analyst-footer-content clearfix">' +
+                                                                '<ul class="nav-links">' +
+                                                                '{{#if LinkedInProfileID}}' +
+                                                                '{{#compare LinkedInProfileID.length "1" operator=">"}}' +
+                                                                    '<li>' +
+                                                                        '<a class="addthis_button_linkedin_follow trigger-sc-event" addthis:userid="{{LinkedInProfileID}}"></a>' +
+                                                                    '</li>' +
+                                                                    '{{/compare}}' +
+                                                                    '{{/if}}' +
+                                                                    '{{#if TwitterHandleID}}' +
+                                                                    '{{#compare TwitterHandleID.length "1" operator=">"}}' +
+                                                                    '<li>' +
+                                                                        '<a class="addthis_button_twitter_follow trigger-sc-event" addthis:userid="{{TwitterHandleID}}"></a>' +
+                                                                    '</li>' +
+                                                                    '{{/compare}}' +
+                                                                    '{{/if}}' +
+                                                                    '{{#if EmailAddressLink.Url}}' +
+                                                                    '{{#compare EmailAddressLink.Url null operator="!="}}' +
+                                                                    '<li><a href="{{EmailAddressLink.Url}}" class="icon-email"></a></li>' +
+                                                                    '{{/compare}}' +
+                                                                    '{{/if}}' +
+                                                                '</ul>' +
+                                                            '</div>' +
+                                                        '</div>' +
+                                                    '</div>' +
+                                                '</div>' +
+                                            '</div>' +
+                                        '</div>' +
+                                    '</div>' +
+                                    '{{/each}}' +
+                                '</div>' +
+                            '</div>' +
+                        '</section>',
+
         'AnalystList': '<section class="analyst-views">' +
                             '<div class="container">' +
                                 '<h2 class="header">{{results.header}}</h2>' +
@@ -1476,6 +1567,180 @@ var INFORMA = window.INFORMA || {};
                                                                 '{{/compare}}'+
                                                             '{{/compare}}'+
                                                         '{{/compare}}'+ 
+                                                    '</div>'+
+                                                '</div>'+
+                                            '</div>'+
+                                        '</div>',
+                                        'SpecialistNewCo': '<section class="analyst-views newco-analyst-views">' +
+                                        '<div class="row">' +
+                                        '<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 image ">' +
+                                        '<div class="analyst-img">' +
+                                        '<a href="{{results.PageURL}}">  <img src="{{results.Image}}" alt="{{results.Name}}" /></a>' +
+                                        '</div>' +
+                                        '</div>' +
+                                        '<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 content">' +
+                                        '<div class="row">' +
+                                        '<div class="col-md-9">' +
+                                        '<div class="meet-anlyst-section">' +
+
+                                        '<div class="anlyst-heading">' +
+                                        '<div class="analyst-heading-content">' +
+                                        '<div class="analyst-details">' +
+                                        '<span class="analyst-type">{{results.Type}}</span>' +
+                                        '<a href="@Model.PageURL"><h4>{{results.Name}}</h4></a>' +
+                                        '<h5>' +
+                                        '<span class="designation">{{results.JobTitle}}</span>' +
+                                        '<span class="newco-location">{{results.State}}{{#if results.Country}}{{#if results.State}},{{/if}}{{/if}} {{results.Country}} </span>' +
+                                        '<span class="experiance">{{results.YearsOfExperience}}' +
+                                        '+{{results.ExperienceText}}</span>' +
+                                        '</h5>' +
+                                        '</div>' +
+
+                                        '</div>' +
+                                        '</div>' +
+
+
+
+                                        '</div>' +
+                                        '</div>' +
+                                        '<div class="col-md-3 meet-anlyst-section">' +
+                                        '<div class="analyst-footer">' +
+                                        '<div class="analyst-footer-content clearfix">' +
+
+                                        '<ul class="nav-links">' +
+                                        '{{#if results.LinkedInProfileID}}' +
+                                        '{{#compare results.LinkedInProfileID.length "1" operator=">"}}' +
+                                        '<li>' +
+                                        '<a class="addthis_button_linkedin_follow" addthis:userid="{{results.LinkedInProfileID}}"></a>' +
+                                        '</li>' +
+                                        '{{/compare}}' +
+                                        '{{/if}}' +
+                                        '{{#if results.TwitterHandleID}}' +
+                                        '{{#compare results.TwitterHandleID.length "1" operator=">"}}' +
+                                        '<li>' +
+                                        '<a class="addthis_button_twitter_follow" addthis:userid="{{results.TwitterHandleID}}"></a>' +
+                                        '</li>' +
+                                        '{{/compare}}' +
+                                        '{{/if}}' +
+                                        '{{#if results.EmailAddressLink}}' +
+                                        '{{#compare results.EmailAddressLink.Url.length "0" operator=">"}}' +
+                                        '<li><a href="{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
+                                        '{{/compare}}' +
+                                        '{{/if}}' +
+                                        '</ul>' +
+                                        '</div>' +
+                                        '</div>' +
+                                        '</div>' +
+                                        '</div>' +
+                                        '<div class="row discription">' +
+                                        '<div class="col-md-12">' +
+                                        '{{#compare results.Specialization.length "0" operator=">"}}' +
+                                        '<strong>' +
+                                        'Specialities include ' +
+                                        '</strong>' +
+                                        '{{#each results.Specialization}}' +
+                                        '{{this}} ' +
+                                        '{{/each}}' +
+
+                                        '{{/compare}}' +
+                                        '</div>' +
+                                        '<div class="col-md-12">' +
+                                        '{{#compare results.ProductDetails.length "0" operator=">"}}' +
+                                        '<strong>' +
+                                        'Product covered include ' +
+                                        '</strong>' +
+                                        '{{#each results.ProductDetails}}' +
+                                        '{{this.Key}}' +
+                                        '{{/each}}' +
+
+                                        '{{/compare}}' +
+                                        '</div>' +
+                                        '</div>' +
+                                        '</div>' +
+                                        '</div>' +
+                                        '</section>',                
+                        'EventNewCo': '<div class="">'+
+                                    '<div class="list-items">'+
+                                        '<div class="col-md-4">'+
+                                        '<div class="image-gradient">'+
+                                        'Events'+
+                                        '</div>'+
+                                        '</div>'+
+                                            '<div class="events-wrap col-md-8">'+
+                                                '<div class="wrap-content">'+
+                                                    '<div class="header clearfix">'+
+                                                        '<div class="date-field">{{results.EventDate}}</div>'+
+                                                    '</div>'+
+                                                    '<div class="content-wrap">'+
+                                                        '<p class="country">'+
+                                                            '<span>{{results.State}}</span>'+
+                                                            '{{#if results.Country}}{{#if results.State}},{{/if}}{{/if}}'+
+                                                            '<strong> {{results.Country}}</strong>'+
+                                                        '</p>'+
+                                                        '<p><span class="type">{{results.EventType}}</span></p>'+
+                                                        '<h3 class="title">{{results.Title}}</h3>'+
+                                                            '{{#compare results.Presenters.length 0 operator=">"}}'+
+                                                                '<div class="content clearfix">'+
+                                                                    '<div class="title-content">'+
+                                                                        '{{results.PresentersLabel}}'+
+                                                                    '</div>'+
+                                                                    '<div class="title-body">'+
+                                                                        '<ul class="clearfix">'+
+                                                                            '{{#each results.Presenters}}'+
+                                                                            '<li>{{this}}</li>'+
+                                                                            '{{/each}}'+
+                                                                        '</ul>'+
+                                                                    '</div>'+
+                                                                '</div>'+
+                                                            '{{/compare}}'+
+                                                            '{{#compare results.Themes.length 0 operator=">"}}'+
+                                                            '<div class="content clearfix">'+
+                                                                '<div class="title-content">'+
+                                                                    '{{results.ThemeLabel}}'+
+                                                                '</div>'+
+                                                                '<div class="title-body">'+
+                                                                    '<ul class="clearfix">'+
+                                                                        '{{#each results.Themes}}'+
+                                                                            '<li>{{this}}</li>'+
+                                                                        '{{/each}}'+
+                                                                    '</ul>'+
+                                                                '</div>'+
+                                                            '</div>'+
+                                                            '{{/compare}}'+
+                                                        '</div>'+
+                                                    '</div>'+
+                                                    '<div class="footer clearfix">'+
+                                                        '{{#compare results.FullDetail null operator="!="}}' +
+                                                            '{{#compare results.FullDetail.Url null operator="!="}}' +
+                                                                '{{#compare results.FullDetail.Url.length "0" operator=">"}}' + 
+                                                                    '<a href="{{results.FullDetail.Url}}" target="{{results.FullDetail.Target}}" class="btn btn-default full-detail pull-left">'+
+                                                                        '{{results.FullDetail.LinkText}}'+
+                                                                    '</a>'+
+                                                                '{{/compare}}'+
+                                                            '{{/compare}}'+
+                                                        '{{/compare}}'+
+                                                        '{{#compare results.StatusEnabled  true operator="=="}}'+
+                                                            '{{#compare results.Register null operator="!="}}' +
+                                                                '{{#compare results.Register.Url null operator="!="}}' +
+                                                                    '{{#compare results.Register.Url.length "0" operator=">"}}' +
+                                                                        '<a href="{{results.Register.Url}}" target="_blank" class="btn btn-primary register pull-right">'+
+                                                                            '{{results.EventCTAText}}'+
+                                                                        '</a>'+
+                                                                    '{{/compare}}'+
+                                                                '{{/compare}}'+
+                                                            '{{/compare}}'+
+                                                        '{{/compare}}'+
+                                                        '{{#compare results.StatusEnabled  false operator="=="}}'+  
+                                                            '{{#compare results.Register null operator="!="}}' +
+                                                                '{{#compare results.Register.Url null operator="!="}}' +
+                                                                    '{{#compare results.Register.Url.length "0" operator=">"}}' +
+                                                                        '<a href="{{results.Register.Url}}" target="_blank" class="btn btn-primary register pull-right disabled">'+
+                                                                            '{{results.EventCTAText}}'+
+                                                                        '</a>'+
+                                                                    '{{/compare}}'+
+                                                                '{{/compare}}'+
+                                                            '{{/compare}}'+
+                                                        '{{/compare}}'+
                                                     '</div>'+
                                                 '</div>'+
                                             '</div>'+
