@@ -13,7 +13,8 @@
 var INFORMA = window.INFORMA || {};
 INFORMA.NewcoHeader = (function (window, $, namespace) {
     'use strict';
-    var $mainHeader = $('#informa-main-header'),
+    var $cookieBanner = $('#cookieBanner'),
+        $mainHeader = $('#informa-main-header'),
         $newcoHeader = $mainHeader.find('.newco-header'),
         $hamburger = $newcoHeader.find('.hamburger'),
         $searchicon = $newcoHeader.find('button#mobile-search'),
@@ -21,8 +22,17 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
         $newcoNav = $newcoHeader.find('.newco-nav'),
         $menuItems = $newcoNav.find('.menu-items'),
         $menuItemWWithSubs = $newcoNav.find('.menu-item.hassub'),
+        $banner = $('#banner'),
+        $pdpNav = $('#pdp-navigation'),
+        headerHeight = $mainHeader.height(),
+        DESIRED_HEADER_HEIGHT = 80,
+        bannerHeight = $banner.height(),
+        pdpNavThreshold = headerHeight + bannerHeight,
+        pdpNavTop = 0,
+        pdpNavHeight = 0,
+        headerHeightChangeTimerEvent = 0,
         // methods
-        OffsetParentHeight, init;
+        OffsetParentHeight, repositionPdpNav, init;
 
     OffsetParentHeight = function($menuItemsContainer, action) {
         var $menuItem = $menuItemsContainer.closest('.menu-item'),
@@ -35,6 +45,21 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
 
         if (action === 'subtract')
             $parent.css('height', $parent.height() - parseInt($menuItemsContainer.attr('data-height')));
+    }
+
+    repositionPdpNav = function(scroll) {
+        // on threshold, set top css, which should be the calculated header height
+        if (scroll >= pdpNavThreshold) {
+            // if (!$pdpNav.hasClass('navbar-fixed-top')) {
+                $pdpNav.css('top', pdpNavTop);
+                // console.log('headerHeight', headerHeight);
+            // }
+            // add the class, which sets the position fixed etc
+            $pdpNav.addClass('navbar-fixed-top').next().css('padding-top', pdpNavHeight);
+        } else {
+            // reset back to "in body" position
+            $pdpNav.removeClass('navbar-fixed-top').css('top', '').next().css('padding-top', '');
+        }
     }
 
     init = function() {
@@ -98,6 +123,33 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
             $(".newco-search-header .textbox").toggleClass("active");
             $(".nav-closed").addClass("scrolled");
         });
+        
+        // emit custom event on header height change if $pdpNav exists
+        if ($pdpNav.length > 0) {
+            headerHeightChangeTimerEvent = setInterval(function() {
+                if ($mainHeader.height() != headerHeight) {
+                    $mainHeader.trigger('heightchanged');
+                }
+            }, 500);
+        }
+
+        // on height change event, store header height for use in scroll event
+        $mainHeader.on('heightchanged', function() {
+            headerHeight = $mainHeader.height();
+            // set banner height for pdp-nav scroll threshold
+            bannerHeight = $banner.outerHeight();
+            // set threshold so pdp-nav sticky threshold occurs in the correct place
+            // replaced headerHeight with 80 because of animation, if scrolled height changes this will have to
+            pdpNavThreshold = (bannerHeight - $mainHeader.next().offset().top) + DESIRED_HEADER_HEIGHT;
+            pdpNavTop = DESIRED_HEADER_HEIGHT;
+            // subtract cookiebanner height if its not been closed
+            if ($cookieBanner.is(':visible')) {
+                pdpNavThreshold -= $cookieBanner.outerHeight();
+                pdpNavTop += $cookieBanner.outerHeight();
+            }
+            repositionPdpNav($(window).scrollTop());
+        });
+        $mainHeader.trigger('heightchanged');
     }
     
     $(window).on('load', function() {
@@ -110,6 +162,10 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
             $el.attr('data-height', el.clientHeight).addClass('ready');
             $descendentMenus.css('height', '');
         });
+
+        // store pdpnav height, if it exists, for later use
+        if ($pdpNav.length > 0)
+            pdpNavHeight = $pdpNav.outerHeight(true);
         
         // add ready class to make menu visible after preload
         $newcoNav.addClass('ready');
@@ -118,11 +174,15 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
     $(window).scroll(function() {    
         var scroll = $(window).scrollTop();
     
-        if (scroll > 100) {
+        if (scroll > 50) {
             $mainHeader.addClass('scrolled');
         } else {
             $mainHeader.removeClass('scrolled');
         }
+
+        // reposition pdpnav if it exists
+        if ($pdpNav.length > 0)
+            repositionPdpNav(scroll);
     });
     
 
