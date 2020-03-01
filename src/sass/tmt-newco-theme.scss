@@ -64,15 +64,6 @@ $newco-white-background: #ffffff;
       font-weight: 600;
     }
   }
-  section{
-    p{
-      strong{
-        font-size: $headline-text;
-        line-height: 29px;
-        font-weight: normal;
-      }
-    }
-  }
   .collapsing {
     -webkit-transition: height 0.02s ease;
     -o-transition: height 0.02s ease;
@@ -198,6 +189,20 @@ $newco-white-background: #ffffff;
         &:hover {
           color: #b650be;
         }
+      }
+    }
+  }
+  .sectorpage-strengths {
+    .slant {
+      display: none;
+    }
+  }
+  .view-all-sectors-btn-container {
+    border: none;
+    .informa-icon {
+      color: #a54eac;
+      &:hover {
+        color: #b650be;
       }
     }
   }
@@ -379,6 +384,5 @@ $newco-white-background: #ffffff;
       border-bottom: 1px solid $newcoprimarycolor;
     }
   }
-  
 }
 

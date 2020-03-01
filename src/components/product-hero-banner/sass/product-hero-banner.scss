@@ -8,7 +8,7 @@
         color: $font-color-white;
         font-size: $super-headline-text;
         line-height: $super-headline-lineheight;
-        padding: 64px 0 30px;
+        padding: 54px 0 10px;
         @include mobile{
             font-size: 34px;
             line-height: 40px;
@@ -27,7 +27,7 @@
         color: $font-color-white;
         line-height: $subhead-text-lineheight;
         width: 80%;
-        padding-bottom: 38px;
+        padding-bottom: 30px;
         @include mobile{
             width: 100%;
             text-align: justify;
@@ -51,16 +51,13 @@
         font-weight: 600;
         font-size: $subhead-text;
         text-align: center;
-        padding: 9px 30px;
+        padding: 6px 30px;
         display: inline-block;
         min-width: 120px;
         color: $font-color-white;
-        margin-left: 0px;
         line-height: 25px;
         width: 190px;
-        @include mobile{
-            width: 250px;
-        }
+        margin: 0 0 25px 0;
         &.semi-trans{
             background-color: rgba(255,255,255,.85);
             text-align: center;
@@ -79,14 +76,19 @@
         &.btn:after {
             content: " ";
         }
+        @include tablet {
+            padding: 9px 10px;
+            width: 160px;
+        }
         @include mobile{
+            width: 250px;
             margin-top: 0;
             margin-bottom: 20px;
         }
     }
     .follow-row {
         float: right;
-        margin-top: -40px;
+        margin-top: -60px;
         @include mobile{
             width: 100%;
             float: none;
@@ -97,9 +99,12 @@
                 width: auto;
                 display: inline-block;
                 float: none;
-                margin-right: 40px;
+                margin-right: 36px;
                 vertical-align: top;
                 margin-top: 6px;
+                @include tablet {
+                    padding-top: 0px;
+                }
                 .share{
                      text-align: left;
                      padding-top: 0;

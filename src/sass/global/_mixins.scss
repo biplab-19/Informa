@@ -1992,13 +1992,13 @@ $properties: (margin, padding);
             @include margin-reset;
         }
 
-        p{
+        p {
             @include family-style(normal,$black);
             @include heading-font-size(14px,14px,14px);
             @include heading-line-height(25px,25px,25px);
-            strong {
-                @include family-style(bold,$newcoprimarycolor);
-            }
+          }
+        a {
+            @include family-style(normal,$newcoprimarycolor);
         }
     }
     header {
@@ -2021,21 +2021,16 @@ $properties: (margin, padding);
             .newco-logo img {
               transform: scale(0.74);
             }
-            .newco-searchbtn {
-              .newco-search-header {
-                .textbox {
-                  @include bootstarp-md-max {
-                    top:80px;
-                  }
-                }
-              }
-            }
           }
           .informa-header-copyright {
-            display: none;
+            max-height: 0;
           }
         }
         .cookieBanner, .informa-header-copyright {
+          overflow: hidden;
+          height: auto;
+          max-height: 190px;
+          transition: max-height 200ms ease-in-out;
           z-index: 35;
         }
         & ~ * {
@@ -2047,7 +2042,7 @@ $properties: (margin, padding);
           @include not-desktop {
             top: 138px;
           }
-        }   
+        }
       }
     }
     .newco-header {
