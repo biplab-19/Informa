@@ -2032,6 +2032,12 @@ $properties: (margin, padding);
           max-height: 190px;
           transition: max-height 200ms ease-in-out;
           z-index: 35;
+          @include tablet {
+            max-height: 240px;
+          }
+          @include mobile {
+            max-height: 430px;
+          }
         }
         & ~ * {
           position: relative;
@@ -2253,6 +2259,25 @@ $properties: (margin, padding);
           }
         }
       }
+    }
+    .hero-banner .hero-banner-content {
+      .row {
+        float: none;
+        .col {
+          width: 100%;
+        }
+        h1 {
+          @include mobile {
+            padding: 20px 0;
+          }
+        }
+        .btn {
+          width: auto;
+        }
+      }
+    }
+    .yellow-container {
+      background: rgba($newcoprimarycolor, 0.9);
     }
   }
 }

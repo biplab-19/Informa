@@ -1090,7 +1090,7 @@ var INFORMA = window.INFORMA || {};
                     'SampleContentNewCo': '<div class="">'+
                         '<div class="list-items" data-fetch="{{results.Id}}" data-type="{{results.Category}}">'+
                             '<div class="recomended-wrapper">'+
-                                '<div class="recomend-content wrap-content">'+
+                                '<div class="recomend-content wrap-content row">'+
 									'{{#compare results.Video null operator="!="}}'+
                                             '<div class="col-md-4">'+
                                                 '{{#if results.HasExternalLink}}'+
@@ -1192,10 +1192,6 @@ var INFORMA = window.INFORMA || {};
                                         '{{/compare}}'+
                                         '{{#compare results.PageURL.length "0" operator="=="}}' +
                                             '<h4><span>{{results.Title}}</span></h4>'+
-                                        '{{/compare}}'+
-                                        '<p class="publish">{{#if results.Profile}}{{results.ByKeyword}} <strong> {{{AnalystData results.Profile}}} </strong>{{/if}}{{#if results.PublicationDate}}{{results.PublicationDate}}{{/if}}</p>'+
-                                        '{{#compare results.Publisher null operator="!="}}'+
-                                            '<p><span>{{results.PublisherKeyword}} </span><strong>{{results.Publisher}}<strong></p>'+
                                         '{{/compare}}'+
                                         '{{#compare results.Description null operator="!="}}'+
                                             '<p class="description">{{results.Description}}</p>'+
@@ -1348,63 +1344,60 @@ var INFORMA = window.INFORMA || {};
                 '</div>'+
             '</div>',
             'ProductNewCo':
-                '<div>'+
-                '<div class="list-items" data-fetch="{{results.Id}}" data-type="{{results.Category}}">'+
-                    '<div class="products">'+
-                        '<div class="wrap-content">'+
-                            '<div class="heading">'+
-                                '<div class="heading-content">'+
-                                    '<p class="category">'+
-                                        '{{#each results.SectorTags}}'+
-                                            '<strong>{{this}}</strong>'+
-                                        '{{/each}}'+
-                                    '</p>'+
-                                    '<h4 class={{results.SubSiteTheme}}>{{results.Title}}</h4>'+
-                                '</div>'+
-                            '</div>'+
-                            '<div class="body">'+
-                                '<p>{{results.Description}}</p>'+
-                                '<ul>'+
-                                    '{{#each results.Benefits}}'+
-                                    '<li class="icon-tick">{{this}}</li>'+
-                                    '{{/each}}'+
-                                '</ul>'+
-                            '</div>'+
-                        '</div>'+
-                        '<div class="button-links">'+
-                            '<div class="button-links-wrap row">'+
-                                '<div class="col-xs-6">'+
-                                    '{{#compare results.PageURL null operator="!="}}' +
-                                        '{{#compare results.PageURL.length "0" operator=">"}}' +
-                                            '<a href="{{results.PageURL}}" target="{{results.LinkTarget}}" class="btn btn-default">{{results.DetailText}}</a>'+
-                                        '{{/compare}}'+
-                                    '{{/compare}}'+
-                                '</div>'+
-                                '<div class="col-xs-6">'+
-                                    '{{#if results.ProductSearchCTAType}}' +
-                                        '{{#compare results.ProductSearchCTAType "formRequestATrial"  operator="=="}}'+    
-                                            '{{#if (splitURL results.SalesforceLink.Url "registration")}}'+
-                                                    '<a href="{{results.SalesforceLink.Url}}" target="{{results.SalesforceLink.Target}}" class="btn btn-primary">{{results.SearchCTAName}}</a>'+
-                                            '{{else}}'+
-                                                '<a href="javascript:void(0)" data-toggle="modal" data-modal="#{{results.ProductSearchCTAType}}" data-productid="{{results.FreeTrialLink.ProductGuid}}" class="btn btn-primary free-trial wffm-elq-form-btn">'+
-                                                    '{{results.SearchCTAName}}'+
-                                                '</a>'+
-                                            '{{/if}}'+                                     
-                                        '{{/compare}}'+
-                                        '{{#compare results.ProductSearchCTAType "formRequestATrial"  operator="!="}}'+ 
-                                            '<a href="javascript:void(0)" data-toggle="modal" data-modal="#{{results.ProductSearchCTAType}}" data-productid="{{results.FreeTrialLink.ProductGuid}}" class="btn btn-primary free-trial wffm-elq-form-btn">'+
-                                                '{{results.SearchCTAName}}'+
-                                            '</a>'+
-                                        '{{/compare}}'+
-                                    '{{else}}'+                                 
-                                    '<a href="{{results.SalesforceLink.Url}}" target="{{results.SalesforceLink.Target}}" class="btn btn-primary">{{results.SearchCTAName}}</a>'+
-                                    '{{/if}}'+  
-                                '</div>'+
-                            '</div>'+
-                        '</div>'+
-                    '</div>'+
-                '</div>'+
-            '</div>',
+                '<div>' +
+                    '<div class="list-items" data-fetch="{{results.Id}}" data-type="{{results.Category}}">' +
+                        '<div class="recomended-wrapper products">' +
+                            '<div class="recomend-content wrap-content row">' +
+                                '<div class="col-md-4">' +
+                                    '<div class="image-gradient">' +
+                                        '{{results.Title}}' +
+                                    '</div>' +
+                                '</div>' +
+                                '<div class="wrap-content col-md-8">' +
+                                    '<div class="body">' +
+                                        '<p>{{results.Description}}</p>' +
+                                        '<ul>' +
+                                            '{{#each results.Benefits}}' +
+                                            '<li class="icon-tick">{{this}}</li>' +
+                                            '{{/each}}' +
+                                        '</ul>' +
+                                    '</div>' +
+                                    '<div class="footer clearfix">' +
+                                        '<div class="row">' +
+                                            '<div class="col-xs-6">' +
+                                                '{{#compare results.PageURL null operator="!="}}' +
+                                                '{{#compare results.PageURL.length "0" operator=">"}}' +
+                                                '<a href="{{results.PageURL}}" target="{{results.LinkTarget}}" class="btn btn-default">{{results.DetailText}}</a>' +
+                                                '{{/compare}}' +
+                                                '{{/compare}}' +
+                                            '</div>' +
+                                            '<div class="col-xs-6">' +
+                                                '{{#if results.ProductSearchCTAType}}' +
+                                                '{{#compare results.ProductSearchCTAType "formRequestATrial"  operator="=="}}' +
+                                                '{{#if (splitURL results.SalesforceLink.Url "registration")}}' +
+                                                '<a href="{{results.SalesforceLink.Url}}" target="{{results.SalesforceLink.Target}}" class="btn btn-primary">{{results.SearchCTAName}}</a>' +
+                                                '{{else}}' +
+                                                '<a href="javascript:void(0)" data-toggle="modal" data-modal="#{{results.ProductSearchCTAType}}" data-productid="{{results.FreeTrialLink.ProductGuid}}" class="btn btn-primary free-trial wffm-elq-form-btn">' +
+                                                    '{{results.SearchCTAName}}' +
+                                                '</a>' +
+                                                '{{/if}}' +
+                                                '{{/compare}}' +
+                                                '{{#compare results.ProductSearchCTAType "formRequestATrial"  operator="!="}}' +
+                                                '<a href="javascript:void(0)" data-toggle="modal" data-modal="#{{results.ProductSearchCTAType}}" data-productid="{{results.FreeTrialLink.ProductGuid}}" class="btn btn-primary free-trial wffm-elq-form-btn">' +
+                                                    '{{results.SearchCTAName}}' +
+                                                '</a>' +
+                                                '{{/compare}}' +
+                                                '{{else}}' +
+                                                '<a href="{{results.SalesforceLink.Url}}" target="{{results.SalesforceLink.Target}}" class="btn btn-primary">{{results.SearchCTAName}}</a>' +
+                                                '{{/if}}' +
+                                            '</div>' +
+                                        '</div>' +
+                                    '</div>' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>',
                 'SearchTemplate': '<div class="product-results" data-pagesize="{{results.DefaultItemCount}}">'+
                                     '{{#if results.ProductTitle}}'+
                                        '<h2> <strong>{{results.ProductTitle}}</strong></h2>'+
@@ -1661,6 +1654,8 @@ var INFORMA = window.INFORMA || {};
                                         '</section>',                
                         'EventNewCo': '<div class="">'+
                                     '<div class="list-items">'+
+                                    '<div class="recomended-wrapper">'+
+                                        '<div class="recomend-content wrap-content row" style="height: auto;">'+
                                         '<div class="col-md-4">'+
                                         '<div class="image-gradient">'+
                                         'Events'+
@@ -1744,7 +1739,10 @@ var INFORMA = window.INFORMA || {};
                                                     '</div>'+
                                                 '</div>'+
                                             '</div>'+
-                                        '</div>',
+                                        '</div>'+
+                                    '</div>'+
+                                '</div>',
+
                                 'Other': '<div class="col-xs-12 col-sm-6 col-md-4">'+
                                             '<div class="list-items">'+
                                                 '<div class="others-wrapper">'+

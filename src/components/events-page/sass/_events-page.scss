@@ -1,7 +1,6 @@
 .tmt-newco {
     .events-search {
         background-color: #fff;
-        z-index: 0;
         .select-section {
             .custom-dd-menu {
                 a {
@@ -13,10 +12,28 @@
                         }
                     }
                 }
+                .dropdown-content {
+                    .round-checkbox {
+                        input:checked ~ .checkmark {
+                            background-color: #a54eac !important;
+                        }
+                    }
+                }
             }
         }
         .filter-section {
             color: #000 !important;
+        }
+        .views-section {
+            .views {
+                .state-views {
+                    .view {
+                        a.active.icon-list-view::before {
+                            background-image: url(../../Static/images/tmt-newco/view-icon-list-active-newco.png) !important;
+                        }
+                    }
+                }
+            }
         }
     }
     #events-calendar {
@@ -39,22 +56,16 @@
                 }
             }
             .arrows.previous {
-                background-position: 0px 0px !important;
+                background-position: 0px -30px !important;
                 right: auto;
                 left: 0px;
                 top: 10px;
-                &:hover {
-                    background-position: 0px -30px !important;
-                }
             }
             .arrows.next {
-                background-position: -40px 0px !important;
+                background-position: -40px -30px !important;
                 left: auto;
                 right: 0px;
                 top: 10px;
-                &:hover {
-                    background-position: -40px -30px !important; 
-                }
             }
         }
         .events-wrap {

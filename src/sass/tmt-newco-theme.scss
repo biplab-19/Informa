@@ -34,7 +34,7 @@
   font-weight: 200;
   font-style: normal;
 }
-@include theme(tmt-newco, $tmtprimarycolor, $tmtsecondrydarkcolor, $tmtsecondarylightcolor, $navlinktmtcolor);
+@include theme(tmt-newco, $tmtprimarycolor, $tmtsecondrydarkcolor, $tmtsecondarylightcolor, $newcoprimarycolor);
 @include newco($newcoprimarycolor, $base-bg, $border-refine-filter, $checkbox-border, $newcolightercolor);
 //cta skinning for newco theme
 $newcobtnprimarygradiant-left: #ee93ec;
@@ -102,18 +102,31 @@ $newco-white-background: #ffffff;
         background-repeat: no-repeat;
         background-size: cover;
         height: 200px;
-        padding: 15px;
         color: #fff;
         font-size: 24px;
         font-weight: 600;
         line-height: 29px;
         overflow: hidden;
+        position: relative;
+        &::after{
+          content: "";
+          position: absolute;
+          bottom: 0px;
+          right: 0;
+          width: 100%;
+          height: 35%;
+          background-image: url(../../Static/images/tmt-newco/gradient-bg.jpg);
+          mask-image: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0));
+          -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, to(rgba(0,0,0,1)), from(rgba(0,0,0,0)));
+          pointer-events: none;
+        }
         a {
           color: #fff;
           width: 100%;
-          display: inline-block;
-          height: 100%;
-          margin-top: 65px;
+          display: table-cell;
+          height: 200px;
+          padding: 15px;
+          vertical-align: middle;
         }
       }
       .caption {
@@ -169,6 +182,48 @@ $newco-white-background: #ffffff;
         }
       }
     }
+    .search-container {
+      .btn-container {
+        .btn-ShowMore {
+          border-bottom: 2px solid #fff;
+          span {
+            &:before {
+              right: 15px;
+              top: 13px;
+              color: #a54eac;
+            }
+            &:hover {
+              &:before {
+                color: #b650be;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .view-all-mobile-container {
+    border-bottom: 1px solid #fff;
+    .show-more-brands {
+      position: relative;
+      margin-left: -60px;
+    }
+    .informa-icon {
+      position: absolute;
+      right: 0px;
+      top: -5px;
+      color: #a54eac;
+      &:hover {
+        color: #b650be;
+      }
+    }
+  }
+  #article-list-section {
+    #article-list {
+      .load-spinner {
+        top: 0px;
+      }
+    }
   }
   .btn-showMore, .btn-plus {
     border-bottom: 2px solid #fff !important;
@@ -193,6 +248,13 @@ $newco-white-background: #ffffff;
     }
   }
   .sectorpage-strengths {
+    .marg1 {
+      margin-bottom: 30px;
+    }
+    .sectorpage-strengths-list .sectorpage-strengths-list-item .btn-container {
+      left: 15px;
+      right: auto;
+    }
     .slant {
       display: none;
     }
@@ -205,6 +267,29 @@ $newco-white-background: #ffffff;
         color: #b650be;
       }
     }
+  }
+  .chosen-container .chosen-results li.highlighted, .chosen-container .chosen-results li.result-selected {
+    background-color: #a54eac;
+    color: #fff;
+  }
+  .analyst-search {
+    form {
+      .search-field {
+        .form-control {
+          color: #000;
+        }
+      }
+    }
+  }
+  .chosen-container-single {
+    .chosen-single {
+      color: #000;
+    }
+  }
+  .btn-reset {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #000 !important;
   }
   .btn {
     min-width: 120px;
@@ -384,5 +469,23 @@ $newco-white-background: #ffffff;
       border-bottom: 1px solid $newcoprimarycolor;
     }
   }
+  .scrolled {
+    .newco-header {
+      .newco-searchbtn {
+        .newco-search-header {
+          .textbox {
+            @include mobile {
+              top:80px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .form-submit-border {
+     &::after {
+        display:none;
+    }
+}
 }
 

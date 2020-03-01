@@ -143,8 +143,19 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
 
         //mobile searchbox show on click
         $searchicon.click(function(e){
-            $(".newco-search-header .textbox").toggleClass("active");
-            $(".nav-closed").addClass("scrolled");
+            var hasclassactive=$(".newco-search-header .textbox").hasClass("active");
+            if(hasclassactive) {
+                $(".newco-search-header .textbox").removeClass("active");
+                $(".newco-search-header .newco-gobtn-2 i.fa-times").removeClass("active");
+                $(".newco-search-header .newco-gobtn-2 i.fa-search").addClass("active");
+            }
+            else {
+                $(".newco-search-header .textbox").addClass("active");
+                $(".newco-search-header .newco-gobtn-2 i.fa-times").addClass("active");
+                $(".newco-search-header .newco-gobtn-2 i.fa-search").removeClass("active");
+            }
+            
+            
         });
         
         // emit custom event on header height change
@@ -172,25 +183,28 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
     }
     
     $(window).on('load', function() {
-        // set calculated height for animations
-        $menuItems.each(function(itemInd, el) {
-            var $el = $(el),
-                $descendentMenus = $el.find('.menu-item.hassub .menu-items');
+        if($menuItems != undefined){
+            // set calculated height for animations
+            $menuItems.each(function(itemInd, el) {
+                var $el = $(el),
+                    $descendentMenus = $el.find('.menu-item.hassub .menu-items');
 
-            $descendentMenus.css('height', 0);
-            $el.attr('data-height', el.clientHeight).addClass('ready');
-            $descendentMenus.css('height', '');
-        });
+                $descendentMenus.css('height', 0);
+                $el.attr('data-height', el.clientHeight).addClass('ready');
+                $descendentMenus.css('height', '');
+            });
 
-        // store pdpnav height, if it exists, for later use
-        if ($pdpNav.length > 0)
-            pdpNavHeight = $pdpNav.outerHeight(true);
-        
-        // add ready class to make menu visible after preload
-        $newcoNav.addClass('ready');
+            // store pdpnav height, if it exists, for later use
+            if ($pdpNav.length > 0)
+                pdpNavHeight = $pdpNav.outerHeight(true);
+            
+            // add ready class to make menu visible after preload
+            $newcoNav.addClass('ready');
+        }
     });
 
     $(window).scroll(function() {    
+        if (!$body.hasClass('tmt-newco')) return;
         var scroll = $(window).scrollTop();
     
         if (scroll > 50) {

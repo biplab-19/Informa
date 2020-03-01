@@ -8,7 +8,7 @@
         color: $font-color-white;
         font-size: $super-headline-text;
         line-height: $super-headline-lineheight;
-        padding: 54px 0 10px;
+        padding: 51px 0 12px;
         @include mobile{
             font-size: 34px;
             line-height: 40px;
@@ -27,11 +27,11 @@
         color: $font-color-white;
         line-height: $subhead-text-lineheight;
         width: 80%;
-        padding-bottom: 30px;
+        padding-bottom: 31px;
+        float:left;
         @include mobile{
             width: 100%;
             text-align: justify;
-            padding-bottom: 30px;
         }
     }
     .subtext{
@@ -39,7 +39,10 @@
     }
     .cta-semitrans-width {
         padding: 0;
-        margin-right: 15px;
+        margin-right: 5px;
+        @include mobile-to-midtab{
+            margin-right: 5px;
+        }
         @include mobile{
             margin: 0;
         }
@@ -51,12 +54,12 @@
         font-weight: 600;
         font-size: $subhead-text;
         text-align: center;
-        padding: 6px 30px;
+        padding: 6px 20px;
         display: inline-block;
         min-width: 120px;
         color: $font-color-white;
         line-height: 25px;
-        width: 190px;
+        width: 180px;
         margin: 0 0 25px 0;
         &.semi-trans{
             background-color: rgba(255,255,255,.85);
@@ -89,6 +92,11 @@
     .follow-row {
         float: right;
         margin-top: -60px;
+        @include mobile-to-midtab{
+            width: 100%;
+            float: none;
+            margin-top: 13px;
+        }
         @include mobile{
             width: 100%;
             float: none;
@@ -99,7 +107,7 @@
                 width: auto;
                 display: inline-block;
                 float: none;
-                margin-right: 36px;
+                margin-right: 6px;
                 vertical-align: top;
                 margin-top: 6px;
                 @include tablet {
@@ -117,9 +125,10 @@
         .share-tab{
             display: inline;
             float: none;
+            padding-right: 0px;
             .follow-button{
                 a{
-                    margin-right: 20px;
+                    margin-left: 16px;
                     color: #fff;
                     width: 35px;
                     height: 35px;

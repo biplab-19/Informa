@@ -48,7 +48,7 @@ INFORMA.sectorPageStrengths = (function (window, $, namespace) {
             _elements = 3;
         }
 
-        $element.find('.marg1').slice(0, count).each(function (index, ele) {
+        $element.find('.marg1').slice(0, _elements).each(function (index, ele) {
             $(ele).attr('data-display', true).show();
         });
     };
@@ -92,7 +92,7 @@ INFORMA.sectorPageStrengths = (function (window, $, namespace) {
                     _mainMaxHeight = Height;
                 }
             });
-            MainContainer.css('height', _mainMaxHeight);
+            MainContainer.css('height', _mainMaxHeight)
 
         })
     };
