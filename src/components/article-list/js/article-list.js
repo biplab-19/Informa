@@ -77,9 +77,10 @@ INFORMA.ArticleList = (function(window, $, namespace) {
             INFORMA.DataLoader.GetServiceData(Urls.GetArticles, {
                 method: "GET",
                 data: data,
-                success_callback: function(data) {
+                success_callback: function (data) {
+                    var isNewCoTemplate = $('body').data('sitetemplate') === 'ovum-new';
                     if (data.Articles !== undefined && data.Articles.length > 0) {
-                        var html = GetCarouselUpdatedHtml(INFORMA.Templates.articleListItems, { Articles: data.Articles });
+                        var html = GetCarouselUpdatedHtml(isNewCoTemplate ? INFORMA.Templates.articleListItemsNewCo : INFORMA.Templates.articleListItems, { Articles: data.Articles });
                         _ArticleLists.slick('unslick');
                         ArticleCont.show();
                         RenderCarousel(html, _ArticleLists,1,2);
@@ -227,10 +228,24 @@ INFORMA.ArticleList = (function(window, $, namespace) {
         $(window).on("load", function() {
             equalHeights();
             headLineEqualHeight();
+            $("#article-category-list li:first").children(".custom-radio").children("input").prop("checked", true);
         });
         $(window).on("resize", function() {
             equalHeights();
             //headLineEqualHeight();
+        });
+        $(document).on('click', '.article-filter-section-for-mob .drop-content li p', function (e) {
+            e.preventDefault();
+            var SelectedFilter=$(this).attr('value');
+            GetCarouselData(SelectedFilter);
+
+        });
+        $(document).on('click', '#article-category-list li', function (e) {
+            e.preventDefault();
+            $(this).children(".custom-radio").children("input").prop("checked", true);
+            var SelectedFilter=$(this).attr('value');
+            GetCarouselData(SelectedFilter);
+            
         });
 
     };

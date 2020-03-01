@@ -1,0 +1,138 @@
+body {
+    background: #fff;
+}
+.tmt-newco {
+    background-color: #fff;
+    section.sample-content-hero-banner.hero-banner-texture.dark-banner-subscribe.bg-gray-dark.product.supergraphic.product-hero-banner {
+            background: #f9f8f9;
+            padding-bottom:65px;
+            h1 {
+                color:#000;
+            }
+            .description{
+                color:#000;
+            }
+            .cta2.semi-trans{
+                border-color: #f9f8f9;
+                background-color: #434854;
+                color: #000;
+                position: relative;
+                background-image: linear-gradient(90deg,#ee93ec 0%,#75d9f4 100%);
+                &:hover{
+                    color: #000;
+                    text-decoration: none;
+                    background-color: #fff;
+                    border-color: #f9f8f9;
+                    background-image: linear-gradient(90deg,#fcbffa 0%,#a1e0fa 100%);
+                }
+            }
+            .cta2{
+                border: 1px solid #a54eac;
+                background-color: #f9f8f9;
+                color: #000;
+                &:hover{
+                    background-color: #f6f0fb;
+                    border: 1px solid #a54eac;
+                }
+            }
+            .follow-row {
+                width: 100%;
+                float: left;
+                margin-top:0px;
+            }
+            .btn{
+                min-width: 180px;
+                width: auto;
+                margin-right: 25px;
+            }
+            div.by,div.date{
+                font-weight: normal;
+                font-size: 14px;
+                color: #000;
+                line-height: 25px;
+                padding-bottom: 0px;
+                a{
+                    color: #a54eac;
+                }
+            }
+            .category{
+                font-weight: normal;
+                font-size: 14px;
+                color: #000;
+                line-height: 25px;
+                padding-bottom: 0px;
+                a{
+                    font-weight: bold;
+                    color:#000;
+                }  
+            }
+            .enterprise-cta-buttopn{
+                padding-right: 0px;
+                margin-right: 141px;
+                width: auto;
+                @include not-desktop {
+                    margin-right: 20px;
+                    width: 100%;
+                    margin-bottom: 38px;  
+                }
+                
+
+            }
+            .enterprise-author{
+                padding:0px;
+                width: auto;
+                margin-right: 100px;
+                max-width:200px;
+                @include not-desktop {
+                    margin-right:70px;   
+                    max-width:100%;
+                }
+                .by {
+                    margin-left: 0px;
+                    
+                }
+            }
+            .enterprise-detail{
+                padding:0px;
+                width:auto;
+                .by {
+                    margin-left: 0px;
+                    
+                }
+            }
+        }
+        .sample-content-hero-banner {
+            .at-icon {
+                fill: #fff;
+            }
+            .details .social-links a:hover, .follow-button a:hover {
+                outline-offset: 0px;
+                transform: translateY(0px);
+            }
+            .follow-row{
+                margin-top: 35px;
+                margin-bottom: 65px;
+                padding: 0 16%;
+                @include not-desktop{
+                    text-align: center;
+                }
+            }
+            &.hero-banner-texture {
+                .h1-styles {
+                    padding: 64px 0 30px;
+                }
+                &.dark-banner-subscribe{
+                    .description {
+                        padding-bottom: 38px;
+                    }
+                }
+            }
+            div.addthis_sharing_toolbox a.at-share-btn {
+                margin-right: 20px;
+            }
+            
+           
+        }
+        
+    
+}
