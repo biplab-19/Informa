@@ -264,19 +264,43 @@
     .list-items {
         background-color: $white;
         margin-bottom: 30px;
-        .image-gradient{
+        .image-gradient {
+            display: block;
+            position: relative;
+            width: 100%;
+            height: 202px;
+            padding: 20px;
             background: url(../../Static/images/tmt-newco/images/analyst-list/back-gradiant.jpg) no-repeat;
             background-size: cover;
-            height: 215px;
-            text-align: center;
-            color: #fff;
-            font-size: 24px;
-            display: inline-block;
-            width: 100%;
-            height: 200px;
-            vertical-align: middle;
-            line-height: 200px;
-            text-align: center;
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: 20px;
+                right: 20px;
+                width: 30px;
+                height: 30px;
+                background: url(../../Static/images/tmt-newco/images/analyst-list/favicon.png) no-repeat;
+                background-size: contain;
+            }
+            p {
+                margin-bottom: 0;
+                .type {
+                    font-weight: 600;
+                    color: $white;
+                }
+            }
+            .title {
+                overflow: hidden;
+                max-height: 3.6em;
+                font-size: 36px;
+                line-height: 1.2;
+                font-weight: 600;
+                color: $white;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+            }
         }
         .events-wrap{
             background-color: $white;
