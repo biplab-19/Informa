@@ -153,10 +153,23 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             }
         });
         if ($(_pdpLinkSpan[_pdpMenuDefaultIndex]).offset()) {
-                _pdpMenuFollower.css('width', $(_pdpLinkSpan[_pdpMenuDefaultIndex]).width())
-                    .css('left', $(_pdpLinkSpan[_pdpMenuDefaultIndex]).offset().left)
-                    .show();
+            _pdpMenuFollower.css('width', $(_pdpLinkSpan[_pdpMenuDefaultIndex]).width())
+                .css('left', $(_pdpLinkSpan[_pdpMenuDefaultIndex]).offset().left)
+                .show();
+        }
+    }
+
+    // resize _pdpMenuFollower width once fonts are loaded 
+    if (document.fonts) {
+        document.fonts.ready.then(function () {
+            if (_pdpNavigation.length > 0) {
+                if ($(_pdpLinkSpan[_pdpMenuDefaultIndex]).offset()) {
+                    _pdpMenuFollower.css('width', $(_pdpLinkSpan[_pdpMenuDefaultIndex]).width())
+                        .css('left', $(_pdpLinkSpan[_pdpMenuDefaultIndex]).offset().left)
+                        .show();
+                }
             }
+        });
     }
 
     if (_servicesNavigation.length > 0) {
