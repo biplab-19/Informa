@@ -92,12 +92,21 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
         for (var key in results) {
             if (results.hasOwnProperty(key)) {
 
-                var Data = results[key],
+                if ($("#IsNewCoTemplateEnabled").val() == "True") {
+                    var Data = results[key],
+                    HeaderText = key,
+                    TemplateName = (Templates.AnalystTemplateNewCo !== "undefined") ? Templates.AnalystTemplateNewCo : "",
+                    ListTemplate = Handlebars.compile(TemplateName);
+                    Data.header = HeaderText;
+                    html += ListTemplate({ results: Data });
+                } else {
+                    var Data = results[key],
                     HeaderText = key,
                     TemplateName = (Templates.AnalystTemplate !== "undefined") ? Templates.AnalystTemplate : "",
                     ListTemplate = Handlebars.compile(TemplateName);
-                Data.header = HeaderText;
-                html += ListTemplate({ results: Data });
+                    Data.header = HeaderText;
+                    html += ListTemplate({ results: Data });
+                }
 
             }
         }
