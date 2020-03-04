@@ -430,8 +430,13 @@ $newco-white-background: #ffffff;
     }
   }
   #pdp-navigation {
+    position: absolute;
+    width: 100%;
+    margin-bottom: 0;
     background-color: $bg-white;
-    margin-bottom: 20px;
+    & + * {
+      padding-top: 69px !important;
+    }
     #pdp-sections {
       #pdp-sections-heading{
         &.move-left{
@@ -446,22 +451,12 @@ $newco-white-background: #ffffff;
           color: $font-color;
           line-height: $subhead-text-lineheight;
           font-weight: 400;
-        }
-        &.select-options {
-          a[data-target="feature-list"]{
-           span{
+          &.active {
             color: $newcoprimarycolor;
             font-weight: 600;
-           }
-        }
-        a[data-target="pdp-analyst"]{
-          span{
-           color: $newcoprimarycolor;
-           font-weight: 600;
+            letter-spacing: -0.018em;
           }
-       }
-         
-      }
+        }
       }
     }
     .menuFollower {
