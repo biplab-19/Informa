@@ -1090,5 +1090,22 @@
         }
       }
   }
-  
+  .events-wrap {
+    .footer {
+      a.btn {
+        &:first-child {
+          float: left !important;
+        }
+        &:last-child {
+          float: right !important;
+        }
+      }
+      .btn.full-detail, .btn.register {
+        @include mobile {
+          padding-left: 0px;
+          padding-right: 0px;
+        }
+      }
+    }
+  }
 }
