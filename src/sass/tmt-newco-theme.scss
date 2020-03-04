@@ -437,6 +437,9 @@ $newco-white-background: #ffffff;
     & + * {
       padding-top: 69px !important;
     }
+    .nav-pdp-nondesktop, .nav-pdp-nondesktop-sticky {
+      display: none !important;
+    }
     #pdp-sections {
       #pdp-sections-heading{
         &.move-left{
@@ -460,8 +463,55 @@ $newco-white-background: #ffffff;
       }
     }
     .menuFollower {
+      display: block !important;
       background-color: $newcoprimarycolor;
       border-bottom: 1px solid $newcoprimarycolor;
+    }
+    
+    // component overrides
+    @include not-desktop {
+      padding: 12px 0;
+      .container .row #pdp-sections {
+        display: block !important;
+        position: relative;
+        background-color: transparent !important;
+        #pdp-sections-heading {
+          display: none;
+        }
+        ul {
+          float: inherit;
+          white-space: nowrap;
+          overflow: auto;
+          width: 100%;
+          &::-webkit-scrollbar {
+            display: none;
+          }
+          li {
+            display: inline-block;
+            float: none;
+            width: auto;
+            text-align: left;
+            a {
+              &:first-child, &:last-child {
+                padding: 0
+              }
+              &::after {
+                display: none;
+              }
+            }
+          }
+        }
+        &::after {
+          content: "";
+          width: 20%;
+          height: 100%;
+          position: absolute;
+          background-image: linear-gradient(to right,rgb(255, 255, 255) 0%,#ffffff 16%,#ffffff 48%);
+          background-image: linear-gradient(to right,rgba(255,255,255,0) -56%,#fff 135%,#fff 100%);
+          right: 0;
+          top: 0;
+        }
+      }
     }
   }
   .scrolled {
