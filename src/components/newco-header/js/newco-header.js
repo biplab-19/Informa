@@ -51,15 +51,13 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
     repositionPdpNav = function(scroll) {
         // on threshold, set top css, which should be the calculated header height
         if (scroll >= pdpNavThreshold) {
-            // if (!$pdpNav.hasClass('navbar-fixed-top')) {
-                $pdpNav.css('top', pdpNavTop);
+            if (!$pdpNav.hasClass('navbar-fixed-top')) {
+                $pdpNav.css('top', pdpNavTop).addClass('navbar-fixed-top');
                 // console.log('headerHeight', headerHeight);
-            // }
-            // add the class, which sets the position fixed etc
-            $pdpNav.addClass('navbar-fixed-top').next().css('padding-top', pdpNavHeight);
+            }
         } else {
             // reset back to "in body" position
-            $pdpNav.removeClass('navbar-fixed-top').css('top', '').next().css('padding-top', '');
+            $pdpNav.removeClass('navbar-fixed-top').css('top', '')// .next().css('padding-top', '');
         }
     }
 
