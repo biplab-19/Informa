@@ -75,7 +75,8 @@ nav#pdp-navigation {
                               }
                         }
                         &.move-left{
-                              display: none;
+                              opacity: 1;
+                              transition: opacity 2s ease-in;
                         }
                         .try-stick{
                               &.btn{
@@ -125,7 +126,7 @@ nav#pdp-navigation {
                   .row{
                         position: relative;
                         .nav-pdp-nondesktop{
-                              display: none;
+                              display: inline-block;
                               height: 50px;
                               text-align: left;
                               padding: 15px 0;
@@ -176,27 +177,36 @@ nav#pdp-navigation {
                                     margin-right: 10px;
                               }
                               &.move-left{
-                                    display: none;
+                                    opacity: 1;
+                                    transition: opacity 2s ease-in;
                               }
                         }
                         #pdp-sections{
-                              padding: 0 0 0 15px;
-                              background: inherit !important;
-                              position: relative;
+                              display: none;
+                              padding: 0 15px;
                               ul{
                                     margin-top: 0;
                                     margin-bottom: 0;
-                                    float: inherit;
-                                    white-space: nowrap;
-                                    overflow: auto;
-                                    width: 100%;
+                                    float: none;
                                     li {
-                                          display: inline-block;
-                                          float: none;
-                                          text-align: left;
+                                          width: 100%;
+                                          display: block;
                                           @include not-desktop{
                                                 a{
                                                       padding: 0;
+                                                      padding-bottom: 20px;
+                                                      &:first-child{
+                                                            padding-top: 20px;
+                                                      }
+                                                      &:last-child{
+                                                            padding-bottom: 30px;
+                                                      }
+                                                      &:after{
+                                                            content: ">";
+                                                            display: block;
+                                                            float: right;
+                                                            font-weight: bold;
+                                                      }
                                                 }
                                           }
 
@@ -212,19 +222,12 @@ nav#pdp-navigation {
 
                                     }
                               }
-                              
-                              &::after{
-                                    content: "";
-                                    width: 20%;
-                                    height: 100%;
-                                    position: absolute;
-                                    background-image: linear-gradient(to right,rgb(255, 255, 255) 0%,#ffffff 16%,#ffffff 48%);
-                                    background-image: linear-gradient(to right,rgba(255,255,255,0) -56%,#fff 135%,#fff 100%);
-                                    right: 0;
-                                    top: 0;
-                              }
                         }
                   }
+            }
+            
+            .menuFollower {
+                  display: none!important;
             }
       }
 
