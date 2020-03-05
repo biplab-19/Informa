@@ -250,8 +250,15 @@
       .product-finder-results {
         .container {
           padding: 0 15px;
+          @include mobile {
+            padding: 0 7.5px;
+          }
+          .container {
+            padding: 0;
+          }
         }
         .search-container {
+          float: none;
           width: 100%;
           .list-items{
             .recomend-content{
@@ -273,22 +280,22 @@
           }
         }
         .refine-container {
+          float: none;
           width: 100%;
           background-color: #fff;
-          padding: 40px 0 30px 0px;
+          padding: 40px 0 30px 0;
           border-bottom: 1px solid #ccc;
           @include tablet {
             display: block;
-            float: left;
           }
           @include mobile{
             display: none;
             position: fixed;
             z-index: 99999;
             height: 100vh;
-            top: 0px;
+            top: 0;
             left: 0;
-            padding: 35px 35px;
+            padding: 35px;
             overflow-y: auto;
           }
           h2{
@@ -731,6 +738,11 @@
             color: #000;
             width: 230px;
             cursor: pointer;
+            @include mobile {
+              margin: 20px 0;
+              width: 100%;
+              text-align: center;
+            }
           }
         }
       .listView {
@@ -771,7 +783,7 @@
         }
         @include mobile {
           box-shadow: 1px 3px 26px #c7c7c7;
-          margin: 5px 5px 74px 5px;
+          margin: 0 0 34px 0;
         }
         .recomended-wrapper {
           background-color: #fff;
@@ -783,6 +795,11 @@
             padding: 0;
             margin: 0px;
           }
+          .header {
+            @include mobile{
+              padding: 0px 20px;
+            }
+          }
           .topics {
             @include mobile{
               margin-left: 20px;
@@ -790,6 +807,19 @@
           }
           .events-wrap .footer {
             display:inline-block;
+            @include mobile{
+              display: block;
+              width: 100%;
+              padding: 0px 20px 20px;
+              .btn {
+                float: none !important;
+                width: 100%;
+                margin-left: 0 !important;
+                &:first-child {
+                  margin-bottom: 15px;
+                }
+              }
+            }
           }
            img{
              height: 202px;
