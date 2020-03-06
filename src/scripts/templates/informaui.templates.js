@@ -1283,7 +1283,7 @@ var INFORMA = window.INFORMA || {};
                                             '{{/if}}{{#if results.PublicationDate}}{{results.PublicationDate}}{{/if}}' +
                                         '</p>'+
                                         '{{#compare results.Publisher null operator="!="}}'+
-                                            '<p><span>{{results.PublisherKeyword}} </span><strong>{{results.Publisher}}<strong></p>'+
+                                            '<p><span>{{results.PublisherKeyword}} </span><strong>{{results.Publisher}}</strong></p>'+
                                         '{{/compare}}'+
                                         '{{#compare results.Description null operator="!="}}'+
                                             '<p class="description">{{results.Description}}</p>'+
