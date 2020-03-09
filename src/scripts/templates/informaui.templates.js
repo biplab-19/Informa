@@ -619,6 +619,12 @@ var INFORMA = window.INFORMA || {};
                                         '</div>' +
                                     '</div>' +
                                     '{{/each}}' +
+                                    '<div class="btn-container text-center">'+
+                                        '<a href="javascript:void(0)" class="btn-plus" data-fetch="{{results.SectorID}}" data-count="{{results.TotalCount}}">'+
+                                            '<span class="more"> See all {{results.TotalCount}} Specialists </span>'+
+                                           ' <span class="less"> See Less Specialists </span>'+
+                                        '</a>'+
+                                    '</div>'+
                                 '</div>' +
                             '</div>' +
                         '</section>',
