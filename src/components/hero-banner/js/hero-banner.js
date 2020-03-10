@@ -384,16 +384,43 @@ INFORMA.heroBanner = (function(window, $, namespace) {
             resizeHeroSG();
             $(window).on("load", function() {
                 if(_heroBannerFull.length > 0){
-                    if(INFORMA.global.device.viewport === "mobile"){
-                        var imageHeight = $('.key-logo-img-mobile');
-                        if(imageHeight){
-                            var height = $('.hero-banner .container,.hero-banner-texture .container').height() + imageHeight.height();
-                            $('.hero-banner,.hero-banner-texture').height(height);
+                    if(INFORMA.global.device.viewport === "mobile") {
+                        if ($('body').hasClass('tmt-newco')) {
+                            _heroBannerFull.each(function () {
+                                var $this = $(this),
+                                    $contentContainer = $this.find('.container'),
+                                    imageHeight = $this.find('.key-logo-img-mobile'),
+                                    height,
+                                    stripEmpty = function() {
+                                        $contentContainer.find('h1, h2, h3, p, span').each(function() {
+                                            var $this = $(this);
+        
+                                            if ($this.html().length === 0) {
+                                                $this.remove();
+                                                stripEmpty();
+                                                return false;
+                                            }
+                                        });
+                                    };
+
+                                // strip out empty content tags
+                                stripEmpty();
+    
+                                // apply height of content to banner
+                                height = $contentContainer.height() + (imageHeight.length > 0 ? imageHeight.height() : 0);
+                                $this.height(height);
+                            });
+                        } else {
+                            var imageHeight = $('.key-logo-img-mobile');
+                            if(imageHeight){
+                                var height = $('.hero-banner .container,.hero-banner-texture .container').height() + imageHeight.height();
+                                $('.hero-banner,.hero-banner-texture').height(height);
+                            }
+                            else{
+                                $('.hero-banner,.hero-banner-texture').height(height);
+                            }
+                            $('.hero-banner').css('min-height','400px');
                         }
-                        else{
-                            $('.hero-banner,.hero-banner-texture').height(height);
-                        }
-                        $('.hero-banner').css('min-height','400px');
                     }
                 }
             });
