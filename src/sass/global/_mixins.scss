@@ -2298,6 +2298,9 @@ $properties: (margin, padding);
       }
     }
     .hero-banner .hero-banner-content {
+      @include mobile {
+        padding-top: 20px;
+      }
       .row {
         float: none;
         .col {
@@ -2305,7 +2308,7 @@ $properties: (margin, padding);
         }
         h1 {
           @include mobile {
-            padding: 20px 0;
+            padding-bottom: 20px;
           }
         }
         .btn {
