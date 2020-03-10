@@ -270,8 +270,13 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
                 if (!Parent.hasClass('showLess')) {
                     GetAjaxData(Urls.AnalystSearchAll, "Post", JSON.stringify(_Object), RenderAllSubSectorResults, null, sectorId);
                 } else {
-                    Parent.find('.analyst-list-container:nth-child(n+' + _limit + ')').slideUp();
-                    Parent.find('.analyst-list-container:nth-child(n+' + _limit + ')').hide("fast", function(){ $(this).remove(); });
+                    if ($("#IsNewCoTemplateEnabled").val() == "True") {
+                        Parent.find('.analyst-view-container:nth-child(n+' + _limit + ')').slideUp();
+                        Parent.find('.analyst-view-container:nth-child(n+' + _limit + ')').hide("fast", function(){ $(this).remove(); });
+                    } else {
+                        Parent.find('.analyst-list-container:nth-child(n+' + _limit + ')').slideUp();
+                        Parent.find('.analyst-list-container:nth-child(n+' + _limit + ')').hide("fast", function(){ $(this).remove(); });
+                    }
                     Parent.removeClass('showLess');
                 }
             });
