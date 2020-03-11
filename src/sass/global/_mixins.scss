@@ -1000,6 +1000,12 @@ $screen-lg-min: 1200px;
     }
 
     .product-brands-list .card .caption h4,
+    .product-results .list-items .products h4 {
+        &:after {
+            @extend .sprite-image;
+        }
+    }
+
     .product-results .list-items {
       .events-wrap {
         padding-top: 20px;
@@ -1062,11 +1068,6 @@ $screen-lg-min: 1200px;
               margin-left: 0;
             }
           }
-        }
-      }
-      .products h4 {
-        &:after {
-          @extend .sprite-image;
         }
       }
     }
@@ -2237,6 +2238,10 @@ $properties: (margin, padding);
       .listView {
         .list-items {
           .recomended-wrapper {
+            .recomend-content {
+              float: none;
+              width: auto;
+            }
             .content {
               h4 {
                 a {
@@ -2298,6 +2303,9 @@ $properties: (margin, padding);
       }
     }
     .hero-banner .hero-banner-content {
+      @include mobile {
+        padding-top: 20px;
+      }
       .row {
         float: none;
         .col {
@@ -2305,7 +2313,7 @@ $properties: (margin, padding);
         }
         h1 {
           @include mobile {
-            padding: 20px 0;
+            padding-bottom: 20px;
           }
         }
         .btn {

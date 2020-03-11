@@ -207,6 +207,7 @@ $newco-white-background: #ffffff;
     .show-more-brands {
       position: relative;
       margin-left: -60px;
+      color: #000;
     }
     .informa-icon {
       position: absolute;
@@ -261,8 +262,16 @@ $newco-white-background: #ffffff;
   }
   .view-all-sectors-btn-container {
     border: none;
+    span.center-block {
+      position: relative;
+      margin-left: -60px;
+      color: #000;
+    }
     .informa-icon {
       color: #a54eac;
+      position: absolute;
+      right: 0px;
+      top: -5px;
       &:hover {
         color: #b650be;
       }
@@ -430,8 +439,16 @@ $newco-white-background: #ffffff;
     }
   }
   #pdp-navigation {
+    position: absolute;
+    width: 100%;
+    margin-bottom: 0;
     background-color: $bg-white;
-    margin-bottom: 20px;
+    & + * {
+      padding-top: 69px !important;
+    }
+    .nav-pdp-nondesktop, .nav-pdp-nondesktop-sticky {
+      display: none !important;
+    }
     #pdp-sections {
       #pdp-sections-heading{
         &.move-left{
@@ -446,27 +463,64 @@ $newco-white-background: #ffffff;
           color: $font-color;
           line-height: $subhead-text-lineheight;
           font-weight: 400;
-        }
-        &.select-options {
-          a[data-target="feature-list"]{
-           span{
+          &.active {
             color: $newcoprimarycolor;
             font-weight: 600;
-           }
-        }
-        a[data-target="pdp-analyst"]{
-          span{
-           color: $newcoprimarycolor;
-           font-weight: 600;
+            letter-spacing: -0.018em;
           }
-       }
-         
-      }
+        }
       }
     }
     .menuFollower {
+      display: block !important;
       background-color: $newcoprimarycolor;
       border-bottom: 1px solid $newcoprimarycolor;
+    }
+    
+    // component overrides
+    @include not-desktop {
+      padding: 12px 0;
+      .container .row #pdp-sections {
+        display: block !important;
+        position: relative;
+        background-color: transparent !important;
+        #pdp-sections-heading {
+          display: none;
+        }
+        ul {
+          float: inherit;
+          white-space: nowrap;
+          overflow: auto;
+          width: 100%;
+          &::-webkit-scrollbar {
+            display: none;
+          }
+          li {
+            display: inline-block;
+            float: none;
+            width: auto;
+            text-align: left;
+            a {
+              &:first-child, &:last-child {
+                padding: 0
+              }
+              &::after {
+                display: none;
+              }
+            }
+          }
+        }
+        &::after {
+          content: "";
+          width: 20%;
+          height: 100%;
+          position: absolute;
+          background-image: linear-gradient(to right,rgb(255, 255, 255) 0%,#ffffff 16%,#ffffff 48%);
+          background-image: linear-gradient(to right,rgba(255,255,255,0) -56%,#fff 135%,#fff 100%);
+          right: 0;
+          top: 0;
+        }
+      }
     }
   }
   .scrolled {

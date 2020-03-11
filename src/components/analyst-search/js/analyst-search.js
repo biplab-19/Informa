@@ -92,12 +92,21 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
         for (var key in results) {
             if (results.hasOwnProperty(key)) {
 
-                var Data = results[key],
+                if ($("#IsNewCoTemplateEnabled").val() == "True") {
+                    var Data = results[key],
+                    HeaderText = key,
+                    TemplateName = (Templates.AnalystTemplateNewCo !== "undefined") ? Templates.AnalystTemplateNewCo : "",
+                    ListTemplate = Handlebars.compile(TemplateName);
+                    Data.header = HeaderText;
+                    html += ListTemplate({ results: Data });
+                } else {
+                    var Data = results[key],
                     HeaderText = key,
                     TemplateName = (Templates.AnalystTemplate !== "undefined") ? Templates.AnalystTemplate : "",
                     ListTemplate = Handlebars.compile(TemplateName);
-                Data.header = HeaderText;
-                html += ListTemplate({ results: Data });
+                    Data.header = HeaderText;
+                    html += ListTemplate({ results: Data });
+                }
 
             }
         }
@@ -261,8 +270,13 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
                 if (!Parent.hasClass('showLess')) {
                     GetAjaxData(Urls.AnalystSearchAll, "Post", JSON.stringify(_Object), RenderAllSubSectorResults, null, sectorId);
                 } else {
-                    Parent.find('.analyst-list-container:nth-child(n+' + _limit + ')').slideUp();
-                    Parent.find('.analyst-list-container:nth-child(n+' + _limit + ')').hide("fast", function(){ $(this).remove(); });
+                    if ($("#IsNewCoTemplateEnabled").val() == "True") {
+                        Parent.find('.analyst-view-container:nth-child(n+' + _limit + ')').slideUp();
+                        Parent.find('.analyst-view-container:nth-child(n+' + _limit + ')').hide("fast", function(){ $(this).remove(); });
+                    } else {
+                        Parent.find('.analyst-list-container:nth-child(n+' + _limit + ')').slideUp();
+                        Parent.find('.analyst-list-container:nth-child(n+' + _limit + ')').hide("fast", function(){ $(this).remove(); });
+                    }
                     Parent.removeClass('showLess');
                 }
             });
