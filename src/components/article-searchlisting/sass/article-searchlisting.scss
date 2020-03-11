@@ -874,9 +874,12 @@
                     background-image: -webkit-linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%);
                     background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%);
                     background-repeat: no-repeat;
-                    background-position: right bottom;
+                    background-position: right top, right bottom;
                     background-size: auto 1em;
                     pointer-events: none;
+                    @include mobile {
+                      background-position: right 90%, right bottom;
+                    }
                   }
                   &:hover {
                     color: $newcoprimarycolor;
@@ -894,7 +897,7 @@
                 }
                 &.gated-content {
                   a {
-                    padding-right: 30px;
+                    padding-right: 24px;
                     &::after {
                       background-image: url(../../Static/images/tmt-newco/images/lock-icon/lock-icon-black.jpg), url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiP…dpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==);
                       background-image: url(../../Static/images/tmt-newco/images/lock-icon/lock-icon-black.jpg), -moz-linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%);
@@ -905,9 +908,6 @@
                       &::after {
                         background-image: url(../../Static/images/tmt-newco/images/lock-icon/lock-icon.jpg);
                       }
-                    }
-                    @include mobile {
-                      padding-right: 0;
                     }
                   }
                 }
