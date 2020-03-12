@@ -589,6 +589,50 @@ $newco-white-background: #ffffff;
       @include mobile {
         min-height:auto !important;
       }
+  }  
+  .hero-banner-carousel {
+    .slick-initialized, .slick-list, .slick-track {
+      .slick-prev {
+        width: 40px;
+        height: 30px;
+        background: url(../../Static/images/tmt-newco/left-arrow-white.png);
+        background-repeat: no-repeat;
+        background-size: 40px 30px;
+        left: 50px;
+        &::before{
+          content: '';
+        }
+        @include tablet {
+          left: 30px;
+        }
+        @include mobile{
+          left: 20px;
+        }
+      }
+    }
+  }
+  .hero-banner-carousel {
+    .slick-initialized, .slick-list, .slick-track {
+      .slick-next {
+        width: 40px;
+        height: 30px;
+        background: url(../../Static/images/tmt-newco/right-arrow-white.png);
+        background-repeat: no-repeat;
+        background-size: 40px 30px;
+        right: 50px;
+        left: auto;
+        margin-left: 0px;
+        &::before{
+          content: '';
+        }
+        @include tablet {
+          right: 30px;
+        }
+        @include mobile{
+          right: 20px;
+        }
+      }
+    }
   }
 }
 
