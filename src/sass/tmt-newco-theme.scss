@@ -83,6 +83,47 @@ $newco-white-background: #ffffff;
   }
   section#agri-report {
     background: $newco-white-background;
+    h2 {
+      padding: 0;
+    }
+    .agri-report-wrapper {
+      .agri-report-rte-container p:first-child {
+        @include family-style(normal,$black);
+        @include heading-font-size(14px,14px,14px);
+      }
+      .splash-image {
+        right: 0;
+        bottom: 20px;
+        width: 50%;
+        height: calc(100% - 60px);
+        padding-left: 15px;
+        padding-right: 15px;
+        @include mobile {
+          width: 100%;
+          height: auto;
+          padding-left: 0;
+          padding-right: 0;
+        }
+        img {
+          display: block;
+          width: auto;
+          max-width: 100%;
+          height: auto;
+          max-height: 100%;
+          margin: 0 auto
+        }
+      }
+      .download-report {
+        margin: 0 0 20px;
+        padding: 30px 15px 0;
+        @include mobile {
+          padding: 25px 7.5px 0;
+        }
+        a {
+          margin: 0;
+        }
+      }
+    }
   }
   section#services-list section:nth-child(2n) {
     background: $newco-white-background;
