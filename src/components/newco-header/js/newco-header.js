@@ -32,6 +32,9 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
         pdpNavTop,
         pdpNavHeight,
         headerHeightChangeTimerEvent,
+        $newcotextbox=$(".newco-search-header .textbox"),
+        $newcoclose=$(".newco-search-header .newco-gobtn-2 i.fa-times"),
+        $newcosearch=$(".newco-search-header .newco-gobtn-2 i.fa-search"),
         // methods
         OffsetParentHeight, repositionPdpNav, init;
 
@@ -84,10 +87,12 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
         pdpNavTop = 0;
         pdpNavHeight = 0;
         headerHeightChangeTimerEvent = 0;
-
         // set listner for burger button
         $hamburger.click(function() {
             $newcoHeader.toggleClass('nav-closed');
+            $newcotextbox.removeClass("active");
+            $newcoclose.removeClass("active");
+            $newcosearch.addClass("active");
             if (!$newcoHeader.hasClass('nav-closed'))
                 $newcoHeader.addClass('search-closed');
         });
@@ -142,15 +147,16 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
         //mobile searchbox show on click
         $searchicon.click(function(e){
             var hasclassactive=$(".newco-search-header .textbox").hasClass("active");
+            $hamburger.trigger("click");
             if(hasclassactive) {
-                $(".newco-search-header .textbox").removeClass("active");
-                $(".newco-search-header .newco-gobtn-2 i.fa-times").removeClass("active");
-                $(".newco-search-header .newco-gobtn-2 i.fa-search").addClass("active");
+                $newcotextbox.removeClass("active");
+                $newcoclose.removeClass("active");
+                $newcosearch.addClass("active");
             }
             else {
-                $(".newco-search-header .textbox").addClass("active");
-                $(".newco-search-header .newco-gobtn-2 i.fa-times").addClass("active");
-                $(".newco-search-header .newco-gobtn-2 i.fa-search").removeClass("active");
+                $newcotextbox.addClass("active");
+                $newcoclose.addClass("active");
+                $newcosearch.removeClass("active");
             }
             
             
