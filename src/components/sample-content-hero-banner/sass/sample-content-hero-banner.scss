@@ -105,6 +105,9 @@ body {
                 padding:0px;
                 .by {
                     margin-left: 0px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                     .topic-pipe {
                         @include mobile {
                             float: unset;
@@ -154,6 +157,7 @@ body {
                 &.dark-banner-subscribe{
                     .description {
                         padding-bottom: 38px;
+                        margin-bottom: 22px;
                     }
                 }
             }
