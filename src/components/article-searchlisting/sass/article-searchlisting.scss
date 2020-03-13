@@ -831,21 +831,9 @@
             }
           }
           .img-container {
-            overflow: hidden;
-            position: relative;
-            height: 202px;
             a {
+              display: block;
               cursor: pointer;
-              img {
-                height: 100%;
-                width: auto;
-                object-fit: cover;
-                @include mobile {
-                  width: 100%;
-                  height: auto;
-                  object-fit: unset;
-                }
-              }
             }
           }
           img {
