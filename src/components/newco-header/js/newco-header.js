@@ -14,8 +14,10 @@ var INFORMA = window.INFORMA || {};
 INFORMA.NewcoHeader = (function (window, $, namespace) {
     'use strict';
     var $body = $('body'),
-        $cookieBanner,
-        $mainHeader,
+        
+        $cookieBanner = $('#cookieBanner'),
+        $mainHeader = $('#informa-main-header'),
+        $closecookie = $mainHeader.find('.icon-close'),
         $newcoHeader,
         $hamburger,
         $searchicon,
@@ -69,8 +71,6 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
         if (!$body.hasClass('tmt-newco')) return;
 
         // set variable values
-        $cookieBanner = $('#cookieBanner');
-        $mainHeader = $('#informa-main-header');
         $newcoHeader = $mainHeader.find('.newco-header');
         $hamburger = $newcoHeader.find('.hamburger');
         $searchicon = $newcoHeader.find('button#mobile-search');
@@ -146,7 +146,16 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
 
         //mobile searchbox show on click
         $searchicon.click(function(e){
-            var hasclassactive=$(".newco-search-header .textbox").hasClass("active");
+            var hasclassactive=$newcotextbox.hasClass("active");
+            var cookeieslength= $cookieBanner.length,
+                cookiedisplay=$cookieBanner.is(":visible"),
+                heightofheader=$mainHeader.height();
+            if(cookeieslength>0 && cookiedisplay) {
+                $newcotextbox.css({ top:heightofheader});
+                }
+           if(!(cookeieslength>0 && cookiedisplay)){
+            $newcotextbox.removeAttr("style");
+           }
             $hamburger.trigger("click");
             if(hasclassactive) {
                 $newcotextbox.removeClass("active");
@@ -160,6 +169,10 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
             }
             
             
+        });
+
+        $closecookie.click(function(e){
+            $newcotextbox.removeAttr("style");
         });
         
         // emit custom event on header height change
