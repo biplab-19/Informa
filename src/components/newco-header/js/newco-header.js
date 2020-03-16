@@ -148,14 +148,10 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
         $searchicon.click(function(e){
             var hasclassactive=$newcotextbox.hasClass("active");
             var cookeieslength= $cookieBanner.length,
-                cookiedisplay=$cookieBanner.is(":visible"),
-                heightofheader=$mainHeader.height();
-            if(cookeieslength>0 && cookiedisplay) {
-                $newcotextbox.css({ top:heightofheader});
-                }
-           if(!(cookeieslength>0 && cookiedisplay)){
-            $newcotextbox.removeAttr("style");
-           }
+                cookiedisplay=$cookieBanner.is(":visible")
+            if(!(cookeieslength>0 && cookiedisplay)){
+                $newcotextbox.removeAttr("style");
+            }
             $hamburger.trigger("click");
             if(hasclassactive) {
                 $newcotextbox.removeClass("active");
