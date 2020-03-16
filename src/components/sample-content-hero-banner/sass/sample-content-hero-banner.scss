@@ -85,6 +85,12 @@ body {
                 a{
                     font-weight: bold;
                     color:$black;
+                }
+                .topic-pipe {
+                    @include mobile {
+                        float: unset;
+                        padding: 0px;
+                    }
                 }  
             }
             .enterprise-cta-buttopn{
