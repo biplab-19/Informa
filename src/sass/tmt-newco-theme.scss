@@ -634,5 +634,25 @@ $newco-white-background: #ffffff;
       }
     }
   }
+  .hero-banner-carousel {
+    .slick-initialized, .slick-list, .slick-track {
+      ul.slick-dots li {
+        background: #a0a5b4;
+      }
+      ul.slick-dots li.slick-active {
+        background: #a54eac !important;
+      }
+    }
+  }
+  .hero-banner {
+    @include mobile{
+      height: 575px;
+    }
+    .content {
+      @include mobile{
+        padding: 0 60px;
+      }
+    }
+  }
 }
 
