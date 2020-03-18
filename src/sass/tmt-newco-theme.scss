@@ -585,6 +585,16 @@ $newco-white-background: #ffffff;
 .cookieBanner a {
   color: $newcoprimarycolor;
 }
+  .hero-banner-video {
+    @include mobile {
+      .videoBG {
+        display: block;
+      }
+      .cf-img {
+        display: none;
+      }
+    }
+  }
   .hero-banner-carousel {
     .slick-initialized, .slick-list, .slick-track {
       .slick-prev {
