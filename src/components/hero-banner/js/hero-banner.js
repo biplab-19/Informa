@@ -377,26 +377,38 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                 imageHeight;
             if(_heroBannerFull.length > 0){
                 if(INFORMA.global.device.viewport === "mobile") {
-                    _heroBannerFull.each(function () {
-                        $banner = $(this);
-
-                        // skip carousel banners
-                        if ($banner.hasClass('hero-banner-carousel')) return;
-
-                        // get correct container depending on banner type
-                        $contentContainer = $banner.hasClass('hero-banner-video') ? $banner.find('.videoBG') : $banner.find('.container');
-                        imageHeight = $banner.find('.key-logo-img-mobile');
-
-                        // strip out empty content tags for newco 
-                        // ideally for all but limiting enexpected consequences for other verts
-                        // TODO: move to newco-header.js? but here to ensure correct order
-                        if ($("#IsNewCoTemplateEnabled").val() == "True")
-                            stripEmptyTags($contentContainer);
-
-                        // apply height of content to banner
-                        height = $contentContainer.innerHeight() + (imageHeight.length > 0 ? imageHeight.height() : 0);
-                        $banner.height(height);
-                    });
+                    if ($("#IsNewCoTemplateEnabled").val() == "True") {
+                        _heroBannerFull.each(function () {
+                            $banner = $(this);
+                            
+                            // skip carousel banners
+                            if ($banner.hasClass('hero-banner-carousel')) return;
+    
+                            // get correct container depending on banner type
+                            $contentContainer = $banner.hasClass('hero-banner-video') ? $banner.find('.videoBG') : $banner.find('.container');
+                            imageHeight = $banner.find('.key-logo-img-mobile');
+    
+                            // strip out empty content tags for newco 
+                            // ideally for all but limiting enexpected consequences for other verts
+                            // TODO: move to newco-header.js? but here to ensure correct order
+                            if ($("#IsNewCoTemplateEnabled").val() == "True")
+                                stripEmptyTags($contentContainer);
+    
+                            // apply height of content to banner
+                            height = $contentContainer.innerHeight() + (imageHeight.length > 0 ? imageHeight.height() : 0);
+                            $banner.height(height);
+                        });
+                    } else {
+                        imageHeight = $('.key-logo-img-mobile');
+                        if(imageHeight){
+                            height = $('.hero-banner .container,.hero-banner-texture .container').height() + imageHeight.height();
+                            $('.hero-banner,.hero-banner-texture').height(height);
+                        }
+                        else{
+                            $('.hero-banner,.hero-banner-texture').height(height);
+                        }
+                        $('.hero-banner').css('min-height','400px');
+                    }
                 }
             }
         },
@@ -441,6 +453,11 @@ INFORMA.heroBanner = (function(window, $, namespace) {
             $(window).on("resize", function() {
                 updateBannerHeightOnMobile();
                 if(_heroBannerFull.length > 0){
+                    if(INFORMA.global.device.viewport === "mobile"){
+                        var height = $('.hero-banner .container,.hero-banner-texture .container').outerHeight();
+                        $('.hero-banner,.hero-banner-texture').height(height);
+                        $('.hero-banner').css('min-height','400px');
+                    }
                     resizeHeroBanner();
                     resizeHeroSG();
                }
