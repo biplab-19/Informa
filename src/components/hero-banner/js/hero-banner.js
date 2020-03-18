@@ -453,7 +453,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
             $(window).on("resize", function() {
                 updateBannerHeightOnMobile();
                 if(_heroBannerFull.length > 0){
-                    if(INFORMA.global.device.viewport === "mobile"){
+                    if(INFORMA.global.device.viewport === "mobile" && $("#IsNewCoTemplateEnabled").val() != "True"){
                         var height = $('.hero-banner .container,.hero-banner-texture .container').outerHeight();
                         $('.hero-banner,.hero-banner-texture').height(height);
                         $('.hero-banner').css('min-height','400px');
