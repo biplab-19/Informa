@@ -44,7 +44,9 @@ INFORMA.heroBanner = (function(window, $, namespace) {
         _pauseAllYoutubeVideos,
         _pauseAllVimeoVideos,
         resizeHeroBanner,
-        resizeHeroSG;
+        resizeHeroSG,
+        updateBannerHeightOnMobile,
+        stripEmptyTags;
        
 
     _bindIframe = function(){
@@ -356,6 +358,42 @@ INFORMA.heroBanner = (function(window, $, namespace) {
             }
         },
 
+        stripEmptyTags = function($contentContainer) {
+            $contentContainer.find('h1, h2, h3, p, span').each(function() {
+                var $this = $(this);
+                // if empty tag found, strip it and run again to address nested empty tags
+                if ($this.html().length === 0) {
+                    $this.remove();
+                    stripEmptyTags($contentContainer);
+                    return false;
+                }
+            });
+        }
+
+        updateBannerHeightOnMobile = function() {
+            if(_heroBannerFull.length > 0){
+                if(INFORMA.global.device.viewport === "mobile") {
+                    _heroBannerFull.each(function () {
+                        var $this = $(this),
+                            isVideo = $this.hasClass('hero-banner-video'),
+                            $contentContainer = isVideo ? $this.find('.videoBG') : $this.find('.container'),
+                            imageHeight = $this.find('.key-logo-img-mobile'),
+                            height;
+
+                        // strip out empty content tags for newco 
+                        // ideally for all but limiting enexpected consequences for other verts
+                        // TODO: move to newco-header.js? but here to avoid to ensure correct order
+                        if ($("#IsNewCoTemplateEnabled").val() == "True")
+                            stripEmptyTags($contentContainer);
+
+                        // apply height of content to banner
+                        height = $contentContainer.innerHeight() + (imageHeight.length > 0 ? imageHeight.height() : 0);
+                        $this.height(height);
+                    });
+                }
+            }
+        },
+
         init = function() {
             if (_videoElem.length > 0) {
                _bindIframe();
@@ -383,46 +421,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
             resizeHeroBanner();
             resizeHeroSG();
             $(window).on("load", function() {
-                if(_heroBannerFull.length > 0){
-                    if(INFORMA.global.device.viewport === "mobile") {
-                        if ($('body').hasClass('tmt-newco')) {
-                            _heroBannerFull.each(function () {
-                                var $this = $(this),
-                                    $contentContainer = $this.find('.container'),
-                                    imageHeight = $this.find('.key-logo-img-mobile'),
-                                    height,
-                                    stripEmpty = function() {
-                                        $contentContainer.find('h1, h2, h3, p, span').each(function() {
-                                            var $this = $(this);
-        
-                                            if ($this.html().length === 0) {
-                                                $this.remove();
-                                                stripEmpty();
-                                                return false;
-                                            }
-                                        });
-                                    };
-
-                                // strip out empty content tags
-                                stripEmpty();
-    
-                                // apply height of content to banner
-                                height = $contentContainer.height() + (imageHeight.length > 0 ? imageHeight.height() : 0);
-                                $this.height(height);
-                            });
-                        } else {
-                            var imageHeight = $('.key-logo-img-mobile');
-                            if(imageHeight){
-                                var height = $('.hero-banner .container,.hero-banner-texture .container').height() + imageHeight.height();
-                                $('.hero-banner,.hero-banner-texture').height(height);
-                            }
-                            else{
-                                $('.hero-banner,.hero-banner-texture').height(height);
-                            }
-                            $('.hero-banner').css('min-height','400px');
-                        }
-                    }
-                }
+                updateBannerHeightOnMobile();
             });
            
             $(document).ready(function () {
@@ -433,12 +432,8 @@ INFORMA.heroBanner = (function(window, $, namespace) {
             });
 
             $(window).on("resize", function() {
+                updateBannerHeightOnMobile();
                 if(_heroBannerFull.length > 0){
-                    if(INFORMA.global.device.viewport === "mobile"){
-                        var height = $('.hero-banner .container,.hero-banner-texture .container').outerHeight();
-                        $('.hero-banner,.hero-banner-texture').height(height);
-                        $('.hero-banner').css('min-height','400px');
-                    }
                     resizeHeroBanner();
                     resizeHeroSG();
                }
