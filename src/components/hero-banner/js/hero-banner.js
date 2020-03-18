@@ -371,24 +371,31 @@ INFORMA.heroBanner = (function(window, $, namespace) {
         }
 
         updateBannerHeightOnMobile = function() {
+            var $banner,
+                height,
+                $contentContainer,
+                imageHeight;
             if(_heroBannerFull.length > 0){
                 if(INFORMA.global.device.viewport === "mobile") {
                     _heroBannerFull.each(function () {
-                        var $this = $(this),
-                            isVideo = $this.hasClass('hero-banner-video'),
-                            $contentContainer = isVideo ? $this.find('.videoBG') : $this.find('.container'),
-                            imageHeight = $this.find('.key-logo-img-mobile'),
-                            height;
+                        $banner = $(this);
+
+                        // skip carousel banners
+                        if ($banner.hasClass('hero-banner-carousel')) return;
+
+                        // get correct container depending on banner type
+                        $contentContainer = $banner.hasClass('hero-banner-video') ? $banner.find('.videoBG') : $banner.find('.container');
+                        imageHeight = $banner.find('.key-logo-img-mobile');
 
                         // strip out empty content tags for newco 
                         // ideally for all but limiting enexpected consequences for other verts
-                        // TODO: move to newco-header.js? but here to avoid to ensure correct order
+                        // TODO: move to newco-header.js? but here to ensure correct order
                         if ($("#IsNewCoTemplateEnabled").val() == "True")
                             stripEmptyTags($contentContainer);
 
                         // apply height of content to banner
                         height = $contentContainer.innerHeight() + (imageHeight.length > 0 ? imageHeight.height() : 0);
-                        $this.height(height);
+                        $banner.height(height);
                     });
                 }
             }
