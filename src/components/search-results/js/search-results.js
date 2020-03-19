@@ -36,7 +36,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         SetSearchState, MakeDropPreSelected, UpdateResultPage, UpdateRefineSection, ToggleView, GetPaginationData, DoPagination, GetAjaxData, EqualHeight, CreateSubItems,
         DoLinksEvents, GetDefaultValues, LoadMoreProducts, UnbindEvent, disabledEvent,
         TotalCountLimit = $("#hdnTotalCountLimit") ? $("#hdnTotalCountLimit").val() : 0,
-        FacetCountLimit = $("#hdnFacetCountLimit") ? $("#hdnFacetCountLimit").val() : 0;
+        FacetCountLimit = $("#hdnFacetCountLimit") ? $("#hdnFacetCountLimit").val() : 0,
+        pageattr = $(".search-container .product-results").attr("data-pagesize"),
 
     disabledEvent = function(){
         $('.register.disabled').click(function(e){
@@ -53,9 +54,10 @@ INFORMA.SearchResults = (function(window, $, namespace) {
     },
 
     GetDefaultValues = function() {
-            var data = {};
+            var data = {},
+            DefaultPageSize = $('input[name="defaultPageSize"]') ? $('input[name="defaultPageSize"]').val() : null;
             data.Sorting = ($('select[name="sorting"]')) ? $('select[name="sorting"]').val() : null;
-            data.PageSize = ($('.product-results')) ? $('.product-results').attr('data-pagesize') : null;
+            data.PageSize = ($('.product-results')) ? ($('.product-results').attr('data-pagesize') > 0 ? $('.product-results').attr('data-pagesize'): DefaultPageSize) : null;
             data.DefaultItemCount = ($('input[name="DefaultItemCount"]')) ? $('input[name="DefaultItemCount"]').val() : null;
             data.MaxItemCount = ($('input[name="MaxItemCount"]')) ? $('input[name="MaxItemCount"]').val() : null;
             data.DefaultProductCount = ($('input[name="DefaultProductCount"]')) ? $('input[name="DefaultProductCount"]').val() : null;
@@ -725,6 +727,10 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 DoGlobalShowMore();
                 DoLinksEvents();
             }
+            if(pageattr > 0) {
+                // set hidden field value.
+               $('input[name="defaultPageSize"]').val(pageattr);
+            }
             ToggleView();
             $(window).on('load', function() {
                 EqualHeight();
@@ -732,6 +738,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             GetSortValue();
             UnbindEvent();
             disabledEvent();
+
         };
     return {
         init: init,
