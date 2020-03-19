@@ -14,8 +14,10 @@ var INFORMA = window.INFORMA || {};
 INFORMA.NewcoHeader = (function (window, $, namespace) {
     'use strict';
     var $body = $('body'),
-        $cookieBanner,
-        $mainHeader,
+        
+        $cookieBanner = $('#cookieBanner'),
+        $mainHeader = $('#informa-main-header'),
+        $closecookie = $mainHeader.find('.icon-close'),
         $newcoHeader,
         $hamburger,
         $searchicon,
@@ -32,6 +34,9 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
         pdpNavTop,
         pdpNavHeight,
         headerHeightChangeTimerEvent,
+        $newcotextbox=$(".newco-search-header .textbox"),
+        $newcoclose=$(".newco-search-header .newco-gobtn-2 i.fa-times"),
+        $newcosearch=$(".newco-search-header .newco-gobtn-2 i.fa-search"),
         // methods
         OffsetParentHeight, repositionPdpNav, init;
 
@@ -66,8 +71,6 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
         if (!$body.hasClass('tmt-newco')) return;
 
         // set variable values
-        $cookieBanner = $('#cookieBanner');
-        $mainHeader = $('#informa-main-header');
         $newcoHeader = $mainHeader.find('.newco-header');
         $hamburger = $newcoHeader.find('.hamburger');
         $searchicon = $newcoHeader.find('button#mobile-search');
@@ -84,10 +87,12 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
         pdpNavTop = 0;
         pdpNavHeight = 0;
         headerHeightChangeTimerEvent = 0;
-
         // set listner for burger button
         $hamburger.click(function() {
             $newcoHeader.toggleClass('nav-closed');
+            $newcotextbox.removeClass("active");
+            $newcoclose.removeClass("active");
+            $newcosearch.addClass("active");
             if (!$newcoHeader.hasClass('nav-closed'))
                 $newcoHeader.addClass('search-closed');
         });
@@ -141,19 +146,29 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
 
         //mobile searchbox show on click
         $searchicon.click(function(e){
-            var hasclassactive=$(".newco-search-header .textbox").hasClass("active");
+            var hasclassactive=$newcotextbox.hasClass("active");
+            var cookeieslength= $cookieBanner.length,
+                cookiedisplay=$cookieBanner.is(":visible")
+            if(!(cookeieslength>0 && cookiedisplay)){
+                $newcotextbox.removeAttr("style");
+            }
+            $hamburger.trigger("click");
             if(hasclassactive) {
-                $(".newco-search-header .textbox").removeClass("active");
-                $(".newco-search-header .newco-gobtn-2 i.fa-times").removeClass("active");
-                $(".newco-search-header .newco-gobtn-2 i.fa-search").addClass("active");
+                $newcotextbox.removeClass("active");
+                $newcoclose.removeClass("active");
+                $newcosearch.addClass("active");
             }
             else {
-                $(".newco-search-header .textbox").addClass("active");
-                $(".newco-search-header .newco-gobtn-2 i.fa-times").addClass("active");
-                $(".newco-search-header .newco-gobtn-2 i.fa-search").removeClass("active");
+                $newcotextbox.addClass("active");
+                $newcoclose.addClass("active");
+                $newcosearch.removeClass("active");
             }
             
             
+        });
+
+        $closecookie.click(function(e){
+            $newcotextbox.removeAttr("style");
         });
         
         // emit custom event on header height change

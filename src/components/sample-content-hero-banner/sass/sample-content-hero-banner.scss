@@ -79,9 +79,18 @@ body {
                 color: $black;
                 line-height: 25px;
                 padding-bottom: 0px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
                 a{
                     font-weight: bold;
                     color:$black;
+                }
+                .topic-pipe {
+                    @include mobile {
+                        float: unset;
+                        padding: 0px;
+                    }
                 }  
             }
             .enterprise-cta-buttopn{
@@ -96,15 +105,21 @@ body {
             }
             .enterprise-author{
                 padding:0px;
+                padding-right: 20px;
                 .by {
                     margin-left: 0px;
-                    
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                 }
             }
             .enterprise-detail{
                 padding:0px;
                 .by {
                     margin-left: 0px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                     .topic-pipe {
                         @include mobile {
                             float: unset;
@@ -154,6 +169,7 @@ body {
                 &.dark-banner-subscribe{
                     .description {
                         padding-bottom: 38px;
+                        margin-bottom: 22px;
                     }
                 }
             }

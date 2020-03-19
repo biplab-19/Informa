@@ -139,6 +139,9 @@
   }
   .newco-searchbtn {
     justify-content: flex-end;
+    @include mobile {
+      position: static;
+    }
     .navsearch {
       position: relative;
       padding: 1px 2px;
@@ -174,16 +177,19 @@
     .newco-search-header{
         height: 35px;
         position: relative;
+        @include mobile {
+          position: static;
+        }
         .textbox{
           position: absolute;
           right: 20px;
           @include mobile {
             display:none;
-            top: 130px;
+            top: 100px;
             width: 100%;
             left: 0;
             right: 0;
-            position: fixed;
+            position: absolute;
             text-align: center;
             width: 100%;
             padding: 17px 0px;
@@ -236,6 +242,9 @@
         outline: none;
         @include tablet {
           right:20px;
+        }
+        @include mobile {
+          position: relative;
         }
         &[data-submit="sector-search"]{
           display:block;
