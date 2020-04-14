@@ -343,7 +343,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         maxWrapperHeight = ItemHeight;
                     }
                 })
-                Wrapper.height(maxWrapperHeight);
+                // Wrapper.height(maxWrapperHeight);
 
             } else {
                 Wrapper.css("height", "auto");
