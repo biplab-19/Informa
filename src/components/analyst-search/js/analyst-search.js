@@ -35,13 +35,13 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
     equalHeight = function() {
         var EachView = jQuery('.analyst-views');
         EachView.each(function() {
-            var Items = jQuery(this).find('.analyst-list-container .analyst-description'),
-                ItemsHeader = jQuery(this).find('.analyst-list-container .analyst-details'),
-                ItemsFooter = jQuery(this).find('.analyst-list-container .analyst-footer-content'),
+            var itemcontainer = jQuery(this).find('.analyst-list-container, .analyst-view-container'),
+                Items = itemcontainer.find('.profile-discription'),
+                ItemsHeader = itemcontainer.find('.analyst-details'),
+                ItemsFooter = itemcontainer.find('.analyst-footer-content'),
                 _maxHeight = 0,
                 _maxHeightHeader = 0,
-                _maxHeightFooter = 0,
-                _padding = 50;
+                _maxHeightFooter = 0;
             ItemsHeader.each(function() {
                 var Height = jQuery(this).height();
                 if (Height > _maxHeightHeader) {
@@ -55,7 +55,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
                     _maxHeight = Height;
                 }
             })
-            Items.css('height', _maxHeight + _padding);
+            Items.css('height', _maxHeight);
             ItemsFooter.each(function() {
                 var Height = jQuery(this).height();
                 if (Height > _maxHeightFooter) {
