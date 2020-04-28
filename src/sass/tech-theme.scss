@@ -2541,22 +2541,26 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                 }
             }
             .arrows {
-                height: auto;
-                line-height: 44px;
+                width: 48px;
+                height: 48px;
                 text-indent: 0;
                 &:before {
-                    position: relative;
-                    top: 0;
-                    left: 0;
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 12px;
+                    height: 15px;
                     margin: 0;
-                    font-size: 22px;
-                    color: #002244;
+                    transform: translate(-50%, -50%);
+                    border-top: 7px solid transparent;
+                    border-bottom: 8px solid transparent;
                 }
                 &.previous:before {
-                    content: '\25C0';
+                    border-right: 13px solid #024;
                 }
                 &.next:before {
-                    content: '\25BA';
+                    border-left: 13px solid #024;
                 }
                 &.arrow-desabled {
                     background-color: transparent;

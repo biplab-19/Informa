@@ -16,7 +16,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
     var Templates = INFORMA.Templates,
         ajaxMethod = 'POST',
         //methods
-        init, InformaFilters, InformaEventTiles, InformaEventList, InformaFC, InformaEventsController, InformaEventQuery, getMomentDate, getDateString, isDev ,EventSearchTextValue,_loadEventFilteredData,_bindAutoComplete;
+        init, InformaFilters, InformaEventTiles, InformaEventList, InformaFC, InformaEventsController, InformaEventQuery, getMomentDate, getDateString, isDev, EventSearchTextValue, _loadEventFilteredData,_bindAutoComplete;
 
     InformaFilters = {
         Container: $('.events-search'),
@@ -304,24 +304,6 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             }
             this.UpdateFilters();
         },
-        RemoveUrlParameter: function (url, parameter) {
-            var urlparts = url.split('?');
-            if (urlparts.length >= 2) {
-                var prefix = encodeURIComponent(parameter) + '=';
-                var pars = urlparts[1].split(/[&;]/g);
-                //reverse iteration as may be destructive
-                for (var i = pars.length; i-- > 0;) {
-                    //idiom for string.startsWith
-                    if (pars[i].lastIndexOf(prefix, 0) !== -1) {
-                        pars.splice(i, 1);
-                    }
-                }
-                url = urlparts[0] + '?' + pars.join('&');
-                return url;
-            } else {
-                return url;
-            }
-        },
         AddClearFilter: function () {
             var that = this,
                 $filterEl,
@@ -339,20 +321,16 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             $filterDelete = this.FilterDeleteBtn.clone();
             // set event listener to remove filter;
             $filterDelete.click(function () {
-                var modifiedUrl = "";
-                var activeFilterLength = that.ActiveFilters.length;
-                if (activeFilterLength > 0) {
-                    that.ActiveFilters.forEach(function (filterObj) {
-                        if (filterObj.type !== 'MonthYear' && filterObj.type !== 'View' && filterObj.type !== 'ViewType') {
-                            if (modifiedUrl != "") {
-                                modifiedUrl = that.RemoveUrlParameter(modifiedUrl, filterObj.type);
-                            }
-                            else
-                                modifiedUrl = that.RemoveUrlParameter(window.location.href, filterObj.type);
-                        }
-                    });
-                    window.location = modifiedUrl;
-                }
+                // clear all filters apart from month
+                that.ActiveFilters = [that.ActiveFilters[0]];
+                that.UpdateFilters();
+                // clear event search
+                $("#txtEventSearchText").val("");
+                EventSearchTextValue = '';
+                // reset URL param
+                history.pushState({}, document.title, window.location.pathname);
+                // load default events
+                InformaEventQuery.PopulateWithDefaults();
             });
             $filterEl.append($filterDelete);
             // add elements to DOM
@@ -1998,9 +1976,20 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             // history.pushState({}, '', searchStr);
             this.query = searchStr;
         },
+        SetPropsFromQuery: function() {
+            var that = this,
+                query,
+                queries = window.location.search.substring(1).split('&');
+            
+            queries.forEach(function (queryStr) { 
+                query = queryStr.split('=');
+                that.ActiveProperties[query[0]] = query[1];
+            });
+            console.log(that.ActiveProperties);
+        },
         set query(searchStr) {
             // if (this.isqueried)
-                history.pushState({}, '', searchStr);
+                history.pushState({}, document.title, searchStr);
 
             this.ActiveQuery = searchStr;
         },
