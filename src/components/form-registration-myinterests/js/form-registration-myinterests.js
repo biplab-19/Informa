@@ -52,7 +52,8 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _showContentFirstTime,
         Urls = INFORMA.Configs.urls.webservices,
         iOSversion,
-        _loadPDFPopUp;
+        _loadPDFPopUp,
+        _populateHiddenFields;
 
     //methods
 
@@ -182,17 +183,40 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         })
     }
 
+    _populateHiddenFields = function (valObjectArray) {
+        var $registerForm = $('#formRegistration form'),
+            objCount,
+            objCurr,
+            objLength = valObjectArray.length;
+
+        for (objCount = 0; objCount < objLength; objCount++) {
+            objCurr = valObjectArray[objCount];
+            $registerForm.find(objCurr.selector).val(objCurr.value);
+        }
+    }
+
     _showRegisterForm = function() {
         $('body').on('click', '.show-register-form', function(e) {
-                if ($(this).attr('data-show-register') == 'true') {
-                    //check if anchor is meant to open a form to trigger a download
-                    var isDownloadAnchor = $(this).attr('data-enable-download') == 'true';
+            if ($(this).attr('data-show-register') == 'true') {
+                //check if anchor is meant to open a form to trigger a download
+                var isDownloadAnchor = $(this).attr('data-enable-download') == 'true'
 
-                    if(isDownloadAnchor)
+                if (isDownloadAnchor) {
+                    $('#formRegistration form').attr('data-trigger-download','true');
+                }
+                
+                _populateHiddenFields([
                     {
-                        $('#formRegistration form').attr('data-trigger-download','true');
+                        selector: '.resource-file-type',
+                        value: $(this).attr('data-download-type') || 'NULL'
+                    },
+                    {
+                        selector: '.resource-type',
+                        value: $(this).attr('data-enable-download') == 'true' ? 'File Download' : 'Gated content viewed'
                     }
-                    // To track Google Analytics on Open
+                ]);
+                    
+                // To track Google Analytics on Open
                 INFORMA.Analytics.trackFormEvents($(this), 'Open');
                 e.preventDefault();
                 e.stopPropagation();
