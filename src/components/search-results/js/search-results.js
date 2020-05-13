@@ -34,7 +34,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         // methods
         init, CreateSearchResult, GetSortValue, CreateSearchTags, ParseSearchData, DoGlobalShowMore, ResetPageSize, getSubsectors, UpdateResourceResultPage,
         SetSearchState, MakeDropPreSelected, UpdateResultPage, UpdateRefineSection, ToggleView, GetPaginationData, DoPagination, GetAjaxData, EqualHeight, CreateSubItems,
-        DoLinksEvents, GetDefaultValues, LoadMoreProducts, UnbindEvent, disabledEvent, appendEloquaId,
+        DoLinksEvents, GetDefaultValues, LoadMoreProducts, UnbindEvent, disabledEvent,
         TotalCountLimit = $("#hdnTotalCountLimit") ? $("#hdnTotalCountLimit").val() : 0,
         FacetCountLimit = $("#hdnFacetCountLimit") ? $("#hdnFacetCountLimit").val() : 0,
         pageattr = $(".search-container .product-results").attr("data-pagesize"),
@@ -531,6 +531,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                             }
                             TemplateName = (Templates[ContentType]) ? Templates[ContentType] : "";
                             ListTemplate = Handlebars.compile(TemplateName);
+                            if (Lists[j].SalesforceLink && Lists[j].SalesforceLink.Url) {
+                                Lists[j].SalesforceLink.Url = INFORMA.Utils.appendEloquaCookieId(Lists[j].SalesforceLink.Url);
+                            }
                             Html += ListTemplate({ results: Lists[j] });
                         }
                     }
@@ -576,8 +579,12 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         if (ContentType == "Specialist" && $("#IsNewCoTemplateEnabled").val() == "True") {
                             ContentType = "SpecialistNewCo"
                         }
+                        
                         TemplateName = (Templates[ContentType]) ? Templates[ContentType] : "";
                         ListTemplate = Handlebars.compile(TemplateName);
+                        if (Lists[j].SalesforceLink && Lists[j].SalesforceLink.Url) {
+                            Lists[j].SalesforceLink.Url = INFORMA.Utils.appendEloquaCookieId(Lists[j].SalesforceLink.Url);
+                        }
                         Html += ListTemplate({ results: Lists[j] });
                     }
                 }
@@ -660,29 +667,6 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             } else {
                 $('.product-results').html(data);
             }
-            appendEloquaId();
-        },
-        appendEloquaId = function() {
-            // console.log('appendEloquaId');
-            var eloquaId = $("body").attr('data-eloqua-customer-id'),
-                $btn,
-                btnURL;
-
-            if (eloquaId) {
-                // ignore elements with eloqid-added to avoid repeats 
-                $('.product-results a.btn').not('[eloqid-added]').each(function () {
-                    $btn = $(this);
-                    btnURL = $btn.attr('href');
-
-                    // if URL contains trial query string
-                    if (btnURL.indexOf('istrial=true') > -1) {
-                        // append eloquaId to the existing href
-                        $btn.attr('href', btnURL + '&eloquacookieid=' + eloquaId);
-                        // add 'once only' flag
-                        $btn.attr('eloqid-added', 'true');
-                    }
-                });
-            }
         },
         init = function() {
             var IsProductPage = (ProductFinderSection.data("product") === true) ? true : false,
@@ -758,8 +742,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         init: init,
         RenderSearchResults: ParseSearchData,
         ResetPaging: ResetPageSize,
-        DefaultParameters: GetDefaultValues,
-        AppendEIDToTrialCTAs: appendEloquaId
+        DefaultParameters: GetDefaultValues
     };
 
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
