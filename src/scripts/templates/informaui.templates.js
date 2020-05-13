@@ -1488,7 +1488,7 @@ var INFORMA = window.INFORMA || {};
                                     '{{#if results.ProductSearchCTAType}}' +
                                         '{{#compare results.ProductSearchCTAType "formRequestATrial"  operator="=="}}'+    
                                             '{{#if (splitURL results.SalesforceLink.Url "registration")}}'+
-                                                    '<a href="{{results.SalesforceLink.Url}}" target="{{results.SalesforceLink.Target}}" class="btn btn-primary request-a-free-trial-cta">{{results.SearchCTAName}}</a>'+
+                                                    '<a href="{{results.SalesforceLink.Url}}" target="{{results.SalesforceLink.Target}}" class="btn btn-primary">{{results.SearchCTAName}}</a>'+
                                             '{{else}}'+
                                                 '<a href="javascript:void(0)" data-toggle="modal" data-modal="#{{results.ProductSearchCTAType}}" data-productid="{{results.FreeTrialLink.ProductGuid}}" class="btn btn-primary free-trial wffm-elq-form-btn">'+
                                                     '{{results.SearchCTAName}}'+
