@@ -206,6 +206,10 @@
                 this.isTabletView = function() {
                     return (this.getViewport().size == 'medium');
                 };
+            this.appendEloquaCookieId = function(url) {
+                var eloquaId = $("body").attr('data-eloqua-customerid');
+                return eloquaId ? url + '&eloquacookieid=' + eloquaId : url;
+            }
             this.init = function() {
                 var that = this; //to behave proxy
                 this.getViewport();
