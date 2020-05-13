@@ -669,8 +669,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 btnURL;
 
             if (eloquaId) {
-                // ignore elements with eloqid-added to avoid repeats 
-                $('.product-results a.btn').not('[eloqid-added]').each(function () {
+                // ignore elements with eloqid-checked to avoid repeats 
+                $('.product-results a.btn').not('[eloqid-checked]').each(function () {
                     $btn = $(this);
                     btnURL = $btn.attr('href');
 
@@ -678,9 +678,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     if (btnURL.indexOf('istrial=true') > -1) {
                         // append eloquaId to the existing href
                         $btn.attr('href', btnURL + '&eloquacookieid=' + eloquaId);
-                        // add 'once only' flag
-                        $btn.attr('eloqid-added', 'true');
                     }
+                    // add 'once only' flag
+                    $btn.attr('eloqid-checked', 'true');
                 });
             }
         },
