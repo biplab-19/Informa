@@ -664,7 +664,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         },
         appendEloquaId = function() {
             // console.log('appendEloquaId');
-            var eloquaId = $("body").attr('data-eloqua-customer-id'),
+            var eloquaId = $("body").attr('data-eloqua-customerid'),
                 $btn,
                 btnURL;
 
