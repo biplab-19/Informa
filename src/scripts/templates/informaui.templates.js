@@ -173,7 +173,7 @@ var INFORMA = window.INFORMA || {};
                             '<div class="content">'+
                                 '{{#compare SamplecontentProducts.length "0" operator=">"}}'+
                                     '<p class="type">'+
-                                        '<span>{{SamplecontentProducts}}</span>'+
+                                        '{{SamplecontentProducts}}'+
                                     '</p>'+
                                 '{{/compare}}'+
                                 '{{#compare PageURL null operator="!="}}' +
@@ -185,7 +185,6 @@ var INFORMA = window.INFORMA || {};
                                                 '{{/if}}'+
                                             '{{/compare}}'+
                                         '{{/if}}'+
-
                                         '{{#compare HasExternalLink false operator="=="}}'+
                                             '{{#compare ShowForm false operator="=="}}'+
                                                 '{{#compare IsAuthenticatedUser false operator="=="}}'+
@@ -216,16 +215,13 @@ var INFORMA = window.INFORMA || {};
                                 '{{#if Profile}}{{ByKeyword}} ' +
                                         '{{#compare ProfileUrl null operator="!=" }} <a href="{{ProfileUrl}}" target="_blank"><strong>{{Profile}}</strong></a> {{/compare}}' +
                                         '{{#compare ProfileUrl null operator="=="}} <strong>{{Profile}}</strong> {{/compare}}' +
-                                   '{{/if}}'+
-                                   '{{#if PublicationDate}}{{PublicationDate}}{{/if}}</p>' +
-                                '{{#compare Description null operator="!="}}'+
-                                    '<p class="description">{{Description}}</p>'+
-                                '{{/compare}}'+
+                                '{{/if}}'+
+                                '{{#if PublicationDate}}{{PublicationDate}}{{/if}}</p>' +
                                 '{{#compare Video null operator="=="}}'+
-                                        '<div class="video-container">' +
+                                    '<div class="video-container">' +
                                         '<img src="{{ContentTileImage.Url}}" alt="{{ContentTileImage.Alt}}">' +
-                                        '</div>' +
-                                        '{{/compare}}' +
+                                    '</div>' +
+                                '{{/compare}}' +
                                 '{{#compare Video null operator="!="}}'+
                                     '<div class="video-container">'+
                                         '{{#compare HasExternalLink false operator="=="}}'+
@@ -266,6 +262,9 @@ var INFORMA = window.INFORMA || {};
                                             '</a>'+
                                          '{{/compare}}'+
                                     '</div>'+
+                                '{{/compare}}'+
+                                '{{#compare Description null operator="!="}}'+
+                                    '<p class="description">{{Description}}</p>'+
                                 '{{/compare}}'+
                             '</div>'+
                             // '{{#compare Brand.length 0 operator=">"}}'+
