@@ -4,7 +4,22 @@ INFORMA.global = (function(window, $, namespace) {
 	//variables
 	var device = {},
 		siteCore = {},
-		_html = $('html');
+		_html = $('html'),
+		getInternetExplorerVersion = function() {
+			var rv = -1;
+			if (navigator.appName == 'Microsoft Internet Explorer') {
+			  var ua = navigator.userAgent;
+			  var re = new RegExp("MSIE ([0-9]{1,}[\\.0-9]{0,})");
+			  if (re.exec(ua) != null)
+				rv = parseFloat( RegExp.$1 );
+			} else if (navigator.appName == 'Netscape') {
+			  var ua = navigator.userAgent;
+			  var re  = new RegExp("Trident/.*rv:([0-9]{1,}[\\.0-9]{0,})");
+			  if (re.exec(ua) != null)
+				rv = parseFloat( RegExp.$1 );
+			}
+			return rv;
+		}
 
 	var init = function(){
 		// viewport properties
@@ -34,35 +49,8 @@ INFORMA.global = (function(window, $, namespace) {
 			siteCore.isExperience = true;
 		}
 	}
-
-	return {
-		init: init,
-		device: device,
-		siteCore: siteCore
-	};
-}(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
-jQuery(INFORMA.global.init());
-
-function getInternetExplorerVersion() {
-  var rv = -1;
-  if (navigator.appName == 'Microsoft Internet Explorer') {
-    var ua = navigator.userAgent;
-    var re = new RegExp("MSIE ([0-9]{1,}[\\.0-9]{0,})");
-    if (re.exec(ua) != null)
-      rv = parseFloat( RegExp.$1 );
-  } else if (navigator.appName == 'Netscape') {
-    var ua = navigator.userAgent;
-    var re  = new RegExp("Trident/.*rv:([0-9]{1,}[\\.0-9]{0,})");
-    if (re.exec(ua) != null)
-      rv = parseFloat( RegExp.$1 );
-  }
-  return rv;
-}
-
-if (getInternetExplorerVersion() > 0) {
-	(function (w) {
-
-		w.URLSearchParams = w.URLSearchParams || function (searchString) {
+	if (getInternetExplorerVersion() > 0) {
+		window.URLSearchParams = window.URLSearchParams || function (searchString) {
 			var self = this;
 			self.searchString = searchString;
 			self.get = function (name) {
@@ -75,6 +63,12 @@ if (getInternetExplorerVersion() > 0) {
 				}
 			};
 		}
-	
-	})(window)
-}
+	}
+
+	return {
+		init: init,
+		device: device,
+		siteCore: siteCore
+	};
+}(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
+jQuery(INFORMA.global.init());
