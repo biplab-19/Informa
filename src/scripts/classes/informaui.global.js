@@ -50,7 +50,7 @@ INFORMA.global = (function(window, $, namespace) {
 		}
 	}
 	if (getInternetExplorerVersion() > 0) {
-		window.URLSearchParams = w.URLSearchParams || function (searchString) {
+		window.URLSearchParams = window.URLSearchParams || function (searchString) {
 			var self = this;
 			self.searchString = searchString;
 			self.get = function (name) {
