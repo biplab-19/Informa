@@ -393,7 +393,7 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                         }
                     }
 
-                    $.each(searchQueryStrings, function () {
+                    $.each(searchQueryStrings, function (i) {
                         if (this) {
                             var facets=[];
                             subQuery = this.split("=");
@@ -412,8 +412,8 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                                 japaneseFacets.push(this.replace(/%26/g, "&").replace(/-&-/g, " & ").toLowerCase());
                             });
                             
-                            filterOptionsList =  $("[id='"+groupid+"' i]").find("input[type='checkbox']");
-                            filterOptions = $("[id='"+groupid+"' i]").find("input[type='checkbox']").not(":disabled");
+                            filterOptionsList =  $('[id="' + groupid + i +'"]').find("input[type='checkbox']");
+                            filterOptions = $('[id="' + groupid + i +'"]').find("input[type='checkbox']").not(":disabled");
                             if(newFacets.length >0){
                                 filterOptionsList.filter(function () {
                                     if (newFacets.includes($(this).next().text().toLowerCase())) {

@@ -6,7 +6,12 @@
             {{#if results.Ical}}
                 {{#if results.Ical.Url}}
                     {{#compare results.Ical.Url.length "0" operator=">"}}
-                        <a href="{{results.Ical.Url}}" class="btn pull-right ical" target="{{results.Ical.Target}}"><span class="text">{{results.Ical.LinkText}}</span></a>
+                        {{#compare results.StatusEnabled true operator="=="}}
+                            <a href="{{results.Ical.Url}}" class="btn pull-right ical" target="{{results.Ical.Target}}"><span class="text">{{results.Ical.LinkText}}</span></a>
+                        {{/compare}}
+                        {{#compare results.StatusEnabled false operator="=="}}
+                            <a href="{{results.Ical.Url}}" class="btn pull-right ical disabled" target="{{results.Ical.Target}}"><span class="text">{{results.Ical.LinkText}}</span></a>
+                        {{/compare}}
                     {{/compare}}
                 {{/if}}
             {{/if}}
@@ -74,7 +79,12 @@
                 {{#if results.Primarycta}}
                     {{#if results.Primarycta.Url}}
                         {{#compare results.Primarycta.Url.length "0" operator=">"}}
-                            <a href="{{results.Primarycta.Url}}" class="btn btn-primary pull-left primarycta" target="{{results.Primarycta.Target}}">{{results.Primarycta.LinkText}}</a>
+                            {{#compare results.StatusEnabled true operator="=="}}
+                                <a href="{{results.Primarycta.Url}}" class="btn btn-primary pull-left primarycta" target="{{results.Primarycta.Target}}">{{results.Primarycta.LinkText}}</a>
+                            {{/compare}}
+                            {{#compare results.StatusEnabled false operator="=="}}
+                                <a href="{{results.Primarycta.Url}}" class="btn btn-primary pull-left primarycta disabled" target="{{results.Primarycta.Target}}">{{results.Primarycta.LinkText}}</a>
+                            {{/compare}}
                         {{/compare}}
                     {{/if}}
                 {{/if}}
@@ -82,7 +92,12 @@
                 {{#if results.Secondarycta}}
                     {{#if results.Secondarycta.Url}}
                         {{#compare results.Secondarycta.Url.length "0" operator=">"}}
-                            <a href="{{results.Secondarycta.Url}}" class="btn btn-primary pull-left secondarycta" target="{{results.Secondarycta.Target}}">{{results.Secondarycta.LinkText}}</a>
+                            {{#compare results.StatusEnabled true operator="=="}}
+                                <a href="{{results.Secondarycta.Url}}" class="btn btn-primary pull-left secondarycta" target="{{results.Secondarycta.Target}}">{{results.Secondarycta.LinkText}}</a>
+                            {{/compare}}
+                            {{#compare results.StatusEnabled false operator="=="}}
+                                <a href="{{results.Secondarycta.Url}}" class="btn btn-primary pull-left secondarycta disabled" target="{{results.Secondarycta.Target}}">{{results.Secondarycta.LinkText}}</a>
+                            {{/compare}}
                         {{/compare}}
                     {{/if}}
                 {{/if}}

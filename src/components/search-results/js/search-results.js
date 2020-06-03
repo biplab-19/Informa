@@ -531,6 +531,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                             }
                             TemplateName = (Templates[ContentType]) ? Templates[ContentType] : "";
                             ListTemplate = Handlebars.compile(TemplateName);
+                            if (Lists[j].SalesforceLink && Lists[j].SalesforceLink.Url) {
+                                Lists[j].SalesforceLink.Url = INFORMA.Utils.appendEloquaCookieId(Lists[j].SalesforceLink.Url);
+                            }
                             Html += ListTemplate({ results: Lists[j] });
                         }
                     }
@@ -576,8 +579,12 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         if (ContentType == "Specialist" && $("#IsNewCoTemplateEnabled").val() == "True") {
                             ContentType = "SpecialistNewCo"
                         }
+                        
                         TemplateName = (Templates[ContentType]) ? Templates[ContentType] : "";
                         ListTemplate = Handlebars.compile(TemplateName);
+                        if (Lists[j].SalesforceLink && Lists[j].SalesforceLink.Url) {
+                            Lists[j].SalesforceLink.Url = INFORMA.Utils.appendEloquaCookieId(Lists[j].SalesforceLink.Url);
+                        }
                         Html += ListTemplate({ results: Lists[j] });
                     }
                 }
@@ -730,7 +737,6 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             GetSortValue();
             UnbindEvent();
             disabledEvent();
-
         };
     return {
         init: init,
