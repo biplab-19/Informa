@@ -207,6 +207,7 @@
                     return (this.getViewport().size == 'medium');
                 };
             this.appendEloquaCookieId = function(url) {
+                if (url.indexOf('istrial=true') == -1) return url;
                 var eloquaId = $("body").attr('data-eloqua-customerid');
                 return eloquaId ? url + '&eloquacookieid=' + eloquaId : url;
             }
