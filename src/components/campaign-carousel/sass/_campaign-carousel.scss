@@ -5,8 +5,8 @@
     background-size: cover;
     background-attachment: fixed;
     background-color: #000;
-    padding-top: 65px;
-    padding-bottom: 120px;
+    padding-top: 70px;
+    padding-bottom: 130px;
     background-color: #000;
 }
 
@@ -21,6 +21,7 @@
             img {
                 display: inline-block;
                 cursor: pointer;
+                max-width: 100%;
             }
         }
         .slick-dots {
@@ -32,7 +33,7 @@
                         color: #b3b3b8;
                         background: #b3b3b8;
                         opacity: 1;
-                        content: '•';
+                        content: '';
                         border-radius: 20px;
                         -moz-border-radius: 20px;
                         -webkit-border-radius: 20px;
@@ -57,7 +58,7 @@
 
 .inf-slider-text-section {
     max-width: 925px;
-    margin: 60px auto 0;
+    margin: 65px auto 0;
     color: #fff;
     text-align: center;
     font-size: 38px;
