@@ -12,7 +12,7 @@
 
 .inf-slider-section {
     text-align: center;
-    margin: 0 auto;
+    margin: 0 auto 65px;
     .campaign-carousel {
         .slick-arrow {
             display:none !important;
@@ -58,10 +58,13 @@
 
 .inf-slider-text-section {
     max-width: 925px;
-    margin: 65px auto 0;
+    margin: 0 auto;
     color: #fff;
     text-align: center;
     font-size: 38px;
+    @include mobile {
+        font-size: 24px;
+    }
 }
 
 .inf-ani-images-section {
