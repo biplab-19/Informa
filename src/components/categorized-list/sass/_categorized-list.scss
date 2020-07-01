@@ -9,6 +9,7 @@
 
 .inf-timeline-section {
     margin: 50px 0 0;
+    padding: 0 0 50px;
     .image-wrapper {
         text-align: center;
         img.timeline-image {
@@ -44,12 +45,20 @@
                     white-space: nowrap;
                     text-overflow: ellipsis;
                 }
+                @include mobile {
+                    text-align: center;
+                    margin: 0 0 13px;
+                }
             }
             .timeline-row-right {
                 max-width: 480px;
                 h3 {
                     font-size: 30px;
                     color: #fff;
+                    @include mobile {
+                        font-size: 24px;
+                        margin: 0 0 10px;
+                    }
                 }
                 ul {
                     list-style: none;
@@ -70,14 +79,33 @@
                             position: absolute;
                             left: 0px;
                             top: 6px;
+                            @include mobile {
+                                background-color: #fff;
+                                width: 5px;
+                                height: 5px;
+                                top: 12px;
+                            }
                         }
                         a {
                             font-size: 18px;
                             color: #fff;
                         }
+                        @include mobile {
+                            display: inline-block;
+                            padding: 0 0 0 15px;
+                        }
+                    }
+                    @include mobile {
+                        list-style: disc;
                     }
                 }
+                @include mobile {
+                    max-width: 100%;
+                }
             }
+        }
+        @include mobile {
+            text-align: center;
         }
     }
 }
