@@ -1,0 +1,76 @@
+.top-section-background {
+    background-image: url(../../Static/images/grey-flag.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: #000;
+    padding-top: 70px;
+    padding-bottom: 130px;
+    background-color: #000;
+}
+
+.inf-slider-section {
+    text-align: center;
+    margin: 0 auto 65px;
+    .campaign-carousel {
+        .slick-arrow {
+            display:none !important;
+        }
+        .slick-slide {
+            img {
+                display: inline-block;
+                cursor: pointer;
+                max-width: 100%;
+            }
+        }
+        .slick-dots {
+            li {
+                margin: 0 15px;
+                button {
+                    &:before {
+                        font-size: 20px;
+                        color: #b3b3b8;
+                        background: #b3b3b8;
+                        opacity: 1;
+                        content: '';
+                        border-radius: 20px;
+                        -moz-border-radius: 20px;
+                        -webkit-border-radius: 20px;
+                    }
+                }
+            }
+            li.slick-active {
+                border-radius: 20px;
+                -moz-border-radius: 20px;
+                -webkit-border-radius: 20px;
+                button {
+                    &:before {
+                        color: #ef456c;
+                        background: #ef456c;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.inf-slider-text-section {
+    max-width: 925px;
+    margin: 0 auto;
+    color: #fff;
+    text-align: center;
+    font-size: 38px;
+    @include mobile {
+        font-size: 24px;
+    }
+}
+
+.inf-ani-images-section {
+    text-align: center;
+    margin-top: 25px;
+    img {
+        max-width: 100%;
+    }
+}
