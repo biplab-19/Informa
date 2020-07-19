@@ -1,0 +1,392 @@
+._brexitstyle {
+    font-size: 14px;
+    background-image: url(../images/brexit//brexit-bg1.jpg);
+    margin-top:0px !important;
+    width: 100%;
+    background-position: top center;
+    background-attachment: fixed;
+    background-size: cover;
+    color: #fff !important;
+    .brexit-container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .row.brexit-row {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    .pc-body.Podcastslist.demo {
+        transition-property: all;
+        transition-duration: 0.5s;
+        transition-timing-function: ease;
+        top: 50px;
+        visibility: visible;
+    }
+    .pc-body.Podcastslist {
+        background-color: #494a59;
+        width: 100%;
+        position: absolute !important;
+        left: 0;
+        top: 500px;
+        padding: 0 15px 15px;
+        height: calc(100% - 50px);
+        z-index: 0;
+        transition-property: all;
+        transition-duration: 0.5s;
+        transition-timing-function: ease;
+        visibility: hidden;
+       &:before {
+            content: '';
+            width: calc(100% - 20px);
+            height: 38px;
+            background-color: #494a59;
+            position: absolute;
+            -ms-transform: rotate(-5deg);
+            -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+            top: -22px;
+            left: 13px;
+            z-index: -1;
+        }
+        .carousel-section {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+        }
+        .title {
+            font-size: 20px !important;
+            margin-bottom: 10px !important;
+
+        }
+        ul.bxul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            li:last-child a.brexit-list {
+                margin-bottom: 0;
+            }
+        }
+        img.pcbodysecimg {
+            width: 50px;
+            margin-bottom: 00px;
+            position: relative;
+        }
+        .pc-bodycaption {
+            height: calc(100% - 55px);
+            padding: 10px 15px 00px 15px;
+        }
+    }
+    .brexit-list {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 8px;
+        background-color: #494a59;
+        .brexitplay {
+            display: flex;
+            color: #fff;
+            margin-bottom: 0px;
+            font-size: 13px;
+            img.brexitplayimg {
+                width: 10px !important;
+                margin-right: 5px;
+            }
+        }
+        .brexit-listimage {
+            margin-right: 10px;
+            img {
+                width: 35px;
+            }
+        }
+        .brexit-content {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            .bl-title {
+                //color: #fff !important;
+                font-size: 14px !important;
+                margin: 0;
+                color: #ef456c;
+                padding: 0;
+                margin-bottom: 0px;
+                font-weight: 600;
+                text-transform: uppercase;
+            }
+            .sub-title {
+                color: #fff !important;
+                margin-bottom: 0 !important;
+                font-size: 13px !important;
+            }
+        }
+    }
+    .podcast-recoder {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        .podcastimages {
+            background: #fff;
+            padding: 0px 0;
+            .podcastimagechild {
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+    .podcastview {
+        display: flex;
+        flex-direction: column;
+    }
+    .podcasts-card {
+        padding: 15px;
+        text-align: center;
+        height: calc(100% - 20px);
+        display: flex;
+        margin-bottom: 30px;
+        background-color: #494a59;
+        -webkit-box-shadow: 3px 4px 6px 2px rgba(0, 0, 0, 0.8);
+        -moz-box-shadow: 3px 4px 6px 2px rgba(0, 0, 0, 0.8);
+        box-shadow: 3px 4px 6px 2px rgba(0, 0, 0, 0.8);
+        position: relative;
+        overflow: hidden;
+        .btn-Podcasts {
+            display: inline-block;
+            margin-bottom: 0;
+            font-weight: bold;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            -ms-touch-action: manipulation;
+            touch-action: manipulation;
+            cursor: pointer;
+            background-image: none;
+            border: 1px solid transparent;
+            padding: 5px 15px;
+            font-size: 16px;
+            line-height: 1.42857143;
+            border-radius: 10px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            width: fit-content;
+            align-items: center;
+            margin-top: auto;
+        }
+        .btn-primary {
+            background-color: #ef456c;
+            &:hover {
+                background-color: #ed2956;
+            }
+            &:focus {
+                background-color: #ed2956;
+            }
+        }
+        .podcastview .image-thumbnail {
+            position: relative;
+            margin-bottom: 10px;
+            .skewed {
+                position: absolute;
+                bottom: -100%;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #494a59;
+                transform: skewY(-5deg);
+                transform-origin: top left;
+            }
+            img.thumbnailimg {
+                width: 100%;
+            }
+        }
+        .pc-body {
+            position: relative;
+            height: 100%;
+            .pcbodysecimg {
+                width: 75px;
+                margin-bottom: 0px;
+            }
+            .pc-bodycaption {
+                padding: 15px 25px 00px 25px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: calc(100% - 90px);
+                transition-property: all;
+                transition-duration: 0.5s;
+                transition-timing-function: ease;
+                .title {
+                    font-size: 24px;
+                    margin: 0;
+                    padding: 0;
+                    margin-bottom: 15px;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                }
+                .sub-title {
+                    margin-bottom: 15px;
+                    padding: 0;
+                    color: #fff;
+                }
+            }
+        }
+    }
+    .goto-next-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px;
+        margin-top: auto;
+        img.goto-image {
+            width: 40px;
+        }
+    }
+    section {
+        h1, p {
+            line-height: initial !important;
+        }
+    }
+    .owl-carousel {
+        max-width: 320px;
+        .owl-nav {
+            display: flex;
+            position: absolute;
+            right: -20px;
+            flex-direction: column;
+            bottom: -30px;
+            .owl-next.disabled {
+                opacity: 0.5;
+            }
+            .owl-prev.disabled {
+                opacity: 0.5;
+            }
+            .owl-next {
+                float: right;
+                height: 20px;
+                font-size: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #f9bec9;
+                line-height: normal;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 600px) { 
+    ._brexitstyle .owl-carousel {
+        height: auto !important;
+    }
+} 
+@media (max-width: 600px) {
+    ._brexitstyle .owl-carousel .owl-nav {
+        bottom: -0px;
+    }
+} 
+@media (max-width: 991px) {
+    ._brexitstyle {
+        height: auto;
+    }
+}
+@media (max-width: 991px) {
+    ._brexitstyle .brexit-container {
+        height: auto;
+    }
+}
+@media (max-width: 991px) {
+    ._brexitstyle {
+        font-size: 14px;
+    }
+}
+@media (max-width: 991px) {
+    ._brexitstyle .podcasts-card {
+        height: auto;
+    }
+} 
+@media (max-width: 991px) {
+    ._brexitstyle .podcasts-card .pc-body .pcbodysecimg {
+        width: 60px !important;
+    }
+}
+@media (max-width: 600px) {
+    ._brexitstyle .podcasts-card .pc-body .pcbodysecimg {
+        margin-top: 5px !important;
+        margin-bottom: 5px !important;
+    }
+}
+@media (max-width: 991px) {
+    ._brexitstyle .podcasts-card .pc-body .pc-bodycaption {
+        padding: 15px 15px 00px 15px !important;
+        height: calc(100% - 70px) !important;
+    }
+}
+@media (max-width: 991px) {
+    ._brexitstyle .podcasts-card .pc-body .pc-bodycaption .title {
+        font-size: 18px;
+    }
+} 
+@media (max-width: 600px) {
+    ._brexitstyle .podcasts-card .btn-Podcasts {
+        font-size: 14px;
+    }
+}
+@media (max-width: 600px) {
+    ._brexitstyle .pc-body.Podcastslist {
+        height: calc(100% - 40px);
+        top: 40px;
+    }
+}
+@media (max-width: 991px) {
+    ._brexitstyle .pc-body.Podcastslist:before {
+        height: 50px;
+    }
+}
+@media (max-width: 991px) {
+    ._brexitstyle .pc-body.Podcastslist .title {
+        font-size: 16px;
+    }
+}
+@media (max-width: 991px) {
+    ._brexitstyle .pc-body.Podcastslist img.pcbodysecimg {
+        width: 40px;
+    }
+}
+@media (max-width: 600px) {
+    ._brexitstyle .brexit-list .brexit-listimage img {
+        width: 30px !important;
+    }
+}
+@media (max-width: 600px) {
+    ._brexitstyle .brexit-list .brexit-content .bl-title {
+        font-size: 12px !important;
+    }
+}
+@media (max-width: 600px) {
+    ._brexitstyle .brexit-list .brexit-content .sub-title {
+        font-size: 12px !important;
+        margin-bottom: 10px !important;
+    }
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    ._brexitstyle .podcastview {
+        display: block;
+    }
+    ._brexitstyle .podcasts-card {
+        display: block;
+    }
+    ._brexitstyle .podcasts-card .pc-body .pc-bodycaption {
+        display: block;
+    }
+    ._brexitstyle .brexit-list .brexit-content {
+        display: block;
+    }
+}
