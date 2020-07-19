@@ -2,18 +2,10 @@ var INFORMA = window.INFORMA || {};
 INFORMA.articleTileView = (function (window, $, namespace) {
     'use strict';
 
-    // $(".owl-carousel").owlCarousel({
-    //     loop: false,
-    //     autoplay: false,
-    //     items: 1,
-    //     nav: true,
-    //     autoplayHoverPause: true,
-    //     animateOut: 'slideOutDown',
-    //     animateIn: 'slideInUp',
-    //     margin: 10,
-    //     mouseDrag: false,
-    //     navText: ["<span class='fas fa-angle-up'></span>", "<span class='fas fa-angle-down'></span>"],
-    // });
+    $('.carousel-container').slick({
+        vertical: true,
+        verticalSwiping: true,
+    });
 
     $(".pc-body.Podcastslist #podcast-recoderbutton").click(function () {
         $(".podcast-recoder").hide();
@@ -38,7 +30,7 @@ INFORMA.articleTileView = (function (window, $, namespace) {
         $("._brexitstyle #Podcastslistboxthree").removeClass("demo");
     });
 
-    $("._brexitstyle .owl-carousel a.brexit-list").click(function () {
+    $("._brexitstyle .carousel-container a.brexit-list").click(function () {
         $(".podcast-recoder").show();
         $("._brexitstyle .carousel-section").hide();
     });
