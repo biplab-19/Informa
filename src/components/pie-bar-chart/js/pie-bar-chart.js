@@ -19,12 +19,13 @@ INFORMA.piebarchart = (function(window, $, namespace) {
 
     _getPieBarChartData = function(obj) {
         _dataSourceId = $(obj).data('source');
-	    _chartType = $(obj).data('chart-type');
-        INFORMA.DataLoader.GetServiceData(Urls.PieBarChartPageData +'?dataSourceId='+_dataSourceId + '&type='+_chartType, {
+        _chartType = $(obj).data('chart-type');
+        INFORMA.DataLoader.GetServiceData(Urls.PieBarChartPageData +'?dataSourceId='+_dataSourceId + '&type='+_chartType+'|'+Date.now(), {
             method: "GET",
             success_callback: function (data) {
                 _results = data;
                 _results["UniqueId"]= Date.now();
+                _results.Type = _results.Type.split('|')[0];
                 if( _results.Type == "bar") {
                     _results["Bar"] = true;
                 }
@@ -34,7 +35,7 @@ INFORMA.piebarchart = (function(window, $, namespace) {
                 _createPieBarChartSection(obj);
             },
             error_callback: function() {
-
+            
             }
         });
     }
