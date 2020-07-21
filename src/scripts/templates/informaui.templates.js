@@ -1579,6 +1579,36 @@ var INFORMA = window.INFORMA || {};
                                         '</div>'+
                                         '{{/compare}}'+
                                    '</div>',
+                'PieBarChartTemplate':  '{{#if Heading}}'+
+                                            '<p class="heading">'+
+                                                '{{Heading}}'+
+                                            '</p>'+
+                                        '{{/if}}'+
+                                        '{{#if Bar}}'+
+                                            '{{#if LargeImage}}'+
+                                                '<img src="{{LargeImage}}" alt="" class="lg-image hidden-xs" />'+
+                                            '{{/if}}'+
+                                        '{{/if}}'+
+                                        '{{#if FacetList}}'+
+                                            '<div class="row">'+
+                                                '<div class="col-md-12">'+
+                                                    '<div class="inf-pie-bar-chart-slider-section">'+
+                                                        '<div class="twitter-carousel pie-bar-chart-carousel">'+
+                                                            '{{#each FacetList}}'+
+                                                                '<div class="pie-bar-chart-col">'+
+                                                                    '<img src="{{Logo}}" alt="" class="icon" />'+
+                                                                    '<p class="heading">'+
+                                                                        '{{Title}}'+
+                                                                    '</p>'+
+                                                                    '<div id="{{Id}}{{../UniqueId}}" class="pie-bar-chart-container">'+
+                                                                    '</div>'+
+                                                                '</div>'+
+                                                            '{{/each}}'+
+                                                        '</div>'+
+                                                    '</div>'+
+                                                '</div>'+
+                                            '</div>'+
+                                        '{{/if}}',
                             'Specialist': '<div class="col-xs-12 col-sm-6 col-md-4">'+
                                                 '<div class="list-items">'+
                                                     '<div class="analyst-list-container {{results.Type}}">'+
