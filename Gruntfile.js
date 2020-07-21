@@ -130,7 +130,7 @@ module.exports = function(grunt) {
             prod: {
                 files: {
                     '<%= config.dist %>/unminified/Static/js/main.js': ['<%= config.tmp %>/Static/js/*.js','!<%= config.tmp %>/Static/js/analytics.js', '<%= config.tmp %>/Static/js/components/*.js'],
-                    '<%= config.dist %>/unminified/Static/js/vendor.js': ['bower_components/jquery/dist/jquery.min.js', 'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js', 'bower_components/slick-carousel/slick/slick.js', 'bower_components/handlebars/handlebars.js', 'bower_components/chosen/chosen.jquery.js', 'bower_components/bootstrap-multiselect/dist/js/bootstrap-multiselect.js', 'bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js', 'bower_components/jquery-validation/dist/jquery.validate.min.js', 'bower_components/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js', 'bower_components/moment/min/moment.min.js', 'bower_components/fullcalendar/dist/fullcalendar.min.js', 'bower_components/picturefill/src/picturefill.js', 'src/scripts/typed.min.js', 'bower_components/owl-carousel/lib/owl.carousel.min.js', 'bower_components/masonry-pkgd/lib/masonry.pkgd.js','bower_components/jquery-ui/jquery-ui.js'],
+                    '<%= config.dist %>/unminified/Static/js/vendor.js': ['bower_components/jquery/dist/jquery.min.js', 'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js', 'bower_components/slick-carousel/slick/slick.js', 'bower_components/handlebars/handlebars.js', 'bower_components/chosen/chosen.jquery.js', 'bower_components/bootstrap-multiselect/dist/js/bootstrap-multiselect.js', 'bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js', 'bower_components/jquery-validation/dist/jquery.validate.min.js', 'bower_components/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js', 'bower_components/moment/min/moment.min.js', 'bower_components/fullcalendar/dist/fullcalendar.min.js', 'bower_components/picturefill/src/picturefill.js', 'src/scripts/typed.min.js', 'bower_components/owl-carousel/lib/owl.carousel.min.js', 'bower_components/masonry-pkgd/lib/masonry.pkgd.js','bower_components/jquery-ui/jquery-ui.js','bower_components/wow/dist/wow.min.js'],
                     '<%= config.dist %>/unminified/Static/js/pdf.js': ['bower_components/pdf.js-viewer/pdf.js'],
                     '<%= config.dist %>/unminified/Static/js/pdf.worker.js': ['bower_components/pdf.js-viewer/pdf.worker.js'],
                     '<%= config.dist %>/unminified/Static/css/component.css': ['<%= config.tmp %>/Static/css/component.css'],
@@ -179,7 +179,8 @@ module.exports = function(grunt) {
                             'bower_components/picturefill/src/picturefill.js',
                             'src/scripts/typed.min.js',
                             'bower_components/pdf.js-viewer/pdf.js',
-                            'bower_components/pdf.js-viewer/pdf.worker.js'
+                            'bower_components/pdf.js-viewer/pdf.worker.js',
+                            'bower_components/wow/dist/wow.min.js'
                             
                           ],
                         dest: '<%= config.tmp %>'
