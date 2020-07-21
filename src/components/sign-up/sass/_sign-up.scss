@@ -1,0 +1,89 @@
+.inf-sign-up-box {
+    background-color: #ee456c;
+    width: 320px;
+    padding: 13px 20px 55px;
+    position: fixed;
+    right: 17px;
+    bottom: 100px;
+    text-align: center;
+    overflow: hidden;
+    z-index: 9;
+    img {
+        max-width: 100%;
+    }
+    p {
+        font-size: 26px;
+        color: #fff;
+        margin: 15px 0 0;
+    }
+    input[type=text] {
+        border: 0px;
+        background-color: #fff;
+        font-size: 15px;
+        padding: 3px 17px 5px;
+        margin: 8px 0 0;
+        width: 100%;
+        border-radius: 7px;
+        -webkit-border-radius: 7px;
+        -moz-border-radius: 7px;
+        float: left;
+        height: 35px;
+    }
+    button {
+        border: 0px;
+        background-color: #494a58;
+        color: #868c90;
+        font-size: 22px;
+        padding: 0px 13px 5px;
+        margin: 35px 0 0;
+        max-width: 100%;
+        border-radius: 7px;
+        -webkit-border-radius: 7px;
+        -moz-border-radius: 7px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    img.collapse-box {
+        position: absolute;
+        right: 12px;
+        bottom: 12px;
+        cursor: pointer;
+    }
+    @include mobile {
+        display: none;
+    }
+}
+
+.inf-sign-up-box-expand {
+    background-color: #ee456c;
+    width: 200px;
+    padding: 12px 12px 10px;
+    position: fixed;
+    right: 17px;
+    bottom: 17px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    cursor: pointer;
+    z-index: 9;
+    a {
+        background-color: #494a58;
+        color: #f7bdc6;
+        font-size: 19px;
+        padding: 0px 18px 5px;
+        max-width: 142px;
+        border-radius: 7px;
+        -webkit-border-radius: 7px;
+        -moz-border-radius: 7px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        display: inline-block;
+    }
+    img.expand-box {
+        position: absolute;
+        right: 12px;
+        bottom: 16px;
+    }
+}
