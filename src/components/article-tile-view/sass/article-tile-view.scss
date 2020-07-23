@@ -1,4 +1,3 @@
-
 ._brexitstyle {
     font-size: 14px;
     background-image: url(../images/brexit//brexit-bg1.jpg);
@@ -44,9 +43,6 @@
         padding: 0 15px 15px;
         height: calc(100% - 50px);
         z-index: 0;
-        // transition-property: all;
-        // transition-duration: 0.3s;
-        // transition-timing-function: ease;
         visibility: hidden;
         @include mobile {
             height: calc(100% - 40px);
@@ -93,13 +89,15 @@
                 font-size: 16px;
             }
         }
-        ul.bxul {
+        .bxul {
             padding: 0;
             margin: 0;
             list-style-type: none;
             height: 220px;
-            overflow: hidden;
-            li:last-child a.brexit-list {
+            @include mobile {
+                height:auto;
+            }
+            .slick-list .slick-slide:last-child .brexit-list {
                 margin-bottom: 0;
             }
         }
@@ -121,6 +119,7 @@
         align-items: flex-start;
         margin-bottom: 8px;
         background-color: #494a59;
+        cursor: pointer;
         .brexitplay {
             display: flex;
             color: #fff;
@@ -133,6 +132,8 @@
         }
         .brexit-listimage {
             margin-right: 10px;
+            width:45px;
+            float:left;
             img {
                 width: 35px;
                 @include mobile {
@@ -144,6 +145,7 @@
             display: flex;
             flex-direction: column;
             text-align: left;
+            width: calc(100% - 45px);
             .bl-title {
                 font-size: 14px !important;
                 margin: 0;
@@ -172,6 +174,10 @@
                     width: 100%;
                 }
             }
+           
+        }
+        .btn-Podcasts.podcast-recoderbutton {
+            margin-top:10px;
         }
     }
     .podcastview {
@@ -263,7 +269,7 @@
                 }
             }
             .pc-bodycaption {
-                padding: 15px 25px 0px 25px;
+                padding: 8px 25px 0px 8px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -319,6 +325,9 @@
         .slick-prev {
             left: 100%;
             top: 118%;
+            @include mobile {
+                top:135%;
+            }
         }
         .slick-prev::before {
             font-family: FontAwesome;
@@ -337,7 +346,7 @@
             top: 110%;
         }
     }
-     a.brexit-list .brexit-content .sub-title {
+     .brexit-list .brexit-content .sub-title {
         color: #fff !important;
         margin-bottom: 0 !important;
         @include bootstrap-mobile {
@@ -345,11 +354,17 @@
             margin-bottom: 10px !important;
         }
     }
-    ._brexitstyle a.brexit-list .brexit-content .bl-title {
+    ._brexitstyle .brexit-list .brexit-content .bl-title {
         color: #fff !important;
         @include bootstrap-mobile {
             font-size: 12px !important
         }
     }
+    .podcasts-card .podcast-recoder .btn-Podcasts.podcast-recoderbutton {
+       margin-top: 45px;
+    }
+    // .slick-slider .slick-list {
+    //     height:245px!important;
+    // }
 }
 
