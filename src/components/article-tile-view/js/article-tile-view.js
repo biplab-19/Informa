@@ -8,6 +8,7 @@ INFORMA.articleTileView = (function (window, $, namespace) {
     loop: false,
     slidesToShow: 3,
     slidesToScroll: 3,
+    arrows:false,
     responsive: [
      {
         breakpoint: 1300,
@@ -18,6 +19,13 @@ INFORMA.articleTileView = (function (window, $, namespace) {
       }
     ]
 
+  });
+
+  $('.prev-slide').click(function(){
+    $(this).parents(".carousel-section").find(".carousel-container").slick('slickPrev');
+  });
+  $('.next-slide').click(function(){
+    $(this).parents(".carousel-section").find(".carousel-container").slick('slickNext');
   });
 
   $(".pc-body.Podcastslist .podcast-recoderbutton").click(function () {
@@ -53,6 +61,7 @@ INFORMA.articleTileView = (function (window, $, namespace) {
           window.open(hiddenValue);
           $(this).parents(".carousel-section").siblings(".podcast-recoder").hide();
           $(this).parents(".carousel-section").show();
+          
           
           
         }
