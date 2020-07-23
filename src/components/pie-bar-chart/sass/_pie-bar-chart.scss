@@ -1,0 +1,168 @@
+.chart-background, .bar-chart-background {
+    background-color: #494a59;
+    padding-top: 50px;
+    padding-bottom: 75px;
+    @include mobile {
+        padding-bottom: 140px;
+    }
+}
+
+.inf-pie-bar-chart-section {
+    margin: 50px 0 0;
+    text-align: center;
+    p.heading {
+        font-size: 38px;
+        font-weight: 500;
+        color: #fff;
+        line-height: normal;
+        margin-bottom: 80px;
+        @include tablet {
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+        @include mobile {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+    }
+    img.lg-image {
+        max-width: 100%;
+        margin: 0 0 50px;
+    }
+    .inf-pie-bar-chart-slider-section {
+        .pie-bar-chart-carousel {
+            .slick-arrow {
+                background-color: #ab3192;
+                top: 110%;
+                width: 160px;
+                height: 45px;
+                @include tablet {
+                    width: 120px;
+                }
+                @include mobile {
+                    width: 80px;
+                }
+            }
+            .slick-arrow.slick-disabled {
+                opacity: 0.5;
+                filter: alpha(opacity=50);
+                cursor: not-allowed;
+            }
+            .slick-prev {
+                left: 50%;
+                margin-left: -160px;
+                background-image: url(../../Static/images/prev-arrow-chart-bar.png);
+                background-repeat: no-repeat;
+                background-position: center center;
+                border-radius: 10px 0 0 10px;
+                &:before {
+                    content: '';
+                    opacity: 1;
+                }
+                @include tablet {
+                    margin-left: -120px;
+                }
+                @include mobile {
+                    margin-left: -80px;
+                }
+            }
+            .slick-next {
+                right: 50%;
+                margin-right: -160px;
+                background-image: url(../../Static/images/next-arrow-chart-bar.png);
+                background-repeat: no-repeat;
+                background-position: center center;
+                border-radius: 0 10px 10px 0;
+                &:before {
+                    content: '';
+                    opacity: 1;
+                }
+                @include tablet {
+                    margin-right: -120px;
+                }
+                @include mobile {
+                    margin-right: -80px;
+                }
+            }
+            .slick-slide {
+                img {
+                    display: inline-block;
+                    cursor: pointer;
+                    max-width: 100%;
+                }
+            }
+            .slick-dots {
+                display:none !important;
+            }
+        }
+    }
+    .pie-bar-chart-col {
+        img.icon {
+            max-height: 90px;
+        }
+        p.heading {
+            font-size: 30px;
+            font-weight: 600;
+            color: #ee456c;
+            margin-top: 30px;
+            margin-bottom: 50px;
+            @include tablet {
+                font-size: 24px;
+                margin-bottom: 40px;
+                line-height: normal;
+            }
+            @include mobile {
+                font-size: 24px;
+                margin-bottom: 350px;
+                line-height: normal;
+            }
+        }
+        .pie-bar-chart-container {
+            width: 100%;
+            height: 350px;
+            @include tablet {
+                height: 355px;
+            }
+        }
+    }
+}
+
+.bar-chart-background {
+    .inf-pie-bar-chart-slider-section {
+        .pie-bar-chart-carousel {
+            .slick-track {
+                @include mobile {
+                    background-image: url(../../Static/images/static-map.png);
+                    background-repeat: no-repeat;
+                    background-position: left;
+                    background-size: contain;
+                }
+            }
+            .pie-bar-chart-col {
+                .pie-bar-chart-container {
+                    border-right: 1px solid #e3e3e5;
+                    @include mobile {
+                        border-right: none;
+                    }
+                    .amcharts-chart-div {
+                        svg {
+                            g {
+                                text[text-anchor=end] {
+                                    display: none;
+                                }
+                                path {
+                                    stroke-width: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+                &:last-child {
+                    .pie-bar-chart-container {
+                        border-right: none;
+                    }
+                }
+            }
+        }
+    }
+}
