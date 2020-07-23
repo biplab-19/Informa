@@ -94,6 +94,7 @@
             margin: 0;
             list-style-type: none;
             height: 220px;
+            width:100%;
             @include mobile {
                 height:auto;
             }
@@ -103,7 +104,7 @@
         }
         img.pcbodysecimg {
             width: 50px;
-            margin-bottom: 0px;
+            margin-bottom: 20px;
             position: relative;
             @include bootstrap-mobile {
                 width: 40px;
@@ -201,7 +202,7 @@
         }
         .btn-Podcasts {
             display: inline-block;            
-            margin-bottom: 25px;
+            margin-bottom: 10px;
             font-weight: bold;
             text-align: center;
             vertical-align: middle;
@@ -220,9 +221,11 @@
             user-select: none;
             width: fit-content;
             align-items: center;
-            margin-top: auto;
+            margin-top: 60px;
             @include mobile {
                 font-size: 14px;
+                margin-top:0px;
+                margin-bottom:50px;
             }
             &:after {
                 content: "";
@@ -364,29 +367,18 @@
     .podcasts-card .podcast-recoder .btn-Podcasts.podcast-recoderbutton {
        margin-top: 45px;
     }
-    .carouel-slide-button {
+    .carousel-slide-button {
         position: relative;
         left: 50%;
         top: -97px;
-        .next-slide {
-            
-            &::before {
-                content: "\f077";
-            }
-        }
         .carousel-slide {
             cursor: pointer;
-            &::before {
-                font-family: FontAwesome;
-                font-size: 22px;
-                color: #f9bec9;
-            }
+            font-size: 22px;
+            color: #f9bec9;
         }
         .prev-slide {
-            margin-top: -10px;
-            &::before {
-                content: "\f078";   
-            }
+            position: absolute;
+            top: 23px;
         }
     }
 }

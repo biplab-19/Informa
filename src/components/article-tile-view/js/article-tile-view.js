@@ -1,33 +1,43 @@
 var INFORMA = window.INFORMA || {};
 INFORMA.articleTileView = (function (window, $, namespace) {
   "use strict";
+  var _slidecount,
+      init,
+      nodecount;
   $(".carousel-container").slick({
-    vertical: true,
-    verticalSwiping: true,
-    infinite: false,
-    loop: false,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-    arrows:false,
-    responsive: [
-     {
-        breakpoint: 1300,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2
-        }
-      }
-    ]
-
+      vertical: true,
+      verticalSwiping: true,
+      infinite: false,
+      loop: false,
+      slidesToShow: 3,
+      slidesToScroll: 3,
+      arrows:false,
   });
 
   $('.prev-slide').click(function(){
-    $(this).parents(".carousel-section").find(".carousel-container").slick('slickPrev');
-  });
-  $('.next-slide').click(function(){
     $(this).parents(".carousel-section").find(".carousel-container").slick('slickNext');
   });
+  $('.next-slide').click(function(){
+    $(this).parents(".carousel-section").find(".carousel-container").slick('slickPrev');
+  });
 
+  _slidecount = function() {
+    $(".carousel-container").each(function(){
+      var nodecount = $(this).find(".slide-container").length;
+      
+      $(this).parents(".carousel-section").find(".carousel-slide-button").show();
+      if(nodecount <= 3) {
+        $(this).parents(".carousel-section").find(".carousel-slide-button").hide();
+      }
+      else {
+        $(this).parents(".carousel-section").find(".carousel-slide-button").show();
+      }
+    });
+  }
+  
+
+
+  
   $(".pc-body.Podcastslist .podcast-recoderbutton").click(function () {
    $(this).parent(".podcast-recoder").hide();
    $(this).parent(".podcast-recoder").siblings(".carousel-section").show();
@@ -75,7 +85,11 @@ INFORMA.articleTileView = (function (window, $, namespace) {
       }
     }
   });
-
-
+  init = function() {
+    _slidecount();
+  }
+  return {
+    init: init
+  };
 })(this, ($INFORMA = jQuery.noConflict()), "INFORMA");
-
+jQuery(INFORMA.articleTileView.init());
