@@ -65,8 +65,13 @@ INFORMA.piebarchart = (function(window, $, namespace) {
                 "hideCredits":"true",
                 "labelTickAlpha": "0",
                 "labelText": "[[title]]\n[[value]]",
-                "labelFunction": function(value, category, graphs) {
-                    return category.replace(" ","\n") + "\n";
+                "labelFunction": function (category) {
+                    var title = category.title;
+                    var value = category.value;
+                    if(title.length > 10) {
+                        title = title.substring(0,10) + '...';
+                    }
+                    return title +"\n"+ value;
                 },
                 "theme": "light",
                 "fontSize": 12,
