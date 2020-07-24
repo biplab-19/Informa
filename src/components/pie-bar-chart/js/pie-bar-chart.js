@@ -64,12 +64,13 @@ INFORMA.piebarchart = (function(window, $, namespace) {
                 "type": "pie",
                 "hideCredits":"true",
                 "labelTickAlpha": "0",
-                "labelText": "[[title]]\n[[value]]",
+                "labelText": "[[title]]\n",
                 "labelFunction": function (category) {
                     var title = category.title;
+                    title = title.replace(" ","\n") + "\n";
                     var value = category.value;
-                    if(title.length > 10) {
-                        title = title.substring(0,10) + '...';
+                    if(title.length > 15) {
+                        title = title.substring(0,15) + '...';
                     }
                     return title +"\n"+ value;
                 },
