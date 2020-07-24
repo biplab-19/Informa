@@ -32,6 +32,7 @@ INFORMA.worldchart = (function(window, $, namespace) {
             "dataProvider": {
                 "map": "worldLow",
                 "getAreasFromMap": false,
+                zoomLevel: mobileZoom().Zoom,
 
                 "areas": [{
                     "title": "Austria",
@@ -144,48 +145,48 @@ INFORMA.worldchart = (function(window, $, namespace) {
                         "latitude": 50.8371,
                         "longitude": 4.3676,
                         "imageURL": "../../Static/images/star.svg",
-                        "width": 16,
-                        "height": 16,
+                        "width": mobileZoom().Width,
+                        "height": mobileZoom().Height,
                         "title": "2",
                         "balloonText": false
                     }, {
                         "latitude": 55.6763,
                         "longitude": 12.5681,
                         "imageURL": "../../Static/images/star.svg",
-                        "width": 16,
-                        "height": 16,
+                        "width": mobileZoom().Width,
+                        "height": mobileZoom().Height,
                         "title": "3",
                         "balloonText": false
                     }, {
                         "latitude": 40.712775,
                         "longitude": -74.005973,
                         "imageURL": "../../Static/images/star.svg",
-                        "width": 16,
-                        "height": 16,
+                        "width": mobileZoom().Width,
+                        "height": mobileZoom().Height,
                         "title": "4",
                         "balloonText": false
                     }, {
                         "latitude": 41.872389,
                         "longitude": 12.480180,
                         "imageURL": "../../Static/images/star.svg",
-                        "width": 16,
-                        "height": 16,
+                        "width": mobileZoom().Width,
+                        "height": mobileZoom().Height,
                         "title": "5",
                         "balloonText": false
                     }, {
                         "latitude": 51.507351,
                         "longitude": -0.127758,
                         "imageURL": "../../Static/images/star.svg",
-                        "width": 16,
-                        "height": 16,
+                        "width": mobileZoom().Width,
+                        "height": mobileZoom().Height,
                         "title": "6",
                         "balloonText": false
                     }, {
                         "latitude": 59.329323,
                         "longitude": 18.068581,
                         "imageURL": "../../Static/images/star.svg",
-                        "width": 16,
-                        "height": 16,
+                        "width": mobileZoom().Width,
+                        "height": mobileZoom().Height,
                         "title": "8",
                         "balloonText": false
                     }, {
@@ -253,9 +254,9 @@ INFORMA.worldchart = (function(window, $, namespace) {
                 "cornerRadius": 6,
                 "fillColor": "#ab3192",
                 "fillAlpha": "1",
-                "fixedPosition": false,
-                "horizontalPadding": 60,
-                "maxWidth": 300,
+                "fixedPosition": true,
+                "horizontalPadding": mobileZoom().balloonHorizontalPadding,
+                "maxWidth": mobileZoom().balloonMaxwidth,
                 "pointerWidth": 0,
                 "shadowAlpha": 0,
                 "textAlign": "middle",
@@ -269,6 +270,27 @@ INFORMA.worldchart = (function(window, $, namespace) {
                 }
             }]
         });
+
+        function mobileZoom() {
+            var obj = {
+                Width: 16,
+                Height: 16,
+                balloonHorizontalPadding: 60,
+                balloonMaxwidth: 300,
+                Zoom: 1
+            }
+            var currentWidth = window.screen.width;
+            if (currentWidth >= 320 && currentWidth < 767) {
+                obj.Width = 8;
+                obj.Height = 8;
+                obj.balloonHorizontalPadding = 20;
+                obj.balloonMaxwidth = 100;
+                obj.Zoom = 2;
+
+            return obj;
+            }
+            return obj;
+        }
     }
 
     _worldChartBoxExpand = function() {
@@ -283,7 +305,7 @@ INFORMA.worldchart = (function(window, $, namespace) {
             } else {
                 $(this).removeClass("zoom-in zoom-out");
                 $(this).addClass("zoom-out");
-                $(".amcharts-main-div").css({"zoom":"1.5"});
+                //$(".amcharts-main-div").css({"zoom":"1.5"});
                 $(".move-image-container").show();
             }
         });

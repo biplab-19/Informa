@@ -56,6 +56,9 @@
                 font-size: 14px;
                 font-weight: 700;
                 color: #fff;
+                @include mobile {
+                    font-size: 12px;
+                }
             }
             svg g[transform="translate(10,10)"] {
                 display: none;
