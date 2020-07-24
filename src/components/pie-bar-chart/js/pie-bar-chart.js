@@ -62,6 +62,7 @@ INFORMA.piebarchart = (function(window, $, namespace) {
             var facet = _results.FacetList.filter(facet=>facet.Id+_results.UniqueId == pieId);
             var chart = AmCharts.makeChart(pieId, {
                 "type": "pie",
+                "hideCredits":"true",
                 "labelTickAlpha": "0",
                 "labelText": "[[title]]\n[[value]]",
                 "labelFunction": function(value, category, graphs) {
@@ -93,6 +94,7 @@ INFORMA.piebarchart = (function(window, $, namespace) {
             var facet = _results.FacetList.filter(facet=>facet.Id+_results.UniqueId == barChartId);
             var chart = AmCharts.makeChart(barChartId, {
                 "type": "serial",
+                "hideCredits": "true",
                 "theme": "none",
                 "marginRight": 70,
                 "fontSize": 10,
