@@ -138,6 +138,7 @@ module.exports = function(grunt) {
                     '<%= config.dist %>/unminified/Static/js/light.js': ['src/scripts/amcharts/light.js'],
                     '<%= config.dist %>/unminified/Static/js/pie.js': ['src/scripts/amcharts/pie.js'],
                     '<%= config.dist %>/unminified/Static/js/serial.js': ['src/scripts/amcharts/serial.js'],
+                    '<%= config.dist %>/unminified/Static/js/wow.min.js': ['src/scripts/animation/wow.min.js'],
                     '<%= config.dist %>/unminified/Static/css/component.css': ['<%= config.tmp %>/Static/css/component.css'],
                     '<%= config.dist %>/unminified/Static/css/global.css': ['<%= config.tmp %>/Static/css/global.css'],
                     '<%= config.dist %>/unminified/Static/css/agri-theme.css': ['<%= config.tmp %>/Static/css/agri-theme.css'],
