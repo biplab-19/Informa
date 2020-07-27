@@ -1,55 +1,60 @@
 var INFORMA = window.INFORMA || {};
-INFORMA.videoFull = (function(window, $, namespace) {
+INFORMA.videoFull = (function (window, $, namespace) {
     'use strict';
     //variables
-    var _videoFullWrapper = $('.video-full-container .video-img'),
-        _videoPlayBtnWrapper = $('.video-full-container .play-icon'),
-        video,
+    var _videoWrapper = $(".video-full-container .video-img,.video-full-container .play-icon,.video-full-container h1"),
+        thumbnailImage = "cms-images/video-img/video-thumb-default.png",
         // methods
         init,
-        _playFullVideoWrapper,
-        _playFullVideoBtnWrapper;
+        video,
+        _playFullVideo;
 
-    _playFullVideoBtnWrapper = function() {
-        _videoPlayBtnWrapper.click(function() {
-            var videoImg = $(this).parent().find('img');
-            if (videoImg.attr('data-videotype') == "youtube") {
-                video = '<iframe width="100%" src="' +  videoImg.attr('data-videourl') + '?autoplay=1&rel=0" frameborder="0" allowfullscreen></iframe>';
-            } else if (videoImg .attr('data-videotype') == "vimeo") {
-                video = '<iframe width="100%" src="' +  videoImg.attr('data-videourl') + '?autoplay=1" frameborder="0" allowfullscreen></iframe>';
-            } else if (videoImg.attr('data-videotype') == "wistia") {
-                video = '<iframe width="100%" src="' +  videoImg.attr('data-videourl') + '?autoPlay=true" frameborder="0" allowfullscreen></iframe>';
+    _playFullVideo = function () {
+        _videoWrapper.click(function (ele) {
+            console.log(ele.target.localName);
+            var videoImg = $(this).parent().find('img'),
+                videoType = videoImg.attr('data-videotype'),
+                videoUrl = videoImg.attr('data-videourl'),
+                videoAutoplay = videoImg.attr('data-videoautoplay'),
+                videoControl = videoImg.attr('data-videocontrol'),
+                videoMuted = videoImg.attr('data-videomuted');
+
+
+            if (videoAutoplay == "" || videoAutoplay == undefined) {
+                videoAutoplay = 0;
+            }
+            if (videoControl == "" || videoControl == undefined) {
+                videoControl = 0;
+            }
+            if (videoMuted == "" || videoMuted == undefined) {
+                videoMuted = 0;
+            }
+            switch (videoType) {
+                case "youtube":
+                    video = '<iframe id="existing-iframe-example"  width="100%" src="' + videoUrl + '?autoplay=' + videoAutoplay + '&controls=' + videoControl + '&muted=' + videoMuted + '" frameborder="0" allowfullscreen allow="autoplay" ></iframe>';
+                    break;
+                case "vimeo":
+                    video = '<iframe width="100%" id="made-in-ny" src="' + videoUrl + '?autoplay=' + videoAutoplay + '&controls=' + videoControl + '&muted=' + videoMuted + '" frameborder="0" allowfullscreen></iframe>';
+                    break;
+                case "wistia":
+                    video = '<iframe width="100%" height="' + videoImg.attr('height') + '" src="' + videoUrl + '?autoPlay=true" frameborder="0" allowfullscreen></iframe>';
+                    break;
+                default:
+                    video = '<iframe  width="100%" src="' + videoUrl + '?autoplay=' + videoAutoplay + '&controls=' + videoControl + '&muted=' + videoMuted + '" frameborder="0" allowfullscreen allow="autoplay" ></iframe>';
             }
             videoImg.replaceWith(video);
-            $(this).remove();
+            ele.target.remove();
         });
     }
+    $(".embed-responsive").each(function () {
+        var thumbnail = $(this).find("img").attr("src");
+        if (thumbnail == "" || thumbnail == undefined) {
+            $(this).find("img").attr("src", thumbnailImage);
+        }
+    });
 
-    _playFullVideoWrapper = function() {
-        _videoFullWrapper.click(function() {
-
-            if ($(this).attr('data-videotype') == "youtube") {
-                video = '<iframe width="100%" height="' + $(this).attr('height') + '" src="' + $(this).attr('data-videourl') + '?autoplay=1&rel=0" frameborder="0" allowfullscreen></iframe>';
-            } else if ($(this).attr('data-videotype') == "vimeo") {
-                video = '<iframe width="100%" height="' + $(this).attr('height') + '" src="' + $(this).attr('data-videourl') + '?autoplay=1" frameborder="0" allowfullscreen></iframe>';
-            } else if ($(this).attr('data-videotype') == "wistia") {
-                video = '<iframe width="100%" height="' + $(this).attr('height') + '" src="' + $(this).attr('data-videourl') + '?autoPlay=true" frameborder="0" allowfullscreen></iframe>';
-            }
-            $(this).replaceWith(video);
-            function onYouTubePlayerAPIReady() {
-               var player = new YT.Player('video', {
-                  autoplay: 1
-                });
-            }
-            $('.play-icon').remove();
-        });
-
-
-    }
-
-    init = function() {
-        _playFullVideoWrapper();
-        _playFullVideoBtnWrapper();
+    init = function () {
+        _playFullVideo();
     };
 
     return {
