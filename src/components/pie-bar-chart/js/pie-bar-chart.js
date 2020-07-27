@@ -62,10 +62,17 @@ INFORMA.piebarchart = (function(window, $, namespace) {
             var facet = _results.FacetList.filter(facet=>facet.Id+_results.UniqueId == pieId);
             var chart = AmCharts.makeChart(pieId, {
                 "type": "pie",
+                "hideCredits":"true",
                 "labelTickAlpha": "0",
-                "labelText": "[[title]]\n[[value]]",
-                "labelFunction": function(value, category, graphs) {
-                    return category.replace(" ","\n") + "\n";
+                "labelText": "[[title]]\n",
+                "labelFunction": function (category) {
+                    var title = category.title;
+                    title = title.replace(" ","\n") + "\n";
+                    var value = category.value;
+                    if(title.length > 15) {
+                        title = title.substring(0,15) + '...';
+                    }
+                    return title +"\n"+ value;
                 },
                 "theme": "light",
                 "fontSize": 12,
@@ -93,6 +100,7 @@ INFORMA.piebarchart = (function(window, $, namespace) {
             var facet = _results.FacetList.filter(facet=>facet.Id+_results.UniqueId == barChartId);
             var chart = AmCharts.makeChart(barChartId, {
                 "type": "serial",
+                "hideCredits": "true",
                 "theme": "none",
                 "marginRight": 70,
                 "fontSize": 10,
