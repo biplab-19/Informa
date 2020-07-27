@@ -7,6 +7,7 @@ INFORMA.worldchart = (function(window, $, namespace) {
         _getWorldChartData,
         _results,
         _createWorldChart,
+        _map,
         _worldChartBoxExpand,
         _worldChartBoxMove,
         _moveImage = 0;
@@ -25,7 +26,7 @@ INFORMA.worldchart = (function(window, $, namespace) {
     //}
 
     _createWorldChart = function() {
-        var map = AmCharts.makeChart("inf-world-chart-wrapper", {
+        _map = AmCharts.makeChart("inf-world-chart-wrapper", {
             "type": "map",
             "projection": "miller",
 
@@ -285,7 +286,7 @@ INFORMA.worldchart = (function(window, $, namespace) {
                 obj.Height = 8;
                 obj.balloonHorizontalPadding = 20;
                 obj.balloonMaxwidth = 100;
-                obj.Zoom = 2;
+                obj.Zoom = 1;
 
             return obj;
             }
@@ -299,13 +300,13 @@ INFORMA.worldchart = (function(window, $, namespace) {
             if(isZoomOut) {
                 $(this).removeClass("zoom-out zoom-in");
                 $(this).addClass("zoom-in");
-                $(".amcharts-main-div").css({"zoom":"1"});
+                _map.zoomOut();
                 $(".move-image-container").hide();
-                $(".amcharts-main-div").css({"margin-left":"0px"})
+                $(".amcharts-main-div").css({"margin-left":"0px"});
             } else {
                 $(this).removeClass("zoom-in zoom-out");
                 $(this).addClass("zoom-out");
-                //$(".amcharts-main-div").css({"zoom":"1.5"});
+                _map.zoomIn();
                 $(".move-image-container").show();
             }
         });
