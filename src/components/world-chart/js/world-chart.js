@@ -229,7 +229,7 @@ INFORMA.worldchart = (function(window, $, namespace) {
             },
             
             "areasSettings": {
-                "autoZoom": true,
+                "autoZoom": false,
                 "outlineThickness": "0.1",
                 "adjustOutlineThickness": true,
                 "unlistedAreasColor": "#d9d7e3",
