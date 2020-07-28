@@ -108,6 +108,7 @@ INFORMA.worldchart = (function(window, $, namespace) {
         _map = AmCharts.makeChart("inf-world-chart-wrapper", {
             "type": "map",
             "hideCredits": "true",
+            "zoomOnDoubleClick": false,
             "projection": "miller",
 
             "dataProvider": {
@@ -271,7 +272,7 @@ INFORMA.worldchart = (function(window, $, namespace) {
                 obj.Width = 8;
                 obj.Height = 8;
                 obj.balloonHorizontalPadding = 20;
-                obj.balloonMaxwidth = 100;
+                obj.balloonMaxwidth = 140;
                 obj.Zoom = 1;
 
             return obj;
