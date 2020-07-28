@@ -9,9 +9,16 @@
 <script src="Static/js/informaui.analytics.js"></script>
 <script src="Static/js/informaui.templates.js"></script>
 <script src="Static/js/informaui.int.js"></script>
+
 <!-- endbuild -->
 <script src="https://player.vimeo.com/api/player.js"></script>
 <!-- build:js Static/js/components.js -->
+<script src="Static/js/amcharts.js"></script>
+<script src="Static/js/pie.js"></script>
+<script src="Static/js/animate.min.js"></script>
+<script src="Static/js/light.js"></script>
+<script src="Static/js/serial.js"></script>
+<script src="Static/js/wow.min.js"></script>
 <script src="Static/js/components/cookie.js"></script>
 <script src="Static/js/components/global_header.js"></script>
 <script src="Static/js/components/feature-list.js"></script>
@@ -47,6 +54,9 @@
 <script src="Static/js/components/pharma-home-ourProducts.js"></script>
 <script src="Static/js/components/recomended-content.js"></script>
 <script src="Static/js/components/dashboard-preference.js"></script>
+<script src="Static/js/components/pie-bar-chart.js"></script>
+<script src="Static/js/components/sign-up.js"></script>
+<script src="Static/js/components/animation.js"></script>
 
 <script src="Static/js/components/googleAnalytics.js"></script>
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
@@ -73,34 +83,29 @@ var addthis_config = addthis_config||{};
 <script src="Static/js/components/newco-header.js"></script>
 
 <script>
-    
     function onYouTubeIframeAPIReady() {
         setTimeout(function(){
-            debugger;
             var isvideo=$(".embed-responsive").hasClass("isvideo");
             if(isvideo){
-        var id =$(".isvideo").attr("data-id"),
-            volume =$(".isvideo").attr("data-volume"),
-            player,
-            player = new YT.Player(id, {
-                events: {
-                    onReady: function(e) {
-                        e.target.setVolume(volume);
-                    },
-                }
-            });
+                var id = $(".isvideo").attr("data-id"),
+                volume = $(".isvideo").attr("data-volume"),
+                player,
+                player = new YT.Player(id, {
+                    events: {
+                        onReady: function(e) {
+                            e.target.setVolume(volume);
+                        },
+                    }
+                });
             }
-       
         },100);
-        
     }
-
-
 </script>
 
 
 
 
+  
 
 
 
