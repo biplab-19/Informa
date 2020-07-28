@@ -10,7 +10,7 @@
 <script src="Static/js/informaui.templates.js"></script>
 <script src="Static/js/informaui.int.js"></script>
 <!-- endbuild -->
-
+<script src="https://player.vimeo.com/api/player.js"></script>
 <!-- build:js Static/js/components.js -->
 <script src="Static/js/components/cookie.js"></script>
 <script src="Static/js/components/global_header.js"></script>
@@ -71,6 +71,33 @@ var addthis_config = addthis_config||{};
 <script src="Static/js/components/article-headlines.js"></script>
 <script src="Static/js/components/article-searchlisting.js"></script>
 <script src="Static/js/components/newco-header.js"></script>
+
+<script>
+    
+    function onYouTubeIframeAPIReady() {
+        setTimeout(function(){
+            debugger;
+            var isvideo=$(".embed-responsive").hasClass("isvideo");
+            if(isvideo){
+        var id =$(".isvideo").attr("data-id"),
+            volume =$(".isvideo").attr("data-volume"),
+            player,
+            player = new YT.Player(id, {
+                events: {
+                    onReady: function(e) {
+                        e.target.setVolume(volume);
+                    },
+                }
+            });
+            }
+       
+        },100);
+        
+    }
+
+
+</script>
+
 
 
 

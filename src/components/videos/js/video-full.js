@@ -4,7 +4,9 @@ INFORMA.videoFull = (function (window, $, namespace) {
     //variables
     var _videoWrapper = $(".video-full-container .video-img,.video-full-container .play-icon,.video-full-container h1"),
         thumbnailImage = "cms-images/video-img/video-thumb-default.png",
+        isMute,
         // methods
+        vimeoIframeAPIReady,
         init,
         video,
         _playFullVideo;
@@ -17,44 +19,130 @@ INFORMA.videoFull = (function (window, $, namespace) {
                 videoUrl = videoImg.attr('data-videourl'),
                 videoAutoplay = videoImg.attr('data-videoautoplay'),
                 videoControl = videoImg.attr('data-videocontrol'),
-                videoMuted = videoImg.attr('data-videomuted');
-
-
-            if (videoAutoplay == "" || videoAutoplay == undefined) {
-                videoAutoplay = 0;
-            }
-            if (videoControl == "" || videoControl == undefined) {
-                videoControl = 0;
-            }
-            if (videoMuted == "" || videoMuted == undefined) {
-                videoMuted = 0;
-            }
-            switch (videoType) {
-                case "youtube":
-                    video = '<iframe id="existing-iframe-example"  width="100%" src="' + videoUrl + '?autoplay=' + videoAutoplay + '&controls=' + videoControl + '&muted=' + videoMuted + '" frameborder="0" allowfullscreen allow="autoplay" ></iframe>';
-                    break;
-                case "vimeo":
-                    video = '<iframe width="100%" id="made-in-ny" src="' + videoUrl + '?autoplay=' + videoAutoplay + '&controls=' + videoControl + '&muted=' + videoMuted + '" frameborder="0" allowfullscreen></iframe>';
-                    break;
-                case "wistia":
-                    video = '<iframe width="100%" height="' + videoImg.attr('height') + '" src="' + videoUrl + '?autoPlay=true" frameborder="0" allowfullscreen></iframe>';
-                    break;
-                default:
-                    video = '<iframe  width="100%" src="' + videoUrl + '?autoplay=' + videoAutoplay + '&controls=' + videoControl + '&muted=' + videoMuted + '" frameborder="0" allowfullscreen allow="autoplay" ></iframe>';
-            }
-            videoImg.replaceWith(video);
-            ele.target.remove();
+                videovolume = videoImg.attr('data-volume'),
+                videoid = videoImg.attr("id");
+                
+                if(videoAutoplay=="false") {
+                    videoAutoplay = 1;
+                    switch(videoControl) {
+                        case "true":
+                            videoControl = 1;
+                            break;
+                        case "false":
+                            videoControl = 0 ;
+                            break;
+                        default:
+                            videoControl = 0 ;
+                            break;   
+    
+                    }
+                    switch (videoType) {
+                        case "youtube":
+                            video = '<iframe id=' + videoid + '  width="100%" src="' + videoUrl + '?enablejsapi=1&autoplay=' + videoAutoplay + '&controls=' + videoControl + ' " frameborder="0" allowfullscreen allow="autoplay" ></iframe>';
+                            break;
+                        case "vimeo":
+                            video = '<iframe id=' + videoid + ' width="100%"  src="' + videoUrl + '?api=1&player_id=vmplayer&autoplay=' + videoAutoplay + '&controls=' + videoControl + '" frameborder="0" allow="autoplay" allowfullscreen></iframe>';
+                            break;
+                        case "wistia":
+                            video = '<iframe id=' + videoid + ' width="100%" height="' + videoImg.attr('height') + '" src="' + videoUrl + '?autoPlay=true" frameborder="0" allowfullscreen></iframe>';
+                            break;
+                        default:
+                            video = '<iframe id=' + videoid + ' width="100%" src="' + videoUrl + '?enablejsapi=1&autoplay=' + videoAutoplay + '&controls=' + videoControl +' " frameborder="0" allowfullscreen allow="autoplay" ></iframe>';
+                            break;
+                    }
+                    
+                    videoImg.replaceWith(video);
+                    if(videoType == "youtube" || videoType == " " || videoType == undefined){
+                        console.log("hi new line");
+                        var tag = document.createElement("script");
+                        tag.src = "https://www.youtube.com/iframe_api";
+                        var firstScriptTag = document.getElementsByTagName("script")[0];
+                        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+                        onYouTubeIframeAPIReady(videoid,videovolume);
+                    }
+                    if(videoType == "vimeo"){
+                        vimeoIframeAPIReady(videoid,videovolume/100);
+                    }
+                    ele.target.remove();
+                }
+ 
         });
     }
-    $(".embed-responsive").each(function () {
-        var thumbnail = $(this).find("img").attr("src");
-        if (thumbnail == "" || thumbnail == undefined) {
-            $(this).find("img").attr("src", thumbnailImage);
-        }
+    $(".embed-responsive img").each (function(){
+        var thumbnail = $(this).attr("src"),
+            videoType = $(this).attr('data-videotype'),
+            videoUrl = $(this).attr('data-videourl'),
+            videoAutoplay = $(this).attr('data-videoautoplay'),
+            videoControl = $(this).attr('data-videocontrol'),
+            videovolume = $(this).attr('data-volume'),
+            videoid = $(this).attr("id");
+            if (thumbnail == "" || thumbnail == undefined) {
+                $(this).attr("src", thumbnailImage);
+            }
+            $(this).parent(".embed-responsive").attr("data-id",videoid);
+            $(this).parent(".embed-responsive").attr("data-volume",videovolume);
+            $(this).parent(".embed-responsive").addClass("isvideo");
+            if(videoAutoplay=="true") {
+                videoAutoplay = 1;
+                switch(videoControl) {
+                    case "true":
+                        videoControl = 1;
+                        break;
+                    case "false":
+                        videoControl = 0 ;
+                        break;
+                    default:
+                        videoControl = 0 ;
+                        break;   
+        
+                }
+                switch (videoType) {
+                    case "youtube":
+                        video = '<iframe id=' + videoid + '  width="100%" src="' + videoUrl + '?enablejsapi=1&autoplay=' + videoAutoplay + '&controls=' + videoControl + ' " frameborder="0" allowfullscreen allow="autoplay" ></iframe>';
+                        break;
+                    case "vimeo":
+                        video = '<iframe id=' + videoid + ' width="100%"  src="' + videoUrl + '?api=1&player_id=vmplayer&autoplay=' + videoAutoplay + '&controls=' + videoControl + '" frameborder="0" allow="autoplay" allowfullscreen></iframe>';
+                        break;
+                    case "wistia":
+                        video = '<iframe id=' + videoid + ' width="100%" height="' + videoImg.attr('height') + '" src="' + videoUrl + '?autoPlay=true" frameborder="0" allowfullscreen></iframe>';
+                        break;
+                    default:
+                        video = '<iframe id=' + videoid + ' width="100%" src="' + videoUrl + '?enablejsapi=1&autoplay=' + videoAutoplay + '&controls=' + videoControl +' " frameborder="0" allowfullscreen allow="autoplay" ></iframe>';
+                        break;
+                }
+                
+                $(this).replaceWith(video);
+                if(videoType == "youtube" || videoType == " " || videoType == undefined) {
+                    var tag = document.createElement("script");
+                    tag.src = "https://www.youtube.com/iframe_api";
+                    var firstScriptTag = document.getElementsByTagName("script")[0];
+                    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+                    
+                }
+                if(videoType == "vimeo"){
+                    debugger;
+                    var tag = document.createElement("script");
+                    tag.src = "https://player.vimeo.com/api/player.js";
+                    var firstScriptTag = document.getElementsByTagName("script")[0];
+                    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+                    vimeoIframeAPIReady(videoid,videovolume/100);
+                }
+            }
     });
+    function vimeoIframeAPIReady(id,volume){
+       
+        var video = document.getElementById(id);
+            //Create a new Vimeo.Player object
+            var player = new Vimeo.Player(video);
+            //When the player is ready, set the volume to 0
+            player.ready().then(function() {
+                player.setVolume(volume);
+            });
+    }
 
     init = function () {
         _playFullVideo();
+
     };
 
     return {
@@ -62,3 +150,5 @@ INFORMA.videoFull = (function (window, $, namespace) {
     };
 }(this, jQuery, 'INFORMA'));
 jQuery(INFORMA.videoFull.init());
+
+

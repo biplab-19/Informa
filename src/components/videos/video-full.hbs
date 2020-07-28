@@ -1,17 +1,19 @@
 <div class="informa-full-video-component mobile-aspectratio">
   {{#each videos}}
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-12 text-center">
-                <div class="video-full-container">
-                  <div class="embed-responsive embed-responsive-16by9 hide-controls" >
-                        <img src="{{thumbnail}}" data-videotype="{{type}}" data-videourl="{{url}}" alt="{{details}}" data-videocontrol="{{playercontrol}}" data-videoautoplay="{{playerautoplay}}" data-videomuted = "{{playermuted}}" width="100%" class="video-img img-responsive" />
-                        <span class="play-icon"></span>
-                        <h1>{{title}}</h1>
-                  </div>
-                </div>
-            </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <div class="video-full-container">
+          <div class="embed-responsive embed-responsive-16by9 hide-controls">
+            <img id="{{id}}" src="{{thumbnail}}" data-videotype="{{type}}" data-videourl="{{url}}" alt="{{details}}"
+              data-videocontrol="{{playercontrol}}" data-videoautoplay="{{playerautoplay}}" data-volume="{{playervolume}}"
+               width="100%" class="video-img img-responsive" />
+            <span class="play-icon"></span>
+            <h1>{{title}}</h1>
+          </div>
         </div>
+      </div>
     </div>
-    {{/each}}
+  </div>
+  {{/each}}
 </div>
