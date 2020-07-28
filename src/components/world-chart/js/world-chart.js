@@ -31,52 +31,52 @@ INFORMA.worldchart = (function(window, $, namespace) {
         var starWithDots = [];
         var facet = _results.ItemList;
         var star = [{
-                "latitude": 50.8371,
-                "longitude": 4.3676,
+                "latitude": 59.334591,
+                "longitude": 18.063240,
                 "imageURL": "../../Static/images/star.svg",
                 "width": mobileZoom().Width,
                 "height": mobileZoom().Height,
-                "title": "2",
+                "title": "sweden",
                 "balloonText": false
             }, {
-                "latitude": 55.6763,
-                "longitude": 12.5681,
+                "latitude": 52.237049,
+                "longitude": 21.017532,
                 "imageURL": "../../Static/images/star.svg",
                 "width": mobileZoom().Width,
                 "height": mobileZoom().Height,
-                "title": "3",
+                "title": "poland",
                 "balloonText": false
             }, {
-                "latitude": 40.712775,
-                "longitude": -74.005973,
+                "latitude": 48.210033,
+                "longitude": 16.363449,
                 "imageURL": "../../Static/images/star.svg",
                 "width": mobileZoom().Width,
                 "height": mobileZoom().Height,
-                "title": "4",
+                "title": "austria",
                 "balloonText": false
             }, {
-                "latitude": 41.872389,
-                "longitude": 12.480180,
+                "latitude": 41.902782,
+                "longitude": 12.496366,
                 "imageURL": "../../Static/images/star.svg",
                 "width": mobileZoom().Width,
                 "height": mobileZoom().Height,
-                "title": "5",
+                "title": "italy",
                 "balloonText": false
             }, {
-                "latitude": 51.507351,
-                "longitude": -0.127758,
+                "latitude": 48.864716,
+                "longitude": 2.349014,
                 "imageURL": "../../Static/images/star.svg",
                 "width": mobileZoom().Width,
                 "height": mobileZoom().Height,
-                "title": "6",
+                "title": "france",
                 "balloonText": false
             }, {
-                "latitude": 59.329323,
-                "longitude": 18.068581,
+                "latitude": 53.350140,
+                "longitude": -6.266155,
                 "imageURL": "../../Static/images/star.svg",
                 "width": mobileZoom().Width,
                 "height": mobileZoom().Height,
-                "title": "8",
+                "title": "ireland",
                 "balloonText": false
             }, 
         ];
