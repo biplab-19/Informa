@@ -32,6 +32,9 @@ function getDataAttributes(el) {
     case "zoomout":
       animationType = "zoomOut";
       break;
+    case "shake":
+      animationType = "shake";
+      break;
     case "left":
       animationDirection = "Left";
       break;
@@ -92,6 +95,9 @@ function animationEffect(attributeValue, attributeName) {
           break;
         case "zoomout":
           animationType = "zoomOut" ;
+          break;
+        case "shake":
+          animationType = "shake" ;
           break;
         default:
           animationType = "fadeIn";
