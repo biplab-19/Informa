@@ -109,6 +109,7 @@ INFORMA.worldchart = (function(window, $, namespace) {
             "type": "map",
             "hideCredits": "true",
             "zoomOnDoubleClick": false,
+            "dragMap": false,
             "projection": "miller",
 
             "dataProvider": {
@@ -219,6 +220,12 @@ INFORMA.worldchart = (function(window, $, namespace) {
 
             "responsive": {
                 "enabled": true
+            },
+
+            "zoomControl": {
+                "homeButtonEnabled": false,
+                "zoomControlEnabled": false,
+                "panControlEnabled": false
             },
             
             "areasSettings": {
