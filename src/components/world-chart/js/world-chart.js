@@ -30,6 +30,15 @@ INFORMA.worldchart = (function(window, $, namespace) {
     _createWorldChart = function() {
         var starWithDots = [];
         var facet = _results.ItemList;
+        var compelteData = [];
+        $.each( facet, function(i, obj) {
+            obj.width = 16
+            obj.height = 16
+            obj.scale = 0.5
+            obj.type = "circle"
+            obj.color = "#ed2024"
+            compelteData.push(obj)
+        });
         var star = [{
                 "latitude": 59.334591,
                 "longitude": 18.063240,
@@ -80,7 +89,7 @@ INFORMA.worldchart = (function(window, $, namespace) {
                 "balloonText": false
             }, 
         ];
-        star.push(facet);
+        star.push(compelteData);
         function flatten(e,starWithDots){
             if(typeof e.length != "undefined")
             {
