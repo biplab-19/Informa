@@ -30,7 +30,7 @@ INFORMA.worldchart = (function(window, $, namespace) {
 
     _createWorldChart = function() {
         var starWithDots = [];
-        var facet = _results.ItemList;
+        var facet = _results.FacetList[0].SectionList;
         var compelteData = [];
         $.each( facet, function(i, obj) {
             obj.width = 16
