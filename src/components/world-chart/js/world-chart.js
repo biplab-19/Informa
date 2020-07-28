@@ -19,6 +19,7 @@ INFORMA.worldchart = (function(window, $, namespace) {
             method: "GET",
             success_callback: function (data) {
                 _results = data;
+                $(".inf-world-chart-section p").append(_results.Heading);
                 _createWorldChart();
             },
             error_callback: function() {
