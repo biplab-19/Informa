@@ -4,7 +4,19 @@ INFORMA.animation = (function(window, $, namespace) {
     //variables
     var init,
         animationType,
-        animationDirection
+        animationDirection,
+        wow
+
+    setTimeout(function () {
+      wow = new WOW(
+        {
+          animateClass: 'animated',
+          offset: 100,
+          mobile: true
+        }
+      );
+      wow.init();
+    }, 1500);
 
     function getDataAttributes(el) {
       var data = {};
@@ -133,17 +145,6 @@ INFORMA.animation = (function(window, $, namespace) {
         })
       })
     }
-
-    setTimeout(function () {
-      wow = new WOW(
-        {
-          animateClass: 'animated',
-          offset: 100,
-          mobile: true
-        }
-      );
-      wow.init();
-    }, 1500);
     
     init = function(e) { 
 
