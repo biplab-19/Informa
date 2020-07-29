@@ -40,6 +40,12 @@ INFORMA.animation = (function(window, $, namespace) {
         case "shake":
           animationType = "shake";
           break;
+        case "slidein":
+          animationType = "slideIn";
+          break;
+        case "backin":
+          animationType = "backIn";
+          break;
         case "left":
           animationDirection = "Left";
           break;
@@ -109,6 +115,12 @@ INFORMA.animation = (function(window, $, namespace) {
             case "shake":
               animationType = "shake" ;
               break;
+            case "slidein":
+              animationType = "slideIn" ;
+              break;
+            case "backin":
+              animationType = "backIn" ;
+              break;
             default:
               animationType = "fadeIn";
           }
@@ -148,14 +160,18 @@ INFORMA.animation = (function(window, $, namespace) {
     
     init = function(e) { 
 
-      applyAnimationAttributes();
+      setTimeout(function () {
 
-      var elem = document.querySelectorAll('[data-swanimate-type]');
-      var i = 0;
-      elem.forEach(function () {
-        var data = getDataAttributes(elem[i]);
-        i++;
-      });
+        applyAnimationAttributes();
+
+        var elem = document.querySelectorAll('[data-swanimate-type]');
+        var i = 0;
+        elem.forEach(function () {
+          var data = getDataAttributes(elem[i]);
+          i++;
+        });
+        
+      }, 500);
       
     };
 
