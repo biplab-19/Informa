@@ -10,7 +10,7 @@ setTimeout(function () {
     }
   );
   wow.init();
-}, 700);
+}, 1000);
 
 
 function getDataAttributes(el) {
@@ -50,7 +50,11 @@ function getDataAttributes(el) {
     }
     animationEffect(attributeValue,attributeName);
   }
-  el.className += animationType + animationDirection;
+  if(animationType == "shake") {
+    el.className += animationType;
+  } else {
+    el.className += animationType + animationDirection;
+  }
       
   [].forEach.call(el.attributes, function (attr) {
     if (/^data-swanimate-/.test(attr.name)) {
@@ -124,7 +128,19 @@ function animationEffect(attributeValue, attributeName) {
   }
 
 }
+function applyAnimationAttributes() {
+  $(".initialize-swanimate").each(function(){
+    var json = $.parseJSON($(this).val());
+    $(json).each(function(i, obj){
+      $("."+obj.itemidentifier).attr("data-swanimate-type",obj["data-swanimate-type"])
+      $("."+obj.itemidentifier).attr("data-swanimate-direction",obj["data-swanimate-direction"])
+      $("."+obj.itemidentifier).attr("data-swanimate-delay",obj["data-swanimate-delay"])
+    })
+  })
+}
+
 onload = function (e) {
+  applyAnimationAttributes();
   var elem = document.querySelectorAll('[data-swanimate-type]');
   var i = 0;
   elem.forEach(function () {
