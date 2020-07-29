@@ -1,20 +1,24 @@
 .informa-full-video-component {
     margin-top: 20px;
+
     .video-full-container {
         //max-height: 750px;
         cursor: pointer;
         overflow: hidden;
         position: relative;
         margin-bottom: 20px;
+
         img {
             width: 100%;
             max-width: 100%;
             float: none;
             display: block;
         }
+
         .video-img {
             height: auto;
         }
+
         .play-icon {
             position: absolute;
             width: 90px;
@@ -24,17 +28,20 @@
             left: 50%;
             margin-top: -27px;
             margin-left: -27px;
+
             @include tablet {
                 width: 80px;
                 height: 80px;
             }
+
             @include mobile {
                 width: 55px;
                 height: 55px;
             }
         }
+
         .embed-responsive {
-            h1{
+            h1 {
                 position: absolute;
                 top: 50%;
                 left: 27px;
@@ -45,20 +52,29 @@
                 color: #fff;
                 text-align: center;
                 width: 100%;
+
             }
-            .embed-responsive-item ,iframe,embed,object{
-                z-index:1;
+
+            .embed-responsive-item,
+            iframe,
+            embed,
+            object {
+                z-index: 1;
             }
         }
     }
+
     .embed-responsive.embed-responsive-16by9 {
         padding-bottom: 48.25%;
     }
+
     .video-full-webinar {
         padding: 10px 0;
+
         a {
             color: $yellow;
         }
+
         .download-link {
             &:after {
                 content: "\e905";
@@ -73,32 +89,59 @@
 }
 
 .informa-full-video-component {
-     .embed-responsive.embed-responsive-16by9 {
-         @include not-desktop {
+    .embed-responsive.embed-responsive-16by9 {
+        @include not-desktop {
             padding-bottom: 90%;
         }
+
+        @include mobile {
+            border: 3px solid #e697e6;
+            background: #000;
+        }
     }
 }
+
 .mobile-aspectratio {
     &.informa-full-video-component {
+        background-image: url(../../Static/images/world-map.png);
+        background-color: #000;
+        background-size: cover;
+        background-repeat: no-repeat;
+
         .embed-responsive.embed-responsive-16by9 {
             @include not-desktop {
-               padding-bottom: 48.25%;
-           }
+                padding-bottom: 48.25%;
+            }
         }
-       .video-full-container {
-            .play-icon {
+
+        .video-full-container {
+            .video-title {
+                display: none;
+
                 @include mobile {
-                background-size: 35px 35px;
+                    display: block;
+                    font-size: 22px;
+                    padding: 40px 0px;
+                    width: 300px;
+                    margin: 0 auto;
+                    color: #fff;
                 }
             }
+
+            .play-icon {
+                @include mobile {
+                    background-size: 35px 35px;
+                }
+            }
+
             .embed-responsive h1 {
+                display: block;
+
                 @include mobile {
                     font-size: 18px;
+                    display: none;
                 }
-            }    
-       }
+            }
+        }
     }
 }
-
-

@@ -10,8 +10,7 @@ INFORMA.videoFull = (function (window, $, namespace) {
         init,
         video,
         _playFullVideo;
-
-    _playFullVideo = function () {
+        _playFullVideo = function () {
         _videoWrapper.click(function (ele) {
             console.log(ele.target.localName);
             var videoImg = $(this).parent().find('img'),
@@ -21,7 +20,6 @@ INFORMA.videoFull = (function (window, $, namespace) {
                 videoControl = videoImg.attr('data-videocontrol'),
                 videovolume = videoImg.attr('data-volume'),
                 videoid = videoImg.attr("id");
-                
                 if(videoAutoplay=="false") {
                     videoAutoplay = 1;
                     switch(videoControl) {
@@ -65,10 +63,10 @@ INFORMA.videoFull = (function (window, $, namespace) {
                     }
                     ele.target.remove();
                 }
- 
+
         });
-    }
-    $(".embed-responsive img").each (function(){
+        }
+        $(".embed-responsive img").each (function(){
         var thumbnail = $(this).attr("src"),
             videoType = $(this).attr('data-videotype'),
             videoUrl = $(this).attr('data-videourl'),
@@ -94,7 +92,6 @@ INFORMA.videoFull = (function (window, $, namespace) {
                     default:
                         videoControl = 0 ;
                         break;   
-        
                 }
                 switch (videoType) {
                     case "youtube":
@@ -110,7 +107,6 @@ INFORMA.videoFull = (function (window, $, namespace) {
                         video = '<iframe id=' + videoid + ' width="100%" src="' + videoUrl + '?enablejsapi=1&autoplay=' + videoAutoplay + '&controls=' + videoControl +' " frameborder="0" allowfullscreen allow="autoplay" ></iframe>';
                         break;
                 }
-                
                 $(this).replaceWith(video);
                 if(videoType == "youtube" || videoType == " " || videoType == undefined) {
                     var tag = document.createElement("script");
@@ -119,7 +115,7 @@ INFORMA.videoFull = (function (window, $, namespace) {
                     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
                     
                 }
-                if(videoType == "vimeo"){
+                if(videoType == "vimeo") {
                     debugger;
                     var tag = document.createElement("script");
                     tag.src = "https://player.vimeo.com/api/player.js";
@@ -128,27 +124,32 @@ INFORMA.videoFull = (function (window, $, namespace) {
                     vimeoIframeAPIReady(videoid,videovolume/100);
                 }
             }
-    });
-    function vimeoIframeAPIReady(id,volume){
-       
-        var video = document.getElementById(id);
+        });
+        function vimeoIframeAPIReady(id,volume) {
+            var video = document.getElementById(id);
             //Create a new Vimeo.Player object
             var player = new Vimeo.Player(video);
             //When the player is ready, set the volume to 0
             player.ready().then(function() {
                 player.setVolume(volume);
             });
-    }
+        }
 
-    init = function () {
-        _playFullVideo();
 
-    };
+
+                                        
+
+        init = function () {
+            _playFullVideo();
+            
+        }
 
     return {
         init: init
     };
 }(this, jQuery, 'INFORMA'));
 jQuery(INFORMA.videoFull.init());
+
+
 
 
