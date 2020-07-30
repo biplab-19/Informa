@@ -1,56 +1,167 @@
 var INFORMA = window.INFORMA || {};
-INFORMA.videoFull = (function(window, $, namespace) {
+INFORMA.videoFull = (function (window, $, namespace) {
     'use strict';
     //variables
-    var _videoFullWrapper = $('.video-full-container .video-img'),
-        _videoPlayBtnWrapper = $('.video-full-container .play-icon'),
-        video,
+    var _videoWrapper = $(".video-full-container .video-img,.video-full-container .play-icon,.video-full-container h1"),
+        thumbnailImage = "cms-images/video-img/video-thumb-default.png",
+        isMute,
         // methods
+        vimeoIframeAPIReady,
         init,
-        _playFullVideoWrapper,
-        _playFullVideoBtnWrapper;
+        video,
+        _playFullVideo;
+    _playFullVideo = function () {
+        _videoWrapper.click(function (ele) {
+            console.log(ele.target.localName);
+            var videoImg = $(this).parent().find('img'),
+                videoType = videoImg.attr('data-videotype'),
+                videoUrl = videoImg.attr('data-videourl'),
+                videoAutoplay = videoImg.attr('data-videoautoplay'),
+                videoControl = videoImg.attr('data-videocontrol'),
+                videovolume = videoImg.attr('data-volume'),
+                videoid = videoImg.attr("id");
+            if (videoAutoplay == "false") {
+                videoAutoplay = 1;
+                switch (videoControl) {
+                    case "true":
+                        videoControl = 1;
+                        break;
+                    case "false":
+                        videoControl = 0;
+                        break;
+                    default:
+                        videoControl = 0;
+                        break;
 
-    _playFullVideoBtnWrapper = function() {
-        _videoPlayBtnWrapper.click(function() {
-            var videoImg = $(this).parent().find('img');
-            if (videoImg.attr('data-videotype') == "youtube") {
-                video = '<iframe width="100%" src="' +  videoImg.attr('data-videourl') + '?autoplay=1&rel=0" frameborder="0" allowfullscreen></iframe>';
-            } else if (videoImg .attr('data-videotype') == "vimeo") {
-                video = '<iframe width="100%" src="' +  videoImg.attr('data-videourl') + '?autoplay=1" frameborder="0" allowfullscreen></iframe>';
-            } else if (videoImg.attr('data-videotype') == "wistia") {
-                video = '<iframe width="100%" src="' +  videoImg.attr('data-videourl') + '?autoPlay=true" frameborder="0" allowfullscreen></iframe>';
+                }
+                switch (videoType) {
+                    case "youtube":
+                        video = '<iframe id=' + videoid + '  width="100%" src="' + videoUrl + '?enablejsapi=1&autoplay=' + videoAutoplay + '&controls=' + videoControl + ' " frameborder="0" allowfullscreen allow="autoplay" ></iframe>';
+                        break;
+                    case "vimeo":
+                        video = '<iframe id=' + videoid + ' width="100%"  src="' + videoUrl + '?api=1&player_id=vmplayer&autoplay=' + videoAutoplay + '&controls=' + videoControl + '" frameborder="0" allow="autoplay" allowfullscreen></iframe>';
+                        break;
+                    case "wistia":
+                        video = '<iframe id=' + videoid + ' width="100%" height="' + videoImg.attr('height') + '" src="' + videoUrl + '?autoPlay=true" frameborder="0" allowfullscreen></iframe>';
+                        break;
+                    default:
+                        video = '<iframe id=' + videoid + ' width="100%" src="' + videoUrl + '?enablejsapi=1&autoplay=' + videoAutoplay + '&controls=' + videoControl + ' " frameborder="0" allowfullscreen allow="autoplay" ></iframe>';
+                        break;
+                }
+
+                videoImg.replaceWith(video);
+                if (videoType == "youtube" || videoType == " " || videoType == undefined) {
+                    console.log("hi new line");
+                    var tag = document.createElement("script");
+                    tag.src = "https://www.youtube.com/iframe_api";
+                    var firstScriptTag = document.getElementsByTagName("script")[0];
+                    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+                    onYouTubeIframeAPIReady(videoid, videovolume);
+                }
+                if (videoType == "vimeo") {
+                    
+                var tag = document.createElement("script");
+                tag.src = "https://player.vimeo.com/api/player.js";
+                var firstScriptTag = document.getElementsByTagName("script")[0];
+                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+                    vimeoIframeAPIReady(videoid, videovolume / 100);
+                }
+                ele.target.remove();
             }
-            videoImg.replaceWith(video);
-            $(this).remove();
+
         });
     }
-
-    _playFullVideoWrapper = function() {
-        _videoFullWrapper.click(function() {
-
-            if ($(this).attr('data-videotype') == "youtube") {
-                video = '<iframe width="100%" height="' + $(this).attr('height') + '" src="' + $(this).attr('data-videourl') + '?autoplay=1&rel=0" frameborder="0" allowfullscreen></iframe>';
-            } else if ($(this).attr('data-videotype') == "vimeo") {
-                video = '<iframe width="100%" height="' + $(this).attr('height') + '" src="' + $(this).attr('data-videourl') + '?autoplay=1" frameborder="0" allowfullscreen></iframe>';
-            } else if ($(this).attr('data-videotype') == "wistia") {
-                video = '<iframe width="100%" height="' + $(this).attr('height') + '" src="' + $(this).attr('data-videourl') + '?autoPlay=true" frameborder="0" allowfullscreen></iframe>';
+    $(".embed-responsive img").each(function () {
+        var thumbnail = $(this).attr("src"),
+            videoType = $(this).attr('data-videotype'),
+            videoUrl = $(this).attr('data-videourl'),
+            videoAutoplay = $(this).attr('data-videoautoplay'),
+            videoControl = $(this).attr('data-videocontrol'),
+            videovolume = $(this).attr('data-volume'),
+            videoid = $(this).attr("id");
+        if (thumbnail == "" || thumbnail == undefined) {
+            $(this).attr("src", thumbnailImage);
+        }
+        $(this).parent(".embed-responsive").attr("data-id", videoid);
+        $(this).parent(".embed-responsive").attr("data-volume", videovolume);
+        $(this).parent(".embed-responsive").addClass("isvideo");
+        if (videoAutoplay == "true") {
+            videoAutoplay = 1;
+            switch (videoControl) {
+                case "true":
+                    videoControl = 1;
+                    break;
+                case "false":
+                    videoControl = 0;
+                    break;
+                default:
+                    videoControl = 0;
+                    break;
+            }
+            switch (videoType) {
+                case "youtube":
+                    video = '<iframe id=' + videoid + '  width="100%" src="' + videoUrl + '?enablejsapi=1&autoplay=' + videoAutoplay + '&controls=' + videoControl + ' " frameborder="0" allowfullscreen allow="autoplay" ></iframe>';
+                    break;
+                case "vimeo":
+                    video = '<iframe id=' + videoid + ' width="100%"  src="' + videoUrl + '?api=1&player_id=vmplayer&autoplay=' + videoAutoplay + '&controls=' + videoControl + '" frameborder="0" allow="autoplay" allowfullscreen></iframe>';
+                    break;
+                case "wistia":
+                    video = '<iframe id=' + videoid + ' width="100%" height="' + videoImg.attr('height') + '" src="' + videoUrl + '?autoPlay=true" frameborder="0" allowfullscreen></iframe>';
+                    break;
+                default:
+                    video = '<iframe id=' + videoid + ' width="100%" src="' + videoUrl + '?enablejsapi=1&autoplay=' + videoAutoplay + '&controls=' + videoControl + ' " frameborder="0" allowfullscreen allow="autoplay" ></iframe>';
+                    break;
             }
             $(this).replaceWith(video);
-            function onYouTubePlayerAPIReady() {
-               var player = new YT.Player('video', {
-                  autoplay: 1
-                });
-            }
-            $('.play-icon').remove();
-        });
+            if (videoType == "youtube" || videoType == " " || videoType == undefined) {
+                var tag = document.createElement("script");
+                tag.src = "https://www.youtube.com/iframe_api";
+                var firstScriptTag = document.getElementsByTagName("script")[0];
+                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
+            }
+            if (videoType == "vimeo") {
+                var tag = document.createElement("script");
+                tag.src = "https://player.vimeo.com/api/player.js";
+                var firstScriptTag = document.getElementsByTagName("script")[0];
+                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+                vimeoIframeAPIReady(videoid, videovolume / 100);
+            }
+        }
+    });
+    function vimeoIframeAPIReady(id, volume) {
+        setTimeout(function () {
+            var video = document.getElementById(id);
+            //Create a new Vimeo.Player object
+            var player = new Vimeo.Player(video);
+            //When the player is ready, set the volume to 0
+            player.ready().then(function () {
+                player.setVolume(volume);
+            });
+        }, 1000);
+    }
+    window.onYouTubeIframeAPIReady = function () {
+        setTimeout(function () {
+            var isvideo = $(".embed-responsive").hasClass("isvideo");
+            if (isvideo) {
+                var id = $(".isvideo").attr("data-id"),
+                    volume = $(".isvideo").attr("data-volume"),
+                    player,
+                    player = new YT.Player(id, {
+                        events: {
+                            onReady: function (e) {
+                                e.target.setVolume(volume);
+                            },
+                        }
+                    });
+            }
+        }, 1000);
 
     }
+    init = function () {
+        _playFullVideo();
 
-    init = function() {
-        _playFullVideoWrapper();
-        _playFullVideoBtnWrapper();
-    };
+    }
 
     return {
         init: init
