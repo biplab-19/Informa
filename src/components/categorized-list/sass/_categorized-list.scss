@@ -71,6 +71,7 @@
                             color: #fff;
                             padding: 0 0 0 35px;
                             position: relative;
+                            display: inline-block;
                             &:before {
                                 content: "";
                                 background-color: #b2b3b7;
@@ -82,7 +83,7 @@
                                 -moz-border-radius: 10px;
                                 position: absolute;
                                 left: 0px;
-                                top: 6px;
+                                top: 7px;
                                 @include mobile {
                                     background-color: #fff;
                                     width: 5px;
