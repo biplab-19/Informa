@@ -9,17 +9,14 @@ INFORMA.articleTileView = (function (window, $, namespace) {
     _podcastRecorderWrapper,
     _podcastBtnWrapper,
     _carouselBtnWrapper,
-    _brexitListWrapper;
-
-  var _carouselContainer = $(".brexitstyle .carousel-container"),
+    _brexitListWrapper,
+    _carouselContainer = $(".brexitstyle .carousel-container"),
     _carouselPrev = $('.brexitstyle .prev-slide'),
     _carouselNext = $('.brexitstyle .next-slide'),
     _podcastRecorder = $(".brexitstyle .pc-body.Podcastslist .podcast-recoderbutton"),
     _podcastBtn = $(".brexitstyle .btn-Podcasts"),
     _carouselBtn = $(".brexitstyle button#carouselbutton"),
     _brexitList = $(".brexitstyle .carousel-container .brexit-list");
-
-
   _carouselContainer.slick({
     vertical: true,
     verticalSwiping: true,
@@ -29,7 +26,6 @@ INFORMA.articleTileView = (function (window, $, namespace) {
     slidesToScroll: 3,
     arrows: false,
   });
-
   _carouselPrevWrapper = function () {
     _carouselPrev.click(function () {
       $(this).parents(".carousel-section").find(".carousel-container").slick('slickNext');
@@ -45,7 +41,6 @@ INFORMA.articleTileView = (function (window, $, namespace) {
       $(this).parent(".podcast-recoder").hide();
       $(this).parent(".podcast-recoder").siblings(".carousel-section").show();
       $(this).parents(".carousel-section").show();
-
     });
   }
   _podcastBtnWrapper = function () {
@@ -62,37 +57,27 @@ INFORMA.articleTileView = (function (window, $, namespace) {
     _brexitList.click(function (ele) {
       var hiddenValue = $(this).find("input[type=hidden]:first").val(),
         hasbrexit = $(this).hasClass("brexit-list");
-
       if (hasbrexit) {
         if (hiddenValue != undefined && hiddenValue != null && hiddenValue != "") {
           if (hiddenValue.includes("soundcloud.com")) {
-
             $(this).parents(".carousel-section").siblings(".podcast-recoder").show();
             $(this).parents(".carousel-section").siblings(".podcast-recoder").find("iframe").attr("src", hiddenValue);
             $(this).parents(".carousel-section").siblings(".podcast-recoder").find(".brexit-list").empty();
             $(this).parents(".carousel-section").siblings(".podcast-recoder").find(".brexit-list").append(ele.delegateTarget.innerHTML);
             $(this).parents(".carousel-section").hide();
-
           } else {
             window.open(hiddenValue);
             $(this).parents(".carousel-section").siblings(".podcast-recoder").hide();
             $(this).parents(".carousel-section").show();
-
-
-
           }
         } else {
           window.open(hiddenValue);
           $(this).parents(".carousel-section").siblings(".podcast-recoder").hide();
           $(this).parents(".carousel-section").show();
-
-
-
         }
       }
     });
   }
-
   _slidecount = function () {
     $(".brexitstyle .carousel-container").each(function () {
       nodecount = $(this).find(".slide-container").length;
@@ -106,7 +91,6 @@ INFORMA.articleTileView = (function (window, $, namespace) {
       }
     });
   }
-
   init = function () {
     _slidecount();
     _carouselPrevWrapper();
