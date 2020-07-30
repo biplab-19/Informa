@@ -86,7 +86,7 @@ INFORMA.piebarchart = (function(window, $, namespace) {
                     "fixedPosition": true
                 },
                 "export": {
-                    "enabled": true,
+                    "enabled": false,
                     "menu": []
                 }
             });
@@ -186,7 +186,7 @@ INFORMA.piebarchart = (function(window, $, namespace) {
         $('.chart-bc').each(function(index){
 	        _getPieBarChartData(this);
         });
-        
+
     };
 
     return {
