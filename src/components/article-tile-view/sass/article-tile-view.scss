@@ -1,32 +1,37 @@
-._brexitstyle {
+.brexitstyle {
     font-size: 14px;
     background-image: url(../images/brexit//brexit-bg1.jpg);
-    margin-top:0px !important;
+    margin-top: 0px !important;
     width: 100%;
     background-position: top center;
     background-attachment: fixed;
     background-size: cover;
     color: #fff !important;
+
     @include bootstrap-mobile {
         height: auto;
         font-size: 14px;
     }
+
     .brexit-container {
         height: 100%;
         display: flex;
         align-items: center;
         flex-direction: column;
         padding-top: 20px;
+
         @include bootstrap-mobile {
             height: auto;
             padding-top: 15px;
         }
     }
+
     .row.brexit-row {
         display: flex;
         flex-wrap: wrap;
         width: 100%;
     }
+
     .pc-body.Podcastslist.demo {
         transition-property: all;
         transition-duration: 0.2s;
@@ -34,6 +39,7 @@
         top: 50px;
         visibility: visible;
     }
+
     .pc-body.Podcastslist {
         background-color: #494a59;
         width: 100%;
@@ -44,15 +50,18 @@
         height: calc(100% - 50px);
         z-index: 0;
         visibility: hidden;
+
         @include mobile {
             height: calc(100% - 40px);
             top: 40px;
         }
+
         @include tablet {
             height: calc(100% - 65px) !important;
             top: 65px !important;
         }
-       &:before {
+
+        &:before {
             content: '';
             width: calc(100% - 20px);
             height: 38px;
@@ -64,89 +73,109 @@
             top: -22px;
             left: 13px;
             z-index: -1;
+
             @include bootstrap-mobile {
                 height: 50px;
             }
+
             @include tablet {
                 left: 32px;
                 width: calc(100% - 32px)
             }
         }
+
         .carousel-section {
             display: flex;
             align-items: center;
             flex-direction: column;
             height: 100%;
             width: 100%;
+
             @include tablet {
                 height: auto;
             }
         }
+
         .title {
             font-size: 20px !important;
             margin-bottom: 10px !important;
+
             @include bootstrap-mobile {
                 font-size: 16px;
             }
         }
+
         .bxul {
             padding: 0;
             margin: 0;
             list-style-type: none;
             height: 220px;
-            width:100%;
+            width: 100%;
+
             @include mobile {
-                height:auto;
+                height: auto;
             }
+
             .slick-list .slick-slide:last-child .brexit-list {
                 margin-bottom: 0;
             }
         }
+
         img.pcbodysecimg {
             width: 50px;
             margin-bottom: 20px;
             position: relative;
+
             @include bootstrap-mobile {
                 width: 40px;
             }
         }
+
         .pc-bodycaption {
             height: calc(100% - 55px);
             padding: 10px 15px 0px 15px;
         }
     }
+
     .brexit-list {
         display: flex;
         align-items: flex-start;
         margin-bottom: 8px;
         background-color: #494a59;
         cursor: pointer;
+
         .brexitplay {
             display: flex;
             color: #fff;
             margin-bottom: 0px;
             font-size: 10px;
+
             img.brexitplayimg {
                 width: 10px !important;
                 margin-right: 5px;
             }
         }
+
         .brexit-listimage {
             margin-right: 10px;
-            width:45px;
-            float:left;
+            width: 45px;
+            float: left;
+
             img {
                 width: 35px;
+
                 @include mobile {
                     width: 30px !important;
                 }
             }
         }
+
         .brexit-content {
             display: flex;
             flex-direction: column;
             text-align: left;
             width: calc(100% - 45px);
+
             .bl-title {
                 font-size: 12px !important;
                 margin: 0;
@@ -155,36 +184,43 @@
                 margin-bottom: 0px;
                 font-weight: 600;
                 text-transform: uppercase;
+
                 @include mobile {
                     font-size: 12px !important;
                 }
-             }
+            }
         }
     }
+
     .podcast-recoder {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         height: 100%;
+
         .podcastimages {
             background: #fff;
             padding: 0px 0;
+
             .podcastimagechild {
                 img {
                     width: 100%;
                 }
             }
-           
+
         }
+
         .btn-Podcasts.podcast-recoderbutton {
-            margin-top:10px;
+            margin-top: 10px;
         }
     }
+
     .podcastview {
         display: flex;
         flex-direction: column;
     }
+
     .podcasts-card {
         padding: 15px;
         text-align: center;
@@ -197,11 +233,13 @@
         box-shadow: 3px 4px 6px 2px rgba(0, 0, 0, 0.8);
         position: relative;
         overflow: hidden;
+
         @include bootstrap-mobile {
             height: auto;
         }
+
         .btn-Podcasts {
-            display: inline-block;            
+            display: inline-block;
             margin-bottom: 10px;
             font-weight: bold;
             text-align: center;
@@ -222,27 +260,34 @@
             width: fit-content;
             align-items: center;
             margin-top: 60px;
+
             @include mobile {
                 font-size: 14px;
-                margin-top:0px;
-                margin-bottom:50px;
+                margin-top: 0px;
+                margin-bottom: 50px;
             }
+
             &:after {
                 content: "";
             }
         }
+
         .btn-primary {
             background-color: #ef456c;
+
             &:hover {
                 background-color: #ed2956;
             }
+
             &:focus {
                 background-color: #ed2956;
             }
-        } 
+        }
+
         .podcastview .image-thumbnail {
             position: relative;
             margin-bottom: 10px;
+
             .skewed {
                 position: absolute;
                 bottom: -100%;
@@ -253,24 +298,30 @@
                 transform: skewY(-5deg);
                 transform-origin: top left;
             }
+
             img.thumbnailimg {
                 width: 100%;
             }
         }
+
         .pc-body {
             position: relative;
             height: 100%;
+
             .pcbodysecimg {
                 width: 75px;
                 margin-bottom: 0px;
+
                 @include bootstrap-mobile {
                     width: 60px !important;
                 }
+
                 @include mobile {
                     margin-top: 5px !important;
                     margin-bottom: 15px !important;
                 }
             }
+
             .pc-bodycaption {
                 padding: 8px 25px 0px 8px;
                 display: flex;
@@ -278,10 +329,12 @@
                 align-items: center;
                 justify-content: center;
                 height: calc(100% - 90px);
+
                 @include bootstrap-mobile {
                     padding: 15px 15px 0px 15px !important;
                     height: calc(100% - 118px) !important;
                 }
+
                 .title {
                     font-size: 24px;
                     margin: 0;
@@ -289,94 +342,115 @@
                     margin-bottom: 15px;
                     font-weight: 600;
                     text-transform: uppercase;
+
                     @include tablet {
                         font-size: 18px;
                         margin-top: 25px;
                     }
                 }
+
                 .sub-title {
                     margin-bottom: 15px;
                     padding: 0;
                     color: #fff;
-                    font-size:12px;
+                    font-size: 12px;
                 }
             }
         }
     }
+
     .goto-next-section {
         display: flex;
         align-items: center;
         justify-content: center;
         padding: 15px;
         margin-top: auto;
+
         img.goto-image {
             width: 40px;
         }
     }
+
     section {
-        h1, p {
+
+        h1,
+        p {
             line-height: initial !important;
         }
     }
+
     .carousel-container {
         max-width: 320px;
+
         @include mobile {
             height: auto !important;
         }
+
         .slick-prev {
             left: 100%;
             top: 118%;
+
             @include mobile {
-                top:135%;
+                top: 135%;
             }
         }
+
         .slick-prev::before {
             font-family: FontAwesome;
             content: "\f078";
             font-size: 22px;
             color: #f9bec9;
-        }  
+        }
+
         .slick-next::before {
             font-family: FontAwesome;
-            content:  "\f077";
+            content: "\f077";
             font-size: 22px;
-            color: #f9bec9;        
+            color: #f9bec9;
         }
+
         .slick-next {
             right: -20px;
             top: 110%;
         }
     }
-     .brexit-list .brexit-content .sub-title {
+
+    .brexit-list .brexit-content .sub-title {
         color: #fff !important;
         margin-bottom: 0 !important;
+
         @include bootstrap-mobile {
             font-size: 12px !important;
             margin-bottom: 10px !important;
         }
     }
-    ._brexitstyle .brexit-list .brexit-content .bl-title {
+
+    .brexitstyle .brexit-list .brexit-content .bl-title {
         color: #fff !important;
+
         @include bootstrap-mobile {
             font-size: 12px !important
         }
     }
+
     .podcasts-card .podcast-recoder .btn-Podcasts.podcast-recoderbutton {
-       margin-top: 45px;
+        margin-top: 45px;
     }
+
     .carousel-slide-button {
         position: relative;
         left: 50%;
         top: -97px;
+
         .carousel-slide {
             cursor: pointer;
             font-size: 22px;
             color: #f9bec9;
         }
+
         .prev-slide {
             position: absolute;
             top: 23px;
         }
     }
 }
-
