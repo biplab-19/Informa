@@ -15,17 +15,9 @@ INFORMA.worldchart = (function(window, $, namespace) {
         _moveImage = 0;
 
     _getWorldChartData = function() {
-        INFORMA.DataLoader.GetServiceData(Urls.WorldChartPageData +'?dataSourceId='+_dataSourceId + '&type='+_chartType, {
-            method: "GET",
-            success_callback: function (data) {
-                _results = data;
-                $(".inf-world-chart-section p").append(_results.Heading);
-                _createWorldChart();
-            },
-            error_callback: function() {
-            
-            }
-        });
+        _results = JSON.parse($(".world-chart-background").find("input[type=hidden]").val());
+        $(".inf-world-chart-section p").append(_results.Heading);
+        _createWorldChart();
     }
 
     _createWorldChart = function() {
