@@ -8,7 +8,9 @@ INFORMA.signup = (function(window, $, namespace) {
         // methods
         init,
         _signUpBoxExpand,
-        _signUpBoxCollapse
+        _signUpBoxCollapse,
+        _validateEmail,
+        _signupEmailValue = $(".inf-sign-up-box input[type=text]").val();
 
     _signUpBoxExpand = function() {
         _signUpExpand.click(function() {
@@ -21,6 +23,20 @@ INFORMA.signup = (function(window, $, namespace) {
             _signUpCollapse.slideUp();
         });
     }
+
+    $(".inf-sign-up-box input[type=text]").on('blur', function() {
+        if (!_validateEmail($(".inf-sign-up-box input[type=text]").val())) {
+            alert("Invalid email address.");
+        }
+        else {
+            alert("Valid email address.");
+        }
+    });
+
+    _validateEmail = function (email) {
+        var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+        return expr.test(email);
+    };
 
     init = function() {
         _signUpBoxExpand();
