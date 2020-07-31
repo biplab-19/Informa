@@ -153,7 +153,16 @@ INFORMA.animation = (function(window, $, namespace) {
         $(json).each(function(i, obj){
           $("."+obj.itemidentifier).attr("data-swanimate-type",obj["data-swanimate-type"])
           $("."+obj.itemidentifier).attr("data-swanimate-direction",obj["data-swanimate-direction"])
-          $("."+obj.itemidentifier).attr("data-swanimate-delay",obj["data-swanimate-delay"])
+          if(obj.data == true){
+            var delayInitial = Number(obj["data-swanimate-delay"]);
+            var delayValue = delayInitial;
+            $("."+obj.itemidentifier).each(function() {
+              $(this).attr("data-swanimate-delay",delayValue)
+              delayValue += delayInitial
+            })
+          } else {
+            $("."+obj.itemidentifier).attr("data-swanimate-delay",obj["data-swanimate-delay"])
+          }
         })
       })
     }
