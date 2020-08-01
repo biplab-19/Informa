@@ -12,7 +12,8 @@ INFORMA.signup = (function(window, $, namespace) {
         _validateEmailRegex,
         _validateEmailFunction,
         _validateEmail,
-        _validateEmailOnEnter
+        _validateEmailOnEnter,
+        _validateEmailOnMouseout
 
     _signUpBoxExpand = function() {
         _signUpExpand.click(function() {
@@ -56,11 +57,18 @@ INFORMA.signup = (function(window, $, namespace) {
         });
     };
 
+    _validateEmailOnMouseout = function () {
+        $(".inf-sign-up-box input[type=text]").mouseout(function() {
+            _validateEmailFunction();
+        });
+    };
+
     init = function() {
         _signUpBoxExpand();
         _signUpBoxCollapse();
         _validateEmail();
         _validateEmailOnEnter();
+        _validateEmailOnMouseout();
     };
 
     return {
