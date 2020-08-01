@@ -13,7 +13,8 @@ INFORMA.signup = (function(window, $, namespace) {
         _validateEmailFunction,
         _validateEmail,
         _validateEmailOnEnter,
-        _validateEmailOnMouseout
+        _validateEmailOnMouseout,
+        _redirectToLink
 
     _signUpBoxExpand = function() {
         _signUpExpand.click(function() {
@@ -63,12 +64,19 @@ INFORMA.signup = (function(window, $, namespace) {
         });
     };
 
+    _redirectToLink = function () {
+        $(".redirect-to-link").click(function(){
+            window.open($("#ctaUrl").val(), '_blank');
+        });
+    };
+
     init = function() {
         _signUpBoxExpand();
         _signUpBoxCollapse();
         _validateEmail();
         _validateEmailOnEnter();
         _validateEmailOnMouseout();
+        _redirectToLink();
     };
 
     return {
