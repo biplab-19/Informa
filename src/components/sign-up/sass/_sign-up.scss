@@ -4,7 +4,7 @@
     padding: 13px 20px 55px;
     position: fixed;
     right: 17px;
-    bottom: 100px;
+    bottom: 17px;
     text-align: center;
     overflow: hidden;
     z-index: 9;
@@ -77,12 +77,13 @@
     -moz-border-radius: 5px;
     cursor: pointer;
     z-index: 9;
+    display: none;
     a {
         background-color: #494a58;
-        color: #f7bdc6;
+        color: #f7bdc6 !important;
         font-size: 19px;
         padding: 0px 18px 5px;
-        max-width: 142px;
+        max-width: 143px;
         border-radius: 7px;
         -webkit-border-radius: 7px;
         -moz-border-radius: 7px;
@@ -95,5 +96,8 @@
         position: absolute;
         right: 12px;
         bottom: 16px;
+    }
+    @include mobile {
+        display: block;
     }
 }

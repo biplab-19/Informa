@@ -19,12 +19,14 @@ INFORMA.signup = (function(window, $, namespace) {
     _signUpBoxExpand = function() {
         _signUpExpand.click(function() {
             _signUpCollapse.slideDown();
+            $(this).slideUp();
         });
     }
 
     _signUpBoxCollapse = function() {
         _signUpCollapseImg.click(function() {
             _signUpCollapse.slideUp();
+            _signUpExpand.slideDown();
         });
     }
 
