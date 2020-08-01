@@ -29,7 +29,7 @@
         float: left;
         height: 35px;
     }
-    button {
+    button.inf-sign-up {
         border: 0px;
         background-color: #494a58;
         color: #868c90;
@@ -43,7 +43,14 @@
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        opacity: 0.5;
+        opacity: 0.8;
+        filter: alpha(opacity=80);
+        cursor: not-allowed;
+    }
+    button.inf-sign-up.inf-btn-active {
+        opacity: 1;
+        filter: alpha(opacity=100);
+        cursor: pointer;
     }
     img.collapse-box {
         position: absolute;
