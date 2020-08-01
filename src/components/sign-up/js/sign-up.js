@@ -10,7 +10,10 @@ INFORMA.signup = (function(window, $, namespace) {
         _signUpBoxExpand,
         _signUpBoxCollapse,
         _validateEmailRegex,
-        _validateEmail
+        _validateEmailFunction,
+        _validateEmail,
+        _validateEmailOnEnter,
+        _validateEmailOnMouseout
 
     _signUpBoxExpand = function() {
         _signUpExpand.click(function() {
@@ -29,16 +32,34 @@ INFORMA.signup = (function(window, $, namespace) {
         return expr.test(email);
     };
 
+    _validateEmailFunction = function (email) {
+        if (!_validateEmailRegex($(".inf-sign-up-box input[type=text]").val())) {
+            $(".inf-sign-up").prop("disabled", true);
+            $(".inf-sign-up").removeClass("inf-btn-active");
+        }
+        else {
+            $(".inf-sign-up").removeAttr("disabled");
+            $(".inf-sign-up").addClass("inf-btn-active");
+        }
+    };
+
     _validateEmail = function () {
         $(".inf-sign-up-box input[type=text]").on('blur', function() {
-            if (!_validateEmailRegex($(".inf-sign-up-box input[type=text]").val())) {
-                $(".inf-sign-up").prop("disabled", true);
-                $(".inf-sign-up").css({"opacity":"0.5"});
+            _validateEmailFunction();
+        });
+    };
+
+    _validateEmailOnEnter = function () {
+        $(".inf-sign-up-box input[type=text]").keypress(function(e) {
+            if(e.which == 13) {
+                _validateEmailFunction();
             }
-            else {
-                $(".inf-sign-up").removeAttr("disabled");
-                $(".inf-sign-up").css({"opacity":"1"});
-            }
+        });
+    };
+
+    _validateEmailOnMouseout = function () {
+        $(".inf-sign-up-box input[type=text]").mouseout(function() {
+            _validateEmailFunction();
         });
     };
 
@@ -46,6 +67,8 @@ INFORMA.signup = (function(window, $, namespace) {
         _signUpBoxExpand();
         _signUpBoxCollapse();
         _validateEmail();
+        _validateEmailOnEnter();
+        _validateEmailOnMouseout();
     };
 
     return {
