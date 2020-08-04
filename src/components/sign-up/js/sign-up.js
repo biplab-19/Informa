@@ -5,6 +5,8 @@ INFORMA.signup = (function(window, $, namespace) {
     var _signUpExpand = $('.inf-sign-up-box-expand'),
         _signUpCollapse = $('.inf-sign-up-box'),
         _signUpCollapseImg = $('.inf-sign-up-box img.collapse-box'),
+        _infSignUp = $(".inf-sign-up"),
+        _signUpCollapseTextField = $(".inf-sign-up-box input[type=text]"),
         // methods
         init,
         _signUpBoxExpand,
@@ -36,24 +38,24 @@ INFORMA.signup = (function(window, $, namespace) {
     };
 
     _validateEmailFunction = function (email) {
-        if (!_validateEmailRegex($(".inf-sign-up-box input[type=text]").val())) {
-            $(".inf-sign-up").prop("disabled", true);
-            $(".inf-sign-up").removeClass("inf-btn-active");
+        if (!_validateEmailRegex(_signUpCollapseTextField.val())) {
+            _infSignUp.prop("disabled", true);
+            _infSignUp.removeClass("inf-btn-active");
         }
         else {
-            $(".inf-sign-up").removeAttr("disabled");
-            $(".inf-sign-up").addClass("inf-btn-active");
+            _infSignUp.removeAttr("disabled");
+            _infSignUp.addClass("inf-btn-active");
         }
     };
 
     _validateEmail = function () {
-        $(".inf-sign-up-box input[type=text]").on('blur', function() {
+        _signUpCollapseTextField.on('blur', function() {
             _validateEmailFunction();
         });
     };
 
     _validateEmailOnEnter = function () {
-        $(".inf-sign-up-box input[type=text]").keypress(function(e) {
+        _signUpCollapseTextField.keypress(function(e) {
             if(e.which == 13) {
                 _validateEmailFunction();
             }
@@ -61,7 +63,7 @@ INFORMA.signup = (function(window, $, namespace) {
     };
 
     _validateEmailOnMouseout = function () {
-        $(".inf-sign-up-box input[type=text]").mouseout(function() {
+        _signUpCollapseTextField.mouseout(function() {
             _validateEmailFunction();
         });
     };
