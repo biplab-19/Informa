@@ -10,6 +10,7 @@ INFORMA.articleTileView = (function (window, $, namespace) {
     _podcastBtnWrapper,
     _carouselBtnWrapper,
     _brexitListWrapper,
+    _cauoselSlideButton,
     _carouselContainer = $(".brexitstyle .carousel-container"),
     _carouselPrev = $('.brexitstyle .prev-slide'),
     _carouselNext = $('.brexitstyle .next-slide'),
@@ -36,6 +37,8 @@ INFORMA.articleTileView = (function (window, $, namespace) {
       $(this).parents(".carousel-section").find(".carousel-container").slick('slickPrev');
     });
   }
+
+  
   _podcastRecorderWrapper = function () {
     _podcastRecorder.click(function () {
       $(this).parent(".podcast-recoder").hide();
@@ -56,38 +59,40 @@ INFORMA.articleTileView = (function (window, $, namespace) {
   _brexitListWrapper = function () {
     _brexitList.click(function (ele) {
       var hiddenValue = $(this).find("input[type=hidden]:first").val(),
-        hasbrexit = $(this).hasClass("brexit-list");
+        hasbrexit = $(this).hasClass("brexit-list"),
+        _carouselSection = $(this).parents(".carousel-section"),
+        _carouselSectionSiblings = $(this).parents(".carousel-section").siblings(".podcast-recoder");
       if (hasbrexit) {
         if (hiddenValue != undefined && hiddenValue != null && hiddenValue != "") {
           if (hiddenValue.includes("soundcloud.com")) {
-            $(this).parents(".carousel-section").siblings(".podcast-recoder").show();
-            $(this).parents(".carousel-section").siblings(".podcast-recoder").find("iframe").attr("src", hiddenValue);
-            $(this).parents(".carousel-section").siblings(".podcast-recoder").find(".brexit-list").empty();
-            $(this).parents(".carousel-section").siblings(".podcast-recoder").find(".brexit-list").append(ele.delegateTarget.innerHTML);
-            $(this).parents(".carousel-section").hide();
+            _carouselSectionSiblings.show();
+            _carouselSectionSiblings.find("iframe").attr("src", hiddenValue);
+            _carouselSectionSiblings.find(".brexit-list").empty();
+            _carouselSectionSiblings.find(".brexit-list").append(ele.delegateTarget.innerHTML);
+            _carouselSection.hide();
           } else {
             window.open(hiddenValue);
-            $(this).parents(".carousel-section").siblings(".podcast-recoder").hide();
-            $(this).parents(".carousel-section").show();
+            _carouselSectionSiblings.hide();
+            _carouselSection.show();
           }
         } else {
           window.open(hiddenValue);
-          $(this).parents(".carousel-section").siblings(".podcast-recoder").hide();
-          $(this).parents(".carousel-section").show();
+          _carouselSectionSiblings.hide();
+          _carouselSection.show();
         }
       }
     });
   }
   _slidecount = function () {
     $(".brexitstyle .carousel-container").each(function () {
-      nodecount = $(this).find(".slide-container").length;
-
-      $(this).parents(".carousel-section").find(".carousel-slide-button").show();
+      nodecount = $(this).find(".slide-container").length,
+      _cauoselSlideButton = $(this).parents(".carousel-section").find(".carousel-slide-button");
+      _cauoselSlideButton.show();
       if (nodecount <= 3) {
-        $(this).parents(".carousel-section").find(".carousel-slide-button").hide();
+        _cauoselSlideButton.hide();
       }
       else {
-        $(this).parents(".carousel-section").find(".carousel-slide-button").show();
+        _cauoselSlideButton.show();
       }
     });
   }
