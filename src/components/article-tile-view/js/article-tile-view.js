@@ -27,18 +27,19 @@ INFORMA.articleTileView = (function (window, $, namespace) {
     slidesToScroll: 3,
     arrows: false,
   });
+
   _carouselPrevWrapper = function () {
     _carouselPrev.click(function () {
       $(this).parents(".carousel-section").find(".carousel-container").slick('slickNext');
     });
   }
+
   _carouselNextWrapper = function () {
     _carouselNext.click(function () {
       $(this).parents(".carousel-section").find(".carousel-container").slick('slickPrev');
     });
   }
 
-  
   _podcastRecorderWrapper = function () {
     _podcastRecorder.click(function () {
       $(this).parent(".podcast-recoder").hide();
@@ -46,16 +47,19 @@ INFORMA.articleTileView = (function (window, $, namespace) {
       $(this).parents(".carousel-section").show();
     });
   }
+
   _podcastBtnWrapper = function () {
     _podcastBtn.click(function () {
       $(this).closest(".pc-body").next("div").addClass("demo");
     });
   }
+
   _carouselBtnWrapper = function () {
     _carouselBtn.click(function () {
       $(this).closest(".demo").removeClass("demo");
     });
   }
+
   _brexitListWrapper = function () {
     _brexitList.click(function (ele) {
       var hiddenValue = $(this).find("input[type=hidden]:first").val(),
@@ -83,6 +87,7 @@ INFORMA.articleTileView = (function (window, $, namespace) {
       }
     });
   }
+
   _slidecount = function () {
     $(".brexitstyle .carousel-container").each(function () {
       nodecount = $(this).find(".slide-container").length,
@@ -96,6 +101,7 @@ INFORMA.articleTileView = (function (window, $, namespace) {
       }
     });
   }
+
   init = function () {
     _slidecount();
     _carouselPrevWrapper();
@@ -105,6 +111,7 @@ INFORMA.articleTileView = (function (window, $, namespace) {
     _carouselBtnWrapper();
     _brexitListWrapper();
   }
+  
   return {
     init: init
   };
