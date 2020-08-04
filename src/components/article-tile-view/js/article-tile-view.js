@@ -18,15 +18,15 @@ INFORMA.articleTileView = (function (window, $, namespace) {
     _podcastBtn = $(".brexitstyle .btn-Podcasts"),
     _carouselBtn = $(".brexitstyle button#carouselbutton"),
     _brexitList = $(".brexitstyle .carousel-container .brexit-list");
-  _carouselContainer.slick({
-    vertical: true,
-    verticalSwiping: true,
-    infinite: false,
-    loop: false,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-    arrows: false,
-  });
+    _carouselContainer.slick({
+      vertical: true,
+      verticalSwiping: true,
+      infinite: false,
+      loop: false,
+      slidesToShow: 3,
+      slidesToScroll: 3,
+      arrows: false,
+    });
 
   _carouselPrevWrapper = function () {
     _carouselPrev.click(function () {
