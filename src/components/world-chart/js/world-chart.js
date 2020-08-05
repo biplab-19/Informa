@@ -6,26 +6,40 @@ INFORMA.worldchart = (function(window, $, namespace) {
         Urls = INFORMA.Configs.urls.webservices,
         _dataSourceId = $(".world-chart-background").data("source"),
         _chartType = $(".world-chart-background").data("chart-type"),
+        _moveImageContainer = $(".move-image-container"),
+        _moveImageContainerAnchor = $(".move-image-container a"),
         _getWorldChartData,
         _results,
         _createWorldChart,
         _map,
         _worldChartBoxExpand,
         _worldChartBoxMove,
-        _moveImage = 0;
+        _moveImage = 0,
+        _latLon = [{
+                "latitude": 59.334591,
+                "longitude": 18.063240
+            }, {
+                "latitude": 52.237049,
+                "longitude": 21.017532
+            }, {
+                "latitude": 48.210033,
+                "longitude": 16.363449
+            }, {
+                "latitude": 41.902782,
+                "longitude": 12.496366
+            }, {
+                "latitude": 48.864716,
+                "longitude": 2.349014
+            }, {
+                "latitude": 53.350140,
+                "longitude": -6.266155
+            }, 
+        ]
 
     _getWorldChartData = function() {
-        INFORMA.DataLoader.GetServiceData(Urls.WorldChartPageData +'?dataSourceId='+_dataSourceId + '&type='+_chartType, {
-            method: "GET",
-            success_callback: function (data) {
-                _results = data;
-                $(".inf-world-chart-section p").append(_results.Heading);
-                _createWorldChart();
-            },
-            error_callback: function() {
-            
-            }
-        });
+        _results = JSON.parse($(".world-chart-background").find("input[type=hidden]").val());
+        $(".inf-world-chart-section p").append(_results.Heading);
+        _createWorldChart();
     }
 
     _createWorldChart = function() {
@@ -40,56 +54,25 @@ INFORMA.worldchart = (function(window, $, namespace) {
             obj.color = "#ed2024"
             compelteData.push(obj)
         });
-        var star = [{
-                "latitude": 59.334591,
-                "longitude": 18.063240,
+        function startImage(){
+            var starLatLon = []
+            $.each(_latLon, function(i, obj) {
+                starLatLon.push(starImagesData(obj.latitude, obj.longitude))
+            })
+            return starLatLon
+        }
+        function starImagesData(lat, lon){
+            var starImagesDataArray = {
+                "latitude": lat,
+                "longitude": lon,
                 "imageURL": "../../Static/images/star.svg",
                 "width": mobileZoom().Width,
                 "height": mobileZoom().Height,
-                "title": "sweden",
                 "balloonText": false
-            }, {
-                "latitude": 52.237049,
-                "longitude": 21.017532,
-                "imageURL": "../../Static/images/star.svg",
-                "width": mobileZoom().Width,
-                "height": mobileZoom().Height,
-                "title": "poland",
-                "balloonText": false
-            }, {
-                "latitude": 48.210033,
-                "longitude": 16.363449,
-                "imageURL": "../../Static/images/star.svg",
-                "width": mobileZoom().Width,
-                "height": mobileZoom().Height,
-                "title": "austria",
-                "balloonText": false
-            }, {
-                "latitude": 41.902782,
-                "longitude": 12.496366,
-                "imageURL": "../../Static/images/star.svg",
-                "width": mobileZoom().Width,
-                "height": mobileZoom().Height,
-                "title": "italy",
-                "balloonText": false
-            }, {
-                "latitude": 48.864716,
-                "longitude": 2.349014,
-                "imageURL": "../../Static/images/star.svg",
-                "width": mobileZoom().Width,
-                "height": mobileZoom().Height,
-                "title": "france",
-                "balloonText": false
-            }, {
-                "latitude": 53.350140,
-                "longitude": -6.266155,
-                "imageURL": "../../Static/images/star.svg",
-                "width": mobileZoom().Width,
-                "height": mobileZoom().Height,
-                "title": "ireland",
-                "balloonText": false
-            }, 
-        ];
+            }
+            return starImagesDataArray
+        }
+        var star = startImage();
         star.push(compelteData);
         function flatten(e,starWithDots){
             if(typeof e.length != "undefined")
@@ -295,19 +278,19 @@ INFORMA.worldchart = (function(window, $, namespace) {
                 $(this).removeClass("zoom-out zoom-in");
                 $(this).addClass("zoom-in");
                 _map.zoomOut();
-                $(".move-image-container").hide();
+                _moveImageContainer.hide();
                 $(".amcharts-main-div").css({"margin-left":"0px"});
             } else {
                 $(this).removeClass("zoom-in zoom-out");
                 $(this).addClass("zoom-out");
                 _map.zoomIn();
-                $(".move-image-container").show();
+                _moveImageContainer.show();
             }
         });
     }
 
     _worldChartBoxMove = function() {
-        $(".move-image-container a").click(function() {
+        _moveImageContainerAnchor.click(function() {
             var moveSide = $(this).attr("class");
             if(moveSide == "move-left") {
                 _moveImage = _moveImage + 50;
