@@ -1,0 +1,151 @@
+.world-chart-background {
+    background-color: #494a59;
+    padding-top: 50px;
+    padding-bottom: 75px;
+    @include mobile {
+        padding-bottom: 140px;
+    }
+}
+
+.inf-world-chart-section {
+    margin: 50px 0 0;
+    text-align: center;
+    p.heading {
+        font-size: 38px;
+        font-weight: 500;
+        color: #fff;
+        line-height: normal;
+        margin-bottom: 80px;
+        @include tablet {
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+        @include mobile {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+    }
+    .inf-world-chart-container {
+        position: relative;
+        a.zoom-in {
+            @include mobile {
+                background-image: url(../../Static/images/zoom-in.png);
+                width: 28px;
+                height: 29px;
+                position: absolute;
+                right: 10px;
+                top: 10px;
+                z-index: 1;
+            }
+        }
+        a.zoom-out {
+            @include mobile {
+                background-image: url(../../Static/images/zoom-out.png);
+                width: 28px;
+                height: 29px;
+                position: absolute;
+                right: 10px;
+                top: 10px;
+                z-index: 1;
+            }
+        }
+        #inf-world-chart-wrapper {
+            width: 100%;
+            height: 600px;
+            span.tooltip-text {
+                font-size: 14px;
+                font-weight: 700;
+                color: #fff;
+                @include mobile {
+                    font-size: 12px;
+                }
+            }
+            @include mobile {
+                border: 2px solid #ef456c;
+                border-radius: 15px;
+                -webkit-border-radius: 15px;
+                -moz-border-radius: 15px;
+                height: 300px;
+            }
+        }
+        .move-image-container {
+            display: none;
+            a {
+                @include mobile {
+                    background-color: #ab3192;
+                    width: 80px;
+                    height: 45px;
+                    position: absolute;
+                }
+            }
+            a.move-left {
+                @include mobile {
+                    left: 50%;
+                    margin-left: -80px;
+                    background-image: url(../../Static/images/prev-arrow-chart-bar.png);
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    border-radius: 10px 0 0 10px;
+                    &:before {
+                        content: '';
+                        opacity: 1;
+                    }
+                }
+            }
+            a.move-right {
+                @include mobile {
+                    right: 50%;
+                    margin-right: -80px;
+                    background-image: url(../../Static/images/next-arrow-chart-bar.png);
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    border-radius: 0 10px 10px 0;
+                    &:before {
+                        content: '';
+                        opacity: 1;
+                    }
+                }
+            }
+            @include mobile {
+                margin: 20px 0 0;
+                position: relative;
+                height: 45px;
+            }
+        }
+        a.world-chart-read-more {
+            text-align: center;
+            border: 2px solid #ef456c;
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            padding: 15px 45px 15px 20px;
+            position: relative;
+            i {
+                font-size: 36px;
+                color: #ef456c;
+                position: absolute;
+                right: 20px;
+                top: 10px;
+                @include tablet {
+                    right: 15px;
+                    top: 3px;
+                }
+                @include mobile {
+                    font-size: 30px;
+                    right: 10px;
+                    top: 2px;
+                }
+            }
+            @include tablet {
+                font-size: 18px;
+                padding: 10px 40px 10px 15px;
+            }
+            @include mobile {
+                display: inline-block;
+                margin: 25px 0 0;
+                font-size: 16px;
+                padding: 7px 30px 7px 10px;
+            }
+        }
+    }
+}
