@@ -19,6 +19,9 @@
         }
         .slick-list {
             height: 210px !important;
+            @include mobile {
+                height: 75px !important;
+            }
         }
         .slick-slide {
             img {
@@ -26,6 +29,9 @@
                 cursor: pointer;
                 max-width: 100%;
                 max-height: 210px;
+                @include mobile {
+                    max-height: 75px !important;
+                }
             }
         }
         .slick-dots {
