@@ -220,6 +220,9 @@
         flex-direction: column;
         min-height: 430px;
         width: 100%;
+        @include mobile {
+            height:600px;
+        }
     }
 
     .podcasts-card {
@@ -381,7 +384,8 @@
     }
 
     .carousel-container {
-        max-width: 320px;
+        //max-width: 320px;
+        max-width:100%;
 
         @include mobile {
             height: auto !important;
