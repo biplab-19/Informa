@@ -34,6 +34,104 @@ INFORMA.worldchart = (function(window, $, namespace) {
                 "latitude": 53.350140,
                 "longitude": -6.266155
             }, 
+        ],
+        _blueHighlighted = [{
+                "title": "Austria",
+                "id": "AT",
+                "color": "#233e90",
+            }, {
+                "title": "Ireland",
+                "id": "IE",
+                "color": "#233e90",
+            }, {
+                "title": "Finland",
+                "id": "FI",
+                "color": "#233e90",
+            }, {
+                "title": "Sweden",
+                "id": "SE",
+                "color": "#233e90",
+            }, {
+                "title": "Italy",
+                "id": "IT",
+                "color": "#233e90",
+            }, {
+                "title": "France",
+                "id": "FR",
+                "color": "#233e90",
+            }, {
+                "title": "Spain",
+                "id": "ES",
+                "color": "#233e90",
+            }, {
+                "title": "Greece",
+                "id": "GR",
+                "color": "#233e90",
+            }, {
+                "title": "Germany",
+                "id": "DE",
+                "color": "#233e90",
+            }, {
+                "title": "Belgium",
+                "id": "BE",
+                "color": "#233e90",
+            }, {
+                "title": "Netherlands",
+                "id": "NL",
+                "color": "#233e90",
+            }, {
+                "title": "Portugal",
+                "id": "PT",
+                "color": "#233e90",
+            }, {
+                "title": "Lithuania",
+                "id": "LT",
+                "color": "#233e90",
+            }, {
+                "title": "Latvia",
+                "id": "LV",
+                "color": "#233e90",
+            }, {
+                "title": "Czech Republic ",
+                "id": "CZ",
+                "color": "#233e90",
+            }, {
+                "title": "Slovakia",
+                "id": "SK",
+                "color": "#233e90",
+            }, {
+                "title": "Slovenia",
+                "id": "SI",
+                "color": "#233e90",
+            }, {
+                "title": "Estonia",
+                "id": "EE",
+                "color": "#233e90",
+            }, {
+                "title": "Hungary",
+                "id": "HU",
+                "color": "#233e90",
+            }, {
+                "title": "Poland",
+                "id": "PL",
+                "color": "#233e90",
+            }, {
+                "title": "Romania",
+                "id": "RO",
+                "color": "#233e90",
+            }, {
+                "title": "Bulgaria",
+                "id": "BG",
+                "color": "#233e90",
+            }, {
+                "title": "Croatia",
+                "id": "HR",
+                "color": "#233e90",
+            },{
+                "title": "switzerland",
+                "id": "SW",
+                "color": "#233e90",
+            }
         ]
 
     _getWorldChartData = function() {
@@ -72,7 +170,12 @@ INFORMA.worldchart = (function(window, $, namespace) {
             }
             return starImagesDataArray
         }
-        var star = startImage();
+        if (_results.IsdisplayEurozone == "true"){
+            var star = startImage();
+        } else {
+            var star = [];
+            _blueHighlighted = []
+        }
         star.push(compelteData);
         function flatten(e,starWithDots){
             if(typeof e.length != "undefined")
@@ -100,104 +203,7 @@ INFORMA.worldchart = (function(window, $, namespace) {
                 "getAreasFromMap": false,
                 zoomLevel: mobileZoom().Zoom,
 
-                "areas": [{
-                    "title": "Austria",
-                    "id": "AT",
-                    "color": "#233e90",
-                }, {
-                    "title": "Ireland",
-                    "id": "IE",
-                    "color": "#233e90",
-                }, {
-                    "title": "Finland",
-                    "id": "FI",
-                    "color": "#233e90",
-                }, {
-                    "title": "Sweden",
-                    "id": "SE",
-                    "color": "#233e90",
-                }, {
-                    "title": "Italy",
-                    "id": "IT",
-                    "color": "#233e90",
-                }, {
-                    "title": "France",
-                    "id": "FR",
-                    "color": "#233e90",
-                }, {
-                    "title": "Spain",
-                    "id": "ES",
-                    "color": "#233e90",
-                }, {
-                    "title": "Greece",
-                    "id": "GR",
-                    "color": "#233e90",
-                }, {
-                    "title": "Germany",
-                    "id": "DE",
-                    "color": "#233e90",
-                }, {
-                    "title": "Belgium",
-                    "id": "BE",
-                    "color": "#233e90",
-                }, {
-                    "title": "Netherlands",
-                    "id": "NL",
-                    "color": "#233e90",
-                }, {
-                    "title": "Portugal",
-                    "id": "PT",
-                    "color": "#233e90",
-                }, {
-                    "title": "Lithuania",
-                    "id": "LT",
-                    "color": "#233e90",
-                }, {
-                    "title": "Latvia",
-                    "id": "LV",
-                    "color": "#233e90",
-                }, {
-                    "title": "Czech Republic ",
-                    "id": "CZ",
-                    "color": "#233e90",
-                }, {
-                    "title": "Slovakia",
-                    "id": "SK",
-                    "color": "#233e90",
-                }, {
-                    "title": "Slovenia",
-                    "id": "SI",
-                    "color": "#233e90",
-                }, {
-                    "title": "Estonia",
-                    "id": "EE",
-                    "color": "#233e90",
-                }, {
-                    "title": "Hungary",
-                    "id": "HU",
-                    "color": "#233e90",
-                }, {
-                    "title": "Poland",
-                    "id": "PL",
-                    "color": "#233e90",
-                }, {
-                    "title": "Romania",
-                    "id": "RO",
-                    "color": "#233e90",
-                }, {
-                    "title": "Bulgaria",
-                    "id": "BG",
-                    "color": "#233e90",
-                }, {
-                    "title": "Croatia",
-                    "id": "HR",
-                    "color": "#233e90",
-                },{
-                    "title": "switzerland",
-                    "id": "SW",
-                    "color": "#233e90",
-                }
-                ],
+                "areas": _blueHighlighted,
                 "images": starWithDots,
             },
 
