@@ -3,34 +3,34 @@ INFORMA.campaignbackground = (function (window, $, namespace) {
     'use strict';
     //variables
     var init,
-        scrollImg = $("img.scroll-down").length,
-        docHeight = $("body").height(),
-        headerHeight = $("#informa-main-header").height(),
-        footerHeight = $("#informa-footer").height(),
-        cookiesHeight = $("#cookieBanner").height(),
-        scrollhideHeight = parseInt(docHeight) - (parseInt(headerHeight) + parseInt(footerHeight) + parseInt(cookiesHeight) + 300),
-        scrollfromTop,
+        _scrollDown = $(".scroll-down"),
+        _scrollImg = $("img.scroll-down").length,
+        _docHeight = $("body").height(),
+        _headerHeight = $("#informa-main-header").height(),
+        _footerHeight = $("#informa-footer").height(),
+        _cookiesHeight = $("#cookieBanner").height(),
+        _scrollhideHeight = parseInt(_docHeight) - (parseInt(_headerHeight) + parseInt(_footerHeight) + parseInt(_cookiesHeight) + 1300),
+        _scrollfromTop,
         //methods
-        scrollHide,
-        scrollHide = function (scrollfromTop) {
-            $(".scroll-down").removeClass("hide");
-            if (scrollImg > 0) {
-                if (scrollfromTop >= scrollhideHeight) {
-                    $(".scroll-down").addClass("hide");
-                }
-                else {
-                    $(".scroll-down").removeClass("hide");
-                }
+        _scrollHide
+
+    _scrollHide = function (_scrollfromTop) {
+        _scrollDown.removeClass("hide");
+        if (_scrollImg > 0) {
+            if (_scrollfromTop >= _scrollhideHeight) {
+                _scrollDown.addClass("hide");
+            }
+            else {
+                _scrollDown.removeClass("hide");
             }
         }
-    init = function () {
+    }
 
+    init = function () {
         window.addEventListener("scroll", function (event) {
             var scroll = this.scrollY;
-            scrollHide(scroll);
+            _scrollHide(scroll);
         });
-
-
     };
 
     return {
