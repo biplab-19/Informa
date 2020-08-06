@@ -33,7 +33,9 @@ var INFORMA = window.INFORMA || {};
             "GetRecomendedItems": "/data/recomended-content.json",
             "GetProductAndVerticalNames": "/data/GetWffmHiddenItemsContent.json",
             "GetRecomendedProductItems": "/data/recomendedProducts.json",
-            "BrandPortfolioSearch": "/data/brandPortfolio-page.json"
+            "BrandPortfolioSearch": "/data/brandPortfolio-page.json",
+            "PieBarChartPageData": "/data/pie-bar-chart.json",
+            "WorldChartPageData": "/data/world-chart.json"
         },
         "dev": {
             "GetArticles": "/client/search/getarticles",
@@ -54,7 +56,9 @@ var INFORMA = window.INFORMA || {};
             "GetProductAndVerticalNames": "/client/ajax/GetWffmHiddenItemsContent",
             "GetRecomendedProductItems": "/client/Account/GetUpdatedProduct",
             "SetFirstContentDisplayedCookie" :"/client/Ajax/SetFirstContentDisplayedCookie",
-            "BrandPortfolioSearch": "/client/search/GetBrandPortfolioList"
+            "BrandPortfolioSearch": "/client/search/GetBrandPortfolioList",
+            "PieBarChartPageData": "/api/Sitecore/shared/GetChartsDetail",
+            "WorldChartPageData": "/api/Sitecore/shared/GetChartsDetail"
         }
     };
 
