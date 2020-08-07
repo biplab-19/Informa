@@ -319,10 +319,10 @@ INFORMA.worldchart = (function(window, $, namespace) {
 
     _dataAttributes = function() {
         $(".world-chart-read-more").click(function(){
-            var _category = $(this).data("category");
-            var _action = $(this).data("action");
-            var _label = $(this).data("label");
-            var _value = $(this).data("value");
+            var _category = $(this).data("ga-category");
+            var _action = $(this).data("ga-action");
+            var _label = $(this).data("ga-label");
+            var _value = $(this).data("ga-value");
             INFORMA.Analytics.trackEvents(_category, _action, _label, _value);
         })
     }
