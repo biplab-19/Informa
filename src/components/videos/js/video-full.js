@@ -19,6 +19,7 @@ INFORMA.videoFull = (function (window, $, namespace) {
                 videoAutoplay = videoImg.attr('data-videoautoplay'),
                 videoControl = videoImg.attr('data-videocontrol'),
                 videovolume = videoImg.attr('data-volume'),
+                videorel = videoImg.attr("data-rel"),
                 videoid = videoImg.attr("id");
             if (videoAutoplay == "false") {
                 videoAutoplay = 1;
@@ -34,9 +35,20 @@ INFORMA.videoFull = (function (window, $, namespace) {
                         break;
 
                 }
+                switch (videorel) {
+                    case "true":
+                        videorel = 0;
+                        break;
+                    case "false":
+                        videorel = 1;
+                        break;
+                    default:
+                        videorel = 0;
+                        break;
+                }
                 switch (videoType) {
                     case "youtube":
-                        video = '<iframe id=' + videoid + '  width="100%" src="' + videoUrl + '?enablejsapi=1&autoplay=' + videoAutoplay + '&controls=' + videoControl + ' " frameborder="0" allowfullscreen allow="autoplay" ></iframe>';
+                        video = '<iframe id=' + videoid + '  width="100%" src="' + videoUrl + '?enablejsapi=1&autoplay=' + videoAutoplay + '&controls=' + videoControl + '&rel='+ videorel + ' " frameborder="0" allowfullscreen allow="autoplay" ></iframe>';
                         break;
                     case "vimeo":
                         video = '<iframe id=' + videoid + ' width="100%"  src="' + videoUrl + '?api=1&player_id=vmplayer&autoplay=' + videoAutoplay + '&controls=' + videoControl + '" frameborder="0" allow="autoplay" allowfullscreen></iframe>';
@@ -45,7 +57,7 @@ INFORMA.videoFull = (function (window, $, namespace) {
                         video = '<iframe id=' + videoid + ' width="100%" height="' + videoImg.attr('height') + '" src="' + videoUrl + '?autoPlay=true" frameborder="0" allowfullscreen></iframe>';
                         break;
                     default:
-                        video = '<iframe id=' + videoid + ' width="100%" src="' + videoUrl + '?enablejsapi=1&autoplay=' + videoAutoplay + '&controls=' + videoControl + ' " frameborder="0" allowfullscreen allow="autoplay" ></iframe>';
+                        video = '<iframe id=' + videoid + ' width="100%" src="' + videoUrl + '?enablejsapi=1&autoplay=' + videoAutoplay + '&controls=' + videoControl + '&rel='+ videorel + ' " frameborder="0" allowfullscreen allow="autoplay" ></iframe>';
                         break;
                 }
 
@@ -110,10 +122,10 @@ INFORMA.videoFull = (function (window, $, namespace) {
             videoControl = $(this).attr('data-videocontrol'),
             videovolume = $(this).attr('data-volume'),
             videoid = $(this).attr("id"),
+            videorel = $(this).attr("data-rel"),
             videofsetop=$(this).offset().top,
             windowscroll = window.scrollY;
-            console.log(videofsetop);
-            console.log(windowscroll);
+
             if ((videoAutoplay == "true") && (windowscroll>(videofsetop - 300)))  {
                 if (thumbnail == "" || thumbnail == undefined || thumbnail == null) {
                     $(this).attr("src", thumbnailImage);
@@ -121,6 +133,7 @@ INFORMA.videoFull = (function (window, $, namespace) {
                 $(this).parent(".embed-responsive").attr("data-id", videoid);
                 $(this).parent(".embed-responsive").attr("data-volume", videovolume);
                 $(this).parent(".embed-responsive").attr("data-videoautoplay", videoAutoplay);
+                $(this).parent(".embed-responsive").attr("data-rel", videorel);
                 $(this).parent(".embed-responsive").addClass("isvideo");
                 videoAutoplay = 1;
                 switch (videoControl) {
@@ -134,9 +147,20 @@ INFORMA.videoFull = (function (window, $, namespace) {
                         videoControl = 0;
                         break;
                 }
+                switch (videorel) {
+                    case "true":
+                        videorel = 0;
+                        break;
+                    case "false":
+                        videorel = 1;
+                        break;
+                    default:
+                        videorel = 0;
+                        break;
+                }
                 switch (videoType) {
                     case "youtube":
-                        video = '<iframe id=' + videoid + '  width="100%" src="' + videoUrl + '?enablejsapi=1&autoplay=' + videoAutoplay + '&controls=' + videoControl + ' " frameborder="0" allowfullscreen allow="autoplay" ></iframe>';
+                        video = '<iframe id=' + videoid + '  width="100%" src="' + videoUrl + '?enablejsapi=1&autoplay=' + videoAutoplay + '&controls=' + videoControl + '&rel='+ videorel + ' " frameborder="0" allowfullscreen allow="autoplay" ></iframe>';
                         break;
                     case "vimeo":
                         video = '<iframe id=' + videoid + ' width="100%"  src="' + videoUrl + '?api=1&player_id=vmplayer&autoplay=' + videoAutoplay + '&controls=' + videoControl + '" frameborder="0" allow="autoplay" allowfullscreen></iframe>';
@@ -145,7 +169,7 @@ INFORMA.videoFull = (function (window, $, namespace) {
                         video = '<iframe id=' + videoid + ' width="100%" height="' + videoImg.attr('height') + '" src="' + videoUrl + '?autoPlay=true" frameborder="0" allowfullscreen></iframe>';
                         break;
                     default:
-                        video = '<iframe id=' + videoid + ' width="100%" src="' + videoUrl + '?enablejsapi=1&autoplay=' + videoAutoplay + '&controls=' + videoControl + ' " frameborder="0" allowfullscreen allow="autoplay" ></iframe>';
+                        video = '<iframe id=' + videoid + ' width="100%" src="' + videoUrl + '?enablejsapi=1&autoplay=' + videoAutoplay + '&controls=' + videoControl + '&rel='+ videorel + ' " frameborder="0" allowfullscreen allow="autoplay" ></iframe>';
                         break;
                 }
                 $(this).replaceWith(video);
