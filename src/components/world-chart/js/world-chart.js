@@ -147,7 +147,7 @@ INFORMA.worldchart = (function(window, $, namespace) {
         $.each( facet, function(i, obj) {
             obj.width = 16
             obj.height = 16
-            obj.scale = 0.5
+            obj.scale = 1
             obj.type = "circle"
             obj.color = "#ed2024"
             compelteData.push(obj)
@@ -195,7 +195,8 @@ INFORMA.worldchart = (function(window, $, namespace) {
             "type": "map",
             "hideCredits": "true",
             "zoomOnDoubleClick": false,
-            "dragMap": false,
+            //"dragMap": false,
+            "dragMap": mobileZoom().dragMap,
             "projection": "miller",
 
             "dataProvider": {
@@ -260,8 +261,9 @@ INFORMA.worldchart = (function(window, $, namespace) {
                 Width: 16,
                 Height: 16,
                 balloonHorizontalPadding: 60,
-                balloonMaxwidth: 300,
-                Zoom: 1
+                balloonMaxwidth: 320,
+                Zoom: 1,
+                dragMap: false
             }
             var currentWidth = window.screen.width;
             if (currentWidth >= 320 && currentWidth < 767) {
@@ -270,6 +272,7 @@ INFORMA.worldchart = (function(window, $, namespace) {
                 obj.balloonHorizontalPadding = 20;
                 obj.balloonMaxwidth = 140;
                 obj.Zoom = 1;
+                obj.dragMap = true;
 
             return obj;
             }
