@@ -3,7 +3,7 @@ INFORMA.videoFull = (function (window, $, namespace) {
     'use strict';
     //variables
     var _videoWrapper = $(".video-full-container .video-img,.video-full-container .play-icon,.video-full-container h1"),
-        thumbnailImage = "cms-images/video-img/video-thumb-default.png",
+        thumbnailImage = "./Static/images/video/video-thumb-default.png",
         isMute,
         // methods
         vimeoIframeAPIReady,
@@ -49,7 +49,7 @@ INFORMA.videoFull = (function (window, $, namespace) {
                 }
 
                 videoImg.replaceWith(video);
-                if (videoType == "youtube" || videoType == " " || videoType == undefined) {
+                if (videoType == "youtube" || videoType == " " || videoType == undefined || videoType == null) {
                     console.log("hi new line");
                     var tag = document.createElement("script");
                     tag.src = "https://www.youtube.com/iframe_api";
@@ -165,7 +165,7 @@ INFORMA.videoFull = (function (window, $, namespace) {
                 }
         });
         
-      });
+    });
     init = function () {
         _playFullVideo();
 
