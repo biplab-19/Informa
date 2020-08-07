@@ -173,7 +173,7 @@ INFORMA.worldchart = (function(window, $, namespace) {
             }
             return starImagesDataArray
         }
-        if (_results.IsdisplayEurozone == "true"){
+        if (_results.IsdisplayEurozone === true){
             var star = startImage();
         } else {
             var star = [];
