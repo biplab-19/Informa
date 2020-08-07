@@ -7,6 +7,7 @@ INFORMA.signup = (function(window, $, namespace) {
         _signUpCollapseImg = $('.inf-sign-up-box img.collapse-box'),
         _infSignUp = $(".inf-sign-up"),
         _signUpCollapseTextField = $(".inf-sign-up-box input[type=text]"),
+        _modalld = $("#modalId").val(),
         // methods
         init,
         _signUpBoxExpand,
@@ -76,7 +77,7 @@ INFORMA.signup = (function(window, $, namespace) {
     };
 
     _prePopulateEmail = function () {
-        $("#Ferteconebulletin").on('shown.bs.modal', function(){
+        $("#"+_modalld).on('shown.bs.modal', function(){
 			$(this).find('.email-field').focus();
 			$(this).find('.email-field').val($(".inf-sign-up-box input").val());
 		});
