@@ -1,10 +1,8 @@
 .timeline-background {
-    background-image: url(../../Static/images/grey-flag.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     background-attachment: fixed;
-    background-color: #000;
 }
 
 .inf-timeline-section {
@@ -71,6 +69,7 @@
                             color: #fff;
                             padding: 0 0 0 35px;
                             position: relative;
+                            display: inline-block;
                             &:before {
                                 content: "";
                                 background-color: #b2b3b7;
@@ -82,7 +81,7 @@
                                 -moz-border-radius: 10px;
                                 position: absolute;
                                 left: 0px;
-                                top: 6px;
+                                top: 7px;
                                 @include mobile {
                                     background-color: #fff;
                                     width: 5px;

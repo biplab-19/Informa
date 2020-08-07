@@ -1,13 +1,10 @@
 .top-section-background {
-    background-image: url(../../Static/images/grey-flag.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     background-attachment: fixed;
-    background-color: #000;
     padding-top: 70px;
     padding-bottom: 130px;
-    background-color: #000;
 }
 
 .inf-slider-section {
@@ -17,11 +14,21 @@
         .slick-arrow {
             display:none !important;
         }
+        .slick-list {
+            height: 210px !important;
+            @include mobile {
+                height: 75px !important;
+            }
+        }
         .slick-slide {
             img {
                 display: inline-block;
                 cursor: pointer;
                 max-width: 100%;
+                max-height: 210px;
+                @include mobile {
+                    max-height: 75px !important;
+                }
             }
         }
         .slick-dots {
