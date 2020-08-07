@@ -51,7 +51,6 @@ INFORMA.videoFull = (function (window, $, namespace) {
 
                 videoImg.replaceWith(video);
                 if (videoType == "youtube" || videoType == " " || videoType == undefined || videoType == null) {
-                    console.log("hi new line");
                     var tag = document.createElement("script");
                     tag.src = "https://www.youtube.com/iframe_api";
                     var firstScriptTag = document.getElementsByTagName("script")[0];
@@ -116,7 +115,7 @@ INFORMA.videoFull = (function (window, $, namespace) {
             console.log(videofsetop);
             console.log(windowscroll);
             if ((videoAutoplay == "true") && (windowscroll>(videofsetop - 300)))  {
-                if (thumbnail == "" || thumbnail == undefined) {
+                if (thumbnail == "" || thumbnail == undefined || thumbnail == null) {
                     $(this).attr("src", thumbnailImage);
                 }
                 $(this).parent(".embed-responsive").attr("data-id", videoid);
@@ -168,6 +167,13 @@ INFORMA.videoFull = (function (window, $, namespace) {
         });
         
     });
+
+    $(".embed-responsive img").each(function () {
+        var thumbnail = $(this).attr("src");
+        if (thumbnail == "" || thumbnail == undefined || thumbnail == null) {
+                $(this).attr("src", thumbnailImage);
+            }
+        });
     init = function () {
         _playFullVideo();
     }
