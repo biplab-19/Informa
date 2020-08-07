@@ -15,6 +15,8 @@ INFORMA.worldchart = (function(window, $, namespace) {
         _worldChartBoxExpand,
         _worldChartBoxMove,
         _moveImage = 0,
+        _trackEvents,
+        _dataAttributes,
         _latLon = [{
                 "latitude": 59.334591,
                 "longitude": 18.063240
@@ -316,10 +318,21 @@ INFORMA.worldchart = (function(window, $, namespace) {
         });
     }
 
+    _dataAttributes = function() {
+        $(".world-chart-read-more").click(function(){
+            var _category = $(this).data("category");
+            var _action = $(this).data("action");
+            var _label = $(this).data("label");
+            var _value = $(this).data("value");
+            INFORMA.Analytics.trackEvents(_category, _action, _label, _value);
+        })
+    }
+
     init = function() {
         _getWorldChartData();
         _worldChartBoxExpand();
         _worldChartBoxMove();
+        _dataAttributes();
     };
 
     return {
