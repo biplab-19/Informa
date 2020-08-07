@@ -18,7 +18,7 @@ INFORMA.campaignbackground = (function (window, $, namespace) {
             if(_cookiesHeight == null || _cookiesHeight == undefined){
                 _cookiesHeight = 170;
             }
-           var  _scrollhideHeight = parseInt(_docHeight) - (parseInt(_headerHeight) + parseInt(_footerHeight) + parseInt(_cookiesHeight) + 300);
+           var  _scrollhideHeight = parseInt(_docHeight) - (parseInt(_headerHeight) + parseInt(_footerHeight) + parseInt(_cookiesHeight) + 700);
             _scrollDown.removeClass("hide");
         if (_scrollImg > 0) {
             if (_scrollfromTop >= _scrollhideHeight) {
