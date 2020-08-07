@@ -195,9 +195,10 @@ INFORMA.videoFull = (function (window, $, namespace) {
     $(".embed-responsive img").each(function () {
         var thumbnail = $(this).attr("src");
         if (thumbnail == "" || thumbnail == undefined || thumbnail == null) {
-                $(this).attr("src", thumbnailImage);
-            }
-        });
+            $(this).attr("src", thumbnailImage);
+        }
+    });
+
     init = function () {
         _playFullVideo();
     }
