@@ -15,7 +15,6 @@ INFORMA.worldchart = (function(window, $, namespace) {
         _worldChartBoxExpand,
         _worldChartBoxMove,
         _moveImage = 0,
-        _trackEvents,
         _dataAttributes,
         _latLon = [{
                 "latitude": 59.334591,
