@@ -136,9 +136,11 @@ INFORMA.worldchart = (function(window, $, namespace) {
         ]
 
     _getWorldChartData = function() {
-        _results = JSON.parse($(".world-chart-background").find("input[type=hidden]").val());
-        $(".inf-world-chart-section p").append(_results.Heading);
-        _createWorldChart();
+        if($(".world-chart-background").length>0 && $(".inf-world-chart-section").length>0) {
+            _results = JSON.parse($(".world-chart-background").find("input[type=hidden]").val());
+            $(".inf-world-chart-section p").append(_results.Heading);
+            _createWorldChart();
+        }
     }
 
     _createWorldChart = function() {
