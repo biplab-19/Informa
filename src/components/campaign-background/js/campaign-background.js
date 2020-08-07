@@ -3,7 +3,7 @@ INFORMA.campaignbackground = (function (window, $, namespace) {
     'use strict';
     //variables
     var init,
-    _scrollfromTop,
+        _scrollfromTop,
         //methods
         _scrollHide
 
@@ -15,11 +15,14 @@ INFORMA.campaignbackground = (function (window, $, namespace) {
             _headerHeight = $("#informa-main-header").height(),
             _footerHeight = $("footer").height(),
             _cookiesHeight = $("#cookieBanner").height();
+            
             if(_cookiesHeight == null || _cookiesHeight == undefined){
                 _cookiesHeight = 170;
             }
-           var  _scrollhideHeight = parseInt(_docHeight) - (parseInt(_headerHeight) + parseInt(_footerHeight) + parseInt(_cookiesHeight) + 700);
+
+            var _scrollhideHeight = parseInt(_docHeight) - (parseInt(_headerHeight) + parseInt(_footerHeight) + parseInt(_cookiesHeight) + 700);
             _scrollDown.removeClass("hide");
+
         if (_scrollImg > 0) {
             if (_scrollfromTop >= _scrollhideHeight) {
                 _scrollDown.addClass("hide");
@@ -28,6 +31,7 @@ INFORMA.campaignbackground = (function (window, $, namespace) {
                 _scrollDown.removeClass("hide");
             }
         }
+
     }
 
     init = function () {
