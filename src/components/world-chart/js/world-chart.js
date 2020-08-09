@@ -148,11 +148,10 @@ INFORMA.worldchart = (function(window, $, namespace) {
         var facet = _results.FacetList[0].SectionList;
         var compelteData = [];
         $.each( facet, function(i, obj) {
-            obj.width = 16
-            obj.height = 16
+            obj.width = 22
+            obj.height = 22
             obj.scale = 1
-            obj.type = "circle"
-            obj.color = "#ed2024"
+            obj.imageURL =  "../../Static/images/circle.gif",
             compelteData.push(obj)
         });
         function startImage(){
