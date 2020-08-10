@@ -118,6 +118,9 @@
             .slick-list .slick-slide:last-child .brexit-list {
                 margin-bottom: 0;
             }
+            .slick-list.draggable {
+                max-height: 370px;
+            }
         }
 
         img.pcbodysecimg {
@@ -262,8 +265,7 @@
             user-select: none;
             width: fit-content;
             align-items: center;
-            margin-top: 60px;
-
+            margin-top: 75px;
             @include mobile {
                 font-size: 14px;
                 margin-top: 0px;
@@ -334,7 +336,7 @@
                 height: calc(100% - 90px);
 
                 @include bootstrap-mobile {
-                    padding: 15px 15px 0px 15px !important;
+                    padding: 15px 0px 0px 0px !important;
                     height: calc(100% - 118px) !important;
                 }
 
@@ -357,6 +359,9 @@
                     padding: 0;
                     color: #fff;
                     font-size: 12px;
+                }
+                .btn-Podcasts.btn-primary#carouselbutton {
+                    z-index:9;
                 }
             }
         }
@@ -444,6 +449,10 @@
         position: relative;
         left: 50%;
         top: -97px;
+        @include mobile {
+            left: 45%;
+            top: -88px;
+        }
 
         .carousel-slide {
             cursor: pointer;
