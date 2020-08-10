@@ -119,6 +119,9 @@
             .slick-list .slick-slide:last-child .brexit-list {
                 margin-bottom: 0;
             }
+            .slick-list.draggable {
+                max-height: 370px;
+            }
         }
 
         img.pcbodysecimg {
@@ -335,7 +338,7 @@
                 height: calc(100% - 90px);
 
                 @include bootstrap-mobile {
-                    padding: 15px 15px 0px 15px !important;
+                    padding: 15px 0px 0px 0px !important;
                     height: calc(100% - 118px) !important;
                 }
 
@@ -446,6 +449,10 @@
         position: relative;
         left: 50%;
         top: -97px;
+        @include mobile {
+            left: 45%;
+            top: -88px;
+        }
 
         .carousel-slide {
             cursor: pointer;
