@@ -7,6 +7,7 @@ INFORMA.signup = (function(window, $, namespace) {
         _signUpCollapseImg = $('.inf-sign-up-box img.collapse-box'),
         _infSignUp = $(".inf-sign-up"),
         _signUpCollapseTextField = $(".inf-sign-up-box input[type=text]"),
+        _modalld = $("#modalId").val(),
         // methods
         init,
         _signUpBoxExpand,
@@ -16,7 +17,8 @@ INFORMA.signup = (function(window, $, namespace) {
         _validateEmail,
         _validateEmailOnEnter,
         _validateEmailOnMouseout,
-        _redirectToLink
+        _redirectToLink,
+        _prePopulateEmail
 
     _signUpBoxExpand = function() {
         _signUpExpand.click(function() {
@@ -74,6 +76,13 @@ INFORMA.signup = (function(window, $, namespace) {
         });
     };
 
+    _prePopulateEmail = function () {
+        $("#"+_modalld).on('shown.bs.modal', function(){
+			$(this).find('.email-field').focus();
+			$(this).find('.email-field').val($(".inf-sign-up-box input").val());
+		});
+    };
+
     init = function() {
         _signUpBoxExpand();
         _signUpBoxCollapse();
@@ -81,6 +90,7 @@ INFORMA.signup = (function(window, $, namespace) {
         _validateEmailOnEnter();
         _validateEmailOnMouseout();
         _redirectToLink();
+        _prePopulateEmail();
     };
 
     return {
