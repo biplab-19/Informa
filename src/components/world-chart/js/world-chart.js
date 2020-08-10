@@ -148,11 +148,10 @@ INFORMA.worldchart = (function(window, $, namespace) {
         var facet = _results.FacetList[0].SectionList;
         var compelteData = [];
         $.each( facet, function(i, obj) {
-            obj.width = 16
-            obj.height = 16
+            obj.width = 35
+            obj.height = 35
             obj.scale = 1
-            obj.type = "circle"
-            obj.color = "#ed2024"
+            obj.imageURL =  "../../Static/images/circle.gif",
             compelteData.push(obj)
         });
         function startImage(){
@@ -198,7 +197,6 @@ INFORMA.worldchart = (function(window, $, namespace) {
             "type": "map",
             "hideCredits": "true",
             "zoomOnDoubleClick": false,
-            //"dragMap": false,
             "dragMap": mobileZoom().dragMap,
             "projection": "miller",
 
