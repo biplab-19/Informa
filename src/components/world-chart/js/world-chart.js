@@ -148,8 +148,8 @@ INFORMA.worldchart = (function(window, $, namespace) {
         var facet = _results.FacetList[0].SectionList;
         var compelteData = [];
         $.each( facet, function(i, obj) {
-            obj.width = 22
-            obj.height = 22
+            obj.width = 35
+            obj.height = 35
             obj.scale = 1
             obj.imageURL =  "../../Static/images/circle.gif",
             compelteData.push(obj)
@@ -197,7 +197,6 @@ INFORMA.worldchart = (function(window, $, namespace) {
             "type": "map",
             "hideCredits": "true",
             "zoomOnDoubleClick": false,
-            //"dragMap": false,
             "dragMap": mobileZoom().dragMap,
             "projection": "miller",
 
