@@ -3,7 +3,7 @@ INFORMA.videoFull = (function (window, $, namespace) {
     'use strict';
     //variables
     var _videoWrapper = $(".video-full-container .video-img,.video-full-container .play-icon,.video-full-container h1"),
-        thumbnailImage = "./Static/images/video/video-thumb-default.png",
+        thumbnailImage = "../../Static/images/video/video-thumb-default.png",
         isMute,
         // methods
         vimeoIframeAPIReady,
