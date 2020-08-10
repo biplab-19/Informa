@@ -136,9 +136,11 @@ INFORMA.worldchart = (function(window, $, namespace) {
         ]
 
     _getWorldChartData = function() {
-        _results = JSON.parse($(".world-chart-background").find("input[type=hidden]").val());
-        $(".inf-world-chart-section p").append(_results.Heading);
-        _createWorldChart();
+        if($(".world-chart-background").length>0 && $(".inf-world-chart-section").length>0) {
+            _results = JSON.parse($(".world-chart-background").find("input[type=hidden]").val());
+            $(".inf-world-chart-section p").append(_results.Heading);
+            _createWorldChart();
+        }
     }
 
     _createWorldChart = function() {
@@ -146,11 +148,10 @@ INFORMA.worldchart = (function(window, $, namespace) {
         var facet = _results.FacetList[0].SectionList;
         var compelteData = [];
         $.each( facet, function(i, obj) {
-            obj.width = 16
-            obj.height = 16
+            obj.width = 35
+            obj.height = 35
             obj.scale = 1
-            obj.type = "circle"
-            obj.color = "#ed2024"
+            obj.imageURL =  "../../Static/images/circle.gif",
             compelteData.push(obj)
         });
         function startImage(){
@@ -171,7 +172,7 @@ INFORMA.worldchart = (function(window, $, namespace) {
             }
             return starImagesDataArray
         }
-        if (_results.IsdisplayEurozone == "true"){
+        if (_results.IsdisplayEurozone === true){
             var star = startImage();
         } else {
             var star = [];
@@ -196,7 +197,6 @@ INFORMA.worldchart = (function(window, $, namespace) {
             "type": "map",
             "hideCredits": "true",
             "zoomOnDoubleClick": false,
-            //"dragMap": false,
             "dragMap": mobileZoom().dragMap,
             "projection": "miller",
 

@@ -8,7 +8,9 @@
     background-color: #fff;
 }
 
-.campaign-scroll-down img.scroll-down {
+.campaign-scroll-down span.scroll-down {
+    background-image: url(../../Static/images/mouse-icon.png);
+    background-repeat: no-repeat;
     position: fixed;
     left: 50%;
     margin-left: -15px;
@@ -16,4 +18,8 @@
     width: 30px;
     height: 66px;
     z-index: 2;
+    @include mobile {
+        background-image: url(../../Static/images/mouse-icon-mob.png);
+        height: 10px;
+    }
 }
