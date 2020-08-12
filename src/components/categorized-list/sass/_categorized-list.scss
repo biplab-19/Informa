@@ -21,6 +21,7 @@
             color: #fff;
             margin-bottom: 70px;
             line-height: normal;
+            word-wrap: break-word;
         }
         .timeline-row {
             margin-top: 30px;
@@ -40,9 +41,6 @@
                     max-width: 100%;
                     padding: 5px 10px 9px;
                     line-height: 1;
-                    overflow: hidden;
-                    white-space: nowrap;
-                    text-overflow: ellipsis;
                 }
                 @include mobile {
                     text-align: center;
@@ -51,6 +49,7 @@
             }
             .timeline-row-right {
                 max-width: 450px;
+                word-break: break-word;
                 h3 {
                     font-size: 30px;
                     color: #fff;
