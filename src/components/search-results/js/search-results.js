@@ -701,8 +701,11 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 var SVal = SectorHidden.val(),
                     SubSecVal = (SubSectorHidden.length) ? SubSectorHidden.val() : false;
                 if (IsProductPage) {
-                    var SectorSelect = ProductFinderSection.find("select.Sector");
-                    UpdateResultPage(SectorSelect, SVal, SubSecVal);
+                    var SectorSelect = ProductFinderSection.find("select.Sector"),
+					    isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+					if(!isIE11){
+						UpdateResultPage(SectorSelect, SVal, SubSecVal);
+					}
                 }
             }
             if ((IsSearchPage && SearchHidden.length > 0) || (ProductSearchText)) {

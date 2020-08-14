@@ -392,49 +392,50 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                             subsectorQuery = "subsector="+(subSectorParam.replace(/&/g,'%26'));
                         }
                     }
-
-                    $.each(searchQueryStrings, function (i) {
-                        if (this) {
-                            var facets=[];
-                            subQuery = this.split("=");
-                            groupid = subQuery[0];
-                            if(subQuery[0] && urlParameters.get(subQuery[0])){
-                                if(urlParameters.get(subQuery[0]).includes(','))
-                                    facets = urlParameters.get(subQuery[0]).split(",");
-                                 else
-                                     facets.push(urlParameters.get(subQuery[0]));
-                            }
-                            newFacets = [];japaneseFacets=[];
-                            $.each(facets, function () {
-                                newFacets.push(this.replace(/-/g, " ").replace(/   /g, " - ").replace(/%26/g, "&").toLowerCase());
-                            });
-                            $.each(facets, function () {
-                                japaneseFacets.push(this.replace(/%26/g, "&").replace(/-&-/g, " & ").toLowerCase());
-                            });
-                            
-                            filterOptionsList =  $('[id="' + groupid + i +'"]').find("input[type='checkbox']");
-                            filterOptions = $('[id="' + groupid + i +'"]').find("input[type='checkbox']").not(":disabled");
-                            if(newFacets.length >0){
-                                filterOptionsList.filter(function () {
-                                    if (newFacets.includes($(this).next().text().toLowerCase())) {
-                                        $(this).prop("checked", true);
-                                    }
+                    if(searchQueryStrings.length >1){
+                        $.each(searchQueryStrings, function (i) {
+                            if (this) {
+                                var facets=[];
+                                subQuery = this.split("=");
+                                groupid = subQuery[0];
+                                if(subQuery[0] && urlParameters.get(subQuery[0])){
+                                    if(urlParameters.get(subQuery[0]).includes(','))
+                                        facets = urlParameters.get(subQuery[0]).split(",");
+                                    else
+                                        facets.push(urlParameters.get(subQuery[0]));
+                                }
+                                newFacets = [];japaneseFacets=[];
+                                $.each(facets, function () {
+                                    newFacets.push(this.replace(/-/g, " ").replace(/   /g, " - ").replace(/%26/g, "&").toLowerCase());
                                 });
-                            }
-                            if(japaneseFacets.length > 0){
-                                filterOptionsList.filter(function () {
-                                    if (japaneseFacets.includes($(this).next().text().toLowerCase())) {
-                                        $(this).prop("checked", true);
-                                    }
+                                $.each(facets, function () {
+                                    japaneseFacets.push(this.replace(/%26/g, "&").replace(/-&-/g, " & ").toLowerCase());
                                 });
+                                
+                                filterOptionsList =  $('[id="' + groupid + i +'"]').find("input[type='checkbox']");
+                                filterOptions = $('[id="' + groupid + i +'"]').find("input[type='checkbox']").not(":disabled");
+                                if(newFacets.length >0){
+                                    filterOptionsList.filter(function () {
+                                        if (newFacets.includes($(this).next().text().toLowerCase())) {
+                                            $(this).prop("checked", true);
+                                        }
+                                    });
+                                }
+                                if(japaneseFacets.length > 0){
+                                    filterOptionsList.filter(function () {
+                                        if (japaneseFacets.includes($(this).next().text().toLowerCase())) {
+                                            $(this).prop("checked", true);
+                                        }
+                                    });
 
+                                }
+                                selectedFilterOptions = $("[id='"+groupid+"' i]").find("input:checked").not(":disabled");
+                                if (filterOptions.length == selectedFilterOptions.length) {
+                                    $("[id='"+groupid+"1' i]").prop("checked", true);
+                                }
                             }
-                            selectedFilterOptions = $("[id='"+groupid+"' i]").find("input:checked").not(":disabled");
-                            if (filterOptions.length == selectedFilterOptions.length) {
-                                $("[id='"+groupid+"1' i]").prop("checked", true);
-                            }
-                        }
-                    });
+                        });
+                    }
                 }
             }
             if (CheckedRefineCheckBox.length > 0) {
