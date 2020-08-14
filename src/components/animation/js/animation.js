@@ -173,9 +173,9 @@ INFORMA.animation = (function(window, $, namespace) {
 
         applyAnimationAttributes();
 
-        var elem = document.querySelectorAll('[data-swanimate-type]');
+        var elem = $('*[data-swanimate-type]')
         var i = 0;
-        elem.forEach(function () {
+        elem.each(function () {
           var data = getDataAttributes(elem[i]);
           i++;
         });

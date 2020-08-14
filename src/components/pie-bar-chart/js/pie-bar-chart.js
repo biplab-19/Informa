@@ -47,7 +47,7 @@ INFORMA.piebarchart = (function(window, $, namespace) {
     _createPie = function(obj) {
         $(obj).find('.pie-bar-chart-col .pie-bar-chart-container').each(function() {
             var pieId = (this.id);
-            var facet = _results.FacetList.filter(facet=>facet.Id+_results.UniqueId == pieId);
+            var facet = _results.FacetList.filter(function(n){return n.Id+_results.UniqueId === pieId});
             var chart = AmCharts.makeChart(pieId, {
                 "type": "pie",
                 "hideCredits":"true",
@@ -85,12 +85,12 @@ INFORMA.piebarchart = (function(window, $, namespace) {
     _createBar = function(obj) {
         $(obj).find('.pie-bar-chart-col .pie-bar-chart-container').each(function() {
             var barChartId = (this.id);
-            var facet = _results.FacetList.filter(facet=>facet.Id+_results.UniqueId == barChartId);
+            //var facet = _results.FacetList.filter(facet=>facet.Id+_results.UniqueId == barChartId);
+            var facet = _results.FacetList.filter(function(n){return n.Id+_results.UniqueId === barChartId});
             var chart = AmCharts.makeChart(barChartId, {
                 "type": "serial",
                 "hideCredits": "true",
                 "theme": "none",
-                "marginRight": 70,
                 "fontSize": 10,
                 "color": "#FFFFFF",
                 "titleField": "Name",
