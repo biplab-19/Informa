@@ -173,7 +173,7 @@ INFORMA.animation = (function(window, $, namespace) {
 
         applyAnimationAttributes();
 
-        var elem = $('*[data-swanimate-type]')
+        var elem = $('*[data-swanimate-type]');
         var i = 0;
         elem.each(function () {
           var data = getDataAttributes(elem[i]);
