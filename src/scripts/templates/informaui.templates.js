@@ -1597,9 +1597,15 @@ var INFORMA = window.INFORMA || {};
                                                             '{{#each FacetList}}'+
                                                                 '<div class="pie-bar-chart-col">'+
                                                                     '<img src="{{Logo}}" alt="" class="icon" />'+
-                                                                    '<p class="heading">'+
-                                                                        '{{Title}}'+
-                                                                    '</p>'+
+                                                                    '{{#if ../SubHeadingColor}}'+
+                                                                        '<p class="heading" style="color:{{../SubHeadingColor}};">'+
+                                                                            '{{Title}}'+
+                                                                        '</p>'+
+                                                                        '{{else}}'+
+                                                                        '<p class="heading">'+
+                                                                            '{{Title}}'+
+                                                                        '</p>'+
+                                                                    '{{/if}}'+
                                                                     '<div id="{{Id}}{{../UniqueId}}" class="pie-bar-chart-container">'+
                                                                     '</div>'+
                                                                 '</div>'+
