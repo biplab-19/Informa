@@ -1581,7 +1581,7 @@ var INFORMA = window.INFORMA || {};
                                    '</div>',
                 'PieBarChartTemplate':  '{{#if Heading}}'+
                                             '<p class="heading">'+
-                                                '{{Heading}}'+
+                                                '{{{Heading}}}'+
                                             '</p>'+
                                         '{{/if}}'+
                                         '{{#if Bar}}'+
