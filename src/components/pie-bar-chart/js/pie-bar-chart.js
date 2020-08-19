@@ -50,20 +50,19 @@ INFORMA.piebarchart = (function(window, $, namespace) {
             var facet = _results.FacetList.filter(function(n){return n.Id+_results.UniqueId === pieId});
             var chart = AmCharts.makeChart(pieId, {
                 "type": "pie",
+                "radius": mobileRadius().Radius,
                 "hideCredits":"true",
-                "labelTickAlpha": "0",
+                "labelTickAlpha": "50",
+                "labelTickColor": "#fff",
+                "labelRadius": 20,
                 "labelText": "[[title]]\n",
                 "labelFunction": function (category) {
                     var title = category.title;
-                    title = title.replace(" ","\n") + "\n";
                     var value = category.value;
-                    if(title.length > 15) {
-                        title = title.substring(0,15) + '...';
-                    }
                     return title +"\n"+ value;
                 },
                 "theme": "light",
-                "fontSize": 12,
+                "fontSize": 11,
                 "color": "#ffffff",
                 "colorField": "Color",
                 "titleField": "Name",
@@ -78,7 +77,18 @@ INFORMA.piebarchart = (function(window, $, namespace) {
                     "menu": []
                 }
             });
-        
+            function mobileRadius() {
+                var obj = {
+                    Radius: 110
+                }
+                var currentWidth = window.screen.width;
+                if (currentWidth >= 320 && currentWidth < 767) {
+                    obj.Radius = 60
+    
+                return obj;
+                }
+                return obj;
+            }
         });
     }
 

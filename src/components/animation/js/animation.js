@@ -3,8 +3,6 @@ INFORMA.animation = (function(window, $, namespace) {
     'use strict';
     //variables
     var init,
-        animationType,
-        animationDirection,
         wow
 
     setTimeout(function () {
@@ -20,51 +18,23 @@ INFORMA.animation = (function(window, $, namespace) {
 
     function getDataAttributes(el) {
       var data = {};
+      var animationType = "";
+      var animationDirection = "";
       el.className += " wow ";
       for(var i=0; i<el.attributes.length;i++) {
         var attributeValue = el.attributes[i].value,
             attributeName = el.attributes[i].name.substr(15).replace(/-(.)/g);
-        switch (el.attributes[i].value) {
-        case "fadein":
-          animationType = "fadeIn";
-          break;
-        case "bouncein":
-          animationType = "bounceIn";
-          break;
-        case "zoomin":
-          animationType = "zoomIn";
-          break;
-        case "zoomout":
-          animationType = "zoomOut";
-          break;
-        case "shake":
-          animationType = "shake";
-          break;
-        case "slidein":
-          animationType = "slideIn";
-          break;
-        case "backin":
-          animationType = "backIn";
-          break;
-        case "left":
-          animationDirection = "Left";
-          break;
-        case "right":
-          animationDirection = "Right";
-          break;
-        case "up":
-          animationDirection = "Up";
-          break;
-        case "down":
-          animationDirection = "Down";
-          break;   
+        if (attributeName == "direction") {
+          animationDirection = attributeValue
+        } else if(attributeName == "type") {
+          animationType = attributeValue
         }
-        animationEffect(attributeValue,attributeName);
       }
-      if(animationType == "shake") {
-        el.className += animationType;
-      } else {
+
+      if(animationDirection) {
         el.className += animationType + animationDirection;
+      } else {
+        el.className += animationType;
       }
           
       [].forEach.call(el.attributes, function (attr) {
@@ -94,57 +64,6 @@ INFORMA.animation = (function(window, $, namespace) {
         }
       });
       return data;
-    }
-
-    function animationEffect(attributeValue, attributeName) {
-      switch (true) {
-        case attributeName == "type":
-          switch (attributeValue) {
-            case "fadein":
-              animationType = "fadeIn" ;
-              break;
-            case "bouncein":
-              animationType = "bounceIn" ;
-              break;
-            case "zoomin":
-              animationType = "zoomIn" ;
-              break;
-            case "zoomout":
-              animationType = "zoomOut" ;
-              break;
-            case "shake":
-              animationType = "shake" ;
-              break;
-            case "slidein":
-              animationType = "slideIn" ;
-              break;
-            case "backin":
-              animationType = "backIn" ;
-              break;
-            default:
-              animationType = "fadeIn";
-          }
-        break;
-        case attributeName =="diretion":
-          switch (attributeValue) {
-            case "left":
-              animationDirection = "Left" ;
-              break;
-            case "bouncein":
-              animationDirection = "Right" ;
-              break;
-            case "zoomin":
-              animationDirection = "Up" ;
-              break;
-            case "zoomout":
-              animationDirection = "Down" ;
-              break;
-            default:
-              animationDirection = "Left" ;
-          }
-        break;
-      }
-    
     }
 
     function applyAnimationAttributes() {

@@ -14,21 +14,11 @@
         .slick-arrow {
             display:none !important;
         }
-        .slick-list {
-            height: 210px !important;
-            @include mobile {
-                height: 75px !important;
-            }
-        }
         .slick-slide {
             img {
                 display: inline-block;
                 cursor: pointer;
                 max-width: 100%;
-                max-height: 210px;
-                @include mobile {
-                    max-height: 75px !important;
-                }
             }
         }
         .slick-dots {
