@@ -1,21 +1,20 @@
 <div class="informa-full-video-component mobile-aspectratio">
   {{#each videos}}
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-xs-12 text-center">
-        <div class="video-full-container">
-          <div class="video-title">{{title}}</div>
-          <div class="embed-responsive embed-responsive-16by9 hide-controls" data-autoplaydelay="{{autoplaydelay}}">
-            <img id="{{id}}" src="{{thumbnail}}" data-videotype="{{type}}" data-videourl="{{url}}" 
-            alt="{{details}}" data-videocontrol="{{playercontrol}}" data-videoautoplay="{{playerautoplay}}" 
-              data-volume="{{playervolume}}" data-rel="{{playerel}}"
-               width="100%" class="video-img img-responsive" />
-            <span class="play-icon"></span>
-            <h2>{{title}}</h2>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <div class="video-full-container">
+            <div class="video-title">{{title}}</div>
+            <div class="embed-responsive embed-responsive-16by9 hide-controls" data-autoplaydelay="{{autoplaydelay}}">
+              <img id="{{id}}" src="{{thumbnail}}" data-videotype="{{type}}" data-videourl="{{url}}" 
+              alt="{{details}}" data-videocontrol="{{playercontrol}}" data-videoautoplay="{{playerautoplay}}" 
+              data-volume="{{playervolume}}" data-rel="{{playerel}}" width="100%" class="video-img img-responsive" />
+              <span class="play-icon"></span>
+              <h2>{{title}}</h2>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
   {{/each}}
 </div>
