@@ -1,38 +1,41 @@
 var INFORMA = window.INFORMA || {};
-INFORMA.campaignCarousel = (function (window, $, namespace) {
+INFORMA.campaigncarousel = (function (window, $, namespace) {
     'use strict';
     //variables
-    let init,
-        _slideimage = $(".inf-slider-section .campaign-carousel.twitter-carousel .inf-slider-image img"),
-        _slider = $(".inf-slider-section .campaign-carousel.twitter-carousel"),
-        imageheight = 0,
-        //methods
-        _getImageHeight;
+    var init,
+        _container = $(".campaign-carousel"),
+        _autoplay = _container.data('autorotate'),
+        _dots = _container.data('pagination'),
+        _slideCount = _container.data('itemsperframe'),
+        _speed = _container.data('transitionspeed'),
+        _duration = _container.data('slideduration'),
+        _rtl;
 
-    _getImageHeight = function (e) {
-        if (_slideimage.length > 0) {
-            _slideimage.each(function () {
-                var newimageheight = $(this).height();
-                if (newimageheight > imageheight) {
-                    imageheight = newimageheight;
-                }
+    if(_container.data('rtl') !== undefined) {
+        _rtl = _container.data('rtl');
+    }
 
-            });
-
-            _slider.on('setPosition', function (event, slick) {
-                slick.$slides.css('height', imageheight + 'px');
-            });
-
-        }
-
+    if(_rtl === true && _autoplay === true) {
+        _container.on('init', function() {
+            window.setInterval(function() {
+                _container.slick('slickPrev');
+            }, _duration);
+        });
     }
 
     init = function () {
-        _getImageHeight();
+        $(".campaign-carousel").slick({
+            arrows: false,
+            autoplay: _autoplay,
+            dots: _dots,
+            slidesToShow: _slideCount,
+            speed: _speed,
+            autoplaySpeed: _duration
+        });
     };
 
     return {
         init: init
     };
 }(this, jQuery, 'INFORMA'));
-jQuery(INFORMA.campaignCarousel.init());
+jQuery(INFORMA.campaigncarousel.init());
