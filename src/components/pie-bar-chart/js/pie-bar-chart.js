@@ -52,7 +52,8 @@ INFORMA.piebarchart = (function(window, $, namespace) {
                 "type": "pie",
                 "radius": mobileRadius().Radius,
                 "hideCredits":"true",
-                "labelTickAlpha": "0",
+                "labelTickAlpha": "50",
+                "labelTickColor": "#fff",
                 "labelRadius": 20,
                 "labelText": "[[title]]\n",
                 "labelFunction": function (category) {
