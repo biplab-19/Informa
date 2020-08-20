@@ -129,6 +129,7 @@
 }
 
 .bar-chart-background {
+    text-align: center;
     .inf-pie-bar-chart-slider-section {
         .pie-bar-chart-carousel {
             .slick-track {
@@ -169,6 +170,44 @@
                     }
                 }
             }
+        }
+    }
+    a.world-chart-read-more {
+        text-align: center;
+        border: 2px solid #ef456c;
+        font-size: 20px;
+        font-weight: 700;
+        color: #fff;
+        padding: 15px 45px 15px 20px;
+        position: relative;
+        height: auto;
+        width: auto;
+        display: inline-block;
+        i {
+            font-size: 36px;
+            color: #ef456c;
+            position: absolute;
+            right: 18px;
+            top: 12px;
+            @include tablet {
+                right: 15px;
+                top: 4px;
+            }
+            @include mobile {
+                font-size: 30px;
+                right: 10px;
+                top: 4px;
+            }
+        }
+        @include tablet {
+            margin: 80px 0 0;
+            font-size: 18px;
+            padding: 10px 40px 10px 15px;
+        }
+        @include mobile {
+            margin: 130px 0 0;
+            font-size: 16px;
+            padding: 7px 30px 7px 10px;
         }
     }
 }
