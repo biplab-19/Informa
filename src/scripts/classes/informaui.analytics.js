@@ -144,8 +144,9 @@ INFORMA.Analytics = (function(window, $, namespace) {
       }
     })
     return {
-        trackFormEvents: trackFormEvents
+        trackFormEvents: trackFormEvents,
+        trackEvents: trackEvents
     };
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
-jQuery(INFORMA.Analytics.trackFormEvents());
+jQuery(INFORMA.Analytics);
 
