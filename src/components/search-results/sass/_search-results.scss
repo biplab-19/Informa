@@ -826,7 +826,7 @@
                 }
 
                 .events-wrap {
-                    padding-bottom: 10px;
+                    padding-bottom: 18px;
 
                     .footer {
                         margin-top: 10px;
@@ -834,7 +834,11 @@
                         .btn {
                             padding-top: 15px;
                             padding-bottom: 15px;
+                            &.pull-left {
+                                display:none;
+                            }
                         }
+                        
                     }
                 }
 
