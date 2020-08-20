@@ -120,15 +120,16 @@
         }
         .pie-bar-chart-container {
             width: 100%;
-            height: 375px;
+            height: 380px;
             @include tablet {
-                height: 380px;
+                height: 385px;
             }
         }
     }
 }
 
 .bar-chart-background {
+    text-align: center;
     .inf-pie-bar-chart-slider-section {
         .pie-bar-chart-carousel {
             .slick-track {
@@ -168,6 +169,51 @@
                         border-right: none;
                     }
                 }
+            }
+        }
+    }
+    a.world-chart-read-more {
+        text-align: center;
+        border: 2px solid #ef456c;
+        font-size: 20px;
+        font-weight: 700;
+        color: #fff;
+        padding: 15px 45px 15px 20px;
+        position: relative;
+        height: auto;
+        width: auto;
+        display: inline-block;
+        &:before {
+            content: "";
+            border-right: 3px solid #ef456c;
+            border-top: 3px solid #ef456c;
+            transform: rotate(45deg);
+            position: absolute;
+            right: 20px;
+            top: 22px;
+            height: 15px;
+            width: 15px;
+        }
+        @include tablet {
+            margin: 80px 0 0;
+            font-size: 18px;
+            padding: 10px 40px 10px 15px;
+            &:before {
+                right: 20px;
+                top: 16px;
+                height: 13px;
+                width: 13px;
+            }
+        }
+        @include mobile {
+            margin: 130px 0 0;
+            font-size: 16px;
+            padding: 7px 30px 7px 10px;
+            &:before {
+                right: 13px;
+                top: 13px;
+                height: 10px;
+                width: 10px;
             }
         }
     }
