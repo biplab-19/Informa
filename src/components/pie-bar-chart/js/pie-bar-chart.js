@@ -144,7 +144,7 @@ INFORMA.piebarchart = (function(window, $, namespace) {
                     "gridThickness": 0,
                     "axisColor": "#FFFFFF",
                     "labelsEnabled": false,
-                    "startOnAxis": false,
+                    "startOnAxis": false
                 }
             });
         
