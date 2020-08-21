@@ -121,7 +121,7 @@ INFORMA.piebarchart = (function(window, $, namespace) {
                     "axisAlpha": 0,
                     "position": "left",
                     "gridColor": "transparent",
-                    "minimum": 10,
+                    "minimum": 0,
                     "maximum": 1000,
                     "strictMinMax": "true"
                 }],       
