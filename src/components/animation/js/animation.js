@@ -5,8 +5,6 @@ INFORMA.animation = (function(window, $, namespace) {
     var init,
         wow
 
-  
-
     function getDataAttributes(el) {
       var data = {};
       var animationType = "";
@@ -72,14 +70,11 @@ INFORMA.animation = (function(window, $, namespace) {
           } else {
             $("."+obj.itemidentifier).attr("data-swanimate-delay",obj["data-swanimate-delay"])
           }
-          //  $("."+obj.itemidentifier).each(function() {
-          //    $(this).addClass("animation-hidden");
-          //  });
         })
       })
     }
     setTimeout(function () {
-      $(".animation-hidden").css("visibilty","visible");
+      $(".campaign-animation").css({"visibilty":"visible"});
       wow = new WOW(
         {
           animateClass: 'animated',
@@ -88,7 +83,8 @@ INFORMA.animation = (function(window, $, namespace) {
         }
       );
       wow.init();
-    }, 300);
+    }, 700);
+
     init = function(e) {
       setTimeout(function () {
         applyAnimationAttributes();
@@ -98,7 +94,7 @@ INFORMA.animation = (function(window, $, namespace) {
           var data = getDataAttributes(elem[i]);
           i++;
         });
-      }, 100);
+      }, 500);
     };
 
     return {
