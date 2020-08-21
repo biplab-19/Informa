@@ -63,6 +63,15 @@
         display: none;
         bottom: 50px;
     }
+    label.error-msg {
+        visibility: hidden;
+        color: $white;
+        font-size: 10px;
+        font-weight: normal;
+        &.active {
+            visibility: visible;
+        }
+    }
 }
 
 .inf-sign-up-box-expand {

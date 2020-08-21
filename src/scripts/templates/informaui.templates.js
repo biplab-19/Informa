@@ -1598,11 +1598,11 @@ var INFORMA = window.INFORMA || {};
                                                                 '<div class="pie-bar-chart-col">'+
                                                                     '<img src="{{Logo}}" alt="" class="icon" />'+
                                                                     '{{#if ../SubHeadingColor}}'+
-                                                                        '<p class="heading" style="color:{{../SubHeadingColor}};">'+
+                                                                        '<p class="sub-heading" style="color:{{../SubHeadingColor}};">'+
                                                                             '{{Title}}'+
                                                                         '</p>'+
                                                                         '{{else}}'+
-                                                                        '<p class="heading">'+
+                                                                        '<p class="sub-heading">'+
                                                                             '{{Title}}'+
                                                                         '</p>'+
                                                                     '{{/if}}'+
