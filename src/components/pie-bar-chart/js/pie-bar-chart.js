@@ -121,16 +121,19 @@ INFORMA.piebarchart = (function(window, $, namespace) {
                     "axisAlpha": 0,
                     "position": "left",
                     "gridColor": "transparent",
+                    "minimum": 0,
+                    "maximum": 1000,
+                    "strictMinMax": "true"
                 }],       
                 "startDuration": 1,
                 "graphs": [{
-                    "balloonText": "<b>[[Name]]\n[[value]]</b>",
+                    "balloonText": "<b>[[category]]\n[[value]]</b>",
                     "fillColorsField": "Color",
                     "fillAlphas": 1,
                     "lineAlpha": 0,
                     "type": "column",
                     "valueField": "Count",
-                    "labelText": '[[Name]]\n[[value]]',
+                    "labelText": '[[category]]\n[[value]]',
                     "labelPosition": 'top',
                     "labelFunction": function(value, category, graphs) {
                         return category.replace(" ","\n") + "\n";
