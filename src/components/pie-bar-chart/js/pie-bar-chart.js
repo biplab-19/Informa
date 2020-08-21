@@ -35,10 +35,12 @@ INFORMA.piebarchart = (function(window, $, namespace) {
         $(obj).find(".inf-pie-bar-chart-section").append(_html);
         if( _results.Type == "pie") {
             $(obj).addClass("chart-background");
+            $(obj).find(".pie-bar-chart-container").addClass("pie-animation");
             _createPie(obj);
         }
         if( _results.Type == "bar") {
             $(obj).addClass("bar-chart-background");
+            $(obj).find(".pie-bar-chart-container").addClass("bar-animation");
             _createBar(obj);
         }
         _initializeSlider(obj);
