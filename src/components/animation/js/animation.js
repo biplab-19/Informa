@@ -55,7 +55,7 @@ INFORMA.animation = (function(window, $, namespace) {
     }
 
     function applyAnimationAttributes() {
-      $(".initialize-swanimate").each(function(){
+      $(".initialize-swanimate").each(function() {
         var json = $.parseJSON($(this).val());
         $(json).each(function(i, obj) {
           $("."+obj.itemidentifier).attr("data-swanimate-type",obj["data-swanimate-type"]);
@@ -68,7 +68,7 @@ INFORMA.animation = (function(window, $, namespace) {
               delayValue += delayInitial;
             });
           } else {
-            $("."+obj.itemidentifier).attr("data-swanimate-delay",obj["data-swanimate-delay"])
+            $("."+obj.itemidentifier).attr("data-swanimate-delay",obj["data-swanimate-delay"]);
           }
         })
       })
