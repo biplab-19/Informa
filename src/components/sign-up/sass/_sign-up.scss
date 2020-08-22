@@ -64,12 +64,16 @@
         bottom: 50px;
     }
     label.error-msg {
-        visibility: hidden;
+        display: none;
         color: $white;
         font-size: 10px;
         font-weight: normal;
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        top: 117px;
         &.active {
-            visibility: visible;
+            display: block;
         }
     }
 }
