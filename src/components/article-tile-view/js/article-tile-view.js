@@ -80,8 +80,7 @@ INFORMA.articleTileView = (function (window, $, namespace) {
             _carouselSection.show();
           }
         } else {
-          window.open(hiddenValue);
-          _carouselSectionSiblings.hide();
+           _carouselSectionSiblings.hide();
           _carouselSection.show();
         }
       }
