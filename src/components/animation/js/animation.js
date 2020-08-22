@@ -74,7 +74,7 @@ INFORMA.animation = (function(window, $, namespace) {
       })
     }
     setTimeout(function () {
-      $(".campaign-animation").css({"visibilty":"visible"});
+      $(".campaign-animation").css("visibility", "visible");
       wow = new WOW(
         {
           animateClass: 'animated',
