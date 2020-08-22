@@ -25,6 +25,7 @@ INFORMA.animation = (function(window, $, namespace) {
       } else {
         el.className += animationType;
       }
+      
       [].forEach.call(el.attributes, function (attr) {
         if (/^data-swanimate-/.test(attr.name)) {
           var animationAttributes = attr.name.substr(15).replace(/-(.)/g, function ($0, $1) {
