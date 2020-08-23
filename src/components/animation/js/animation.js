@@ -5,17 +5,6 @@ INFORMA.animation = (function(window, $, namespace) {
     var init,
         wow
 
-    setTimeout(function () {
-      wow = new WOW(
-        {
-          animateClass: 'animated',
-          offset: 100,
-          mobile: true
-        }
-      );
-      wow.init();
-    }, 1500);
-
     function getDataAttributes(el) {
       var data = {};
       var animationType = "";
@@ -36,7 +25,7 @@ INFORMA.animation = (function(window, $, namespace) {
       } else {
         el.className += animationType;
       }
-          
+      
       [].forEach.call(el.attributes, function (attr) {
         if (/^data-swanimate-/.test(attr.name)) {
           var animationAttributes = attr.name.substr(15).replace(/-(.)/g, function ($0, $1) {
@@ -67,40 +56,46 @@ INFORMA.animation = (function(window, $, namespace) {
     }
 
     function applyAnimationAttributes() {
-      $(".initialize-swanimate").each(function(){
+      $(".initialize-swanimate").each(function() {
         var json = $.parseJSON($(this).val());
-        $(json).each(function(i, obj){
-          $("."+obj.itemidentifier).attr("data-swanimate-type",obj["data-swanimate-type"])
-          $("."+obj.itemidentifier).attr("data-swanimate-direction",obj["data-swanimate-direction"])
-          if(obj.data == true){
+        $(json).each(function(i, obj) {
+          $("."+obj.itemidentifier).attr("data-swanimate-type",obj["data-swanimate-type"]);
+          $("."+obj.itemidentifier).attr("data-swanimate-direction",obj["data-swanimate-direction"]);
+          if(obj.data == true) {
             var delayInitial = Number(obj["data-swanimate-delay"]);
             var delayValue = delayInitial;
             $("."+obj.itemidentifier).each(function() {
-              $(this).attr("data-swanimate-delay",delayValue)
-              delayValue += delayInitial
-            })
+              $(this).attr("data-swanimate-delay",delayValue);
+              delayValue += delayInitial;
+            });
           } else {
-            $("."+obj.itemidentifier).attr("data-swanimate-delay",obj["data-swanimate-delay"])
+            $("."+obj.itemidentifier).attr("data-swanimate-delay",obj["data-swanimate-delay"]);
           }
         })
       })
     }
-    
-    init = function(e) { 
+    setTimeout(function () {
+      $(".campaign-animation").css("visibility", "visible");
+      wow = new WOW(
+        {
+          animateClass: 'animated',
+          offset: 100,
+          mobile: true
+        }
+      );
+      wow.init();
+    }, 700);
 
+    init = function(e) {
       setTimeout(function () {
-
         applyAnimationAttributes();
-
         var elem = $('*[data-swanimate-type]');
         var i = 0;
         elem.each(function () {
           var data = getDataAttributes(elem[i]);
           i++;
         });
-        
       }, 500);
-      
     };
 
     return {

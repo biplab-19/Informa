@@ -55,9 +55,9 @@ INFORMA.signup = (function(window, $, namespace) {
                _errormsg.removeClass("active");
             }
         }
-        if(_signUpCollapseTextField.val() ==""){
+        if (_signUpCollapseTextField.val() == ""){
             _errormsg.removeClass("active");
-         }
+        }
     };
 
     _validateEmail = function () {
