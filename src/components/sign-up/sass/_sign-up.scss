@@ -30,26 +30,28 @@
         height: 25px;
         text-align: center;
     }
-    button {
-        border: 0px;
-        background-color: #494a58;
-        color: #868c90;
+    button, a {
+        border: 0px !important;
+        background-color: #494a58 !important;
+        color: #868c90 !important;
         font-size: 14px;
         padding: 0px 13px 5px;
         margin: 25px 0 0;
         max-width: 100%;
-        border-radius: 7px;
-        -webkit-border-radius: 7px;
-        -moz-border-radius: 7px;
+        border-radius: 7px !important;
+        -webkit-border-radius: 7px !important;
+        -moz-border-radius: 7px !important;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+        width: auto !important;
+        height: auto !important;
     }
-    button.inf-sign-up {
+    button.inf-sign-up, a.inf-sign-up {
         opacity: 0.8;
         cursor: not-allowed;
     }
-    button.inf-sign-up.inf-btn-active {
+    button.inf-sign-up.inf-btn-active, a.inf-sign-up.inf-btn-active {
         opacity: 1;
         cursor: pointer;
     }
@@ -64,12 +66,16 @@
         bottom: 50px;
     }
     label.error-msg {
-        visibility: hidden;
+        display: none;
         color: $white;
-        font-size: 10px;
+        font-size: 11px;
         font-weight: normal;
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        bottom: 67px;
         &.active {
-            visibility: visible;
+            display: block;
         }
     }
 }
