@@ -8,6 +8,7 @@ INFORMA.signup = (function(window, $, namespace) {
         _infSignUp = $(".inf-sign-up"),
         _signUpCollapseTextField = $(".inf-sign-up-box input[type=text]"),
         _modalld = $("#modalId").val(),
+        _errormsg = $("label.error-msg"),
         // methods
         init,
         _signUpBoxExpand,
@@ -43,10 +44,19 @@ INFORMA.signup = (function(window, $, namespace) {
         if (!_validateEmailRegex(_signUpCollapseTextField.val())) {
             _infSignUp.prop("disabled", true);
             _infSignUp.removeClass("inf-btn-active");
+            if(_signUpCollapseTextField.val() !=""){
+                _errormsg.addClass("active");
+            }
         }
         else {
             _infSignUp.removeAttr("disabled");
             _infSignUp.addClass("inf-btn-active");
+            if(_signUpCollapseTextField.val() !=""){
+               _errormsg.removeClass("active");
+            }
+        }
+        if (_signUpCollapseTextField.val() == ""){
+            _errormsg.removeClass("active");
         }
     };
 

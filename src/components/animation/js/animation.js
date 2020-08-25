@@ -3,70 +3,29 @@ INFORMA.animation = (function(window, $, namespace) {
     'use strict';
     //variables
     var init,
-        animationType,
-        animationDirection,
         wow
-
-    setTimeout(function () {
-      wow = new WOW(
-        {
-          animateClass: 'animated',
-          offset: 100,
-          mobile: true
-        }
-      );
-      wow.init();
-    }, 1500);
 
     function getDataAttributes(el) {
       var data = {};
+      var animationType = "";
+      var animationDirection = "";
       el.className += " wow ";
       for(var i=0; i<el.attributes.length;i++) {
         var attributeValue = el.attributes[i].value,
             attributeName = el.attributes[i].name.substr(15).replace(/-(.)/g);
-        switch (el.attributes[i].value) {
-        case "fadein":
-          animationType = "fadeIn";
-          break;
-        case "bouncein":
-          animationType = "bounceIn";
-          break;
-        case "zoomin":
-          animationType = "zoomIn";
-          break;
-        case "zoomout":
-          animationType = "zoomOut";
-          break;
-        case "shake":
-          animationType = "shake";
-          break;
-        case "slidein":
-          animationType = "slideIn";
-          break;
-        case "backin":
-          animationType = "backIn";
-          break;
-        case "left":
-          animationDirection = "Left";
-          break;
-        case "right":
-          animationDirection = "Right";
-          break;
-        case "up":
-          animationDirection = "Up";
-          break;
-        case "down":
-          animationDirection = "Down";
-          break;   
+        if (attributeName == "direction") {
+          animationDirection = attributeValue
+        } else if(attributeName == "type") {
+          animationType = attributeValue
         }
-        animationEffect(attributeValue,attributeName);
       }
-      if(animationType == "shake") {
-        el.className += animationType;
-      } else {
+
+      if(animationDirection) {
         el.className += animationType + animationDirection;
+      } else {
+        el.className += animationType;
       }
-          
+      
       [].forEach.call(el.attributes, function (attr) {
         if (/^data-swanimate-/.test(attr.name)) {
           var animationAttributes = attr.name.substr(15).replace(/-(.)/g, function ($0, $1) {
@@ -96,92 +55,47 @@ INFORMA.animation = (function(window, $, namespace) {
       return data;
     }
 
-    function animationEffect(attributeValue, attributeName) {
-      switch (true) {
-        case attributeName == "type":
-          switch (attributeValue) {
-            case "fadein":
-              animationType = "fadeIn" ;
-              break;
-            case "bouncein":
-              animationType = "bounceIn" ;
-              break;
-            case "zoomin":
-              animationType = "zoomIn" ;
-              break;
-            case "zoomout":
-              animationType = "zoomOut" ;
-              break;
-            case "shake":
-              animationType = "shake" ;
-              break;
-            case "slidein":
-              animationType = "slideIn" ;
-              break;
-            case "backin":
-              animationType = "backIn" ;
-              break;
-            default:
-              animationType = "fadeIn";
-          }
-        break;
-        case attributeName =="diretion":
-          switch (attributeValue) {
-            case "left":
-              animationDirection = "Left" ;
-              break;
-            case "bouncein":
-              animationDirection = "Right" ;
-              break;
-            case "zoomin":
-              animationDirection = "Up" ;
-              break;
-            case "zoomout":
-              animationDirection = "Down" ;
-              break;
-            default:
-              animationDirection = "Left" ;
-          }
-        break;
-      }
-    
-    }
-
     function applyAnimationAttributes() {
-      $(".initialize-swanimate").each(function(){
+      $(".initialize-swanimate").each(function() {
         var json = $.parseJSON($(this).val());
-        $(json).each(function(i, obj){
-          $("."+obj.itemidentifier).attr("data-swanimate-type",obj["data-swanimate-type"])
-          $("."+obj.itemidentifier).attr("data-swanimate-direction",obj["data-swanimate-direction"])
-          if(obj.data == true){
+        $(json).each(function(i, obj) {
+          $("."+obj.itemidentifier).attr("data-swanimate-type",obj["data-swanimate-type"]);
+          $("."+obj.itemidentifier).attr("data-swanimate-direction",obj["data-swanimate-direction"]);
+          if(obj.data == true) {
             var delayInitial = Number(obj["data-swanimate-delay"]);
             var delayValue = delayInitial;
             $("."+obj.itemidentifier).each(function() {
-              $(this).attr("data-swanimate-delay",delayValue)
-              delayValue += delayInitial
-            })
+              $(this).attr("data-swanimate-delay",delayValue);
+              delayValue += delayInitial;
+            });
           } else {
-            $("."+obj.itemidentifier).attr("data-swanimate-delay",obj["data-swanimate-delay"])
+            $("."+obj.itemidentifier).attr("data-swanimate-delay",obj["data-swanimate-delay"]);
           }
         })
       })
     }
-    
-    init = function(e) { 
+    setTimeout(function () {
+      $(".campaign-animation").css("visibility", "visible");
+      wow = new WOW(
+        {
+          animateClass: 'animated',
+          offset: 100,
+          mobile: true
+        }
+      );
+      wow.init();
+    }, 700);
 
+    init = function(e) {
       setTimeout(function () {
-
         applyAnimationAttributes();
-
-        var elem = document.querySelectorAll('[data-swanimate-type]');
+        var elem = $('*[data-swanimate-type]');
         var i = 0;
-        elem.forEach(function () {
+        elem.each(function () {
           var data = getDataAttributes(elem[i]);
           i++;
         });
-        
       }, 500);
-      
     };
 
     return {

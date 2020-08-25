@@ -1581,7 +1581,7 @@ var INFORMA = window.INFORMA || {};
                                    '</div>',
                 'PieBarChartTemplate':  '{{#if Heading}}'+
                                             '<p class="heading">'+
-                                                '{{Heading}}'+
+                                                '{{{Heading}}}'+
                                             '</p>'+
                                         '{{/if}}'+
                                         '{{#if Bar}}'+
@@ -1593,13 +1593,19 @@ var INFORMA = window.INFORMA || {};
                                             '<div class="row">'+
                                                 '<div class="col-md-12">'+
                                                     '<div class="inf-pie-bar-chart-slider-section">'+
-                                                        '<div class="twitter-carousel pie-bar-chart-carousel">'+
+                                                        '<div class="pie-bar-chart-carousel">'+
                                                             '{{#each FacetList}}'+
                                                                 '<div class="pie-bar-chart-col">'+
                                                                     '<img src="{{Logo}}" alt="" class="icon" />'+
-                                                                    '<p class="heading">'+
-                                                                        '{{Title}}'+
-                                                                    '</p>'+
+                                                                    '{{#if ../SubHeadingColor}}'+
+                                                                        '<p class="sub-heading" style="color:{{../SubHeadingColor}};">'+
+                                                                            '{{Title}}'+
+                                                                        '</p>'+
+                                                                        '{{else}}'+
+                                                                        '<p class="sub-heading">'+
+                                                                            '{{Title}}'+
+                                                                        '</p>'+
+                                                                    '{{/if}}'+
                                                                     '<div id="{{Id}}{{../UniqueId}}" class="pie-bar-chart-container">'+
                                                                     '</div>'+
                                                                 '</div>'+
