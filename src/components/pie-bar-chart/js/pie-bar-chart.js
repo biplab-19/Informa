@@ -15,7 +15,8 @@ INFORMA.piebarchart = (function(window, $, namespace) {
         _createPieBarChartSection,
         _createPie,
         _createBar,
-        _initializeSlider
+        _initializeSlider,
+        _buttonMargin
 
     _getPieBarChartData = function(obj) {
         _results = JSON.parse($(obj).find("input[type=hidden]").val());
@@ -189,11 +190,23 @@ INFORMA.piebarchart = (function(window, $, namespace) {
         });
     }
 
+    _buttonMargin = function() {
+        var _nextPrevButton = $(".bar-chart-background .pie-bar-chart-carousel").find("button").length,
+            _button = $(".bar-chart-background a.world-chart-read-more")
+        if(_nextPrevButton > 0) {
+            _button.css("margin-top", "80px");
+        } else {
+            _button.css("margin-top", "0px");
+        }
+    }
+
     init = function() {
 
         $('.chart-bc').each(function(index){
 	        _getPieBarChartData(this);
         });
+
+        _buttonMargin();
 
     };
 
