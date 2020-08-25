@@ -122,7 +122,7 @@ INFORMA.piebarchart = (function(window, $, namespace) {
                     "position": "left",
                     "gridColor": "transparent",
                     "minimum": 0,
-                    "maximum": facet[0].maximumValue + 100,
+                    "maximum": facet[0].maximumValue + (.20*facet[0].maximumValue),
                     "strictMinMax": "true"
                 }],       
                 "startDuration": 1,
