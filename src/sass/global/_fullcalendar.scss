@@ -41,118 +41,117 @@
 		text-align: center;
 	}
 }
-.fc-ltr .fc-basic-view .fc-day-number {
-	font-size: 40px;
-	text-align: left;
-	&.fc-today {
-		color: $white;
-	}
-	@include mobile {
-		font-size: 24px;
-		text-align: center;
-		color: #6a7384;
-	}
-	@include tablet {
-		font-size: 24px;
-		text-align: center;
-		color: #6a7384;
-		padding: 15px;
-		font-size: 30px;
-	}
-	sup {
-		font-size: 24px;
-	    top: -15px;
-	    left: 0;
-	}
-}
-.fc-event-container {
-	div.events {
-		margin-bottom: 10px;
-		@include mobile {
-			display: none;
-		}
-		@include tablet {
-			display: none;
-		}
-		p {
-			margin-bottom: 0;
-			padding-left: 10px;
-			line-height: 1.2;
-		    font-family: 'FSMe-Light';
-			&.title {
-				position: relative;
-				a {
-					color: #6b7189;
-					font-family: 'FSMe-Bold';
-					text-decoration: underline;
-				}
-				&:before {
-					content: "";
-				    top: 0;
-				    width: 4px;
-				    height: 14px;
-				    position: absolute;
-				    left: 0;
-				    background: $yellow;
-				}
-			}
-		}
-		&.disabled {
-			p {
-				&.title {
-					&:before {
-						background: $grey-color08 !important;
-					}
-					a {
-						text-decoration: none;
-					}
-				}
-				a {
-					pointer-events: none;
-				}
-			}
-		}
-		&.current {
-			p {
-				&.title {
-					a {
-						color: $white;
-					}
-					&:before {
-						background: $white;
-					}
-				}
-				&.country {
-					color: $white;
-				}
-			}
-		}
-	}
-}
+// .fc-ltr .fc-basic-view .fc-day-number {
+// 	font-weight: normal;
+// 	font-size: 16px;
+// 	text-align: right;
+// 	padding-right: 6px;
+// 	&.fc-today {
+// 		color: $white;
+// 	}
+// 	&.fc-other-month {
+// 		visibility: hidden;
+// 	}
+// 	@include mobile {
+// 		color: #6a7384;
+// 	}
+// 	@include tablet {
+// 		color: #6a7384;
+// 		padding: 15px;
+// 	}
+// 	sup {
+// 	    top: -15px;
+// 	    left: 0;
+// 	}
+// }
+// .fc-event-container {
+// 	div.events {
+// 		margin-bottom: 10px;
+// 		@include mobile {
+// 			display: none;
+// 		}
+// 		@include tablet {
+// 			display: none;
+// 		}
+// 		p {
+// 			margin-bottom: 0;
+// 			padding-left: 10px;
+// 			line-height: 1.2;
+// 		    font-weight: 200;
+// 			&.title {
+// 				position: relative;
+// 				a {
+// 					color: #6b7189;
+// 					font-weight: bold;
+// 					text-decoration: underline;
+// 				}
+// 				&:before {
+// 					content: "";
+// 				    top: 0;
+// 				    width: 4px;
+// 				    height: 14px;
+// 				    position: absolute;
+// 				    left: 0;
+// 				    background: $yellow;
+// 				}
+// 			}
+// 		}
+// 		&.disabled {
+// 			p {
+// 				&.title {
+// 					&:before {
+// 						background: $grey-color08 !important;
+// 					}
+// 					a {
+// 						text-decoration: none;
+// 					}
+// 				}
+// 				a {
+// 					pointer-events: none;
+// 				}
+// 			}
+// 		}
+// 		&.current {
+// 			p {
+// 				&.title {
+// 					a {
+// 						color: $white;
+// 					}
+// 					&:before {
+// 						background: $white;
+// 					}
+// 				}
+// 				&.country {
+// 					color: $white;
+// 				}
+// 			}
+// 		}
+// 	}
+// }
 
-.fc-more-cell {
-	position: absolute;
-	top: 170px;
-}
-.fc-more-cell div {
-	position: relative;
-}
-.fc-more-cell a.fc-more {
-	color: transparent;
-	&:before {
-		content: "\e901";
-		font-family: 'InformaIcons';
-		color: #6b7189;
-		position: absolute;
-		left: 44%;
-		@include tablet {
-			left: 30%;
-		}
-	}
-	&:hover, &:focus, &:active, &:visited {
-		color: $white;
-	}
-}
+// .fc-more-cell {
+// 	position: absolute;
+// 	top: 170px;
+// }
+// .fc-more-cell div {
+// 	position: relative;
+// }
+// .fc-more-cell a.fc-more {
+// 	color: transparent;
+// 	&:before {
+// 		content: "\e901";
+// 		font-family: 'InformaIcons';
+// 		color: #6b7189;
+// 		position: absolute;
+// 		left: 44%;
+// 		@include tablet {
+// 			left: 30%;
+// 		}
+// 	}
+// 	&:hover, &:focus, &:active, &:visited {
+// 		color: $white;
+// 	}
+// }
 .fc-unthemed .fc-popover {
 	width: 161px;
 	margin-top: 60px;
@@ -186,11 +185,11 @@
 		padding: 0 0 40px 0;
 	}
 }
-.fc-more-cell {
-	bottom: -48px;
-    position: absolute;
-    width: 160px;
-}
+// .fc-more-cell {
+// 	bottom: -48px;
+//     position: absolute;
+//     width: 160px;
+// }
 .fc-widget-content {
 	&.open {
 		background: #343642;
@@ -223,7 +222,7 @@
 					position: relative;
 					a {
 						color: #6b7189;
-						font-family: 'FSMe-Bold';
+						font-weight: bold;
 						text-decoration: underline;
 					}
 					&:before {
@@ -259,40 +258,37 @@
 						&:before {
 							background: $yellow;
 						}
-						a {
-
-						}
 					}
 				}
 			}
 		}
 	}
 }
-.event-present {
-	position: relative;
-	overflow: hidden;
-	&:before {
-	    content: '';
-	    width: 20px;
-	    position: absolute;
-	    top: -10px;
-	    right: -10px;
-	    background: #e0e4e7;
-	    height: 20px;
-	    transform: rotate(45deg);
-	    @include tablet {
-	    	width: 40px;
-	    	height: 40px;
-	    	top: -20px;
-	    	right: -20px;
-	    }
-	}
-	&.fc-today {
-		&:before {
-			background: #343742;
-		}
-	}
-}
+// .event-present {
+// 	position: relative;
+// 	overflow: hidden;
+// 	&:before {
+// 	    content: '';
+// 	    width: 20px;
+// 	    position: absolute;
+// 	    top: -10px;
+// 	    right: -10px;
+// 	    background: #e0e4e7;
+// 	    height: 20px;
+// 	    transform: rotate(45deg);
+// 	    @include tablet {
+// 	    	width: 40px;
+// 	    	height: 40px;
+// 	    	top: -20px;
+// 	    	right: -20px;
+// 	    }
+// 	}
+// 	&.fc-today {
+// 		&:before {
+// 			background: #343742;
+// 		}
+// 	}
+// }
 .fc-basic-view .fc-body .fc-row {
 	@include mobile {
 		min-height: 3em;
@@ -301,16 +297,16 @@
 		min-height: 6em;
 	}
 }
-td.fc-day.fc-widget-content {
-    border-width: 5px;
-    border-color: #f3f3f3;
-    @include mobile {
-    	border-width: 1px;	
-    }
-    @include tablet {
-    	border-width: 1px;	
-    }
-}
+// td.fc-day.fc-widget-content {
+//     border-width: 5px;
+//     border-color: #f3f3f3;
+//     @include mobile {
+//     	border-width: 1px;	
+//     }
+//     @include tablet {
+//     	border-width: 1px;	
+//     }
+// }
 .fc-view, .fc-view > table {
     border: 7px solid #f3f3f3;
     @include mobile {
@@ -366,6 +362,7 @@ td.fc-day.fc-widget-content {
 	height: auto;
 }
 .fc-toolbar {
+	display: none;
 	width: 40%;
 	@include mobile {
 		width: 100%;
@@ -385,22 +382,290 @@ td.fc-day.fc-widget-content {
     	margin-top: 10px;
     }
 }
-section[data-view="calendar-view"] .container {
-	@include mobile {
-		padding: 0;
+// fullcalendar resets
+.fc-view, .fc-view > table {
+	border: none;
+}
+.fc-unthemed {
+	.fc-content, .fc-divider, .fc-row, tbody, thead, th, td {
+		border: none;
 	}
 }
-.events-now {
-	font-family: 'FSMe-Bold';
+.fc th {
+	background: transparent;
 }
-.fc td.fc-today {
-    border-style: solid;
-    color: $white;
+.fc-past.fc-other-month, .fc-future.fc-other-month {
+	background-color: transparent;
 }
-.fc-more-cell {
-	position: absolute;
-	top: 250px;
+.fc.fc-unthemed td.fc-today {
+	background-color: transparent;
+	border: none;
 }
+.fc-day-number {
+	display: block;
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	color: inherit;
+}
+[data-view="calendar-view"] {
+	[data-datetype="month"] {
+		margin-top: 30px;
+		.fc th {
+			padding-bottom: 20px;
+			text-align: center;
+			@include mobile {
+				padding-bottom: 3px;
+			}
+		}
+		.fc-scroller{
+			overflow: hidden !important;
+		}
+		.fc-body .fc-row {
+			height: 155px !important;
+			overflow: hidden;
+			@include mobile {
+				min-height: 3.5em;
+				height: 50px !important;
+			}
+		}
+		.fc-content-skeleton {
+			padding-bottom: 0;
+			// height: 100%;
+			@include mobile {
+				top: 50%;
+				transform: translateY(-50%);
+			}
+			tbody {
+				@include mobile {
+					display: none;
+				}
+			}
+			table {
+				height: 100%;
+				.fc-more-cell {
+					padding: 0 17px;
+				}
+				.fc-event-container {
+					padding: 0 17px;
+					.events {
+						// white-space: nowrap;
+						// overflow: hidden;
+						p {
+							padding: 0 0 5px;
+							margin: 0;
+						}
+					}
+				}
+			}
+		}
+		.fc-day-top {
+			padding: 0 10px 0;
+			@include mobile {
+				text-align: center;
+				color: #6a7384;
+				padding: 0;
+			}
+			&.event-now {
+				color: black;
+			}
+			.fc-day-number {
+				@include mobile {
+					text-align: center;
+				}
+			}
+		}
+		.fc-day {
+			position: relative;
+			vertical-align: bottom;
+			.more {
+				position: relative;
+				display: none;
+			}
+			&.congested {
+				.more {
+					display: block;
+				}
+			}
+			&:before {
+				content: '';
+				display: block;
+				position: absolute;
+				bottom: 10px;
+				left: 0;
+				right: 0;
+				width: calc(100% - 20px);
+				height: calc(100% - 30px);
+				margin: 0 auto;
+				background-color: white;
+				border: 1px solid #ebebeb;
+				@include mobile {
+					display: none;
+				}
+				// ie 11 hack
+				@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+					height: 124px;
+				}
+			}
+			&.fc-today {
+				&:before {
+					background-color: #f0f0f3;
+				}
+			}
+			&.fc-other-month:before, &.fc-disabled-day:before {
+				display: none;
+			}
+			&.event-present {
+				cursor: pointer;
+				&:before {
+					border-color: black;
+					@include mobile {
+						display: block;
+						top: 0;
+						bottom: 0;
+						width: 30px;
+						height: 30px;
+						margin: auto;
+					}
+				}
+				// hover bits
+				@include desktop {
+					&:hover {
+						&:before {
+							box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+						}
+					}
+				}
+			}
+		}
+		@include mobile {
+			.fc-view {
+				padding: 10px 5px;
+				&> table {
+					border: none;
+				}
+			}
+			.fc td, .fc th {
+				border-width: 0;
+			}
+			.fc th {
+				padding: 3px 0;
+			}
+		}
+	}
+	[data-datetype="year"] {
+		.fc-toolbar {
+			display: block;
+		}
+		.fccal {
+			margin-top: 30px;
+		}
+		.fc-view > table {
+			border: none;
+		}
+		.fc-toolbar {
+			width: 100%;
+			margin-top: 1em;
+		}
+		.fc-view, .fc-view > table {
+			border-width: 1px;
+		}
+		.fc td, .fc th {
+			border-width: 0;
+		}
+		.fc th {
+			padding-bottom: 3px;
+			text-align: center;
+		}
+		.fc-body .fc-row {
+			min-height: 3.5em;
+		}
+		.fc-content-skeleton {
+			top: 50%;
+			transform: translateY(-50%);
+			padding-bottom: 0;
+			tbody {
+				display: none;
+			}
+		}
+		.fc-view {
+			padding: 10px 5px;
+			border: 1px solid #ebebeb;
+			&.event-present {
+				border-color: black;
+				cursor: pointer;
+				&:hover {
+					box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+				}
+			}
+		}
+		.fc-day-top {
+			padding: 0 10px 0;
+			color: #6a7384;
+			@include tablet {
+				padding: 0;
+			}
+			&.event-now {
+				color: black;
+			}
+			.fc-day-number {
+				text-align: center;
+			}
+		}
+		.fc-day {
+			position: relative;
+			&:before {
+				content: '';
+				display: none;
+				position: absolute;
+				bottom: 10px;
+				left: 0;
+				right: 0;
+				width: calc(100% - 20px);
+				height: calc(100% - 30px);
+				margin: 0 auto;
+				background-color: white;
+				border: 1px solid #ebebeb;
+			}
+			&.fc-today {
+				&:before {
+					background-color: #f0f0f3;
+				}
+			}
+			&.fc-other-month:before, &.fc-disabled-day:before {
+				display: none;
+			}
+			&.event-present {
+				cursor: pointer;
+				&:before {
+					display: block;
+					top: 0;
+					bottom: 0;
+					width: 30px;
+					height: 30px;
+					margin: auto;
+					border-color: black;
+					// ie 11 hack
+					@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+						top: 5px;
+						bottom: auto;
+					}
+				}
+			}
+		}
+	}
+}
+// .events-now {
+// 	font-weight: bold;
+// }
+// .fc td.fc-today {
+//     border-style: solid;
+//     color: $white;
+// }
+// .fc-more-cell {
+// 	position: absolute;
+// 	top: 250px;
+// }
 .fc td, .fc th {
 	@include mobile {
 		border-width: 0;

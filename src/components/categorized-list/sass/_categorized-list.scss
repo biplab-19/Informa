@@ -1,0 +1,107 @@
+.timeline-background {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.inf-timeline-section {
+    margin: 50px 0 0;
+    padding: 0 0 50px;
+    .image-wrapper {
+        text-align: center;
+        img.timeline-image {
+            max-width: 100%;
+            margin: 50px 0 0;
+        }
+    }
+    .content-wrapper {
+        p.heading {
+            font-size: 46px;
+            color: #fff;
+            margin-bottom: 70px;
+            line-height: normal;
+            word-wrap: break-word;
+        }
+        .timeline-row {
+            margin-top: 30px;
+            .timeline-row-left {
+                text-align: left;
+                span.date {
+                    background-color: #ab3092;
+                    font-size: 20px;
+                    font-weight: 600;
+                    color: #fff;
+                    border-radius: 10px;
+                    -webkit-border-radius: 10px;
+                    -moz-border-radius: 10px;
+                    text-align: center;
+                    display: inline-block;
+                    width: 300px;
+                    max-width: 100%;
+                    padding: 5px 10px 9px;
+                    line-height: 1;
+                }
+                @include mobile {
+                    text-align: center;
+                    margin: 0 0 13px;
+                }
+            }
+            .timeline-row-right {
+                word-break: break-word;
+                h3 {
+                    font-size: 30px;
+                    color: #fff;
+                    line-height: 32px;
+                    @include mobile {
+                        font-size: 24px;
+                        margin: 0 0 10px;
+                    }
+                }
+                ul {
+                    list-style: none;
+                    margin-left: -40px;
+                    li {
+                        margin: 15px 0 0;
+                        a {
+                            font-size: 18px;
+                            color: #fff;
+                            padding: 0 0 0 35px;
+                            position: relative;
+                            display: inline-block;
+                            cursor: pointer;
+                            &:before {
+                                content: "";
+                                background-color: #b2b3b7;
+                                width: 15px;
+                                height: 15px;
+                                display: inline-block;
+                                border-radius: 10px;
+                                -webkit-border-radius: 10px;
+                                -moz-border-radius: 10px;
+                                position: absolute;
+                                left: 0px;
+                                top: 7px;
+                                @include mobile {
+                                    background-color: #fff;
+                                    width: 5px;
+                                    height: 5px;
+                                    top: 12px;
+                                }
+                            }
+                            @include mobile {
+                                padding: 0 0 0 15px;
+                            }
+                        }
+                    }
+                }
+                @include mobile {
+                    max-width: 100%;
+                }
+            }
+        }
+        @include mobile {
+            text-align: center;
+        }
+    }
+}

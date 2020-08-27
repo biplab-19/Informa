@@ -1,0 +1,470 @@
+@import '_variables';
+@import '_mixins';
+
+.discover-community {
+
+
+    div#owlcarousel-item {
+        height: 100vh;
+    }
+
+
+    .subofsub-title {
+        padding-left: 135px;
+    }
+
+    .container-fluid {
+        padding: 0px;
+    }
+
+    .row {
+        /*margin: 0;*/ /*1-May-2019*/
+    }
+
+
+
+    .carousel {
+        position: relative;
+        display: flex;
+    }
+
+    .carousel-inner {
+        position: relative;
+        overflow: hidden;
+        width: 70%;
+        background: #f0f0f3;
+        border-radius: 28px 0 0 28px;
+        padding: 0px;
+        min-height: 705px;
+
+        .dc-box {
+            height: 100%;
+            padding: 30px 60px;
+
+            h2 {
+                padding: 0px 30px 30px 53px;
+                border-radius: 53px;
+                font-size: 30px;
+                margin-bottom: 0;
+                margin-left: 0;
+                text-transform: capitalize;
+                font-weight: 200;
+                margin-top: 0;
+                color: #002244;
+            }
+
+            h3 {
+                padding: 0px 0px 20px 0px;
+            }
+        }
+    }
+
+    .Wrapper-silde {
+        padding: 0px 90px 0px 105px;
+    }
+
+    ul.listgroup {
+        @include ultag();
+
+        li.listgroup-item {
+            position: relative;
+
+            h4 {
+                padding: 25px 30px;
+                border-radius: 53px;
+                font-weight: normal !important;
+                letter-spacing: -0.02em;
+                font-size: 20px !important;
+                line-height: 26px !important;
+                cursor: pointer;
+                color: #002244;
+
+                &:hover {
+                    background: #f0f0f3;
+                }
+
+                span.shortdescription {
+                    display: flex;
+                    font-size: 12px;
+                    color: #555555;
+                    font-weight: 100;
+                    margin-top: 5px;
+                }
+            }
+
+            &:hover::before {
+                content: url('/static/images/tech/three-dots-menu.svg');
+                top: 20%;
+                right: -78px;
+                position: absolute;
+                display: inline-block;
+                width: 53px;
+            }
+        }
+
+        li.listgroup-item.current {
+            h4 {
+                background: #f0f0f3;
+            }
+        }
+
+        li:first-child > h4 {
+            margin-top: 0 !important;
+        }
+
+        li.listgroup-item.current:before {
+            content: url('/static/images/tech/three-dots-menu.svg');
+            top: 20%;
+            right: -78px;
+            position: absolute;
+            display: inline-block;
+            width: 53px;
+        }
+    }
+
+    .gradient-box {
+        display: flex;
+        align-items: center;
+        //width: 50vw;
+        width: 100%;
+        margin: auto;
+        max-width: 100%;
+        position: relative;
+        padding: 42px 50px;
+        box-sizing: border-box;
+        $border: 5px;
+        min-height: 515px;
+        color: $gray-color;
+        background: #f0f0f3;
+        background-clip: padding-box;
+        border: solid $border #94bb17;
+        border-radius: 0;
+        flex-direction: column;
+        @include not-mid-tablet{
+            min-height: 415px;  
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            margin: -$border;
+            border-radius: inherit;
+            background-image: linear-gradient(to bottom, #8eb00a, #d4d300);
+            background-image: -ms-linear-gradient(to bottom, #8eb00a, #d4d300)
+        }
+
+        p.text {
+            font-size: 18px;
+            line-height: 28px;
+            text-align: left;
+        }
+
+        a.btn.btnprimary.border-button {
+            position: absolute;
+            bottom: -36px;
+            z-index: 9;
+        }
+    }
+
+    .brand-log {
+        width: 100%;
+        position: absolute;
+        bottom: 32px;
+
+        .row {
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .col-sm-6 {
+                text-align: center
+            }
+
+            img.brand-img {
+                max-width: 100%;
+                -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+                filter: grayscale(100%);
+            }
+
+            img.brand-img:hover {
+                -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+                filter: grayscale(0%);
+            }
+        }
+    }
+
+
+    #myCarousel .carousel-caption {
+        left: 0;
+        right: 0;
+        bottom: 0;
+        text-align: left;
+        padding: 10px;
+        background: rgba(0,0,0,0.6);
+        text-shadow: none;
+    }
+
+    #myCarousel .list-group {
+        // position:absolute;
+        // top:0;
+        // right:0;
+    }
+
+    #myCarousel .list-group-item {
+        border-radius: 0px;
+        cursor: pointer;
+    }
+
+    #myCarousel .list-group .current {
+        background-color: #eee;
+    }
+}
+
+.discover-community {
+    @media (min-width: 992px) {
+        // #myCarousel {padding-right:33.3333%;}
+        #myCarousel .carousel-controls {
+            display: none;
+        }
+    }
+
+    @media (max-width: 991px) {
+        .carousel-caption p,
+        #myCarousel .main-listgroup {
+            display: none;
+        }
+
+        .discover-community .carousel-inner {
+            width: 100%;
+            margin: 15px;
+            border-radius: 28px 28px;
+            padding-bottom: 30px;
+        }
+
+        .discover-community {
+            .carousel-controls {
+                position: absolute;
+                bottom: 75px;
+                width: 100%;
+                padding: 0px 35px;
+                display: flex;
+                bottom: 37px;
+
+                span.fa {
+                    font-size: 35px;
+                    color: #94bb17;
+                    opacity: 1;
+                }
+
+                a.left.carousel-control {
+                    left: 30px;
+                }
+
+                a.right.carousel-control {
+                    right: 30px;
+                    margin-left: auto;
+                }
+            }
+        }
+
+        .discover-community .gradient-box a.btn.btnprimary.border-button {
+            position: absolute;
+            bottom: -37px;
+            font-size: 18px;
+            padding: 9px 20px;
+        }
+    }
+
+
+    @include not-mid-tablet {
+
+        .discover-community {
+
+            .carousel-inner {
+
+                .dc-box {
+                    padding: 20px !important;
+                    margin-bottom: 40px;
+
+                    h2 {
+                        padding: 0px 0px 15px 0px !important;
+                        font-size: 25px;
+                    }
+                }
+
+                .brand-log {
+                    padding: 0;
+                }
+            }
+
+            .gradient-box {
+                padding: 25px;
+            }
+        }
+
+        .carousel-controls {
+
+
+
+            a.left.carousel-control {
+                left: 0px !important;
+            }
+
+            a.right.carousel-control {
+                right: 0px !important;
+            }
+        }
+    }
+
+    @media screen and (max-width: 766px) {
+
+        .discover-community p.subofsub-text {
+            padding-left: 90px;
+        }
+    }
+
+
+    @media all and (transform-3d), (-webkit-transform-3d) {
+        .carousel-inner > .item.next,
+        .carousel-inner > .item.current.right {
+            left: 0;
+            -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+        }
+
+        .carousel-inner > .item.prev,
+        .carousel-inner > .item.active.left {
+            left: 0;
+            -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+        }
+    }
+}
+
+.discover-community ul.listgroup li.listgroup-item.current h4 {
+    background: #f0f0f3;
+}
+
+.discover-community {
+    .each-section-mtb {
+        @include margin(40px,0,40px,0);
+    }
+
+    .sub-headline {
+        font-family: 'SWTechBrandFont';
+        font-weight: normal;
+        font-size: 48px;
+        line-height: 60px;
+        text-transform: uppercase;
+        color: $indgo-color;
+        position: relative;
+        margin: 0;
+        width:calc(100% - 30px);
+    }
+    
+    // primary button
+    .tech-theme .btn.btnprimary.border-button {
+        width: auto !important;
+        color: #fff;
+        background-color: #002244;
+        border-color: #002244;
+        border-radius: 25px;
+        padding: 10px 45px;
+    }
+}
+
+
+.discover-community {
+    p.subofsub-text {
+        width: 55%;
+        padding-bottom: 30px;
+    }
+}
+
+#myCarousel {
+    .Wrapper-silde {
+        .listgroup {
+            padding: 30px 0px;
+        }
+    }
+}
+
+/*Move from cshtml*/
+#divsegment.wrapper-dropdown-5 {
+    background: rgb(240, 240, 243);
+    border: 2px solid rgb(240, 240, 243);
+    padding: 10px 15px;
+    width: auto;
+    margin: 15px 25px;
+    display: none;
+}
+
+#divsegment.wrapper-dropdown-5.active .dropdown {
+    display: inline;
+}
+
+@media only screen and (max-width:768px) {
+    #divsegment.wrapper-dropdown-5 {
+        display: block;
+    }
+
+    .discover-community .carousel-inner {
+        width: 100%;
+    }
+
+    .discover-community .carousel-inner .dc-box {
+        padding: 20px;
+    }
+
+    .discover-community .carousel-inner .dc-box h2 {
+        padding: 10px 0px;
+        font-size: 25px;
+        text-align: center;
+    }
+
+    .discover-community .gradient-box {
+        padding: 12px 32px;
+    }
+
+    .discover-community .gradient-box p.text {
+        font-size: 15px;
+        text-align: justify;
+    }
+
+    .discover-community .brand-log {
+        padding: 0 10px;
+    }
+
+    .discover-community .carousel-controls .left, .discover-community .carousel-controls .right {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50px;
+        height: 90px;
+        text-align: center;
+        background: #f0f0f3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #94bb17;
+        font-size: 28px;
+    }
+
+    .discover-community .carousel-inner {
+        border-radius: 0px;
+    }
+
+    .discover-community .carousel-controls .left {
+        left: 0;
+    }
+
+    .discover-community .carousel-controls .right {
+        right: 0;
+    }
+}

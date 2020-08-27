@@ -3,9 +3,9 @@ section.recommended-products {
     padding: 10px;
     h2 {
         color: $white;
-        font-family: 'FSMe-Bold';
+        font-weight: bold;
         span{
-             font-family: 'FSMe-Light';
+            font-weight: 200;
         }
     }
     h3 {
@@ -110,7 +110,7 @@ section.recommended-products {
                 }
                 .brand {
                     color: #f1f1f3;
-                    font-family: FSMe-light;
+                    font-weight: 200;
                 }
                 &:after {
                     content: '';
@@ -138,7 +138,7 @@ section.recommended-products {
                     list-style-type: none;
                     padding-bottom: 20px;
                     position: relative;
-                    font-family: 'FSMe-Bold' !important;
+                    font-weight: bold !important;
                     &:before {
                         position: absolute;
                         left: -33px;

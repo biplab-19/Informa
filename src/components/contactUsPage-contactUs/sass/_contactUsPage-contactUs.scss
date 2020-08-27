@@ -131,14 +131,14 @@
         }
         strong {
             font-size: 24px;
-            font-family: Fsme-bold;
+            font-weight: bold;
             color: $grey-color04;
             @include mobile {
               margin-left: 0;
             }
         }
         .contact-descrip {
-            font-family: Fsme-bold;
+            font-weight: bold;
             color: $grey-color04;
             font-size: 16px;
             padding-right: 10px;
@@ -155,15 +155,15 @@
             &:first-child {
               font-size: 16px;
               line-height: 24px;
-              font-family: Fsme-bold;
+              font-weight: bold;
               color: $grey-color04;
             }
             margin-top: 20px;
-            font-family: Fsme-bold;
+            font-weight: bold;
             span.contact-number {
                 margin-top: 5px;
                 font-size: 24px;
-                font-family: Fsme-light;
+                font-weight: 200;
                 margin-bottom: 20px;
                 @include tablet {
                     font-size: 22px;

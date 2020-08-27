@@ -12,4 +12,5 @@
 6. Install node modules within the project location
     - __*$ sudo npm install*__
 7. bower install within the project location
-8. Run grunt server within the project location
+8. For Windows, Download and install Ruby from rubyinstaller.org, Setup the Ruby, run the following commands in CMD from the project root dir: gem update --system, gem install compass
+9. Run grunt server within the project location.

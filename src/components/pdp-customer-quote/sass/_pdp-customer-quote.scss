@@ -12,7 +12,7 @@ section.customer-quote {
             color: #fff;
             margin: 0;
             padding-bottom: 30px;
-            font-family: FSMe-Bold;
+            font-weight: bold;
             @include heading-font-size(24px,18px,18px);
             @include heading-line-height(30px,26px,26px);
             @include tablet{
@@ -98,7 +98,6 @@ section.customer-quote {
                 color: $white;
                 margin-top: 0;
                 position: relative;
-                font-family: FSMe;
                 @include heading-font-size(18px,16px,16px);
                 @include heading-line-height(26px,24px,24px);
                 @include tablet{
@@ -112,7 +111,7 @@ section.customer-quote {
                 &:before {
                   padding-left: 10px;
                   content: ',,';
-                  font-family: FSMe-Bold;
+                  font-weight: bold;
                   font-size: 90px;
                   position: absolute;
                   transform: rotate(180Deg);
@@ -153,7 +152,7 @@ section.customer-quote {
                 .owner {
                     text-transform: uppercase;
                 }
-                font-family: FSMe-Bold;
+                font-weight: bold;
                 span {
                     padding-right: 15px;
                     position: relative;
@@ -161,11 +160,11 @@ section.customer-quote {
                         position: absolute;
                         content: '\/';
                         right: 3px;
-                        font-family: FSMe-Light;
+                        font-weight: 200;
                     }
                 }
                 .description {
-                    font-family: FSMe-Light;
+                    font-weight: 200;
                     text-transform: uppercase;
                     @include mobile {
                       display: block;

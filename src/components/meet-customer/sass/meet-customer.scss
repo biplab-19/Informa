@@ -1,0 +1,162 @@
+.Meet-customer {
+    margin-bottom: 0px !important;
+}
+
+.Meet-customer {
+    position: relative;
+
+    img.img-customer {
+        width: 100%;
+        object-fit: cover;
+        height: 370px;
+    }
+
+    .mc-description {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0px 105px 0px;
+        text-align: center;
+
+        h2 {
+            font-family: 'SWTechBrandFont';
+            font-size: 48px;
+            line-height: 60px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .mc-button-div {
+
+            button.btn.btnprimary.border-button {
+                padding: 7px 30px;
+                font-size: 21px;
+            }
+        }
+    }
+
+    .mc-button-div {
+        display: flex;
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+        justify-content: center;
+
+        .mc-button-child {
+            width: 24%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 15px;
+            a {
+                font-size: 12px !important;
+            }
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .Meet-customer {
+
+        .mc-description {
+            padding:0px;
+        }
+    }
+}
+
+@media (max-width: 810px) {
+
+    .Meet-customer img.img-customer {
+        width: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        height: 320px;
+    }
+
+    .Meet-customer {
+
+        .mc-button-div {
+            flex-wrap: wrap;
+            width: 100%;
+        }
+    }
+
+    .Meet-customer {
+        .mc-button-div.fourbutton {
+            .mc-button-child {
+                width: 43%;
+                margin: 10px;
+            }
+
+
+            button.btn.btnprimary.border-button {
+                font-size: 15px;
+                width: 90%;
+            }
+        }
+    }
+}
+
+@include not-mid-tablet {
+
+    .Meet-customer .mc-description h2 {
+        font-size: 32px !important;
+        line-height: normal !important;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        color: #fff;
+        text-align: center;
+    }
+
+
+    .mc-button-div.threebutton {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .mc-button-child {
+            width: 100%;
+            
+
+            a.btn.btnprimary.border-button {
+                width: 80% !important;
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    .mc-button-div.twobutton {
+        flex-wrap: initial !important;
+    }
+
+    .mc-button-div.twobutton .mc-button-child {
+        width: 40%;
+    }
+
+
+    .researchsubs {
+        //font-size: 49px;
+        font-size:10px;
+        line-height: normal;
+    }
+
+
+    .tech-theme .mc-button-child .btn.btnprimary.border-button {
+        width: 100% !important;
+        color: #fff;
+        background-color: #024;
+        border-color: #024;
+        border-radius: 25px;
+        padding: 10px 20px;
+        margin-bottom: 10px;
+        height: auto !important;
+        text-align: center;
+    }
+}

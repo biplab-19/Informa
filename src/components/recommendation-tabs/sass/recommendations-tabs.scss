@@ -55,13 +55,12 @@
                 padding: 20px 0;
                 color: $grey-color05;
                 font-size: 14px;
-                font-family:'FsMe-Bold';
+                font-weight: bold;
                 text-align: center;
                 text-decoration: none;
                 span {
                     font-size: 14px;
-                    font-family: 'FSMe' !important;
-                    position: relative;
+                    font-weight: normal;
                     &:before {
                         vertical-align: top;
                         font-size: 20px;
@@ -113,22 +112,22 @@
 
 .recommended-results {
     .tab-content {
-        margin-top: -2px;
+        width: 100%;
     }
     h2{
         color:$grey-color03;
         font-size: 30px;
-        font-family: FSMe-Light;
+        font-weight: 200;
         span{
-            font-family: 'FSMe';
+            font-weight: normal;
         }
     }
 }
 .recomended-content{
     h2{
-        font-family: 'FSMe-Bold';
+        font-weight: bold;
         span{
-            font-family: 'FSMe-Light';
+            font-weight: 200;
         }
     }
     h3 {

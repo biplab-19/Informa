@@ -35,13 +35,13 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
     equalHeight = function() {
         var EachView = jQuery('.analyst-views');
         EachView.each(function() {
-            var Items = jQuery(this).find('.analyst-list-container .analyst-description'),
-                ItemsHeader = jQuery(this).find('.analyst-list-container .analyst-details'),
-                ItemsFooter = jQuery(this).find('.analyst-list-container .analyst-footer-content'),
+            var itemcontainer = jQuery(this).find('.analyst-list-container, .analyst-view-container'),
+                Items = itemcontainer.find('analyst-description, .profile-discription'),
+                ItemsHeader = itemcontainer.find('.analyst-details'),
+                ItemsFooter = itemcontainer.find('.analyst-footer-content'),
                 _maxHeight = 0,
                 _maxHeightHeader = 0,
-                _maxHeightFooter = 0,
-                _padding = 50;
+                _maxHeightFooter = 0;
             ItemsHeader.each(function() {
                 var Height = jQuery(this).height();
                 if (Height > _maxHeightHeader) {
@@ -55,7 +55,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
                     _maxHeight = Height;
                 }
             })
-            Items.css('height', _maxHeight + _padding);
+            Items.css('height', _maxHeight);
             ItemsFooter.each(function() {
                 var Height = jQuery(this).height();
                 if (Height > _maxHeightFooter) {
@@ -92,12 +92,21 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
         for (var key in results) {
             if (results.hasOwnProperty(key)) {
 
-                var Data = results[key],
+                if ($("#IsNewCoTemplateEnabled").val() == "True") {
+                    var Data = results[key],
+                    HeaderText = key,
+                    TemplateName = (Templates.AnalystTemplateNewCo !== "undefined") ? Templates.AnalystTemplateNewCo : "",
+                    ListTemplate = Handlebars.compile(TemplateName);
+                    Data.header = HeaderText;
+                    html += ListTemplate({ results: Data });
+                } else {
+                    var Data = results[key],
                     HeaderText = key,
                     TemplateName = (Templates.AnalystTemplate !== "undefined") ? Templates.AnalystTemplate : "",
                     ListTemplate = Handlebars.compile(TemplateName);
-                Data.header = HeaderText;
-                html += ListTemplate({ results: Data });
+                    Data.header = HeaderText;
+                    html += ListTemplate({ results: Data });
+                }
 
             }
         }
@@ -196,61 +205,63 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
     RenderChangeResult = function(data) {
         var defaultValue = jQuery(SubSector.find('option')[0]);
         SubSector.empty();
-
         var html = '<option value=' + defaultValue.val() + '>' + defaultValue.text() + '</option>';
-
         for (var key = 0; key < data.length; key++) {
             html += '<option value=' + data[key].Value + '>' + data[key].Text + '</option>';
         }
         SubSector.html(html);
         SubSector.trigger("chosen:updated");
     }
-
     RenderSearchResult = function(data) {
         //INFORMA.SearchResults.RenderSearchResults(data);
         INFORMA.Spinner.Show($("body"));
         var results = data.SearchDictionary,
             html = "";
-
-        for (var key in results) {
-            if (results.hasOwnProperty(key)) {
-                var Data = results[key],
-                    HeaderText = key,
-                    TemplateName = (Templates.AnalystList !== "undefined") ? Templates.AnalystList : "",
-                    ListTemplate = Handlebars.compile(TemplateName);
-                Data.header = HeaderText;
-                html += ListTemplate({ results: Data });
-
+            for (var key in results) {
+                if(results.hasOwnProperty(key)) {
+                    if ($("#IsNewCoTemplateEnabled").val() == "True") {
+                        var Data = results[key],
+                        HeaderText = key,
+                        TemplateName = (Templates.AnalystListNewCo !== "undefined") ? Templates.AnalystListNewCo : "",
+                        ListTemplate = Handlebars.compile(TemplateName);
+                        Data.header = HeaderText;
+                        html += ListTemplate({ results: Data });
+                    }
+                    else {
+                        var Data = results[key],
+                        HeaderText = key,
+                        TemplateName = (Templates.AnalystList !== "undefined") ? Templates.AnalystList : "",
+                        ListTemplate = Handlebars.compile(TemplateName);
+                        Data.header = HeaderText;
+                        html += ListTemplate({ results: Data });
+                    }
+                }
             }
-        }
-        if (Object.getOwnPropertyNames(results).length === 0) {
-            $('.NoRecords').removeClass('hidden');
-        } else {
-            $('.NoRecords').addClass('hidden');
-        }
-        productAnalystResults.html(html);
-        checkButtonMore();
-        equalHeight();
-        ajaxCallonSector();
-        addthis.toolbox('.analyst-views');
-        return html;
+            if (Object.getOwnPropertyNames(results).length === 0) {
+                $('.NoRecords').removeClass('hidden');
+            } else {
+                $('.NoRecords').addClass('hidden');
+            }
+            productAnalystResults.html(html);
+            checkButtonMore();
+            equalHeight();
+            ajaxCallonSector();
+            addthis.toolbox('.analyst-views');
+            return html;
     }
-/* removed unused AppendSearchResult function */
-
+    /*removed unused AppendSearchResult function*/
     ajaxCallonSector = function() {
             var SectorBtn = jQuery('.btn-plus');
-
-            SectorBtn.on('click', function() {
-                var sectorId = jQuery(this).data('fetch');
-                var FieldArray = AnalystSearch.find("form").serializeArray(),
-                    GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray)),
-                    _Object = JSON.parse(GetSerializeData),
-                    Parent = jQuery('a[data-fetch="' + sectorId + '"]').parents('.analyst-views'),
-                    _vp = INFORMA.global.device.viewport,
-                    _limit = parseInt(productAnalystResults.data(_vp)) + 1;
-
-                _Object.SectorID = sectorId;
-                _Object.SearchText = $('.SearchTextSpecialist').val()
+                SectorBtn.on('click', function() {
+                    var sectorId = jQuery(this).data('fetch');
+                    var FieldArray = AnalystSearch.find("form").serializeArray(),
+                        GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray)),
+                        _Object = JSON.parse(GetSerializeData),
+                        Parent = jQuery('a[data-fetch="' + sectorId + '"]').parents('.analyst-views'),
+                        _vp = INFORMA.global.device.viewport,
+                        _limit = parseInt(productAnalystResults.data(_vp)) + 1;
+                        _Object.SectorID = sectorId;
+                        _Object.SearchText = $('.SearchTextSpecialist').val();
                 for (var key in _Object) {
                     if (_Object[key] === "default") {
                         _Object[key] = null;
@@ -259,34 +270,37 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
                 if (!Parent.hasClass('showLess')) {
                     GetAjaxData(Urls.AnalystSearchAll, "Post", JSON.stringify(_Object), RenderAllSubSectorResults, null, sectorId);
                 } else {
-                    Parent.find('.analyst-list-container:nth-child(n+' + _limit + ')').slideUp();
-                    Parent.find('.analyst-list-container:nth-child(n+' + _limit + ')').hide("fast", function(){ $(this).remove(); });
+                    if ($("#IsNewCoTemplateEnabled").val() == "True") {
+                        Parent.find('.analyst-view-container:nth-child(n+' + _limit + ')').slideUp();
+                        Parent.find('.analyst-view-container:nth-child(n+' + _limit + ')').hide("fast", function(){ $(this).remove(); });
+                    } else {
+                        Parent.find('.analyst-list-container:nth-child(n+' + _limit + ')').slideUp();
+                        Parent.find('.analyst-list-container:nth-child(n+' + _limit + ')').hide("fast", function(){ $(this).remove(); });
+                    }
                     Parent.removeClass('showLess');
                 }
-
-
-            })
-        },
-        _bindShowLess = function () {
-          var _showLess = $('.analyst-views').find('.btn-container .btn-plus .less');
-          _showLess.on('click',function(){
+            });
+    },
+    _bindShowLess = function () {
+        var _showLess = $('.analyst-views').find('.btn-container .btn-plus .less');
+            _showLess.on('click',function() {
                 $('html, body').animate({
                     scrollTop: $(this).closest('.analyst-views').offset().top - 35
                 },500);
-          });
-        },
-        GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
+            });
+    },
+        GetAjaxData = function (url, method, data, SCallback, Errcallback, SearchType) {
             INFORMA.Spinner.Show($("body"));
             INFORMA.DataLoader.GetServiceData(url, {
                 method: method,
                 data: JSON.stringify({ data: data }),
-                success_callback: function(data) {
+                success_callback: function (data) {
                     if (typeof SCallback === "function") {
                         SCallback.call(this, data, SearchType);
-                         jQuery('.load-spinner').delay(600).remove();
+                        jQuery('.load-spinner').delay(600).remove();
                     }
                 },
-                error_callback: function() {
+                error_callback: function () {
                     jQuery('.load-spinner').delay(600).remove();
                     if (typeof Errcallback === "function") {
                         Errcallback.call(this, data, SearchType);

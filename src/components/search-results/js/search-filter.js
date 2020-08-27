@@ -27,20 +27,20 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
         siteSearch = $('button[data-submit="site-search"]'),
         productSearchCTA = $('button[data-submit="sector-search"]'),
         resourceProductSearchCTA = $('.resource-sector-search button[data-submit="sector-search"]'),
-        getProductSearchParams, getResourceResultParams, productSearchString, newSearch = false, sectorQuery, subsectorQuery,
+        getProductSearchParams, getResourceResultParams, productSearchString, newSearch = false, sectorQuery, subsectorQuery,getUrlParameter,
         // methods
         init, SelectAllCheckBox, BindRefineEvents, ClearAllLinkBinding, DoRefine, RefineSearchResult, GetAjaxData, GetSelectedFilter;
 
-    GetAjaxData = function (url, method, data, SCallback, Errcallback) {
-        INFORMA.Spinner.Show($("body"));
-        INFORMA.DataLoader.GetServiceData(url, {
-            method: method,
-            data: data,
-            success_callback: SCallback,
-            error_callback: Errcallback
-        });
-        INFORMA.SearchResults.ResetPaging();
-    },
+        GetAjaxData = function (url, method, data, SCallback, Errcallback) {
+            INFORMA.Spinner.Show($("body"));
+            INFORMA.DataLoader.GetServiceData(url, {
+                method: method,
+                data: data,
+                success_callback: SCallback,
+                error_callback: Errcallback
+            });
+            INFORMA.SearchResults.ResetPaging();
+        },
         GetSelectedFilter = function () {
             var Data = {},
                 ParamData = [];
@@ -96,6 +96,13 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
             if (SearchType === "ProductSearch") {
                 Data.IsProduct = true;
             }
+            var isnewco = $("#productListingPageUrl").val();
+            if (isnewco != undefined && isnewco != "") {
+                if (isnewco.indexOf("newco") != -1) {
+                    SearchType = "SearchResult";
+                }
+
+            }
             if (Data.SearchText) {
                 searchText = Data.SearchText;
             }
@@ -144,7 +151,20 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
             }
 
         },
+        getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = window.location.search.substring(1),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
 
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                }
+            }
+        },
         getProductSearchParams = function () {
             var parameter, urlQueryStrings = [];
             if ($('#SectorNames').val()) {
@@ -159,7 +179,6 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
             }
             return urlQueryStrings;
         },
-
         getResourceResultParams = function () {
             var resourceSearchParams = [], SubSectorNames = [], SectorNames = [];
             $("#Sector :selected").map(function (i, el) {
@@ -373,49 +392,50 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                             subsectorQuery = "subsector="+(subSectorParam.replace(/&/g,'%26'));
                         }
                     }
-
-                    $.each(searchQueryStrings, function () {
-                        if (this) {
-                            var facets=[];
-                            subQuery = this.split("=");
-                            groupid = subQuery[0];
-                            if(subQuery[0] && urlParameters.get(subQuery[0])){
-                                if(urlParameters.get(subQuery[0]).includes(','))
-                                    facets = urlParameters.get(subQuery[0]).split(",");
-                                 else
-                                     facets.push(urlParameters.get(subQuery[0]));
-                            }
-                            newFacets = [];japaneseFacets=[];
-                            $.each(facets, function () {
-                                newFacets.push(this.replace(/-/g, " ").replace(/   /g, " - ").replace(/%26/g, "&").toLowerCase());
-                            });
-                            $.each(facets, function () {
-                                japaneseFacets.push(this.replace(/%26/g, "&").replace(/-&-/g, " & ").toLowerCase());
-                            });
-                            
-                            filterOptionsList =  $("[id='"+groupid+"' i]").find("input[type='checkbox']");
-                            filterOptions = $("[id='"+groupid+"' i]").find("input[type='checkbox']").not(":disabled");
-                            if(newFacets.length >0){
-                                filterOptionsList.filter(function () {
-                                    if (newFacets.includes($(this).next().text().toLowerCase())) {
-                                        $(this).prop("checked", true);
-                                    }
+                    if(searchQueryStrings.length >1){
+                        $.each(searchQueryStrings, function (i) {
+                            if (this) {
+                                var facets=[];
+                                subQuery = this.split("=");
+                                groupid = subQuery[0];
+                                if(subQuery[0] && urlParameters.get(subQuery[0])){
+                                    if(urlParameters.get(subQuery[0]).includes(','))
+                                        facets = urlParameters.get(subQuery[0]).split(",");
+                                    else
+                                        facets.push(urlParameters.get(subQuery[0]));
+                                }
+                                newFacets = [];japaneseFacets=[];
+                                $.each(facets, function () {
+                                    newFacets.push(this.replace(/-/g, " ").replace(/   /g, " - ").replace(/%26/g, "&").toLowerCase());
                                 });
-                            }
-                            if(japaneseFacets.length > 0){
-                                filterOptionsList.filter(function () {
-                                    if (japaneseFacets.includes($(this).next().text().toLowerCase())) {
-                                        $(this).prop("checked", true);
-                                    }
+                                $.each(facets, function () {
+                                    japaneseFacets.push(this.replace(/%26/g, "&").replace(/-&-/g, " & ").toLowerCase());
                                 });
+                                
+                                filterOptionsList =  $('[id="' + groupid + i +'"]').find("input[type='checkbox']");
+                                filterOptions = $('[id="' + groupid + i +'"]').find("input[type='checkbox']").not(":disabled");
+                                if(newFacets.length >0){
+                                    filterOptionsList.filter(function () {
+                                        if (newFacets.includes($(this).next().text().toLowerCase())) {
+                                            $(this).prop("checked", true);
+                                        }
+                                    });
+                                }
+                                if(japaneseFacets.length > 0){
+                                    filterOptionsList.filter(function () {
+                                        if (japaneseFacets.includes($(this).next().text().toLowerCase())) {
+                                            $(this).prop("checked", true);
+                                        }
+                                    });
 
+                                }
+                                selectedFilterOptions = $("[id='"+groupid+"' i]").find("input:checked").not(":disabled");
+                                if (filterOptions.length == selectedFilterOptions.length) {
+                                    $("[id='"+groupid+"1' i]").prop("checked", true);
+                                }
                             }
-                            selectedFilterOptions = $("[id='"+groupid+"' i]").find("input:checked").not(":disabled");
-                            if (filterOptions.length == selectedFilterOptions.length) {
-                                $("[id='"+groupid+"1' i]").prop("checked", true);
-                            }
-                        }
-                    });
+                        });
+                    }
                 }
             }
             if (CheckedRefineCheckBox.length > 0) {
@@ -474,11 +494,11 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                 $("#SubSectorNames").val(SubSectorNames.toString());
             });
         };
-    return {
-        init: init,
-        GetRefineData: GetSelectedFilter,
-        BindRefineEvents: BindRefineEvents
+        return {
+            init: init,
+            GetRefineData: GetSelectedFilter,
+            BindRefineEvents: BindRefineEvents
 
-    };
+        };
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.SearchResultFilter.init());

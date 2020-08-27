@@ -1,0 +1,313 @@
+.events-list {
+	padding: 30px 0;
+	background-color: $white;
+	&:after {
+		content: " ";
+    	display: table;
+    	clear: both;
+	}
+	.header {
+		text-align: center;
+		width: 40%;
+		@include desktop{
+			visibility: hidden;
+		}
+		@include mobile {
+			width: 100%;
+		}
+		@include tablet {
+			width: 45%;
+		}
+		h2 {
+			display: inline-block;
+			margin: 10px 0;
+			font-size: 28px;
+			font-weight: 700;
+			padding: 0;
+			@include mobile {
+			    margin: 10px 0;
+    			font-size: 28px;
+			}
+		}
+		.arrows {
+			width: 45px;
+			height: 67px;
+			display: block;
+			background-color: $yellow;
+			position: relative;
+			color: $white;
+			text-indent: -999px;
+			@include tablet {
+				width: 35px;
+				height: 60px;
+			}
+			@include mobile {
+				width: 30px;
+    			height: 50px;
+			}
+			&:before {
+				position: absolute;
+				font-family: 'InformaIcons';
+			    position: absolute;
+			    font-size: 26px;
+			    opacity: 1;
+			    top: 50%;
+			    left: 50%;
+			    margin-top: -21px;
+			    margin-left: -13px;
+			    text-indent: 0;
+			    @include mobile {
+			    	font-size: 20px;
+			        margin-top: -15px;
+    				margin-left: -10px;
+			    }
+			}
+			&.previous {
+				float: left;
+				&:before {
+					content: "\e903";
+				}
+			}
+			&.next {
+				float: right;
+				&:before {
+					content: "\e902";
+				}
+			}
+			&.arrow-desabled{
+					background-color: grey;
+					cursor: default;
+					pointer-events: none;
+			}
+		}
+	}
+	.btn-container{
+		padding: 50px 0 20px 0;
+	}
+	.events-section {
+		margin-top: 30px;
+		//past event
+		&.PreviousDate{
+			.events-wrap {
+				position: relative;
+				&:after {
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					background-color: #000;
+					opacity: 0.3;
+					z-index: 1;
+				}
+			}
+			/*.events-wrap .footer .btn.register{
+				background: #e9e9e9;
+			    border-width: 2px;
+			    pointer-events: none;
+			    border-color: transparent;
+			}*/
+			.events-wrap .footer .btn.full-detail {
+				z-index: 2;
+			}
+		}//current event
+		&.CurrentDate{
+			.events-wrap .header .date{
+				background-color:#fed501;
+			}
+		}
+		.events-wrap .footer .btn.register.FullyBooked{
+		    background: #e9e9e9;
+		    border-width: 2px;
+		    pointer-events: none;
+		    border-color: transparent;
+		}
+	}//more events button
+	.more-events{
+		width: 100%;
+	    float: left;
+	    text-align: center;
+	    background-color: $white;
+		.btn-more-events{
+			min-width: 120px;
+			padding: 5px 30px 5px 0;
+			height: 35px;
+			//border:none !Important;
+			//border-bottom: 2px solid #ffd500  !Important;
+			display: inline-block;
+			position: relative;
+			color: #444957;
+			//margin-top: 20px;
+			text-align: left;
+			text-decoration: none;
+			outline: none;
+			@include mobile {
+				padding: 0;
+		    text-align: center;
+		    //margin-bottom: 30px;
+		    padding-bottom: 60px;
+			}
+			.more,.less{
+				&:after{
+            		content: '\e912';
+            		font-family: 'InformaIcons';
+				    font-size: 20px;
+				    position: absolute;
+				    top: 0px;
+					@include mobile {
+						top: 2px;
+						right: 47px;
+						bottom: 10px;
+					}
+				}
+			}
+			.less{
+				display: none;
+				&:after{
+					content: '\e913';
+				}
+			}
+		}
+		.btn-more-events.showLess .more{
+			display: none;
+		}
+		.btn-more-events.showLess .less{
+			display: block;
+		}
+	}
+}
+
+.events-wrap {
+	background-color: #f3f3f3;
+	position: relative;
+	.header {
+		display: block;
+		width: 100%;
+		@include desktop{
+			visibility: visible;
+		}
+		.date-field {
+			float: none;
+			margin: 26px 15px 0 20px;
+			text-align: left;
+			color:$grey-color04;
+		}
+		.date {
+			width: 60px;
+			height: 50px;
+			background-color: #878e9e;
+			font-size: 30px;
+			text-align: center;
+			color: $white;
+			padding: 7px;
+			float: left;
+		}
+		.month {
+			font-size: 24px;
+			margin-left: 10px;
+			padding: 10px;
+			width: auto;
+		}
+		
+	}
+	.content-wrap {
+		padding: 10px 20px;
+		.country {
+			margin-bottom:10px;
+			text-align:left;
+			display: block;
+		}
+		.type {
+		    margin-bottom: 10px;
+		    font-size: 18px;
+		    display: block;
+		    color: $grey-color04;
+		}
+		.title {
+			font-size: 30px;
+			color: #6a7287;
+			font-weight: bold;
+			margin: 0;
+			@include mobile {
+	    	height: auto;
+	    }
+		}
+		.content {
+			margin-top: 20px;
+			.title-content {
+				width: 90px;
+				padding-right: 10px;
+				float: left;
+				color: $grey-color04;
+				// &:after {
+				// 	content: ":";
+				// }
+			}
+			.title-body {
+				width: calc(100% - 90px);
+				float: left;
+				font-weight: bold;
+				ul {
+					padding: 0;
+					list-style-type: none;
+					li {
+						float: left;
+						margin-right:3px;
+						color: $grey-color04;
+						&:after {
+							content: ",";
+						}
+						&:last-child {
+							&:after {
+								content: "";
+							}
+						}
+					}
+				}
+			}
+		}
+		@include mobile {
+			height: auto !important;
+		}
+	}
+	.footer {
+		padding: 25px 20px;
+		width: 100%;
+		.btn {
+			padding-right: 40px;
+			font-weight: 700;
+		    min-width: 45%;
+    		width: 40%;
+    		@include mobile {
+    			font-size: 12px;
+    		}
+			&.register {
+				float: left;
+			}
+			&.full-detail {
+				float: right;
+			}
+		}
+	}
+}
+.no-result {
+	background: $white;
+	padding: 0 0 30px;
+	@include desktop{
+		margin-top: -30px;
+	}
+}
+
+section.event-profile-container{
+	.header{
+		text-align: -webkit-auto;
+    	width: auto;
+	}
+	.date-field .bold{
+		float:none;
+	}
+	.content-wrap{
+		padding: 0px 15px 15px 15px;
+	}
+}

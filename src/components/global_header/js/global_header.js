@@ -32,6 +32,9 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _fixed = 'navbar-fixed-top',
         _heroBannerHeading = $('#banner h1').text(),
         _marketingClose = $('.marketing-banner .close a'),
+        _isNewco = $('body').hasClass('tmt-newco'),
+        // _newcoHeaderHeight = $('.newco-header').height(),
+        _newcoHeaderHeight = 80,
 
         // for sticky nav of pdp-navigation
         _pdpNavigation = $('#pdp-navigation'),
@@ -152,9 +155,26 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 firstElementOnPage = $($("[id='" + anchorTarget + "']")[anchorTargetIndex]);
             }
         });
-        _pdpMenuFollower.css('width', $(_pdpLinkSpan[_pdpMenuDefaultIndex]).width())
-            .css('left', $(_pdpLinkSpan[_pdpMenuDefaultIndex]).offset().left)
-            .show();
+        if ($(_pdpLinkSpan[_pdpMenuDefaultIndex]).offset()) {
+            _pdpMenuFollower.css('width', $(_pdpLinkSpan[_pdpMenuDefaultIndex]).width())
+                .css('left', $(_pdpLinkSpan[_pdpMenuDefaultIndex]).offset().left)
+                .show();
+        }
+    }
+
+    // resize _pdpMenuFollower width once fonts are loaded 
+    if (document.fonts) {
+        document.fonts.ready.then(function () {
+            if (_pdpNavigation.length > 0) {
+                if ($(_pdpLinkSpan[_pdpMenuDefaultIndex]).offset()) {
+                    _pdpMenuFollower.css('width', $(_pdpLinkSpan[_pdpMenuDefaultIndex]).width())
+                        .css('left', $(_pdpLinkSpan[_pdpMenuDefaultIndex]).offset().left)
+                        .show();
+                }
+                _pdpLink.removeClass('active');
+                $(_pdpLink[_pdpMenuDefaultIndex]).addClass('active');
+            }
+        });
     }
 
     if (_servicesNavigation.length > 0) {
@@ -330,25 +350,29 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         var _windowPos = $(window).scrollTop();
 
         if (_pdpFirst) {
-            _initialPdpHdrPos = _pdpNavigation.offset().top;
+            _initialPdpHdrPos = _isNewco ? _newcoHeaderHeight : _pdpNavigation.offset().top;
             _pdpFirst = false;
         }
 
         var _fixedNavHeight;
-        if (INFORMA.global.device.isDesktop) {
-            _fixedNavHeight = _navHeight;
-            _pdpNavigationHeight = $('#pdp-navigation').outerHeight();
+        if (_isNewco) {
+            _fixedNavHeight = _newcoHeaderHeight;
         } else {
-            _fixedNavHeight = _navHeightMobile;
-            _pdpNavigationHeight = $('#pdp-navigation .nav-pdp-nondesktop').outerHeight();
+            if (INFORMA.global.device.isDesktop) {
+                _fixedNavHeight = _navHeight;
+                _pdpNavigationHeight = $('#pdp-navigation').outerHeight();
+            } else {
+                _fixedNavHeight = _navHeightMobile;
+                _pdpNavigationHeight = $('#pdp-navigation .nav-pdp-nondesktop').outerHeight();
+            }
         }
 
 
-        if (INFORMA.global.device.isDesktop){
+        if (INFORMA.global.device.isDesktop || _isNewco){
 
             if(_tryStick.length > 0){
 
-                _tryStickPosition = _tryStick.offset().top;
+                _tryStickPosition = _isNewco ? _fixedNavHeight : _tryStick.offset().top;
                 if (_windowPos > ((_tryStickPosition - _fixedNavHeight) + _cookieHeight)) {
                     if (!_pdpStickyIconDesktopFlag) {
                         _tryStick.clone(true).appendTo('.nav-pdp-desktop-sticky');
@@ -364,7 +388,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             }
 
             if(_headingStick.length > 0){
-                _headingStickPosition = _headingStick.offset().top;
+                _headingStickPosition =  _isNewco ? _fixedNavHeight : _headingStick.offset().top;
                 _pdpLink = $('#pdp-navigation ul > li > a');
                 _pdpLinkSpan = $('#pdp-navigation ul > li > a > span');
                 if (_windowPos > ((_headingStickPosition - _fixedNavHeight) + _cookieHeight)) {
@@ -378,7 +402,9 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                         _pdpMenuFollower.css('width', $(_pdpLinkSpan[_pdpMenuDefaultIndex]).width())
                             .css('left', $(_pdpLinkSpan[_pdpMenuDefaultIndex]).offset().left)
                             .show();
-
+                        
+                        _pdpLink.removeClass('active');
+                        $(_pdpLink[_pdpMenuDefaultIndex]).addClass('active');
                     }
                 }
                 else{
@@ -387,6 +413,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                     _pdpMenuFollower.css('width', $(_pdpLinkSpan[_pdpMenuDefaultIndex]).width())
                         .css('left', $(_pdpLinkSpan[_pdpMenuDefaultIndex]).offset().left)
                         .show();
+                    _pdpLink.removeClass('active');
+                    $(_pdpLink[_pdpMenuDefaultIndex]).addClass('active');
                     _pdpStickyHeadingDesktopFlag = false;
                 }
             }
@@ -427,9 +455,22 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 for (var i = 0; i < _pdpLink.length; i++) {
                     var _sectionName = $(_pdpLink[i]).data('target');
                     var _sectionIndex = $(_pdpLink[i]).data('target-index');
+                    var currSection = $($("[id='" + _sectionName + "']")[_sectionIndex]);
+                    var currSectionTopPos = currSection.offset().top;
+                    var currSectionHeight = currSection.height();
+
+                    if(_isNewco) {
+                        currSectionTopPos -= (_fixedNavHeight + 10)
+                    }
+
                     if ($('#' + _sectionName).length > 0) {
-                        _pdpMenuPos.push($($("[id='" + _sectionName + "']")[_sectionIndex]).offset().top);
-                        _pdpMenuPosBottom.push($($("[id='" + _sectionName + "']")[_sectionIndex]).offset().top + $($("[id='" + _sectionName + "']")[_sectionIndex]).height());
+                        _pdpMenuPos.push(currSectionTopPos);
+                        
+                        if(_isNewco) {
+                            _pdpMenuPosBottom.push(currSectionTopPos + currSectionHeight + _fixedNavHeight);
+                        } else {
+                            _pdpMenuPosBottom.push(currSectionTopPos + currSectionHeight);
+                        }
                     } else {
                         _pdpMenuPos.push(0);
                     }
@@ -464,7 +505,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
         }
 
-        if (INFORMA.global.device.isDesktop) {
+        if (INFORMA.global.device.isDesktop || _isNewco) {
             var j = _pdpMenuPos.length - 1;
             var windowPostion = _windowPos + _fixedNavHeight + _pdpNavigationHeight + _cookieHeight;
             var finalIndex = -1;
@@ -476,6 +517,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             if(finalIndex!= -1) {
                 _pdpMenuFollower.css('width', _pdpMenuWidth[finalIndex]);
                 _pdpMenuFollower.css('left', _pdpMenuleft[finalIndex]);
+                _pdpLink.removeClass('active');
+                $(_pdpLink[finalIndex]).addClass('active');
             }
         }
     }
@@ -501,7 +544,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 else
                     _pdpSectionsHeight = 0;
 
-                _fixedNavHeight = _navHeightMobile;
+                _fixedNavHeight = _isNewco ? _newcoHeaderHeight : _navHeightMobile;
                 var anchorElementArray = $("[id='" + _target + "']");
 
                 console.log(anchorElementArray[_target_index]);
@@ -513,9 +556,6 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 } else {
                     _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _pdpNavigationHeight + _pdpSectionsHeight);
                 }
-                $('html, body').stop().animate({
-                    scrollTop: _scrollTopPixels
-                }, 1000);
 
             } else {
                 $('#pdp-navigation li').removeClass('selected');
@@ -523,7 +563,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 _pdpNavigationHeight = _pdpNavigation.outerHeight();
                 _target = $(this).data('target');
                 _target_index = $(this).data('target-index');
-                _fixedNavHeight = _navHeightMobile;
+                _fixedNavHeight = _isNewco ? _newcoHeaderHeight : _navHeightMobile;
                 var anchorElementArrayDesk = $("[id='" + _target + "']");
 
                 if (anchorElementArrayDesk.length >= [_target_index]) {
@@ -533,12 +573,15 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 } else {
                     _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _pdpNavigationHeight + _cookieHeight);
                 }
-                $('html, body').stop().animate({
-                    scrollTop: _scrollTopPixels
-                }, 1000);
             }
-
-        })
+                
+            if(_isNewco && $(window).scrollTop() <= 50) {
+                _scrollTopPixels -= (_fixedNavHeight);
+            }
+            $('html, body').stop().animate({
+                scrollTop: _scrollTopPixels
+            }, 1000);
+        });
     };
     // END-Ben-2018-TODO-clean
 

@@ -146,8 +146,7 @@ form.request-a-demo {
     }
 
     label.control-label {
-        font-family: FSMe-light !important;
-        font-weight: normal !important;
+        font-weight: 200 !important;
         margin-bottom: 10px;
     }
 
@@ -341,7 +340,7 @@ form.request-a-demo {
     }
 
     h1 {
-        font-family: FSMe-bold;
+        font-weight: bold;
     }
 
     legend {
@@ -390,7 +389,6 @@ form.request-a-demo {
             background-color: $grey-color05 !important;
             margin-bottom: -15px;
             padding: 0;
-            font-family: 'FSMe';
             a{
                 text-decoration: underline;
                 color: $white;
@@ -813,7 +811,7 @@ form.request-a-demo {
                 font-size: $line-height-computed;
 
                 h2 {
-                    font-family: "FSMe-bold";
+                    font-weight: bold;
                     display: inline-block;
                     position: relative;
                     @include mobile {
@@ -922,7 +920,6 @@ form.request-a-demo {
         border: 0 !important;
         color: $white !important;
         position: absolute !important;
-        //  font-family: FSMe-bold !important;
         font-size: 16px;
         right: 0;
         bottom: 35px;
@@ -1041,7 +1038,6 @@ form.request-a-demo {
       color: $text-gray;
       position: relative;
       label {
-          font-family: "FSMe";
           font-size: 14px;
           line-height: 18px;
           margin-left:25px;
@@ -1063,9 +1059,13 @@ form.request-a-demo {
                 display: none;
               }
           }
-          input:checked + span:before {
+          input[type=checkbox]:checked + span:before {
               background: $white url("/Static/images/common/checkbox-tick.jpg") no-repeat 0 0;
               background-size: 100%;
+          }
+          input[type=checkbox] + span:before {
+            background: $white url("/Static/images/common/checkbox-untick.png") no-repeat 0 0;
+            background-size: 100%;
           }
           input:disabled + span:before {
               background: $grey-color09 none;
@@ -1088,4 +1088,16 @@ form.request-a-demo {
 }
 .grecaptcha-badge {
     display: none;
+}
+
+.tech-theme{
+    .wffm-form {
+        .custom-checkbox {
+            label{
+                span {
+                    color:#555;
+                }
+            } 
+        }
+    }
 }

@@ -54,7 +54,8 @@
         padding-bottom:80px;
         h2 {
             color: $white;
-            font: 400 30px 'FSMe-light';
+            font-weight: 200;
+            font-size: 30px;
             margin:30px 0 0;
             padding:0;
             @include mobile{
@@ -62,7 +63,8 @@
             }
         }
         h3 {
-            font: 400 20px 'FSMe-bold';
+            font-weight: bold;
+            font-size: 20px;
             color: $white;
         }
         .col-left{
@@ -96,7 +98,6 @@
                         font-size:15px;
                     }
                     a {
-                        font-family: 'FSMe';
 						color: $white;
                     }
                 }

@@ -69,7 +69,6 @@
 						padding-left: 50px;
 						position: relative;
 						font-size: 16px;
-						font-family: "FSMe" !important;
 						display: inline-block;
 						margin-bottom: 15px;
 						display: inline-block;
@@ -110,4 +109,7 @@
 .experience-mode #faqs .panel-group .panel .panel-heading .panel-title a:after,.experience-mode #helpFaqs .panel-group .panel .panel-heading .panel-title a.collapsed:after, .experience-mode #helpFaqs .panel-group .panel .panel-heading .panel-title a:after, .experience-mode .accordian-structure .panel-group .panel .panel-heading .panel-title a:after {
   content: "\e913" !important;
   color: #6a7287 !important;
+}
+[data-toggle~="collapse"] {
+	cursor: pointer;
 }

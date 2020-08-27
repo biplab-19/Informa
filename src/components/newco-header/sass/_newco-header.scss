@@ -1,0 +1,483 @@
+.newco-header {
+  position: relative;
+  width: 100%;
+  height: 120px;
+  box-shadow: 0px 0px 30px 0px rgba(0,0,0,0);
+  transition: height 100ms;
+  @include not-desktop {
+      height: 100px;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: white;
+    z-index: 20;
+  }
+  .newco-search {
+    display:none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    padding: 9px 0 9px 0;
+    z-index: 10;
+    transform: translate(0, 0);
+    transition: transform 200ms;
+    background: grey;
+    text-align: center;
+    *[class*="col-"] {
+      display: flex;
+      justify-content: center;
+    }
+    .textbox {
+      display: inline-block;
+      vertical-align: middle;
+      position: relative;
+      width: 320px;
+      @include mobile {
+        width: 265px;
+      }
+      label {
+        margin-bottom: 0;
+        padding: 0 9px;
+        background: $white;
+      }
+      #searchField {
+        padding: 0;
+        background: transparent;
+        border: none;
+        &::-webkit-input-placeholder, &::-moz-placeholder, &::-ms-input-placeholder, &::placeholder {
+          color: $black;
+        }
+      }
+    }
+    button[type="submit"] {
+      vertical-align: middle;
+      margin-left: 10px;
+      padding: 1px 0 0 1px;
+    }
+  }
+  .header-content {
+    position: relative;
+    height: 100%;
+    & > .row {
+      height: 100%;
+      & > [class*="col-"] {
+        display: flex;
+        align-items: center;
+        height: 100%;
+      }
+    }
+  }
+  .newco-navbtn {
+    position: relative;
+    justify-content: flex-start;
+    .hamburger {
+      position: relative;
+      width: 21px;
+      height: 21px;
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      .burgerline {
+        position: absolute;
+        display: block;
+        top: calc(50% - 3px);
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: $black;
+        border-radius: 3px;
+        transform: rotate(0deg);
+        transition: 0.15s ease-in-out;
+        &:nth-of-type(1),
+        &:nth-of-type(4) {
+          left: 50%;
+          width: 0;
+          transform: translateY(0px) translate(0, 0);
+        }
+        &:nth-of-type(2) {
+          transform: rotate(45deg);
+        }
+        &:nth-of-type(3) {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+  .newco-logo {
+    justify-content: center;
+    img {
+      display: none;
+      width: auto;
+      height: auto;
+      max-width: 155px;
+      max-height: 55px;
+      margin: 0 auto;
+      transform: scale(1);
+      transition: transform 200ms;
+      @include not-desktop {
+        max-width: 115px;
+        max-height: 41px;
+        &.logo-img-small {
+          display: block;
+        }
+      }
+      @include desktop {
+        &.logo-img-big {
+          display: block;
+        }
+      }
+    }
+  }
+  .newco-searchbtn {
+    justify-content: flex-end;
+    @include mobile {
+      position: static;
+    }
+    .navsearch {
+      position: relative;
+      padding: 1px 2px;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      color: $black;
+      font-size: 18px;
+      line-height: 18px;
+      &::before, &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        top: calc(50% - 3px);
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: $black;
+        border-radius: 3px;
+        transition: 0.15s ease-in-out;
+      }
+      &::before {
+        transform: scale(1) rotate(45deg);
+      }
+      &::after {
+        transform: scale(1) rotate(-45deg);
+      }
+      .fa-search {
+        transform: scale(0);
+        transition: 0.15s ease-in-out;
+      }
+    }
+    .newco-search-header{
+        height: 35px;
+        position: relative;
+        @include mobile {
+          position: static;
+        }
+        .textbox{
+          position: absolute;
+          right: 20px;
+          @include mobile {
+            display:none;
+            top: 100px;
+            width: 100%;
+            left: 0;
+            right: 0;
+            position: absolute;
+            text-align: center;
+            width: 100%;
+            padding: 17px 0px;
+            background-color: $newcoprimarycolor;
+            height: 55px;    
+            padding: 9px 0;
+            &.active{
+              display:block;
+            }
+          }
+          @include tablet {
+            right:10px;
+          }
+          input[type="text"]{
+            width: 250px;
+            height: 37px;
+            border-radius: 29px;
+            border: 1px solid #a8abb5;
+            padding: 8px 35px 8px 10px;
+            font-weight: 200;
+            color: #000;
+            font-size: 14px;
+            display: block;
+            @include bootstrap-mobile {
+              margin: 0 auto;
+            }
+           }
+            .newco-gobtn-2[data-submit="sector-search"]{
+              display:none;
+              @include mobile {
+                display: inline-block;
+                position: absolute;
+                top: 16px;
+                right: calc(50% - 115px);
+              }
+              i {
+                  display:none;
+                  @include mobile {
+                    display:inline-block;
+                  }
+              }
+            }
+          
+        }
+      .newco-gobtn-2{
+        position: absolute;
+        right: 30px;
+        top: 6px;
+        z-index: 9;
+        outline: none;
+        @include tablet {
+          right:20px;
+        }
+        @include mobile {
+          position: relative;
+        }
+        &[data-submit="sector-search"]{
+          display:block;
+          @include mobile {
+            display:none;
+          }
+        }
+        &#mobile-search{
+          display:none;
+          @include mobile {
+            display:block;
+          }
+        }
+        i {
+          font-size: 18px;
+          color:#000;
+          cursor: pointer;
+          @include mobile {
+            display:none;
+          }
+          &.active {
+            display:inline-block;
+          }
+        }
+      }
+      
+    }
+    .newco-clientlogin{
+      cursor: pointer;
+      a {
+        position: relative;
+        display: block;
+        padding-right: 33px;
+          @include not-desktop {
+            padding-right: 23px;
+          }
+          &::after {
+            background-image: url(../../Static/images/tmt-newco/images/lock-icon/lock-icon-black.jpg);
+            background-repeat: no-repeat;
+            content: "";
+            width: 18px;
+            height: 18px;
+            position: absolute;
+            bottom: 4px;
+            right: 0;
+            background-size: contain;
+            @include bootstarp-md-max {
+              bottom: -9px;
+            }
+            @include mobile {
+              right:16px;
+            }
+        }
+        
+        span {
+          color:$black;
+          font-weight: normal;
+          line-height: 25px;
+          @include bootstarp-md-max{
+            display:none;
+          }
+        }
+      }
+      &:hover {
+        span {
+          color:$newcoprimarycolor;
+        }
+        a{
+          &::after {
+            background-image: url(../../Static/images/tmt-newco/images/lock-icon/unlock.png);
+        }
+        }
+      }
+      img {
+        margin-left: 8px;
+        width: 16px;
+        margin-top: -4px;
+      }
+    }
+  }
+
+  .newco-nav {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 33.33%;
+    visibility: hidden;
+    z-index: 10;
+    @include mobile {
+      width: 100%;
+    }
+    &.ready {
+      visibility: visible;
+      .top-menu-items {
+        transition: transform 200ms;
+      }
+    }
+    & + .row {
+      position: relative;
+      z-index: 30;
+    }
+    .top-menu-items {
+      overflow-x: hidden;
+      overflow-y: auto;
+      position: absolute;
+      top: calc(100% - 1px);
+      width: calc(100% - 30px);
+      max-height: calc(100vh - 150px);
+      margin-left: 15px;
+      margin-right: 15px;
+      padding: 12.5px 27px 12.5px 10px;
+      list-style: none;
+      direction: rtl;
+      text-align: left;
+      background: $white;
+      box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.04);
+      transform: translate(0, 0);
+      @include not-desktop {
+        width: calc(100% - 15px);
+        margin-left: 7.5px;
+        margin-right: 7.5px;
+      }
+    }
+    .menu-items {
+      overflow: hidden;
+      height: auto;
+      padding: 0;
+      list-style: none;
+      visibility: hidden;
+      pointer-events: none;
+      &.ready {
+        visibility: visible;
+        transition: height 200ms;
+        &.nav-closed {
+          height: 0;
+        }
+      }
+      & > .menu-item {
+        pointer-events: auto;
+        a {
+          padding: 5px 0;
+        }
+      }
+    }
+    .menu-item {
+      padding: 0 0 0 30px;
+      user-select: none;
+      a {
+        display: block;
+        padding: 12.5px 0;
+        &.disable {
+          opacity: 1;
+        }
+      }
+      &.hassub {
+        position: relative;
+        cursor: pointer;
+        &.subnav-open {
+          &::before {
+            margin-top: -1px;
+            content: '\2013';
+          }
+        }
+        &::before {
+          content: '+';
+          position: absolute;
+          top: 12.5px;
+          left: 0;
+          width: 30px;
+          line-height: 25px;
+          text-align: center;
+      
+        }
+      }
+      & > .menu-items {
+        margin-left: -30px;
+        .menu-item.hassub {
+          &.subnav-open {
+            &::before {
+              margin-top: -2px;
+            }
+          }
+          &::before {
+            top: 5px;
+          }
+        }
+      }
+    }
+  }
+  &.nav-closed {
+    .newco-navbtn {
+      .hamburger {
+        .burgerline {
+          &:nth-of-type(1) {
+            left: 0;
+            width: 100%;
+            transform: translateY(-7px);
+          }
+          &:nth-of-type(2),
+          &:nth-of-type(3) {
+            transform: rotate(0deg);
+          }
+          &:nth-of-type(4) {
+            left: 0;
+            width: 100%;
+            transform: translateY(7px);
+          }
+        }
+      }
+    }
+    .newco-nav {
+      .top-menu-items {
+        transform: translate(0, -100%);
+        box-shadow: 0px 0px 30px 0px rgba(0,0,0,0);
+      }
+    }
+  }
+  &.search-closed {
+    .newco-searchbtn {
+      .navsearch {
+        &::before {
+          transform: scale(0) rotate(45deg);
+        }
+        &::after {
+          transform: scale(0) rotate(-45deg);
+        }
+        .fa-search {
+          transform: scale(1) translate(0, -2px);
+        }
+      }
+    }
+    .newco-search {
+      transform: translate(0, -100%);
+    }
+  }
+}

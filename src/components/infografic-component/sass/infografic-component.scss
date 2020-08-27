@@ -1,0 +1,116 @@
+.infografic-component{
+    .infografic-component-list{
+        padding-top: 95px;
+        .rich-text-editor{
+            margin-bottom:0px;
+        }
+        @include mobile{
+            padding-top: 0px;
+        }
+        .container{
+            width: 100%;
+            max-width: 1400px;
+            background: linear-gradient(0deg, #c5e9ff , #fff 70%);
+        }
+        .infografic-discription{
+            padding-bottom: 64px;
+            .col-sm-12{
+                width:100%;
+            }
+            p {
+                padding-left: 100px;
+                font-weight: 200;
+                font-size:18px;
+                color:#000;
+                @media screen and (max-width: 812px) {
+                    padding-left: 39px;
+                }
+                @include mobile {
+                    padding-left: 24px;
+                }
+            }
+        }
+        .infografic-unit-container{
+            width:auto;
+            margin:0 auto;
+            .infografic-unit{
+                width: 278px;
+                float: left;
+                text-align: center;
+                margin-bottom: 86px;
+                @include mobile{
+                    width:100%;
+                    padding:0 15px;
+                    margin-bottom:70px;
+                }
+                
+                .unit-container{
+                    img{
+                        width:100px;
+                        height:100px;
+                        margin-bottom: 22px;
+                    }
+                    .heading{
+                        font-weight: bold;
+                        font-size:20px;
+                        color:#002244;
+                        @include mobile{
+                            font-size:18px;
+                        }
+
+                    }
+                    .discription{
+                        font-weight: 200;
+                        font-size:20px;
+                        color:#002244;
+                        @include mobile{
+                            font-size:18px;
+                        }
+                    }
+                }
+                
+            }
+
+            &.theme-one{
+                width: 642px;
+                margin: 0 auto;
+                @include mobile{
+                    width:100%;
+                }
+                .infografic-unit{
+                    &:nth-child(2n+1){
+                        margin-right:110px;
+                        @include mobile{
+                            margin-right:0px;
+                        }
+                    }
+                }
+            }
+
+            &.theme-two{
+                width: 1054px;
+                margin: 0 auto;
+                @include mobile{
+                    width:100%;
+                }
+                @include tablet{
+                    width:742px;
+                }
+                .infografic-unit{
+                    &:nth-child(1),&:nth-child(2){
+                        margin-right:110px;
+                        @include mobile{
+                            margin-right:0px;
+                        }
+                    }
+                    &:nth-child(2){
+                        @include tablet{
+                            margin-right:0px;
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+}

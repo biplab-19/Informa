@@ -10,7 +10,7 @@ section#pdp-hero {
     height: 450px;
     color: $black;
     h1 {
-        font-family: FSMe-Bold;
+        font-weight: bold;
         font-size: 60px;
         text-transform: capitalize;
         margin: 0 0 35px 0;
@@ -20,7 +20,7 @@ section#pdp-hero {
         }
     }
     .subtext {
-        font-family: FSMe-Bold;
+        font-weight: bold;
         font-size: 18px;
         padding-bottom: 15px;
         @include mobile {
@@ -28,7 +28,7 @@ section#pdp-hero {
         }
     }
     .description {
-        font-family: FSMe-Light;
+        font-weight: 200;
         font-size: 14px;
         padding-bottom: 40px;
         @include mobile {
@@ -47,13 +47,13 @@ section#pdp-hero {
     }
     .cta1,.cta2 {
         font-size: 14px;
-        font-family: FSMe-Bold;
+        font-weight: bold;
     }
     .cta2 {
-        font-family: FSMe;
+        font-weight: normal;
     }
     .cta3 {
-        font-family: FSMe-Light;
+        font-weight: 200;
         font-size: 16px;
         color: $orange!important;
         @include mobile {

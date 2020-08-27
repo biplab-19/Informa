@@ -2,1477 +2,2327 @@ $max-width: 1400px;
 $min-width: 320px; // define breakpoints
 $tablet-width: 768px;
 $desktop-width: 1142px;
+$mid-tablet: 813px;
+$screen-xs-max: 767px;
+$screen-sm-min: 768px;
+$screen-sm-max: 991px;
+$screen-md-min: 992px;
+$screen-md-max: 1199px;
+$screen-lg-min: 1200px;
+
+@mixin bootstrap-mobile {
+  @media (max-width: #{$screen-sm-max}) {
+    @content;
+  }
+}
+
+@mixin bootstarp-md-max{
+  @media (max-width: #{$screen-md-max}) {
+    @content;
+  }
+}
+
 @mixin border-radius($radius) {
-    -webkit-border-radius: $radius;
-    -moz-border-radius: $radius;
-    border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
 }
 
 @mixin rotate($param) {
-    -ms-transform: rotate($param);
-    /* IE 9 */
-    -webkit-transform: rotate($param);
-    /* Chrome, Safari, Opera */
-    transform: rotate($param);
+  -ms-transform: rotate($param);
+  /* IE 9 */
+  -webkit-transform: rotate($param);
+  /* Chrome, Safari, Opera */
+  transform: rotate($param);
 }
 
 @mixin limitHeight($height) {
-    height: $height;
-    overflow: hidden;
-    @include mobile {
-        height: auto;
-        overflow: initial;
-    }
-}
+  height: $height;
+  overflow: hidden;
 
+  @include mobile {
+    height: auto;
+    overflow: initial;
+  }
+}
 
 /*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 
 @mixin not-mobile {
-    @media (min-width: #{$tablet-width}) {
+  @media (min-width: #{$tablet-width}) {
+    @content;
+  }
+}
+@mixin midtab-to-desktop {
+    @media (min-width: #{$mid-tablet}) and (max-width: #{$desktop-width}) {
         @content;
     }
 }
-
 @mixin mobile {
-    @media (max-width: #{$tablet-width - 1px}) {
-        @content;
-    }
+  @media (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
 }
 
 @mixin tablet {
-    @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
-        @content;
-    }
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin mid-tablet {
+  @media (min-width: #{$mid-tablet}) {
+    @content;
+  }
+}
+
+@mixin not-mid-tablet {
+  @media (max-width: #{$mid-tablet - 1px}) {
+    @content;
+  }
+}
+
+@mixin mobile-to-midtab {
+  @media (min-width:#{$min-width}) and (max-width:#{$mid-tablet - 1px}) {
+    @content;
+  }
 }
 
 @mixin desktop {
-    @media (min-width: #{$desktop-width}) {
-        @content;
-    }
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
 }
 
 @mixin not-desktop {
-    @media (max-width: #{$desktop-width - 1px}) {
-        @content;
-    }
+  @media (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
 }
 
 @mixin greater-desktop {
-    @media (min-width: 1400px) {
-        @content;
-    }
+  @media (min-width: 1400px) {
+    @content;
+  }
 }
 
 @mixin heading-font-size($fontdesktop, $fonttablet, $fontmobile) {
-    @include desktop {
-        font-size: $fontdesktop;
-    }
-    @include tablet {
-        font-size: $fonttablet;
-    }
-    @include mobile {
-        font-size: $fontmobile;
-    }
+  @include desktop {
+    font-size: $fontdesktop;
+  }
+
+  @include tablet {
+    font-size: $fonttablet;
+  }
+
+  @include mobile {
+    font-size: $fontmobile;
+  }
 }
 
 @mixin heading-line-height($lineheightdesktop, $lineheighttablet, $lineheightmobile) {
-    @include desktop {
-        line-height: $lineheightdesktop;
-    }
-    @include tablet {
-        line-height: $lineheighttablet;
-    }
-    @include mobile {
-        line-height: $lineheightmobile;
-    }
+  @include desktop {
+    line-height: $lineheightdesktop;
+  }
+
+  @include tablet {
+    line-height: $lineheighttablet;
+  }
+
+  @include mobile {
+    line-height: $lineheightmobile;
+  }
 }
 
 @mixin family-style($weight, $color) {
-    font-family: $weight;
-    color: $color;
+  font-weight: $weight;
+  color: $color;
 }
 
 @mixin heading-padding($padDesk, $padTab, $padMob) {
-    @include desktop {
-        padding: $padDesk;
-    }
-    @include tablet {
-        padding: $padTab;
-    }
-    @include mobile {
-        padding: $padMob;
-    }
+  @include desktop {
+    padding: $padDesk;
+  }
+
+  @include tablet {
+    padding: $padTab;
+  }
+
+  @include mobile {
+    padding: $padMob;
+  }
 }
 
-@mixin border-focus{
-    outline:1px dotted #ccc !important;
-    @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-        outline:2px solid #3566b8 !important;
-    }
+@mixin border-focus {
+  outline: 1px dotted #ccc !important;
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    outline: 2px solid #3566b8 !important;
+  }
 }
+
 @mixin padding-reset {
-    padding: 0;
+  padding: 0;
 }
 
 @mixin margin-reset {
-    margin: 0;
+  margin: 0;
 }
 
 @mixin image-icon {
-    width: 100px;
-    height: 100px;
+  width: 100px;
+  height: 100px;
 }
 
 @mixin anchor-font($fontDesk, $fontTab, $fontMob) {
-    @include desktop {
-        font-size: $fontDesk;
-    }
-    @include tablet {
-        font-size: $fontTab;
-    }
-    @include mobile {
-        font-size: $fontMob;
-    }
+  @include desktop {
+    font-size: $fontDesk;
+  }
+
+  @include tablet {
+    font-size: $fontTab;
+  }
+
+  @include mobile {
+    font-size: $fontMob;
+  }
 }
 
 @mixin theme($name, $primarycolor, $secondarycolordark, $secondarycolorlight, $navlinkcolor) {
-    $primary: $primarycolor;
-    $secondarycolordark: $secondarycolordark;
-    $secondarycolorlight: $secondarycolorlight;
-    $secondarycolorlight80: rgba($secondarycolorlight, 0.8);
-    $secondarycolorlight60: rgba($secondarycolorlight, 0.6);
-    $secondarycolorlight40: rgba($secondarycolorlight, 0.4);
-    $secondarycolorlight20: rgba($secondarycolorlight, 0.2);
-    .#{$name} {
-        color: $grey-color05;
-        //For navlink ang bullet point color
-        .color-link,
-        .cookieBanner p a {
-            color: $navlinkcolor;
+  $primary: $primarycolor;
+  $secondarycolordark: $secondarycolordark;
+  $secondarycolorlight: $secondarycolorlight;
+  $secondarycolorlight80: rgba($secondarycolorlight, 0.8);
+  $secondarycolorlight60: rgba($secondarycolorlight, 0.6);
+  $secondarycolorlight40: rgba($secondarycolorlight, 0.4);
+  $secondarycolorlight20: rgba($secondarycolorlight, 0.2);
+
+  .#{$name} {
+    color: $grey-color05;
+    //For navlink ang bullet point color
+    .color-link,
+    .cookieBanner p a {
+      color: $navlinkcolor;
+    }
+
+    section#services-list a {
+      color: $navlinkcolor;
+    }
+
+    section#services-list a.btn {
+      color: #fff;
+    }
+
+    .glyphicon {
+      font-family: "Glyphicons Halflings" !important;
+    }
+    //For navlink ang bullet point backgroundcolor
+    .background-link {
+      background-color: $navlinkcolor;
+    }
+
+    .menuFollower {
+      @if ($name==agri-theme) {
+        background-color: $grey-color04;
+      } @else {
+        background-color: $white;
+      }
+    }
+    //Pharma and Agri primary color
+    .primary-color {
+      color: $primary;
+    }
+    //Pharma and Agri primary background color
+    .primary-background {
+      background: $primary !important;
+    }
+    //Pharma and agri secondary light background color
+    .secondry-light-bg {
+      background: $secondarycolorlight;
+    }
+    //Pharma and agri secondary light color
+    .secondry-light-color {
+      color: $secondarycolorlight;
+    }
+    //primary button hover
+    .primary-btn-hover {
+      @if ($name==agri-theme) {
+        color: $grey-color04 !important;
+
+        &:after {
+          color: $grey-color04 !important;
         }
-        section#services-list a{
-            color: $navlinkcolor;
+      } @else {
+        color: $white;
+      }
+
+      text-decoration: none;
+      background-color: $secondarycolorlight;
+      border-color: $secondarycolorlight;
+    }
+    //Anchor link color and active color
+    a {
+      color: $primary;
+      text-decoration: none;
+
+      &:active {
+        @extend .color-link;
+      }
+    }
+    //Navigation active color
+    .nav-active,
+    .activate {
+      a {
+        @extend .color-link;
+
+        .selected-nav {
+          @extend .color-link;
+          text-decoration: none;
         }
-        section#services-list a.btn{
-            color: #fff;
+      }
+    }
+
+    .subnav-container {
+      a {
+        .selected-nav {
+          @extend .color-link;
+          text-decoration: none;
         }
-        .glyphicon{
-            font-family: 'Glyphicons Halflings' !important;
+
+        &:hover {
+          @extend .color-link;
         }
-        //For navlink ang bullet point backgroundcolor
-        .background-link {
-            background-color: $navlinkcolor;
+      }
+    }
+    //bright banner
+    .bright-banner {
+      background-color: $secondarycolordark;
+      color: $white;
+
+      h2,
+      em,
+      span,
+      a,
+      p,
+      div {
+        color: $white;
+      }
+    }
+    //For dark gray background
+    .bg-gray-dark,
+    .dark-banner.key-acocunt-landing-section,
+    .bright-banner.key-acocunt-landing-section {
+      .btn-default {
+        border: 2px solid $white;
+
+        &:after {
+          color: $white;
         }
-        .menuFollower {
-            @if($name==agri-theme) {
-                background-color: $grey-color04;
-            }
-            @else {
-                background-color: $white;
-            }
-        }
-        //Pharma and Agri primary color
-        .primary-color{
-            color: $primary;
-        }
-        //Pharma and Agri primary background color
-        .primary-background {
-            background: $primary !important;
-        }
-        //Pharma and agri secondary light background color
-        .secondry-light-bg {
-            background: $secondarycolorlight;
-        }
-        //Pharma and agri secondary light color
-        .secondry-light-color {
+
+        &:hover {
+          border: 2px solid $secondarycolorlight;
+
+          &:after {
             color: $secondarycolorlight;
+          }
         }
-        //primary button hover
-        .primary-btn-hover {
-            @if($name==agri-theme) {
-                color: $grey-color04 !important;
-                &:after{
-                    color: $grey-color04 !important;
-                }
-            }
-            @else {
-                color: $white;
-            }
-            text-decoration: none;
-            background-color: $secondarycolorlight;
-            border-color: $secondarycolorlight;
+      }
+
+      .intro-text {
+        color: $white;
+      }
+    }
+
+    .key-acocunt-landing-section {
+      &.white-banner {
+        .btn-default {
+          color: $primary;
+
+          &:hover {
+            color: $secondarycolorlight;
+          }
         }
-        //Anchor link color and active color
+      }
+
+      .typed-text-primary {
+        color: $primary !important;
+      }
+
+      .description a {
+        color: $primary;
+        text-decoration: underline;
+
+        &:hover {
+          color: $secondarycolorlight;
+        }
+      }
+
+      @if ($name== financial-theme) {
+        .pattern-div img {
+          @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+            left: -18%;
+            bottom: 0;
+          }
+        }
+      }
+    }
+    //For pharma and agri page-ui
+    .page-ui {
+      background-color: $secondarycolorlight;
+
+      #pdp-sections-heading,
+      a {
+        @if ($name==agri-theme) {
+          color: $grey-color04;
+        } @else {
+          color: $white;
+        }
+
+        &:active {
+          outline: none;
+        }
+      }
+    }
+    //for quotes
+    .quote {
+      @if ($name==agri-theme) {
+        color: $agriquote;
+      } @else {
+        color: $pharmaquote;
+      }
+    }
+
+    section.newsFlash .newsbox {
+      @extend .secondry-light-bg;
+
+      .news-desc,
+      .news-title,
+      span,
+      strong,
+      .read,
+      .read:after {
+        color: $white;
+      }
+    }
+
+    #services-navigation,
+    #pdp-navigation {
+      @extend .page-ui;
+
+      .btn {
+        color: $white !important;
+      }
+    }
+    //Accordian collpase and expand
+    #contact-us-brand .panel-group .panel-heading.collapsed {
+      &:after {
+        background-color: $secondarycolorlight;
+      }
+    }
+
+    .panel-group .panel .panel-heading .panel-title a:after {
+      color: $secondarycolorlight !important;
+    }
+
+    #Faqs .panel-group .panel .panel-heading .panel-title a:after {
+      color: $grey-color08 !important;
+    }
+
+    #Faqs .panel-group .panel .panel-heading .panel-title a.collapsed:after {
+      color: $primary !important;
+    }
+
+    .dashboard .panel .panel-heading a.collapsed:before {
+      color: $navlinkcolor !important;
+    }
+    //Training Material
+    section.training-section .training-material .carousel-lists .slick-arrow {
+      background-color: $secondarycolorlight;
+      color: $white;
+    }
+    //Events
+    .EventFinished,
+    .FullyBooked {
+      background-color: rgba($primary, 0.4) !important;
+      color: $white !important;
+      border-color: transparent !important;
+      position: relative;
+      pointer-events: none;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+      }
+
+      &:after {
+        color: $white !important;
+      }
+    }
+
+    .CurrentDate {
+      .events-wrap .header .date {
+        background-color: $primary !important;
+      }
+    }
+    //Analyst Banner
+    section#hero-banner.analyst {
+      background-color: $secondarycolordark;
+    }
+
+    .product-brands-list {
+      .intro-text {
+        padding-left: 10px;
+      }
+
+      ul.yellow-bullets {
+        padding-left: 20px;
+        padding-top: 0;
+
+        li {
+          padding-bottom: 5px;
+
+          &:before {
+            top: 6px;
+            left: -20px;
+          }
+        }
+      }
+    }
+    //Bullet color
+    .yellow-bullets {
+      list-style-type: none;
+      padding-left: 20px;
+
+      li {
+        margin-bottom: 5px;
+        position: relative;
+        color: $grey-color04;
+
+        &:before {
+          content: "";
+          position: absolute;
+          left: -20px;
+          width: 5px;
+          height: 5px;
+          top: 7px;
+          @extend .background-link;
+          @include border-radius(50%);
+          font-weight: bold;
+        }
+      }
+    }
+    //carousel dots color
+    ul.slick-dots {
+      li.slick-active {
+        @extend .primary-background;
+      }
+    }
+
+    .quick-facts ul li,
+    .dark-banner-subscribe ul li,
+    .pdp-brochure ul li,
+    .signup-container span.bold {
+      &:before {
+        @extend .color-link;
+      }
+    }
+
+    #customer-quote-slider {
+      .saying {
+        &:before {
+          @extend .quote;
+        }
+      }
+    }
+
+    .related-products {
+      .productfinder-link {
         a {
-            color: $primary;
-            text-decoration: none;
-            &:active {
-                @extend .color-link;
-            }
+          color: $primary;
         }
-        //Navigation active color
-        .nav-active, .activate {
-            a {
-                @extend .color-link;
-                .selected-nav{
-                  @extend .color-link;
-                  text-decoration: none;
-                }
-            }
+      }
+    }
+
+    .accordian-structure {
+      &#Faqs {
+        a {
+          color: $grey-color04;
         }
-        .subnav-container{
-          a{
-            .selected-nav{
-              @extend .color-link;
-              text-decoration: none;
-            }
-            &:hover {
-                @extend .color-link;
+      }
+
+      a {
+        color: $primary;
+      }
+    }
+
+    .articlepage-quote {
+      blockquote {
+        &:before {
+          @extend .quote;
+        }
+      }
+    }
+
+    form.wffm-form {
+      .email-validation-message {
+        color: $navlinkcolor !important;
+      }
+    }
+
+    form.request-a-demo,
+    form.register-myinterests-form,
+    form.get-in-touch {
+      p {
+        background-color: $secondarycolorlight;
+        color: $white;
+
+        &:after {
+          border-left: 10px solid $secondarycolorlight;
+        }
+      }
+
+      .checkbox.active {
+        label {
+          border: 3px solid $secondarycolorlight;
+        }
+
+        &:after {
+          color: $primary;
+        }
+      }
+    }
+
+    div {
+      form.get-in-touch,
+      form.request-a-demo,
+      form.register-myinterests-form {
+        input:focus,
+        select:focus,
+        textarea:focus {
+          outline: none !important;
+          border: 2px solid $primary;
+        }
+
+        label.error {
+          color: $navlinkcolor !important;
+        }
+
+        .field-validation-error {
+          @if ($name==tech-theme) {
+            color: $navlinkcolor;
+          } @else {
+            color: $navlinkcolor !important;
+          }
+        }
+      }
+    }
+
+    .icon-calender {
+      color: $primary;
+    }
+
+    .icon-tick {
+      &:before {
+        color: $secondarycolorlight;
+      }
+    }
+
+    .refine-container {
+      .clear-all,
+      .show-more {
+        color: $primary;
+      }
+    }
+
+    .clear-mobile {
+      .clear-all {
+        color: $primary;
+      }
+    }
+
+    .cookieBanner p a {
+      color: $primary;
+    }
+
+    .register-myinterests-section .select-wrapper label {
+      color: $primary;
+    }
+
+    .flip .tile .back .triangle {
+      border-top: 50px solid $primary;
+    }
+    //Select field option highlight color and background
+    .chosen-container .chosen-results li.highlighted {
+      background-color: $secondarycolorlight;
+      @extend .color-text;
+    }
+
+    .multi-lang-cta .open .dropdown-menu li a:hover {
+      background-color: $secondarycolorlight;
+      @extend .color-text;
+    }
+
+    .contactUsPage-contactUs {
+      .nav-tabs {
+        a {
+          color: $white;
+        }
+      }
+
+      a {
+        color: $navlinkcolor;
+      }
+
+      a.chosen-single {
+        color: $grey-color04 !important;
+      }
+    }
+
+    .contactUsPage-contactUs li.active {
+      &:after {
+        background: $navlinkcolor;
+      }
+    }
+
+    .color-text {
+      @if ($name==agri-theme) {
+        color: $grey-color05;
+      } @else {
+        color: $white;
+      }
+    }
+
+    .form:not(.lt-ie9) .custom-radio input:checked + span::before {
+      @extend .primary-background;
+    }
+
+    .anlyst-heading {
+      background-color: $secondarycolordark;
+
+      &:after {
+        background-color: $secondarycolordark;
+      }
+    }
+
+    .yellow-container {
+      background: rgba($secondarycolorlight, 0.9);
+
+      h3,
+      a {
+        color: $white;
+        text-decoration: none;
+      }
+    }
+
+    .carousel-lists .slick-arrow,
+    .customers_list_slider .slick-arrow {
+      @extend .secondry-light-bg;
+      color: $white;
+
+      &:before {
+        @if ($name==agri-theme) {
+          color: $grey-color04;
+        }
+      }
+    }
+
+    section.customer-quote .slick-initialized .slick-arrow,
+    section.hero-banner-carousel .slick-initialized .slick-arrow {
+      &:before {
+        @extend .secondry-light-color;
+      }
+    }
+
+    section.customer-quote {
+      background: $secondarycolordark;
+    }
+
+    .twitter-carousel .slick-arrow {
+      background: $white;
+
+      &:before {
+        @extend .secondry-light-color;
+      }
+    }
+
+    .view-all-sectors-btn-container {
+      border-bottom: 1px solid $secondarycolorlight;
+
+      .informa-icon {
+        color: $secondarycolorlight;
+      }
+    }
+
+    .events-search {
+      .select-section {
+        .custom-dd-menu {
+          .dropdown-content {
+            .round-checkbox {
+              input:checked ~ .checkmark {
+                background-color: $primary;
+              }
             }
           }
         }
-        //bright banner
-        .bright-banner {
-            background-color: $secondarycolordark;
-            color: $white;
-            h2,
-            em,
-            span,
-            a,
-            p,
-            div {
-                color: $white;
-            }
+      }
+      .filter-section {
+        color: white;
+      }
+      .views-section .views .state-views .view a {
+        &:before {
+          width: calc(100% - 15px);
+          height: calc(100% - 15px);
         }
-        //For dark gray background
-        .bg-gray-dark , .dark-banner.key-acocunt-landing-section, .bright-banner.key-acocunt-landing-section{
-            .btn-default {
-                border: 2px solid $white;
-                &:after {
-                    color: $white;
-                }
-                &:hover {
-                    border: 2px solid $secondarycolorlight;
-                    &:after {
-                        color: $secondarycolorlight;
-                    }
-                }
-            }
-            .intro-text{
-              color: $white;
-            }
+        &.icon-list-view:before {
+          background-image: url(/Static/images/pharma/view-icon-list.png);
         }
-        .key-acocunt-landing-section{
-            &.white-banner{
-                .btn-default {
-                    color: $primary;
-                    &:hover {
-                        color: $secondarycolorlight;
-                    }
-                }  
-            }
-            .typed-text-primary{
-                color: $primary !important;
-            }
-            .description a{
-                color: $primary;
-                text-decoration: underline;
-                &:hover {
-                    color: $secondarycolorlight;
-                }
-            }
-            @if($name== financial-theme) {
-                .pattern-div img{
-                    @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
-                        left: -18%;
-                        bottom: 0;
-                    } 
-                }
-                
-            }
+        &.icon-tile-view:before {
+          background-image: url(/Static/images/pharma/view-icon-tile.png);
         }
+        &.icon-calendar-view:before {
+          width: calc(100% - 10px);
+          height: calc(100% - 10px);
+          background-image: url(/Static/images/pharma/view-icon-cal.png);
+        }
+        &.active {
+          &.icon-list-view:before {
+            background-image: url(/Static/images/pharma/view-icon-list-active.png);
+          }
+          &.icon-tile-view:before {
+            background-image: url(/Static/images/pharma/view-icon-tile-active.png);
+          }
+          &.icon-calendar-view:before {
+            background-image: url(/Static/images/pharma/view-icon-cal-active.png);
+          }
+        }
+      }
+    }
 
-        //For pharma and agri page-ui
-        .page-ui {
-            background-color: $secondarycolorlight;
-            #pdp-sections-heading,
-            a {
-                @if($name==agri-theme) {
-                    color: $grey-color04;
-                }
-                @else {
-                    color: $white;
-                }
-                &:active {
-                    outline: none;
-                }
-            }
-        }
-        //for quotes
-        .quote {
-            @if($name==agri-theme) {
-                color: $agriquote;
-            }
-            @else {
-                color: $pharmaquote;
-            }
-        }
-        section.newsFlash .newsbox {
-            @extend .secondry-light-bg;
-            .news-desc,
-            .news-title,
-            span,
-            strong,
-            .read,
-            .read:after {
-                color: $white;
-            }
-        }
-        #services-navigation,
-        #pdp-navigation {
-            @extend .page-ui;
-            .btn {
-                color: $white !important;
-            }
-        }
-        //Accordian collpase and expand
-        #contact-us-brand .panel-group .panel-heading.collapsed {
-            &:after {
-                background-color: $secondarycolorlight;
-            }
-        }
-        .panel-group .panel .panel-heading .panel-title a:after {
-            color: $secondarycolorlight !important;
-        }
-        #Faqs .panel-group .panel .panel-heading .panel-title a:after{
-            color: $grey-color08!important;
-        }
-        #Faqs .panel-group .panel .panel-heading .panel-title a.collapsed:after{
-            color: $primary!important;
-        }
-        .dashboard .panel .panel-heading a.collapsed:before {
-            color: $navlinkcolor !important;
-        }
-        //Training Material
-        section.training-section .training-material .carousel-lists .slick-arrow {
-            background-color: $secondarycolorlight;
-            color: $white;
-        }
-        //Events
-        .EventFinished,
-        .FullyBooked {
-            background-color: rgba($primary, 0.4) !important;
-            color: $white !important;
-            border-color: transparent !important;
-            position: relative;
-            pointer-events: none;
+    #events-calendar {
+      .header {
+        .arrows {
+          background: $secondarycolorlight;
+
+          @if ($name==agri-theme) {
             &:before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                z-index: 2;
+              color: $grey-color04;
             }
-            &:after {
-                color: $white !important;
+          }
+
+          &.arrow-desabled {
+            background-color: grey;
+
+            @if ($name==agri-theme) {
+              &:before {
+                color: $white;
+              }
             }
+          }
+        }
+      }
+
+      .events-list {
+        .PreviousDate {
+          .btn {
+            opacity: 0.65;
+            pointer-events: none;
+            &.ical:after {
+              pointer-events: none;
+            }
+          }
         }
         .CurrentDate {
-            .events-wrap .header .date {
-                background-color: $primary !important;
-            }
-        }
-        //Analyst Banner
-        section#hero-banner.analyst {
-            background-color: $secondarycolordark;
-        }
-        .product-brands-list{
-            .intro-text{
-                padding-left: 10px;
-            }
-            ul.yellow-bullets {
-                padding-left: 20px;
-                padding-top:0;
-                li {
-                   padding-bottom: 5px;
-                   &:before {
-                    top: 6px;
-                    left: -20px;
-                   }
-                }
-            }
-        }
-        //Bullet color
-        .yellow-bullets {
-            list-style-type: none;
-            padding-left: 20px;
-            li {
-                margin-bottom: 5px;
-                position: relative;
-                color: $grey-color04;
-                &:before {
-                    content: '';
-                    position: absolute;
-                    left: -20px;
-                    width: 5px;
-                    height: 5px;
-                    top: 7px;
-                    @extend .background-link;
-                    @include border-radius(50%);
-                    font-family: 'FS Me Bold'; //discuss
-                }
-            }
-        }
-        //carousel dots color
-        ul.slick-dots {
-            li.slick-active {
-                @extend .primary-background;
-            }
-        }
-        .quick-facts ul li,
-        .dark-banner-subscribe ul li,
-        .pdp-brochure ul li,
-        .signup-container span.bold {
-            &:before {
-                @extend .color-link;
-            }
-        }
-        #customer-quote-slider {
-            .saying{
-                &:before {
-                    @extend .quote;
-                }
-            }
-        }
-        .related-products {
-            .productfinder-link {
-                a {
-                    color: $primary;
-                }
-            }
-        }
-        .accordian-structure {
-            &#Faqs {
-                a {
-                    color: $grey-color04;
-                }
-            }
-            a {
-                color: $primary;
-            }
-        }
-        .articlepage-quote {
-            blockquote {
-                &:before {
-                    @extend .quote;
-                }
-            }
-        }
-        form.wffm-form{
-          .email-validation-message{
-            color: $navlinkcolor !important;
-          }
-        }
-        form.request-a-demo, form.register-myinterests-form,
-        form.get-in-touch {
-            p {
-                background-color: $secondarycolorlight;
-                color: $white;
-                &:after {
-                    border-left: 10px solid $secondarycolorlight;
-                }
-            }
-            .checkbox.active {
-                label {
-                    border: 3px solid $secondarycolorlight;
-                }
-                &:after {
-                    color: $primary;
-                }
-            }
-        }
-        div {
-            form.get-in-touch,
-            form.request-a-demo,
-            form.register-myinterests-form {
-                input:focus,
-                select:focus,
-                textarea:focus {
-                    outline: none !important;
-                    border: 2px solid $primary;
-                }
-                label.error {
-                    color: $navlinkcolor !important;
-                }
-                .field-validation-error {
-                    color: $navlinkcolor !important;
-                }
-            }
-        }
-        .icon-calender {
-            color: $primary;
-        }
-        .icon-tick {
-            &:before {
-                color: $secondarycolorlight;
-            }
-        }
-        .refine-container {
-            .clear-all,
-            .show-more {
-                color: $primary;
-            }
-        }
-        .clear-mobile {
-            .clear-all {
-                color: $primary;
-            }
-        }
-        .cookieBanner p a{
-             color: $primary;
-        }
-        .register-myinterests-section .select-wrapper label {
-            color: $primary;
-        }
-        .flip .tile .back .triangle {
-            border-top: 50px solid $primary;
-        }
-        //Select field option highlight color and background
-        .chosen-container .chosen-results li.highlighted {
-            background-color: $secondarycolorlight;
-            @extend .color-text;
-        }
-
-        .multi-lang-cta .open .dropdown-menu li a:hover{
-            background-color: $secondarycolorlight;
-            @extend .color-text;
-        }
-
-        .contactUsPage-contactUs {
-          .nav-tabs{
-            a {
-              color: $white;
-            }
-          }
-          a {
-            color: $navlinkcolor;
-          }
-          a.chosen-single{
-              color: $grey-color04 !important;
-          }
-        }
-        .contactUsPage-contactUs li.active {
-            &:after {
-                background: $navlinkcolor;
-            }
-        }
-        .color-text {
-            @if($name==agri-theme) {
-                color: $grey-color05;
-            }
-            @else {
-                color: $white;
-            }
-        }
-        .form:not(.lt-ie9) .custom-radio input:checked + span::before {
-            @extend .primary-background;
-        }
-        .anlyst-heading {
-            background-color: $secondarycolordark;
-            &:after {
-                background-color: $secondarycolordark;
-            }
-        }
-        .yellow-container {
-            background: rgba($secondarycolorlight, 0.9);
-            h3, a{
-                color: $white;
-                text-decoration: none;
-            }
-        }
-        .carousel-lists .slick-arrow,
-        .customers_list_slider .slick-arrow {
-            @extend .secondry-light-bg;
-            color: $white;
-            &:before{
-                @if($name==agri-theme) {
-                    color: $grey-color04;
-                }
-            }
-        }
-        section.customer-quote .slick-initialized .slick-arrow ,section.hero-banner-carousel .slick-initialized .slick-arrow{
-            &:before {
-                @extend .secondry-light-color;
-            }
-        }
-        section.customer-quote {
-            background: $secondarycolordark;
-        }
-
-        .twitter-carousel .slick-arrow {
-            background: $white;
-            &:before {
-                @extend .secondry-light-color;
-            }
-        }
-        .view-all-sectors-btn-container {
-            border-bottom: 1px solid $secondarycolorlight;
-            .informa-icon {
-                color: $secondarycolorlight;
-            }
-        }
-        .events-list {
-            .CurrentDate {
-                .events-wrap {
-                    .header {
-                        .date {
-                            background-color: $primary;
-                        }
-                    }
-                }
-            }
-            .btn-more-events {
-                border: 0;
-                border-bottom: 2px solid $primary !important;
-                min-width: auto;
-                width: 140px;
-                margin-top: 20px;
-                text-align: center;
-                @include mobile {
-                    padding: 0;
-                    text-align: left;
-                    padding-left: 15px;
-                }
-                .more,
-                .less {
-                    &:after {
-                        right: 15px;
-                        color: $primary;
-                    }
-                }
-            }
-            .events p.title:before {
-                background: $primary !important;
-            }
+          .events-wrap {
             .header {
-                .arrows {
-                    background: $secondarycolorlight;
-                    @if($name==agri-theme){
-                        &:before{
-                            color: $grey-color04;
-                        }
-                    }
-                    &.arrow-desabled {
-                        background-color: grey;
-                        @if($name==agri-theme){
-                            &:before{
-                                color: $white;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        .event-present.fc-future:before {
-            background: $primary !important;
-        }
-        .fc-state-default.fc-corner-right,
-        .fc-state-default.fc-corner-left {
-            background: $secondarycolorlight;
-            @if($name==agri-theme){
-                .fc-icon{
-                    color: $grey-color04;
-                }
-            }
-            &.disabled {
-                background-color: grey;
-                 @if($name==agri-theme){
-                    .fc-icon{
-                        color: $white;
-                    }
-                }
-            }
-        }
-        .fc .events-wrap .events.current p.title:before {
-            background: $primary !important;
-        }
-        .fc-center {
-            h2 {
-                padding: 0;
-            }
-        }
-        .twitter-carousel {
-            .feed-heading {
-                span {
-                    color: $white;
-                }
-            }
-            .message {
-                a {
-                    color: $white;
-                    border-bottom: 1px solid $white;
-                    word-wrap: break-word;
-                }
-            }
-        }
-        .view-all-mobile-container {
-            border-bottom: solid 1px $secondarycolorlight;
-            .informa-icon {
-                color: $secondarycolorlight;
-            }
-        }
-        .register-myinterests-section {
-            .triangle-nav li.active a {
-                @extend .primary-background;
-                @extend .font-color;
-                &:after {
-                    border-left: 30px solid $primary;
-                }
-            }
-        }
-        //Font color changes
-        .font-color {
-            @if($name==agri-theme) {
-                color: $grey-color05;
-            }
-            @else {
-                color: $white;
-            }
-        }
-        .search.inactive {
-            @extend .primary-background;
-        }
-        .feature li {
-            &:before {
-                content: "\e914";
-                font-family: 'InformaIcons';
-                position: absolute;
-                left: -32px;
-                top: 0;
-                font-size: 16px;
-                @extend .color-link;
-                @include border-radius(50%);
-                font-weight: normal;
-            }
-        }
-        //Sprite image position
-        .sprite-image {
-            @if($name==agri-theme) {
-                background-position: -7px -435px;
-                width: 27px;
-                height: 34px;
-            }
-            @else if($name==tmt-theme){
-                background-position: -7px -233px;
-                width: 25px;
-                height: 34px;
-            }
-            @else if($name==financial-theme){
-                background-position: -6px -272px;
-                width: 29px;
-                height: 36px;
-            }
-            @else if($name==maritime-theme){
-                background-position: -5px -538px;
-                width: 29px;
-                height: 38px;
-            }
-            @else if($name==law-theme){
-                background-position: -5px -584px;
-                width: 29px;
-                height: 38px;
-            }
-            @else {
-                background-position: -6px -480px;
-                width: 29px;
-                height: 36px;
-            }
-        }
-        .product-brands-list .card .caption h4,
-        .product-results .list-items .products h4 {
-            &:after {
-                @extend .sprite-image;
-            }
-        }
-        .product-login .login-links .list ul li::after{
-            color: $navlinkcolor;
-        }
-        //tab theming
-        ul.nav-tabs {
-            li {
-                &.active {
-                    border-bottom: 5px solid $primarycolor;
-                }
-            }
-        }
-        #mobile-header-navigation .nav-subnav-heading {
-            color: $navlinkcolor;
-        }
-        #sub-nav {
-            .subnav-container {
-                .content {
-                    @include desktop {
-                        margin-left: 30px;
-                        &:first-child,
-                        &:last-child {
-                            margin-left: 0px;
-                        }
-                    }
-                }
-                .heading {
-                    .top {
-                        @include desktop{
-                            padding: 0 0 15px 0;
-                        }
-                        &:first-child {
-                            border: none;
-                        }
-                    }
-                }
-
-                .subnav-items{
-                  ul{
-                    li.selected-nav{
-                      @extend .color-link;
-                    }
-                  }
-                }
-            }
-        }
-        #analyst-profile {
-            .show-options {
-                border-bottom: 2px solid $secondarycolorlight;
-                &:after {
-                    color: $secondarycolorlight;
-                }
-            }
-        }
-        .popover {
-            background: $secondarycolorlight;
-            width: 175px;
-            top: -36px;
-            .popover-content {
-                @if($name==agri-theme) {
-                    color: #424953;
-                }
-                @else {
-                    color: $white;
-                }
-                font-family: 'FSMe-bold';
-            }
-            &.right .arrow:after {
-                border-right-color: $secondarycolorlight;
-            }
-        }
-        .btn {
-            width: 180px;
-            background: transparent;
-            color: $grey-color04;
-            border-color: $primary;
-            border-radius: $border-radius-base;
-            border-width: 2px;
-            height: 53px;
-        }
-        .btn-faq-more {
-            border-bottom: 2px solid $secondarycolorlight !important;
-            &:after {
-                color: $secondarycolorlight;
-            }
-        }
-        .btn-showMore,
-        .btn-plus {
-            background: none;
-            width: 120px;
-            padding: 10px 0;
-            margin: 0 auto 25px;
-            text-align: left;
-            color: $grey-color03;
-            border: none;
-            border-bottom: 2px solid $secondarycolorlight;
-            display: block;
-            cursor: pointer;
-            position: relative;
-            text-decoration: none;
-            &:after {
-                font-family: 'InformaIcons';
-                content: '\e912';
-                position: absolute;
-                color: $secondarycolorlight;
-                right: 0;
-                border-radius: 14px;
-                font-size: 30px;
-                top: -2px;
-            }
-            &:hover {
-                border-bottom: 2px solid $primarycolor;
-                text-decoration: none;
-            }
-            span.more,
-            span.less {
-                text-decoration: none;
-            }
-        }
-        .meet-anlyst-section {
-            .analyst-details {
-                h4,
-                h3,
-                h5,
-                p {
-                    color: $white;
-                }
-            }
-        }
-        .contactus-list {
-            background: $grey-color03;
-        }
-        .headline-list {
-            .link {
-                a {
-                    @extend .primary-color;
-                }
-            }
-            h4{
-                a{
-                    color:$grey-color04;
-                }
-            }
-        }
-        .btn-default {
-            min-width: 230px;
-            text-align: left;
-            padding-top: 15px;
-            padding-bottom: 15px;
-            border-color: $primary;
-            position: relative;
-            &:after {
-                content: "\e900";
-                font-family: 'InformaIcons';
-                right: 15px;
-                position: absolute;
-                color: $primary;
-            }
-            &:hover {
-                border: 2px solid $secondarycolorlight;
-                &:after {
-                    color: $secondarycolorlight;
-                }
-            }
-        }
-        .btn-container {
-            .btn-default {
-                border: 2px solid $primary;
-                &:after {
-                    color: $primary;
-                }
-                &:hover {
-                    border: 2px solid $secondarycolorlight;
-                    &:after {
-                        color: $secondarycolorlight;
-                    }
-                }
-            }
-        }
-
-        .open .btn-primary{
-            @extend .primary-btn-hover;
-        }
-        .btn-primary {
-            text-align: left;
-            padding-top: 15px;
-            padding-bottom: 15px;
-            border-color: $primary;
-            background-color: $primary;
-            color: $white;
-            position: relative;
-            &:after {
-                content: "\e900";
-                font-family: 'InformaIcons';
-                right: 15px;
-                font-weight: bold;
-                position: absolute;
-            }
-            a {
-                color: $white;
-            }
-            &:hover {
-                @extend .primary-btn-hover;
-            }
-        }
-        .btn-previous {
-            color: $white;
-            min-width: 180px;
-            text-align: right;
-            padding-top: 15px;
-            padding-bottom: 15px;
-            border-color: $grey-color05;
-            background: $grey-color05;
-            position: relative;
-            z-index: 9;
-            &:before {
-                content: "\e900";
-                font-family: 'InformaIcons';
-                left: 15px;
-                font-weight: bold;
-                position: absolute;
-                -webkit-transform: scale(-1, 1);
-                -moz-transform: scale(-1, 1);
-                -ms-transform: scale(-1, 1);
-                //-o-transform: scale(-1, 1);
-                transform: scale(-1, 1);
-            }
-            &:hover {
-                border-color: $grey-color05;
-            }
-        }
-        section.articlepage-freearticle {
-          a {
-            color: $navlinkcolor;
-            &:hover {
-              color: $navlinkcolor;
+              .date {
+                background-color: $primary;
+              }
             }
           }
-          .btn{
-                color: $white;
-                &:hover{
-                    color: $white;
-                }
-            }
-        }
-        #contactus-section {
-            .phone-number a,
-            .phone-number,
-            .email a,
-            .email {
-                color: $primary;
-                font-weight: bold;
-            }
-            a.btn {
-                color: $white;
-                width: 100%;
-                @include desktop {
-                    width: auto;
-                    min-width: 220px;
-                }
-                &:after {
-                    color: $white;
-                }
-            }
-            .subscribe-link {
-                background: $primary url(/Static/images/subscribe/subscribe.png) no-repeat 5% 50%;
-                &:after {
-                    color: $light;
-                }
-            }
-        }
-        .open-quote {
-            color: $secondarycolorlight80;
-        }
-        //All common CSS which are themeable can be written here
-        .demo-item {
-            height: 100px;
-            background-color: $secondarycolorlight80;
-        }
-        //Pattern Image Changes as per the theme
-
-        @if($name==financial-theme) {
-            .product-login .login-links {
-                background: url(/Static/images/finance-pattern.png) no-repeat bottom right #444957;
-                background-size: 20%;
-            }
-            .dashboard {
-                background: url(/Static/images/finance-pattern.png) no-repeat right 100% #444957;
-                background-size:15%;
-            }
-            #formRegistration .modal-body,#formRequestADemo .modal-body, #formRequestACallback .modal-body, #formHeaderGetInTouch .modal-body, #formRequestATrial .modal-body, #Intelligence .modal-body, #Insight .modal-body{
-                background: url(/Static/images/finance-pattern.png) no-repeat right 103% $grey-color05;
-            }
-            .registration-form-single-section .container {
-                background: url(/Static/images/finance-pattern.png) no-repeat right 103% $grey-color05;
-            }
-            .tab-pane {
-                form.get-in-touch,  form.register-myinterests-form, form.request-a-demo,.error-response, .submit-response{
-                    background: url(/Static/images/finance-pattern.png) no-repeat right 103% $grey-color05;
-                }
-            }   
-            // .register-myinterests-form, .registration-form-single-section .container {
-            //     background: url(/Static/images/finance-pattern.png) no-repeat right 105% $grey-color03;
-            //     background-size: 20%;
-            // }
-
-        }
-        @else if($name==agri-theme){
-            .product-login .login-links {
-                background: url(/Static/images/agri-pattern.png) no-repeat bottom right $grey-color03;
-                background-size: 20%;
-            }
-            .dashboard {
-                background: url(/Static/images/agri-pattern.png) no-repeat right 100% #444957;
-                background-size:15%;
-            }
-            #formRegistration .modal-body,#formRequestADemo .modal-body, #formRequestACallback .modal-body, #formHeaderGetInTouch .modal-body, #formRequestATrial .modal-body,
-            #Intelligence .modal-body, #Insight .modal-body {
-                background: url(/Static/images/agri-pattern.png) no-repeat right 103% $grey-color05;
-            }
-            .registration-form-single-section .container {
-                background: url("/Static/images/agri-pattern.png") no-repeat right 103% $grey-color05;
-            }
-            .tab-pane {
-                form.get-in-touch,  form.register-myinterests-form, form.request-a-demo, .error-response, .submit-response{
-                    background: url(/Static/images/agri-pattern.png) no-repeat right 103% $grey-color05;
-                }
-            }   
-        }
-        @else if($name==maritime-theme){
-            .product-login .login-links {
-                background: url(/Static/images/maritime-pattern.png) no-repeat bottom right $grey-color03;
-                background-size: 20%;
-            }
-            .dashboard {
-                background: url(/Static/images/maritime-pattern.png) no-repeat right 100% #444957;
-                background-size:15%;
-            }
-            #formRegistration .modal-body,#formRequestADemo .modal-body, #formRequestACallback .modal-body, #formHeaderGetInTouch .modal-body, #formRequestATrial .modal-body,
-            #Intelligence .modal-body, #Insight .modal-body {
-                background: url(/Static/images/maritime-pattern.png) no-repeat right 103% $grey-color05;
-            }
-            .registration-form-single-section .container {
-                background: url("/Static/images/maritime-pattern.png") no-repeat right 103% $grey-color05;
-            }
-            .tab-pane {
-                form.get-in-touch,  form.register-myinterests-form, form.request-a-demo, .error-response, .submit-response{
-                    background: url(/Static/images/maritime-pattern.png) no-repeat right 103% $grey-color05;
-                }
-            }   
-        }
-        @else if($name==law-theme){
-            .product-login .login-links {
-                background: url(/Static/images/law-pattern.png) no-repeat bottom right $grey-color03;
-                background-size: 20%;
-            }
-            .dashboard {
-                background: url(/Static/images/law-pattern.png) no-repeat right 100% $grey-color03;
-                background-size:15%;
-            }
-            #formRegistration .modal-body,#formRequestADemo .modal-body, #formRequestACallback .modal-body, #formHeaderGetInTouch .modal-body,#formRequestATrial .modal-body, #Intelligence .modal-body, #Insight .modal-body{
-                background: url(/Static/images/law-pattern.png) no-repeat right 103% $grey-color05;
-            }
-            .registration-form-single-section .container {
-                background: url(/Static/images/law-pattern.png) no-repeat right 103% $grey-color05;
-            }
-            .tab-pane {
-                form.get-in-touch,  form.register-myinterests-form, form.request-a-demo, .error-response, .submit-response{
-                    background: url(/Static/images/law-pattern.png) no-repeat right 103% $grey-color05;
-                }
-            }   
-        }
-        @else if($name==tmt-theme){
-            .product-login .login-links {
-                background: url(/Static/images/tmt-pattern.png) no-repeat bottom right $grey-color03;
-                background-size: 20%;
-            }
-            .dashboard {
-                background: url(/Static/images/tmt-pattern.png) no-repeat right 100% $grey-color03;
-                background-size:15%;
-            }
-            #formRegistration .modal-body,#formRequestADemo .modal-body, #formRequestACallback .modal-body, #formHeaderGetInTouch .modal-body,#formRequestATrial .modal-body,#Intelligence .modal-body, #Insight .modal-body{
-                background: url(/Static/images/tmt-pattern.png) no-repeat right 103% $grey-color05;
-            }
-            .registration-form-single-section .container {
-                background: url(/Static/images/tmt-pattern.png) no-repeat right 103% $grey-color05;
-            }
-            .tab-pane {
-                form.get-in-touch,  form.register-myinterests-form, form.request-a-demo, .error-response, .submit-response{
-                    background: url(/Static/images/tmt-pattern.png) no-repeat right 103% $grey-color05;
-                }
-            }   
-            // .register-myinterests-form, .registration-form-single-section .container {
-            //     background: url(/Static/images/tmt-pattern.png) no-repeat right 105% $grey-color03;
-            //     background-size: 20%;
-            // }
-
-        }
-        .tab-pane {
-            .error-response,
-            .submit-response {
-                h2 {
-                    &:before {
-                        color: $secondarycolorlight;
-                    }
-                }
-            }
-        }
-        .form-modal {
-            .modal-body {
-                .form-inline-container {
-                    .error-response,
-                    .submit-response {
-                        h2 {
-                            &:before {
-                                color: $secondarycolorlight;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        .infograph .number-container{
-            color:$navlinkcolor;
-        }
-        .welcome-description{
-            a{
-                color:$navlinkcolor;
-            }
-            .tool{
-                p a{
-                    color:$navlinkcolor;
-                }
-            }
-        }
-        .product-login{
-            .create-profile a{
-                color: $white;
-                text-decoration: underline;
-            }
-        }
-        .marketing-banner{
-            &.Variation2,&.Variation1{
-                .btn{
-                    background: $primarycolor;
-                    &:after {
-                        color: $white;
-                    }
-                }
-            }
-        }
-        .product-finder form button[type=submit]{
-            @if($name==agri-theme){
-                &:hover{
-                    color: $grey-color04;
-                }
-            }
-        }
-        
-
-        .hover-arrow{
-            .btn, &:after{
-                @if($name==agri-theme){
-                    color: $grey-color04 !important;
-                    background: $secondarycolorlight !important;
-                }
-                else{
-                    color: $white;
-                }
-            }
         }
 
-        .more-stories .feature li {
-                &:before {
-                    color:$secondarycolordark;
-                }
+        .events p.title:before {
+          background: $primary !important;
+        }
+      }
+
+      .btn-more-events {
+        border: 0;
+        border-bottom: 2px solid $primary !important;
+        min-width: auto;
+        width: 140px;
+        margin-top: 20px;
+        text-align: center;
+
+        @include mobile {
+          padding: 0;
+          text-align: left;
+          padding-left: 15px;
         }
 
-        .table-bordered{
-            margin:20px auto;
-            > thead{
-                > tr{
-                    > th{
-                        background-color:$secondarycolordark;
-                        color:#fff;
-                    }
-                }
-            }
-            > tbody{
-                tr:nth-child(even) {
-                    background-color: $grey-color09;
-                }
-                td{
-                    color:$grey-color04;
-                }
-            }
+        .more,
+        .less {
+          &:after {
+            right: 15px;
+            color: $primary;
+          }
         }
-        .table-hover > tbody > tr:hover > td,
-        .table-hover > tbody > tr:hover > th{
-             background-color: $grey-color10;
+      }
+    }
+
+    // .event-present.fc-future:before {
+    //     background: $primary !important;
+    // }
+
+    .fc-state-default.fc-corner-right,
+    .fc-state-default.fc-corner-left {
+      background: $secondarycolorlight;
+
+      @if ($name==agri-theme) {
+        .fc-icon {
+          color: $grey-color04;
         }
-        .fc-unthemed td.fc-today {
-            @if($name==agri-theme) {
-                color: $grey-color04 !important;
-            }
-            @else{
-                color: $white !important;
-            }
+      }
+
+      &.disabled {
+        background-color: grey;
+
+        @if ($name==agri-theme) {
+          .fc-icon {
+            color: $white;
+          }
         }
-        .fc-unthemed td.fc-widget-content.fc-today.fc-state-highlight{
-            @if($name==maritime-theme) {
-                background: #1191d1;
-            }
-            @else{
-                background: $primarycolor;
-            }
+      }
+    }
+
+    .fc .events-wrap .events.current p.title:before {
+      background: $primary !important;
+    }
+
+    .fc-center {
+      h2 {
+        padding: 0;
+      }
+    }
+
+    .twitter-carousel {
+      .feed-heading {
+        span {
+          color: $white;
         }
-        @if($name==tmt-theme) {
-            #mobile-header-navigation .navbar-image .logo-img-big{
-                @include not-desktop{
-                    width: auto!important;
-                    transform: translate(0, -40%);
-                    -webkit-transform: translate(0, -40%);
-                }
-            }
-            header section.informaNav .navbar-brand .logo-img-big{
-                @include not-desktop{
-                    width: auto!important;
-                    transform: translate(-50%,-60%);
-                    -webkit-transform: translate(-50%,-60%);
-                }
-                @include desktop{
-                    top: -15px;
-                    left: 10px;
-                    width: 115px;
-                    height: 64px;
-                }
-            }
-            @include tablet{
-                .navbar>.container .navbar-brand{
-                    margin-left: 0;
-                }
-            }
+      }
+
+      .message {
+        a {
+          color: $white;
+          border-bottom: 1px solid $white;
+          word-wrap: break-word;
         }
-   
-        @include not-desktop{
-            nav#pdp-navigation{
-                .container{
-                      .row{
-                        position: relative;
-                        .nav-pdp-nondesktop{
-                              &.move-left{
-                                background: lighten( $secondarycolorlight, 5%);
-                              }
-                              a{
-                                @if($name==agri-theme){
-                                    color: $grey-color04;
-                                }
-                              }
-                        }
-                        .nav-pdp-nondesktop-sticky{
-                            .btn{
-                                @if($name==agri-theme){
-                                    color: $grey-color04 !important;
-                                }
-                            }
-                        }
-                        #pdp-sections{
-                             background: lighten( $secondarycolorlight, 5%);
-                        }
-                      }
-                }
-            }
+      }
+    }
+
+    .view-all-mobile-container {
+      border-bottom: solid 1px $secondarycolorlight;
+
+      .informa-icon {
+        color: $secondarycolorlight;
+      }
+    }
+
+    .register-myinterests-section {
+      .triangle-nav li.active a {
+        @extend .primary-background;
+        @extend .font-color;
+
+        &:after {
+          border-left: 30px solid $primary;
         }
-        body{
-            svg.spinner-loader{
-                stroke:$primarycolor;
-            }
+      }
+    }
+    //Font color changes
+    .font-color {
+      @if ($name==agri-theme) {
+        color: $grey-color05;
+      } @else {
+        color: $white;
+      }
+    }
+
+    .search.inactive {
+      @extend .primary-background;
+    }
+
+    .feature li {
+      &:before {
+        content: "\e914";
+        font-family: "InformaIcons";
+        position: absolute;
+        left: -32px;
+        top: 0;
+        font-size: 16px;
+        @extend .color-link;
+        @include border-radius(50%);
+        font-weight: normal;
+      }
+    }
+    //Sprite image position
+    .sprite-image {
+      @if ($name==agri-theme) {
+        background-position: -7px -435px;
+        width: 27px;
+        height: 34px;
+      } @else if($name==tmt-theme) {
+        background-position: -7px -233px;
+        width: 25px;
+        height: 34px;
+      } @else if($name==financial-theme) {
+        background-position: -6px -272px;
+        width: 29px;
+        height: 36px;
+      } @else if($name==maritime-theme) {
+        background-position: -5px -538px;
+        width: 29px;
+        height: 38px;
+      } @else if($name==law-theme) {
+        background-position: -5px -584px;
+        width: 29px;
+        height: 38px;
+      } @else {
+        background-position: -6px -480px;
+        width: 29px;
+        height: 36px;
+      }
+    }
+
+    .product-brands-list .card .caption h4,
+    .product-results .list-items .products h4 {
+        &:after {
+            @extend .sprite-image;
         }
-        #contactus-section a{
-            color:$primarycolor;
-            span{
-                color:$primarycolor !important;
+    }
+
+    .product-results .list-items {
+      .events-wrap {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        .header {
+          width: auto;
+          & > * {
+            margin-bottom: 0;
+          }
+          .type {
+            font-weight: 600;
+          }
+          .date-field {
+            margin: 0;
+          }
+          .country-field {
+            p {
+              margin-bottom: 0;
             }
-            word-wrap:break-word;
+          }
         }
-        section#market-focus{
-            .market-list-wrapper {
-                .market-content{
-                    a{
-                        &:after{
-                            color:$secondarycolordark;
-                        }
-                    }
-                }
+        .content-wrap {
+          padding: 0;
+          .content {
+            margin-top: 0;
+            & > * {
+              float: none;
+              width: auto;
+              display: inline-block;
+              vertical-align: middle;
+              margin-bottom: 0;
+              color: $black;
             }
-        }
-        section.customer-quote {
-            &:after{
-                @if($name==agri-theme) {
-                    background: none;
-                }
-                @else if($name==maritime-theme){
-                    background: none;
-                }
-                @else if($name==financial-theme){
-                    background: none;
-                }
-                @else if($name==tmt-theme){
-                    background: none;
-                }
-                @else if($name==law-theme){
-                    background: none;
-                }
-                @else {
-                    background: url("/Static/images/testimonial-pattern.png");
-                    background-repeat: no-repeat;
-                    background-position: right -100px top 100%;
-                    background-size: 80%;
-                }
+            .seperator {
+              padding: 0 0.5em;
             }
+            .title-content {
+              padding-right: 0;
+              margin-right: 3px;
+            }
+            .title-body {
+              font-weight: 600;
+              color: $black;
+              ul li {
+                color: inherit;
+              }
+            }
+          }
         }
-    }    
+        .footer {
+          width: auto;
+          margin-top: 15px;
+          .btn {
+            width: auto;
+            min-width: 160px;
+            margin-left: 15px;
+            padding: 9px 30px;
+            font-weight: 600;
+            &:first-child {
+              margin-left: 0;
+            }
+          }
+        }
+      }
+    }
+
+    .product-login .login-links .list ul li::after {
+      color: $navlinkcolor;
+    }
+    //tab theming
+    ul.nav-tabs {
+      li {
+        &.active {
+          border-bottom: 5px solid $primarycolor;
+        }
+      }
+    }
+
+    #mobile-header-navigation .nav-subnav-heading {
+      color: $navlinkcolor;
+    }
+
+    #sub-nav {
+      .subnav-container {
+        .content {
+          @include desktop {
+            margin-left: 30px;
+
+            &:first-child,
+            &:last-child {
+              margin-left: 0px;
+            }
+          }
+        }
+
+        .heading {
+          .top {
+            @include desktop {
+              padding: 0 0 15px 0;
+            }
+
+            &:first-child {
+              border: none;
+            }
+          }
+        }
+
+        .subnav-items {
+          ul {
+            li.selected-nav {
+              @extend .color-link;
+            }
+          }
+        }
+      }
+    }
+
+    #analyst-profile {
+      .show-options {
+        border-bottom: 2px solid $secondarycolorlight;
+
+        &:after {
+          color: $secondarycolorlight;
+        }
+      }
+    }
+
+    .popover {
+      background: $secondarycolorlight;
+      width: 175px;
+      top: -36px;
+
+      .popover-content {
+        @if ($name==agri-theme) {
+          color: #424953;
+        } @else {
+          color: $white;
+        }
+        font-weight: bold;
+      }
+
+      &.right .arrow:after {
+        border-right-color: $secondarycolorlight;
+      }
+    }
+
+    .btn {
+      width: 180px;
+      background: transparent;
+      color: $grey-color04;
+      border-color: $primary;
+      border-radius: $border-radius-base;
+      border-width: 2px;
+      height: 53px;
+    }
+
+    .btn-faq-more {
+      border-bottom: 2px solid $secondarycolorlight !important;
+
+      &:after {
+        color: $secondarycolorlight;
+      }
+    }
+
+    .btn-showMore,
+    .btn-plus {
+      background: none;
+      width: 120px;
+      padding: 10px 0;
+      margin: 0 auto 25px;
+      text-align: left;
+      color: $grey-color03;
+      border: none;
+      border-bottom: 2px solid $secondarycolorlight;
+      display: block;
+      cursor: pointer;
+      position: relative;
+      text-decoration: none;
+
+      &:after {
+        font-family: "InformaIcons";
+        content: "\e912";
+        position: absolute;
+        color: $secondarycolorlight;
+        right: 0;
+        border-radius: 14px;
+        font-size: 30px;
+        top: -2px;
+      }
+
+      &:hover {
+        border-bottom: 2px solid $primarycolor;
+        text-decoration: none;
+      }
+
+      span.more,
+      span.less {
+        text-decoration: none;
+      }
+    }
+
+    .meet-anlyst-section {
+      .analyst-details {
+        h4,
+        h3,
+        h5,
+        p {
+          color: $white;
+        }
+      }
+    }
+
+    .contactus-list {
+      background: $grey-color03;
+    }
+
+    .headline-list {
+      .link {
+        a {
+          @extend .primary-color;
+        }
+      }
+
+      h4 {
+        a {
+          color: $grey-color04;
+        }
+      }
+    }
+
+    .btn-default {
+      min-width: 230px;
+      text-align: left;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border-color: $primary;
+      position: relative;
+
+      &:after {
+        content: "\e900";
+        font-family: "InformaIcons";
+        right: 15px;
+        position: absolute;
+        color: $primary;
+      }
+
+      &:hover {
+        border: 2px solid $secondarycolorlight;
+
+        &:after {
+          color: $secondarycolorlight;
+        }
+      }
+    }
+
+    .btn-container {
+      .btn-default {
+        border: 2px solid $primary;
+
+        &:after {
+          color: $primary;
+        }
+
+        &:hover {
+          border: 2px solid $secondarycolorlight;
+
+          &:after {
+            color: $secondarycolorlight;
+          }
+        }
+      }
+    }
+
+    .open .btn-primary {
+      @extend .primary-btn-hover;
+    }
+
+    .btn-primary {
+      text-align: left;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border-color: $primary;
+      background-color: $primary;
+      color: $white;
+      position: relative;
+
+      &:after {
+        content: "\e900";
+        font-family: "InformaIcons";
+        right: 15px;
+        font-weight: bold;
+        position: absolute;
+      }
+
+      a {
+        color: $white;
+      }
+
+      &:hover {
+        @extend .primary-btn-hover;
+      }
+    }
+
+    .btn-previous {
+      color: $white;
+      min-width: 180px;
+      text-align: right;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border-color: $grey-color05;
+      background: $grey-color05;
+      position: relative;
+      z-index: 9;
+
+      &:before {
+        content: "\e900";
+        font-family: "InformaIcons";
+        left: 15px;
+        font-weight: bold;
+        position: absolute;
+        -webkit-transform: scale(-1, 1);
+        -moz-transform: scale(-1, 1);
+        -ms-transform: scale(-1, 1);
+        //-o-transform: scale(-1, 1);
+        transform: scale(-1, 1);
+      }
+
+      &:hover {
+        border-color: $grey-color05;
+      }
+    }
+
+    section.articlepage-freearticle {
+      .container {
+        p {
+          line-height: 25px;
+        }
+      }
+      a {
+        color: $navlinkcolor;
+
+        &:hover {
+          color: $navlinkcolor;
+        }
+      }
+
+      .btn {
+        color: $white;
+
+        &:hover {
+          color: $white;
+        }
+      }
+    }
+
+    #contactus-section {
+      .phone-number a,
+      .phone-number,
+      .email a,
+      .email {
+        color: $primary;
+        font-weight: bold;
+      }
+
+      a.btn {
+        color: $white;
+        width: 100%;
+
+        @include desktop {
+          width: auto;
+          min-width: 220px;
+        }
+
+        &:after {
+          color: $white;
+        }
+      }
+
+      .subscribe-link {
+        background: $primary url(/Static/images/subscribe/subscribe.png) no-repeat 5% 50%;
+
+        &:after {
+          color: $light;
+        }
+      }
+    }
+
+    .open-quote {
+      color: $secondarycolorlight80;
+    }
+    //All common CSS which are themeable can be written here
+    .demo-item {
+      height: 100px;
+      background-color: $secondarycolorlight80;
+    }
+    //Pattern Image Changes as per the theme
+    @if ($name==financial-theme) {
+      .product-login .login-links {
+        background: url(/Static/images/finance-pattern.png) no-repeat bottom right #444957;
+        background-size: 20%;
+      }
+
+      .dashboard {
+        background: url(/Static/images/finance-pattern.png) no-repeat right 100% #444957;
+        background-size: 15%;
+      }
+
+      #formRegistration .modal-body,
+      #formRequestADemo .modal-body,
+      #formRequestACallback .modal-body,
+      #formHeaderGetInTouch .modal-body,
+      #formRequestATrial .modal-body,
+      #Intelligence .modal-body,
+      #Insight .modal-body {
+        background: none;
+      }
+
+      .registration-form-single-section .container {
+        background: $grey-color05;
+      }
+
+      .tab-pane {
+        form.get-in-touch,
+        form.register-myinterests-form,
+        form.request-a-demo,
+        .error-response,
+        .submit-response {
+          background: $grey-color05;
+        }
+      }
+      // .register-myinterests-form, .registration-form-single-section .container {
+      //     background: url(/Static/images/finance-pattern.png) no-repeat right 105% $grey-color03;
+      //     background-size: 20%;
+      // }
+    } @else if($name==agri-theme) {
+      .product-login .login-links {
+        background: url(/Static/images/agri-pattern.png) no-repeat bottom right $grey-color03;
+        background-size: 20%;
+      }
+
+      .dashboard {
+        background: url(/Static/images/agri-pattern.png) no-repeat right 100% #444957;
+        background-size: 15%;
+      }
+
+      #formRegistration .modal-body,
+      #formRequestADemo .modal-body,
+      #formRequestACallback .modal-body,
+      #formHeaderGetInTouch .modal-body,
+      #formRequestATrial .modal-body,
+      #Intelligence .modal-body,
+      #Insight .modal-body {
+        background: url(/Static/images/agri-pattern.png) no-repeat right 103% $grey-color05;
+      }
+
+      .registration-form-single-section .container {
+        background: url("/Static/images/agri-pattern.png") no-repeat right 103% $grey-color05;
+      }
+
+      .tab-pane {
+        form.get-in-touch,
+        form.register-myinterests-form,
+        form.request-a-demo,
+        .error-response,
+        .submit-response {
+          background: url(/Static/images/agri-pattern.png) no-repeat right 103% $grey-color05;
+        }
+      }
+    } @else if($name==maritime-theme) {
+      .product-login .login-links {
+        background: url(/Static/images/maritime-pattern.png) no-repeat bottom right $grey-color03;
+        background-size: 20%;
+      }
+
+      .dashboard {
+        background: url(/Static/images/maritime-pattern.png) no-repeat right 100% #444957;
+        background-size: 15%;
+      }
+
+      #formRegistration .modal-body,
+      #formRequestADemo .modal-body,
+      #formRequestACallback .modal-body,
+      #formHeaderGetInTouch .modal-body,
+      #formRequestATrial .modal-body,
+      #Intelligence .modal-body,
+      #Insight .modal-body {
+        background: url(/Static/images/maritime-pattern.png) no-repeat right 103% $grey-color05;
+      }
+
+      .registration-form-single-section .container {
+        background: url("/Static/images/maritime-pattern.png") no-repeat right 103% $grey-color05;
+      }
+
+      .tab-pane {
+        form.get-in-touch,
+        form.register-myinterests-form,
+        form.request-a-demo,
+        .error-response,
+        .submit-response {
+          background: url(/Static/images/maritime-pattern.png) no-repeat right 103% $grey-color05;
+        }
+      }
+    } @else if($name==law-theme) {
+      .product-login .login-links {
+        background: url(/Static/images/law-pattern.png) no-repeat bottom right $grey-color03;
+        background-size: 20%;
+      }
+
+      .dashboard {
+        background: url(/Static/images/law-pattern.png) no-repeat right 100% $grey-color03;
+        background-size: 15%;
+      }
+
+      #formRegistration .modal-body,
+      #formRequestADemo .modal-body,
+      #formRequestACallback .modal-body,
+      #formHeaderGetInTouch .modal-body,
+      #formRequestATrial .modal-body,
+      #Intelligence .modal-body,
+      #Insight .modal-body {
+        background: url(/Static/images/law-pattern.png) no-repeat right 103% $grey-color05;
+      }
+
+      .registration-form-single-section .container {
+        background: url(/Static/images/law-pattern.png) no-repeat right 103% $grey-color05;
+      }
+
+      .tab-pane {
+        form.get-in-touch,
+        form.register-myinterests-form,
+        form.request-a-demo,
+        .error-response,
+        .submit-response {
+          background: url(/Static/images/law-pattern.png) no-repeat right 103% $grey-color05;
+        }
+      }
+    } @else if($name==tmt-theme) {
+      .product-login .login-links {
+        background: url(/Static/images/tmt-pattern.png) no-repeat bottom right $grey-color03;
+        background-size: 20%;
+      }
+
+      .dashboard {
+        background: url(/Static/images/tmt-pattern.png) no-repeat right 100% $grey-color03;
+        background-size: 15%;
+      }
+
+      #formRegistration .modal-body,
+      #formRequestADemo .modal-body,
+      #formRequestACallback .modal-body,
+      #formHeaderGetInTouch .modal-body,
+      #formRequestATrial .modal-body,
+      #Intelligence .modal-body,
+      #Insight .modal-body {
+        background: url(/Static/images/tmt-pattern.png) no-repeat right 103% $grey-color05;
+      }
+
+      .registration-form-single-section .container {
+        background: url(/Static/images/tmt-pattern.png) no-repeat right 103% $grey-color05;
+      }
+
+      .tab-pane {
+        form.get-in-touch,
+        form.register-myinterests-form,
+        form.request-a-demo,
+        .error-response,
+        .submit-response {
+          background: url(/Static/images/tmt-pattern.png) no-repeat right 103% $grey-color05;
+        }
+      }
+      // .register-myinterests-form, .registration-form-single-section .container {
+      //     background: url(/Static/images/tmt-pattern.png) no-repeat right 105% $grey-color03;
+      //     background-size: 20%;
+      // }
+    }
+
+    .tab-pane {
+      .error-response,
+      .submit-response {
+        h2 {
+          &:before {
+            color: $secondarycolorlight;
+          }
+        }
+      }
+    }
+
+    .form-modal {
+      .modal-body {
+        .form-inline-container {
+          .error-response,
+          .submit-response {
+            h2 {
+              &:before {
+                color: $secondarycolorlight;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .infograph .number-container {
+      color: $navlinkcolor;
+    }
+
+    .welcome-description {
+      a {
+        color: $navlinkcolor;
+      }
+
+      .tool {
+        p a {
+          color: $navlinkcolor;
+        }
+      }
+    }
+
+    .product-login {
+      .create-profile a {
+        color: $white;
+        text-decoration: underline;
+      }
+    }
+
+    .marketing-banner {
+      &.Variation2,
+      &.Variation1 {
+        .btn {
+          background: $primarycolor;
+
+          &:after {
+            color: $white;
+          }
+        }
+      }
+    }
+
+    .product-finder form button[type="submit"] {
+      @if ($name==agri-theme) {
+        &:hover {
+          color: $grey-color04;
+        }
+      }
+    }
+
+    .hover-arrow {
+      .btn,
+      &:after {
+        @if ($name==agri-theme) {
+          color: $grey-color04 !important;
+          background: $secondarycolorlight !important;
+        }
+
+        else {
+          color: $white;
+        }
+      }
+    }
+
+    .more-stories .feature li {
+      &:before {
+        color: $secondarycolordark;
+      }
+    }
+
+    .table-bordered {
+      margin: 20px auto;
+
+      > thead {
+        > tr {
+          > th {
+            background-color: $secondarycolordark;
+            color: #fff;
+          }
+        }
+      }
+
+      > tbody {
+        tr:nth-child(even) {
+          background-color: $grey-color09;
+        }
+
+        td {
+          color: $grey-color04;
+        }
+      }
+    }
+
+    .table-hover > tbody > tr:hover > td,
+    .table-hover > tbody > tr:hover > th {
+      background-color: $grey-color10;
+    }
+
+    // .fc-unthemed td.fc-today {
+    //     @if($name==agri-theme) {
+    //         color: $grey-color04 !important;
+    //     }
+    //     @else {
+    //         color: $white !important;
+    //     }
+    // }
+
+    // .fc-unthemed td.fc-widget-content.fc-today.fc-state-highlight {
+    //     @if($name==maritime-theme) {
+    //         background: #1191d1;
+    //     }
+    //     @else {
+    //         background: $primarycolor;
+    //     }
+    // }
+    .events-search .events-search .views-section .event-count .btn.ical {
+      &::before {
+        background-image: url(/Static/images/pharma/btn-icon-cal.png);
+      }
+      &:hover {
+        &::before {
+          background-image: url(/Static/images/pharma/btn-icon-cal-active.png);
+        }
+      }
+    }
+    [data-view="tile-view"] {
+      .events-section {
+        .events-wrap {
+          border-color: $primarycolor;
+          .header .btn.ical {
+            &:after {
+              background-image: url(/Static/images/pharma/btn-icon-cal.png);
+            }
+            &:hover {
+              &:after {
+                background-image: url(/Static/images/pharma/btn-icon-cal-active.png);
+              }
+            }
+          }
+        }
+      }
+    }
+    [data-view="list-view"] {
+      .events-section {
+        .events-wrap .content-wrap .content.ctas {
+          .btn.ical {
+            &:after {
+              background-image: url(/Static/images/pharma/btn-icon-cal.png);
+            }
+            &:hover {
+              &:after {
+                background-image: url(/Static/images/pharma/btn-icon-cal-active.png);
+              }
+            }
+          }
+        }
+      }
+    }
+    [data-view="calendar-view"] {
+      [data-datetype="month"] {
+        @include mobile {
+          .fc-view.active {
+            border-color: $primarycolor;
+          }
+          .fc-day-top.active:before {
+            border: 1px solid $primarycolor;
+          }
+        }
+      }
+      [data-datetype="year"] {
+        .fccal.hovered {
+          .fc-toolbar h2 {
+            color: $secondarycolorlight;
+          }
+        }
+        .fc-view.active {
+          border-color: $primarycolor;
+        }
+        .fc-day-top.active:before {
+          border: 1px solid $primarycolor;
+        }
+      }
+    }
+
+    @if ($name==tmt-theme) {
+      #mobile-header-navigation .navbar-image .logo-img-big {
+        @include not-desktop {
+          width: auto !important;
+          transform: translate(0, -40%);
+          -webkit-transform: translate(0, -40%);
+        }
+      }
+
+      header section.informaNav .navbar-brand .logo-img-big {
+        @include not-desktop {
+          width: auto !important;
+          transform: translate(-50%, -60%);
+          -webkit-transform: translate(-50%, -60%);
+        }
+
+        @include desktop {
+          top: -15px;
+          left: 10px;
+          width: 115px;
+          height: 64px;
+        }
+      }
+
+      @include tablet {
+        .navbar > .container .navbar-brand {
+          margin-left: 0;
+        }
+      }
+    }
+
+    @include not-desktop {
+      nav#pdp-navigation {
+        .container {
+          .row {
+            position: relative;
+
+            .nav-pdp-nondesktop {
+              &.move-left {
+                background: lighten($secondarycolorlight, 5%);
+              }
+
+              a {
+                @if ($name==agri-theme) {
+                  color: $grey-color04;
+                }
+              }
+            }
+
+            .nav-pdp-nondesktop-sticky {
+              .btn {
+                @if ($name==agri-theme) {
+                  color: $grey-color04 !important;
+                }
+              }
+            }
+
+            #pdp-sections {
+              background: lighten($secondarycolorlight, 5%);
+            }
+          }
+        }
+      }
+    }
+
+    body {
+      svg.spinner-loader {
+        stroke: $primarycolor;
+      }
+    }
+
+    #contactus-section a {
+      color: $primarycolor;
+
+      span {
+        color: $primarycolor !important;
+      }
+
+      word-wrap: break-word;
+    }
+
+    section#market-focus {
+      .market-list-wrapper {
+        .market-content {
+          a {
+            &:after {
+              color: $secondarycolordark;
+            }
+          }
+        }
+      }
+    }
+
+    section.customer-quote {
+      &:after {
+        @if ($name==agri-theme) {
+          background: none;
+        } @else if($name==maritime-theme) {
+          background: none;
+        } @else if($name==financial-theme) {
+          background: none;
+        } @else if($name==tmt-theme) {
+          background: none;
+        } @else if($name==law-theme) {
+          background: none;
+        } @else {
+          background: url("/Static/images/testimonial-pattern.png");
+          background-repeat: no-repeat;
+          background-position: right -100px top 100%;
+          background-size: 80%;
+        }
+      }
+    }
+
+    .rich-text-editor {
+      &.rich-text-width-container {
+        background: #ffffff;
+      }
+      .rich-text-cta {
+        margin-top: 10px;
+        margin-bottom: 25px;
+      }
+    }
+  }
 }
 
 @mixin opacity($opacity) {
-    opacity: $opacity;
+  opacity: $opacity;
 }
 
 @mixin line-height($lineHeight) {
-    line-height: $lineHeight;
+  line-height: $lineHeight;
 }
 
 @mixin width-height {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 @mixin input-placeholder {
-    &.placeholder {
-        @content;
-    }
-    &:-moz-placeholder {
-        @content;
-    }
-    &::-moz-placeholder {
-        @content;
-    }
-    &:-ms-input-placeholder {
-        @content;
-    }
-    &::-webkit-input-placeholder {
-        @content;
-    }
+  &.placeholder {
+    @content;
+  }
+
+  &:-moz-placeholder {
+    @content;
+  }
+
+  &::-moz-placeholder {
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+
+  &::-webkit-input-placeholder {
+    @content;
+  }
 }
 
 @mixin truncate($truncation-boundary) {
-    max-width: $truncation-boundary;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  max-width: $truncation-boundary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @mixin border-solid($width, $color) {
-    border: #{$width} solid #{$color};
+  border: #{$width} solid #{$color};
 }
 
 $properties: (margin, padding);
+
 @mixin set-reset-value($side, $value) {
-    @each $prop in $properties {
-        $prop: 0;
-    }
+  @each $prop in $properties {
+    $prop: 0;
+  }
 }
 
 @mixin img-icon {
-    @include desktop {
-        width: 100px;
-        height: 100px;
+  @include desktop {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+// Sass mixin function
+
+@mixin ultag {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin flex {
+  // write the css here
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin margin($top, $right, $bottom, $left) {
+  margin: $top $right $bottom $left;
+}
+
+@media screen and (max-width: 1141px) {
+  .tmt-theme header section.informaNav.white-theme .navbar-brand .logo-img-big {
+    margin-top: 10px;
+  }
+}
+
+// newco theme only for artcle-searchlisting
+@mixin newco($newcoprimarycolor, $base-bg, $border-refine-filter, $checkbox-border, $newcolightercolor) {
+  $newcoprimarycolor: $newcoprimarycolor;
+  $base-bg: $base-bg;
+  $border-refine-filter: $border-refine-filter;
+  $checkbox-border: $checkbox-border;
+
+  .tmt-newco {
+    // theme override styleguide.scss 
+    section {
+        // Grey heading only.. Rest should be overriden on component level
+        h1 {
+            @include family-style(normal,$black);
+            @include heading-font-size(60px,48px,34px);
+            @include heading-line-height(66px,54px,40px);
+            @include margin-reset;
+        }
+        // light font which comes after h1
+        h2 {
+            @include family-style(600,$black);
+            @include heading-font-size(24px,24px,24px);
+            @include heading-line-height(29px,29px,29px);
+            @include heading-padding(0,0,0);
+            @include margin-reset;
+        }
+
+        h3 {
+            @include family-style(normal,$black);
+            @include heading-font-size(24px,24px,24px);
+            @include heading-line-height(29px,29px,29px);
+            @include margin-reset;
+        }
+
+        p {
+            @include family-style(normal,$black);
+            @include heading-font-size(14px,14px,14px);
+            @include heading-line-height(25px,25px,25px);
+          }
+        a {
+            @include family-style(normal,$newcoprimarycolor);
+        }
     }
+    header {
+      .cookieBanner,  section.informa-header-copyright {
+          position: relative;
+          z-index: 2;
+      }
+      &#informa-main-header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 999;
+        &.scrolled {
+          & ~ * {
+            top: 80px;
+          }
+          .newco-header {
+            height: 80px;
+            box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.04);
+            .newco-logo img {
+              transform: scale(0.74);
+            }
+          }
+          .informa-header-copyright {
+            max-height: 0;
+          }
+        }
+        .cookieBanner, .informa-header-copyright {
+          overflow: hidden;
+          height: auto;
+          max-height: 190px;
+          transition: max-height 200ms ease-in-out;
+          z-index: 35;
+          @include tablet {
+            max-height: 240px;
+          }
+          @include mobile {
+            max-height: 430px;
+          }
+        }
+        & ~ * {
+          position: relative;
+          transition: top 100ms;
+          top: 158px;
+          // override non-newco js css
+          padding-top: 0 !important;
+          @include not-desktop {
+            top: 138px;
+          }
+        }
+      }
+    }
+    .newco-header {
+      .newco-search {
+          background-color: $newcoprimarycolor;
+          .textbox {
+              label {
+                @include family-style(normal,$black);
+                font-size: 14px;
+                line-height: 25px;
+              }
+          }
+      }
+      .newco-nav {
+        .top-menu-items > .menu-item {
+            @include family-style(bold,$newcoprimarycolor);
+            font-size: 14px;
+            line-height: 25px;
+            &:hover {
+              color: $black;
+            }
+            &.subnav-open {
+              &::before {
+                color: $black;
+              }
+              & > a {
+                color: $black;
+              }
+            }
+            a {
+              font-weight: inherit;
+              font-size: inherit;
+              line-height: inherit;
+              color: inherit;
+              &:hover {
+                color: $black;
+              }
+            }
+        }
+        .menu-items > .menu-item {
+            @include family-style(600,$black);
+            font-size: 14px;
+            line-height: 25px;
+            .menu-item {
+              font-weight: normal;
+            }
+            a {
+              font-weight: inherit;
+              font-size: inherit;
+              line-height: inherit;
+              color: inherit;
+            }
+        }
+      }
+    }
+    .product-detail-page.newco-product-detail {
+      .resource-finder {
+        background-color: $newcolightercolor;
+        ul.resource-sector-search {
+          .menu {
+            .custom-multiselect {
+              .multiselect-native-select {
+                .btn-group {
+                  border: 1px solid $newcoprimarycolor;
+                  .multiselect-container {
+                    background: $newcolightercolor;
+                    li.active {
+                      .checkbox {
+                        &::before {
+                          background: $newcoprimarycolor;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          &.disabled {
+            .custom-multiselect {
+              .multiselect-native-select {
+                .btn-group {
+                  border: 1px solid $newcoprimarycolor;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .product-finder-results {
+      .refine-container {
+        form {
+          .panel-group {
+            .panel {
+              .panel-collapse {
+                .panel-body {
+                  @include mobile {
+                    border: 1px solid $newcoprimarycolor;
+                    background: $base-bg;
+                  }
+                }
+              }
+              .panel-heading {
+                h3 {
+                  a {
+                    @include mobile {
+                      border: 1px solid $newcoprimarycolor;
+                    }
+                  }
+                }
+              }
+              .panel-collapse {
+                .panel-body {
+                  ul {
+                    li {
+                      .custom-checkbox {
+                        label {
+                          input:checked + span:before {
+                            background: $newcoprimarycolor;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            .view-by {
+              .chosen-container {
+                .chosen-single {
+                  border: 1px solid $border-refine-filter;
+                }
+
+                &.chosen-with-drop {
+                  a {
+                    border: 1px solid $border-refine-filter;
+                  }
+                  .chosen-drop {
+                    border: 1px solid $border-refine-filter;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .listView {
+        .list-items {
+          .recomended-wrapper {
+            .recomend-content {
+              float: none;
+              width: auto;
+            }
+            .content {
+              h4 {
+                a {
+                  &:hover {
+                    color: $newcoprimarycolor;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      &.show-refine-container {
+        @include mobile {
+          .refine-container {
+            background-color: $newcolightercolor;
+          }
+        }
+      }
+    }
+    .filter-category {
+      li {
+        a {
+          border: 1px solid $border-refine-filter;
+
+          &:hover {
+            background: transparent;
+            text-decoration: none;
+          }
+        }
+        &.active {
+          a {
+            border: 1px solid $border-refine-filter;
+          }
+        }
+      }
+
+      .dropdown-content {
+        border: 1px solid $border-refine-filter;
+
+        &.drop-content-active {
+          .drop-content {
+            li {
+              .round-checkbox {
+                input {
+                  &:checked ~ .checkmark {
+                    background-color: $newcoprimarycolor;
+                    border: 1px solid $newcoprimarycolor;
+                  }
+                }
+                .checkmark {
+                  border: 1px solid $checkbox-border;
+                  margin-left: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .hero-banner .hero-banner-content {
+      @include mobile {
+        padding-top: 20px;
+      }
+      .row {
+        float: none;
+        .col {
+          width: 100%;
+        }
+        h1 {
+          @include mobile {
+            padding-bottom: 20px;
+          }
+        }
+        .btn {
+          width: auto;
+        }
+      }
+    }
+    .yellow-container {
+      background: rgba($newcoprimarycolor, 0.9);
+    }
+  }
 }

@@ -1,0 +1,107 @@
+{{!-- template file, needs to be copied into src\scripts\templates\informaui.templates.js > EventpageTileviewTemplate --}}
+<div class="col-xs-12 col-sm-6 col-md-4 events-section {{results.DateType}}">
+    <div class="events-wrap">
+        <div class="header clearfix">
+            {{{results.DateRange}}}
+            {{#if results.Ical}}
+                {{#if results.Ical.Url}}
+                    {{#compare results.Ical.Url.length "0" operator=">"}}
+                        {{#compare results.StatusEnabled true operator="=="}}
+                            <a href="{{results.Ical.Url}}" class="btn pull-right ical" target="{{results.Ical.Target}}"><span class="text">{{results.Ical.LinkText}}</span></a>
+                        {{/compare}}
+                        {{#compare results.StatusEnabled false operator="=="}}
+                            <a href="{{results.Ical.Url}}" class="btn pull-right ical disabled" target="{{results.Ical.Target}}"><span class="text">{{results.Ical.LinkText}}</span></a>
+                        {{/compare}}
+                    {{/compare}}
+                {{/if}}
+            {{/if}}
+        </div>
+        <div class="content-wrap clearfix">
+            {{#if results.Venue}}
+                <div class="content clearfix venue">
+                    <div class="title-content">{{results.VenueLabel}}</div>
+                    <div class="title-body">
+                        {{results.Venue}}
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if results.Country}}
+                <div class="content clearfix location">
+                    <div class="title-content">{{results.LocationLabel}}</div>
+                    <div class="title-body">
+                        <ul class="clearfix">
+                            {{#if results.State}}
+                                <li>{{results.State}}</li>
+                            {{/if}}
+                            <li>{{results.Country}}</li>
+                        </ul>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if results.Duration}}
+                <div class="content clearfix duration">
+                    <div class="title-content">{{results.DurationLabel}}</div>
+                    <div class="title-body">
+                        {{results.Duration}}
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if (or results.TimeZone results.TimeZone1 results.TimeZone2 results.TimeZone3 results.TimeZone4)}}
+                <div class="content clearfix timezones">
+                    <div class="title-content">{{results.TimeZoneLabel}}</div>
+                    <div class="title-body">
+                        <ul class="clearfix">
+                            {{#if results.TimeZone}}<li>{{results.TimeZone}}</li>{{/if}}
+                            {{#if results.TimeZone1}}<li>{{results.TimeZone1}}</li>{{/if}}
+                            {{#if results.TimeZone2}}<li>{{results.TimeZone2}}</li>{{/if}}
+                            {{#if results.TimeZone3}}<li>{{results.TimeZone3}}</li>{{/if}}
+                            {{#if results.TimeZone4}}<li>{{results.TimeZone4}}</li>{{/if}}
+                        </ul>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if results.Title}}
+                <h3 class="content clearfix title">{{results.Title}}</h3>
+            {{/if}}
+
+            {{#if results.Description}}
+                <div class="content clearfix description">
+                    {{{results.Description}}}
+                </div>
+            {{/if}}
+        </div>
+        <div class="footer clearfix">
+            <div class="content clearfix ctas">
+                {{#if results.Primarycta}}
+                    {{#if results.Primarycta.Url}}
+                        {{#compare results.Primarycta.Url.length "0" operator=">"}}
+                            {{#compare results.StatusEnabled true operator="=="}}
+                                <a href="{{results.Primarycta.Url}}" class="btn btn-primary pull-left primarycta" target="{{results.Primarycta.Target}}">{{results.Primarycta.LinkText}}</a>
+                            {{/compare}}
+                            {{#compare results.StatusEnabled false operator="=="}}
+                                <a href="{{results.Primarycta.Url}}" class="btn btn-primary pull-left primarycta disabled" target="{{results.Primarycta.Target}}">{{results.Primarycta.LinkText}}</a>
+                            {{/compare}}
+                        {{/compare}}
+                    {{/if}}
+                {{/if}}
+
+                {{#if results.Secondarycta}}
+                    {{#if results.Secondarycta.Url}}
+                        {{#compare results.Secondarycta.Url.length "0" operator=">"}}
+                            {{#compare results.StatusEnabled true operator="=="}}
+                                <a href="{{results.Secondarycta.Url}}" class="btn btn-primary pull-left secondarycta" target="{{results.Secondarycta.Target}}">{{results.Secondarycta.LinkText}}</a>
+                            {{/compare}}
+                            {{#compare results.StatusEnabled false operator="=="}}
+                                <a href="{{results.Secondarycta.Url}}" class="btn btn-primary pull-left secondarycta disabled" target="{{results.Secondarycta.Target}}">{{results.Secondarycta.LinkText}}</a>
+                            {{/compare}}
+                        {{/compare}}
+                    {{/if}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>

@@ -52,7 +52,8 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _showContentFirstTime,
         Urls = INFORMA.Configs.urls.webservices,
         iOSversion,
-        _loadPDFPopUp;
+        _loadPDFPopUp,
+        _populateHiddenFields;
 
     //methods
 
@@ -182,17 +183,40 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         })
     }
 
+    _populateHiddenFields = function (valObjectArray) {
+        var $registerForm = $('#formRegistration form'),
+            objCount,
+            objCurr,
+            objLength = valObjectArray.length;
+
+        for (objCount = 0; objCount < objLength; objCount++) {
+            objCurr = valObjectArray[objCount];
+            $registerForm.find(objCurr.selector).val(objCurr.value);
+        }
+    }
+
     _showRegisterForm = function() {
         $('body').on('click', '.show-register-form', function(e) {
-                    if ($(this).attr('data-show-register') == 'true') {
-                    //check if anchor is meant to open a form to trigger a download
-                    var isDownloadAnchor = $(this).attr('data-enable-download') == 'true';
+            if ($(this).attr('data-show-register') == 'true') {
+                //check if anchor is meant to open a form to trigger a download
+                var isDownloadAnchor = $(this).attr('data-enable-download') == 'true'
 
-                    if(isDownloadAnchor)
+                if (isDownloadAnchor) {
+                    $('#formRegistration form').attr('data-trigger-download','true');
+                }
+                
+                _populateHiddenFields([
                     {
-                        $('#formRegistration form').attr('data-trigger-download','true');
+                        selector: '.resource-file-type',
+                        value: $(this).attr('data-download-type') || 'NULL'
+                    },
+                    {
+                        selector: '.resource-type',
+                        value: $(this).attr('data-enable-download') == 'true' ? 'File Download' : 'Gated content viewed'
                     }
-                    // To track Google Analytics on Open
+                ]);
+                    
+                // To track Google Analytics on Open
                 INFORMA.Analytics.trackFormEvents($(this), 'Open');
                 e.preventDefault();
                 e.stopPropagation();
@@ -525,7 +549,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             urlParameters = window.location.href;
         if(urlParameters.split('?')['1']){
             var pdf_Url_Param  = urlParameters.split('?')['1'].split('&')['0'].split('=')[1];
-            if(pdf_Url_Param.indexOf('pdf')!=-1)
+            if(pdf_Url_Param != undefined && pdf_Url_Param.indexOf('pdf')!=-1)
                 pdf_url = pdf_Url_Param;
         }
         }else{

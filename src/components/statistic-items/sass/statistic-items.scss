@@ -1,0 +1,194 @@
+.our-reach-section {
+    .container {
+        padding: 0;
+    }
+    .researchsubs {
+        text-align: center;
+        padding: 00px 0 20px;
+        .numberntext {
+            font-size: 60px;
+            font-weight: normal;
+            display: flex;
+            justify-content: center;
+            line-height: normal;
+        }
+        .text {
+            font-size: 18px;
+            font-weight: normal;
+            margin-bottom: 0px;
+        }
+        span.plus {
+            right: 0;
+            vertical-align: top;
+            display: block;
+        }
+    }
+    .our-set-divchild {
+        padding: 0;
+    }
+    .sub-text {
+        font-size: 18px;
+        font-weight: 100;
+    }
+}
+
+.container-fluid.recch-global-main {
+    position: absolute;
+    margin-top: 108px;
+}
+
+.reach-img-section {
+    position: relative;
+
+    img.reach-globalimg {
+        width: 100%;
+    }
+
+    .our-reach-container {
+        position: absolute;
+        bottom: 15px;
+        z-index: 0;
+        left: 0;
+        right: 0;
+    }
+
+    p.global-discrubstion {
+        padding-left: 119px;
+        font-size: 18px;
+        color: #000;
+    }
+}
+
+
+
+@include not-mid-tablet {
+
+    .reach-img-section img.reach-globalimg {
+        width: 100%;
+        display: none;
+    }
+
+    .reach-img-section .our-reach-container {
+        position: initial;
+        bottom: 00px;
+        z-index: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .container-fluid.recch-global-main {
+        position: inherit;
+        margin: 0;
+    }
+
+    .reach-img-section {
+        position: relative;
+        background: #c1eaff;
+        padding: 20px 0;
+    }
+
+    .our-reach-section .researchsubs .numberntext {
+        font-size: 38px;
+        font-weight: bold;
+    }
+
+    .our-reach-section .researchsubs span.plus {
+        right: 2px;
+        vertical-align: top;
+        font-size: 35px !important;
+        display: block;
+        margin-top: -7px;
+        margin-left: 10px;
+    }
+
+    .our-reach-section .researchsubs .text {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 0px;
+    }
+
+    .our-reach-section .sub-text {
+        font-size: 13px;
+        font-weight: 100;
+    }
+
+    .reach-img-section p.global-discrubstion {
+        padding-left: 0;
+        font-size: 18px;
+        color: #000;
+    }
+
+    .discover-community {
+        margin-bottom: 2px !important;
+    }
+
+    .dot-img-outer {
+        margin-right: 0px !important;
+        margin-top: 0px;
+    }
+    .reach-img-section .nopadding {
+        padding: 0 !important;
+    }
+
+}
+
+
+
+/*scss */
+.reach-img-section {
+    .recch-global-main {
+        img {
+            width: 100%;
+        }
+    }
+
+    .nopadding {
+        padding: 0;
+    }
+}
+.tech-theme{
+    .reach-img-section {
+        .sub-headline {
+            font-family: 'SWTechBrandFont';
+            font-weight: normal;
+            font-size: 48px;
+            line-height: 60px;
+            text-transform: uppercase;
+            color: #024;
+            position: relative;
+            margin: 0;
+            width:auto;
+            @media screen and (max-width: 812px) {
+                left:20px;
+            }
+        }
+    
+        .global-discription {
+            padding: 0 0px;
+        }
+    
+        picture {
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+
+
+@media screen and (max-width: 768px) and (min-width: 320px) {
+    .reach-img-section .our-reach-container {
+        position: relative;
+        top: -85px;
+    }
+    .discover-communit.reach-img-section .our-reach-container {
+        position: relative;
+        top: -85px;
+    }
+}
+
+section#social-section h2{
+    padding-top:0px;
+    padding-bottom:0px;
+}

@@ -4,7 +4,22 @@ INFORMA.global = (function(window, $, namespace) {
 	//variables
 	var device = {},
 		siteCore = {},
-		_html = $('html');
+		_html = $('html'),
+		getInternetExplorerVersion = function() {
+			var rv = -1;
+			if (navigator.appName == 'Microsoft Internet Explorer') {
+			  var ua = navigator.userAgent;
+			  var re = new RegExp("MSIE ([0-9]{1,}[\\.0-9]{0,})");
+			  if (re.exec(ua) != null)
+				rv = parseFloat( RegExp.$1 );
+			} else if (navigator.appName == 'Netscape') {
+			  var ua = navigator.userAgent;
+			  var re  = new RegExp("Trident/.*rv:([0-9]{1,}[\\.0-9]{0,})");
+			  if (re.exec(ua) != null)
+				rv = parseFloat( RegExp.$1 );
+			}
+			return rv;
+		}
 
 	var init = function(){
 		// viewport properties
@@ -32,6 +47,21 @@ INFORMA.global = (function(window, $, namespace) {
 		}
 		else if($('html').hasClass('experience-mode')){
 			siteCore.isExperience = true;
+		}
+	}
+	if (getInternetExplorerVersion() > 0) {
+		window.URLSearchParams = window.URLSearchParams || function (searchString) {
+			var self = this;
+			self.searchString = searchString;
+			self.get = function (name) {
+				var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(self.searchString);
+				if (results == null) {
+					return null;
+				}
+				else {
+					return decodeURI(results[1]) || 0;
+				}
+			};
 		}
 	}
 

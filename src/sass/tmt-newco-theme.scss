@@ -1,0 +1,666 @@
+@import "variables";
+@import "theme-variables";
+@import "mixins";
+/*fonts*/
+@font-face {
+  font-family: "SWBrandFont";
+  src: url("../fonts/OpenSans-Regular.eot");
+  src: url("../fonts/OpenSans-Regular.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/OpenSans-Regular.ttf") format("truetype"), url("../fonts/OpenSans-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SWBrandFont";
+  src: url("../fonts/OpenSans-Bold.eot");
+  src: url("../fonts/OpenSans-Bold.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/OpenSans-Bold.ttf") format("truetype"), url("../fonts/OpenSans-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SWBrandFont";
+  src: url("../fonts/OpenSans-SemiBold.eot");
+  src: url("../fonts/OpenSans-SemiBold.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/OpenSans-SemiBold.ttf") format("truetype"), url("../fonts/OpenSans-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SWBrandFont";
+  src: url("../fonts/OpenSans-Light.eot");
+  src: url("../fonts/OpenSans-Light.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/OpenSans-Light.ttf") format("truetype"), url("../fonts/OpenSans-Light.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+}
+@include theme(tmt-newco, $tmtprimarycolor, $tmtsecondrydarkcolor, $tmtsecondarylightcolor, $newcoprimarycolor);
+@include newco($newcoprimarycolor, $base-bg, $border-refine-filter, $checkbox-border, $newcolightercolor);
+//cta skinning for newco theme
+$newcobtnprimarygradiant-left: #ee93ec;
+$newcobtnprimarygradiant-right: #75d9f4;
+$newcobtnprimary-hover-gradiant-left: #fcbffa;
+$newcobtnprimary-hover-gradiant-right: #a1e0fa;
+$newcobtnprimary-border-color: transparent;
+$newcobtnprimary-bakground-color: #434854;
+$newcobtnprimary-color: #000;
+
+$newcobtnprimary-hover-color: #000;
+$newcobtnprimary-hover-background: #fff;
+$newcobtnprimary-hover-border: transparent;
+
+$newcobtndefault-border: #a54eac;
+$newcobtndefault-background: #f9f8f9;
+$newcobtndefault-color: #000;
+
+$newcobtndefault-hover-border: #a54eac;
+$newcobtndefault-hover-background: #f6f0fb;
+
+$newco-white-background: #ffffff;
+
+.tmt-newco {
+  .product-detail-page.newco-product-detail{
+    h2{
+      font-weight: 600;
+    }
+  }
+  .collapsing {
+    -webkit-transition: height 0.02s ease;
+    -o-transition: height 0.02s ease;
+    transition: height 0.02s ease;
+  }
+  .product-brands-list {
+    background-color: $newco-white-background;
+  }
+  .contactus-list {
+    background: $newco-white-background;
+  }
+  .sectorpage-strengths {
+    background: $newco-white-background;
+  }
+  section#feature-list, section.feature-list-section {
+    background: $newco-white-background;
+  }
+  section#agri-report {
+    background: $newco-white-background;
+    h2 {
+      padding: 0;
+    }
+    .agri-report-wrapper {
+      .agri-report-rte-container p:first-child {
+        @include family-style(normal,$black);
+        @include heading-font-size(14px,14px,14px);
+      }
+      .splash-image {
+        right: 0;
+        bottom: 20px;
+        width: 50%;
+        height: calc(100% - 60px);
+        padding-left: 15px;
+        padding-right: 15px;
+        @include mobile {
+          width: 100%;
+          height: auto;
+          padding-left: 0;
+          padding-right: 0;
+        }
+        img {
+          display: block;
+          width: auto;
+          max-width: 100%;
+          height: auto;
+          max-height: 100%;
+          margin: 0 auto
+        }
+      }
+      .download-report {
+        margin: 0 0 20px;
+        padding: 30px 15px 0;
+        @include mobile {
+          padding: 25px 7.5px 0;
+        }
+        a {
+          margin: 0;
+        }
+      }
+    }
+  }
+  section#services-list section:nth-child(2n) {
+    background: $newco-white-background;
+  }
+  .related-products {
+    .card-col-heading {
+      padding: 0 15px;
+      h2 {
+        color: #000;
+        font-weight: 600;
+      }
+    }
+    .card {
+      background: #fff;
+      .title {
+        background-image: url(../../Static/images/tmt-newco/gradient-bg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 200px;
+        color: #fff;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 29px;
+        overflow: hidden;
+        position: relative;
+        &::after{
+          content: "";
+          position: absolute;
+          bottom: 0px;
+          right: 0;
+          width: 100%;
+          height: 35%;
+          background-image: url(../../Static/images/tmt-newco/gradient-bg.jpg);
+          mask-image: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0));
+          -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, to(rgba(0,0,0,1)), from(rgba(0,0,0,0)));
+          pointer-events: none;
+        }
+        a {
+          color: #fff;
+          width: 100%;
+          display: table-cell;
+          height: 200px;
+          padding: 15px;
+          vertical-align: middle;
+        }
+      }
+      .caption {
+        font-size: 14px;
+        color: #000;
+        line-height: 25px;
+        max-height: 340px;
+        min-height: 340px;
+        margin-bottom: 15px;
+        overflow: hidden;
+        p.type {
+          font-weight: 600;
+          margin-top: 25px;
+          margin-bottom: 2px;
+        }
+        a.name {
+          font-size: 24px;
+          font-weight: 600;
+          color: #000;
+          display: block;
+          &:hover {
+            color: #b650be;
+          }
+        }
+        p.content {
+          margin-top: 35px;
+        }
+        &::after{
+          content: "";
+          position: absolute;
+          bottom: 0px;
+          right: 0;
+          width: 100%;
+          height: 8%;
+          background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiP…dpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==);
+          background-size: 100%;
+          background-image: -webkit-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #fff 46%, #fff 100%);
+          background-image: -moz-linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #fff 46%, #fff 100%);
+          background-image: -webkit-linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #fff 46%, #fff 100%);
+          background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #fff 46%, #fff 100%);
+          pointer-events: none;
+        }
+      }
+      &:hover {
+        box-shadow: 0px 0px 16px #ece9e9;
+        .caption {
+          a.name {
+            color: #b650be;
+          }
+          &::after{
+            background-image: none;
+          }
+        }
+      }
+    }
+    .search-container {
+      .btn-container {
+        .btn-ShowMore {
+          border-bottom: 2px solid #fff;
+          span {
+            &:before {
+              right: 15px;
+              top: 13px;
+              color: #a54eac;
+            }
+            &:hover {
+              &:before {
+                color: #b650be;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .view-all-mobile-container {
+    border-bottom: 1px solid #fff;
+    .show-more-brands {
+      position: relative;
+      margin-left: -60px;
+      color: #000;
+    }
+    .informa-icon {
+      position: absolute;
+      right: 0px;
+      top: -5px;
+      color: #a54eac;
+      &:hover {
+        color: #b650be;
+      }
+    }
+  }
+  #article-list-section {
+    #article-list {
+      .load-spinner {
+        top: 0px;
+      }
+    }
+  }
+  .btn-showMore, .btn-plus {
+    border-bottom: 2px solid #fff !important;
+    color: #000 !important;
+    &:after {
+      color: #a54eac !important;
+    }
+    &:hover {
+      &:after {
+        color: #b650be !important;
+      }
+    }
+  }
+  .related-products {
+    .productfinder-link {
+      a {
+        color: #a54eac;
+        &:hover {
+          color: #b650be;
+        }
+      }
+    }
+  }
+  .sectorpage-strengths {
+    .marg1 {
+      margin-bottom: 30px;
+    }
+    .sectorpage-strengths-list .sectorpage-strengths-list-item .bottom-container {
+      margin: 0 10px;
+      .text-right {
+        text-align: left;
+      }
+    }
+    .slant {
+      display: none;
+    }
+  }
+  .view-all-sectors-btn-container {
+    border: none;
+    span.center-block {
+      position: relative;
+      margin-left: -60px;
+      color: #000;
+    }
+    .informa-icon {
+      color: #a54eac;
+      position: absolute;
+      right: 0px;
+      top: -5px;
+      &:hover {
+        color: #b650be;
+      }
+    }
+  }
+  .chosen-container .chosen-results li.highlighted, .chosen-container .chosen-results li.result-selected {
+    background-color: #a54eac;
+    color: #fff;
+  }
+  .analyst-search {
+    form {
+      .search-field {
+        .form-control {
+          color: #000;
+        }
+      }
+    }
+  }
+  .chosen-container-single {
+    .chosen-single {
+      color: #000;
+    }
+  }
+  .btn-reset {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #000 !important;
+  }
+  .btn {
+    min-width: 120px;
+    border-radius: 22px;
+    padding: 9px 30px;
+    height: auto;
+    font-weight: 600;
+    text-align: center;
+    border-width: 0px;
+    &::after {
+      content: none;
+    }
+  }
+  .btn-primary {
+    border-color: $newcobtnprimary-border-color;
+    background-color: $newcobtnprimary-bakground-color;
+    color: $newcobtnprimary-color;
+    position: relative;
+    background-image: linear-gradient(90deg, $newcobtnprimarygradiant-left 0%, $newcobtnprimarygradiant-right 100%);
+    &:hover {
+      color: $newcobtnprimary-hover-color;
+      text-decoration: none;
+      background-color: $newcobtnprimary-hover-background;
+      border-color: $newcobtnprimary-hover-border;
+      background-image: linear-gradient(
+        90deg,
+        $newcobtnprimary-hover-gradiant-left 0%,
+        $newcobtnprimary-hover-gradiant-right 100%
+      );
+    }
+  }
+  [class*="newco-gobtn-"] {
+    min-width: auto;
+    border-radius: 50%;
+    padding: 0 0 0 2px;
+    font-size: 10px;
+    line-height: 1;
+    font-weight: normal;
+    text-align: center;
+    border-width: 0px;
+    &.small {
+      width: 24px;
+      height: 24px;
+    }
+    &.large {
+      width: 36px;
+      height: 36px;
+    }
+    &[class*="gobtn-1"] {
+      color: $black;
+      background-image: linear-gradient(90deg, $newcobtnprimarygradiant-left 0%, $newcobtnprimarygradiant-right 100%);
+      &:hover {
+        background-image: linear-gradient(90deg, $newcobtnprimary-hover-gradiant-left 0%, $newcobtnprimary-hover-gradiant-right 100%);
+      }
+    }
+    &[class*="gobtn-2"] {
+      color: $newcoprimarycolor;
+      background-color: rgba($color: $white, $alpha: 0.85);
+      &:hover {
+        background-color: rgba($color: $white, $alpha: 1);
+      }
+    }
+  }
+  .btn-container {
+    .btn-default {
+      border: 1px solid $newcobtndefault-border;
+      background-color: $newcobtndefault-background;
+      color: $newcobtndefault-color;
+      &:hover {
+        background-color: $newcobtndefault-hover-background;
+        border: 1px solid $newcobtndefault-hover-border;
+      }
+    }
+  }
+  .product-brands-list{
+    .card-col-heading{
+      .btn-default {
+        border: 1px solid $newcobtndefault-border;
+        background-color: $newcobtndefault-background;
+        color: $newcobtndefault-color;
+        &:hover {
+          background-color: $newcobtndefault-hover-background;
+          border: 1px solid $newcobtndefault-hover-border;
+        }
+      }
+    }
+  }
+  .btn-default {
+    border: 1px solid $newcobtndefault-border;
+    background-color: $newcobtndefault-background;
+    color: $newcobtndefault-color;
+    &:hover {
+      background-color: $newcobtndefault-hover-background;
+      border: 1px solid $newcobtndefault-hover-border;
+    }
+  }
+  #informa-footer {
+    background-color: $grey-color03;
+  }
+  .headline-carousel{
+    .list-container{
+      li{
+        &:hover{
+          div.col-xs-12{
+            box-shadow: 3px 7px 16px #ece9e9;
+          }
+          .list-items{
+            box-shadow: 3px 7px 16px #ece9e9;
+          }
+          .recomended-wrapper{
+            .recomend-content{
+              .content{
+                h4{
+                  &::after{
+                    content: " ";
+                    background-image: none;
+                  }
+                  a{
+                    color: $newcoprimarycolor;
+                    &.gated-content{
+                      &::after {
+                        background-image: url(../../Static/images/tmt-newco/images/lock-icon/lock-icon.jpg);
+                      }
+                    }
+                  }
+                }
+                p.description{
+                  &::after{
+                    content: " ";
+                    background-image: none;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  #pdp-navigation {
+    position: absolute;
+    width: 100%;
+    margin-bottom: 0;
+    background-color: $bg-white;
+    & + * {
+      padding-top: 69px !important;
+    }
+    .nav-pdp-nondesktop, .nav-pdp-nondesktop-sticky {
+      display: none !important;
+    }
+    #pdp-sections {
+      #pdp-sections-heading{
+        &.move-left{
+          color: $font-color;
+        }
+      }
+    }
+    ul{
+      li{
+        a{
+          padding: 0px;
+          color: $font-color;
+          line-height: $subhead-text-lineheight;
+          font-weight: 400;
+          &.active {
+            color: $newcoprimarycolor;
+            font-weight: 600;
+            letter-spacing: -0.018em;
+          }
+        }
+      }
+    }
+    .menuFollower {
+      display: block !important;
+      background-color: $newcoprimarycolor;
+      border-bottom: 1px solid $newcoprimarycolor;
+    }
+    
+    // component overrides
+    @include not-desktop {
+      padding: 12px 0;
+      .container .row #pdp-sections {
+        display: block !important;
+        position: relative;
+        background-color: transparent !important;
+        #pdp-sections-heading {
+          display: none;
+        }
+        ul {
+          float: inherit;
+          white-space: nowrap;
+          overflow: auto;
+          width: 100%;
+          &::-webkit-scrollbar {
+            display: none;
+          }
+          li {
+            display: inline-block;
+            float: none;
+            width: auto;
+            text-align: left;
+            a {
+              &:first-child, &:last-child {
+                padding: 0
+              }
+              &::after {
+                display: none;
+              }
+            }
+          }
+        }
+        &::after {
+          content: "";
+          width: 20%;
+          height: 100%;
+          position: absolute;
+          background-image: linear-gradient(to right,rgb(255, 255, 255) 0%,#ffffff 16%,#ffffff 48%);
+          background-image: linear-gradient(to right,rgba(255,255,255,0) -56%,#fff 135%,#fff 100%);
+          right: 0;
+          top: 0;
+        }
+      }
+    }
+  }
+  .scrolled {
+    .newco-header {
+      .newco-searchbtn {
+        .newco-search-header {
+          .textbox {
+            @include mobile {
+              top:80px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .form-submit-border {
+     &::after {
+        display:none;
+    }
+}
+.cookieBanner a {
+  color: $newcoprimarycolor;
+}
+  .hero-banner-video {
+    @include mobile {
+      .videoBG {
+        display: block;
+      }
+      .cf-img {
+        display: none;
+      }
+    }
+  }
+  .hero-banner-carousel {
+    .slick-initialized, .slick-list, .slick-track {
+      .slick-prev {
+        width: 40px;
+        height: 30px;
+        background: url(../../Static/images/tmt-newco/left-arrow-white.png);
+        background-repeat: no-repeat;
+        background-size: 40px 30px;
+        left: 50px;
+        &::before{
+          content: '';
+        }
+        @include tablet {
+          left: 30px;
+        }
+        @include mobile{
+          left: 20px;
+        }
+      }
+    }
+  }
+  .hero-banner-carousel {
+    .slick-initialized, .slick-list, .slick-track {
+      .slick-next {
+        width: 40px;
+        height: 30px;
+        background: url(../../Static/images/tmt-newco/right-arrow-white.png);
+        background-repeat: no-repeat;
+        background-size: 40px 30px;
+        right: 50px;
+        left: auto;
+        margin-left: 0px;
+        &::before{
+          content: '';
+        }
+        @include tablet {
+          right: 30px;
+        }
+        @include mobile{
+          right: 20px;
+        }
+      }
+    }
+  }
+  .hero-banner-carousel {
+    .slick-initialized, .slick-list, .slick-track {
+      ul.slick-dots li {
+        background: #a0a5b4;
+      }
+      ul.slick-dots li.slick-active {
+        background: #a54eac !important;
+      }
+    }
+    @include mobile{
+      height: 575px;
+    }
+  }
+  .hero-banner {
+    .content {
+      @include mobile{
+        padding-left: 60px;
+        padding-right: 60px;
+      }
+    }
+  }
+}
+

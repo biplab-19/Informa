@@ -77,9 +77,10 @@ INFORMA.ArticleList = (function(window, $, namespace) {
             INFORMA.DataLoader.GetServiceData(Urls.GetArticles, {
                 method: "GET",
                 data: data,
-                success_callback: function(data) {
+                success_callback: function (data) {
+                    var isNewCoTemplate = $('body').data('sitetemplate') === 'ovum-new';
                     if (data.Articles !== undefined && data.Articles.length > 0) {
-                        var html = GetCarouselUpdatedHtml(INFORMA.Templates.articleListItems, { Articles: data.Articles });
+                        var html = GetCarouselUpdatedHtml(isNewCoTemplate ? INFORMA.Templates.articleListItemsNewCo : INFORMA.Templates.articleListItems, { Articles: data.Articles });
                         _ArticleLists.slick('unslick');
                         ArticleCont.show();
                         RenderCarousel(html, _ArticleLists,1,2);
@@ -166,40 +167,41 @@ INFORMA.ArticleList = (function(window, $, namespace) {
         CreateSlider = function(el,mobileScroll,ipadScroll) {
             var _listItemCounts = GetListCount(el),
                 Options = GetCarouselOptions(el);
-
-            el.slick({
-                dots: Options.sliderDots,
-                infinite: Options.sliderInfinite,
-                speed: Options.speed,
-                autoplay: (!isExperienceMode) ? Options.autoplay:false,
-                autoplaySpeed: Options.autoplaySpeed,
-                slidesToShow: (_listItemCounts >= Options.slidesShow) ? Options.slidesShow : _listItemCounts,
-                slidesToScroll: Options.slidesScroll,
-                swipe: INFORMA.global.device.isDesktop ? false : true,
-                responsive: [{
-                        breakpoint: 1024,
-                        settings: {
-                            slidesToShow: (_listItemCounts >= 2) ? ipadScroll : _listItemCounts,
-                            slidesToScroll: ipadScroll
+            if ( Options != undefined) {
+                el.slick({
+                    dots: Options.sliderDots,
+                    infinite: Options.sliderInfinite,
+                    speed: Options.speed,
+                    autoplay: (!isExperienceMode) ? Options.autoplay:false,
+                    autoplaySpeed: Options.autoplaySpeed,
+                    slidesToShow: (_listItemCounts >= Options.slidesShow) ? Options.slidesShow : _listItemCounts,
+                    slidesToScroll: Options.slidesScroll,
+                    swipe: INFORMA.global.device.isDesktop ? false : true,
+                    responsive: [{
+                            breakpoint: 1024,
+                            settings: {
+                                slidesToShow: (_listItemCounts >= 2) ? ipadScroll : _listItemCounts,
+                                slidesToScroll: ipadScroll
+                            }
+                        }, {
+                            breakpoint: 600,
+                            settings: {
+                                slidesToShow: (_listItemCounts >= 2) ? ipadScroll : _listItemCounts,
+                                slidesToScroll: ipadScroll
+                            }
+                        }, {
+                            breakpoint: 480,
+                            settings: {
+                                slidesToShow: mobileScroll,
+                                slidesToScroll: mobileScroll
+                            }
                         }
-                    }, {
-                        breakpoint: 600,
-                        settings: {
-                            slidesToShow: (_listItemCounts >= 2) ? ipadScroll : _listItemCounts,
-                            slidesToScroll: ipadScroll
-                        }
-                    }, {
-                        breakpoint: 480,
-                        settings: {
-                            slidesToShow: mobileScroll,
-                            slidesToScroll: mobileScroll
-                        }
-                    }
-                    // You can unslick at a given breakpoint now by adding:
-                    // settings: "unslick"
-                    // instead of a settings object
-                ]
-            });
+                        // You can unslick at a given breakpoint now by adding:
+                        // settings: "unslick"
+                        // instead of a settings object
+                    ]
+                });
+            }
         }
 
     init = function() {
@@ -227,10 +229,24 @@ INFORMA.ArticleList = (function(window, $, namespace) {
         $(window).on("load", function() {
             equalHeights();
             headLineEqualHeight();
+            $("#article-category-list li:first").children(".custom-radio").children("input").prop("checked", true);
         });
         $(window).on("resize", function() {
             equalHeights();
             //headLineEqualHeight();
+        });
+        $(document).on('click', '.article-filter-section-for-mob .drop-content li p', function (e) {
+            e.preventDefault();
+            var SelectedFilter=$(this).attr('value');
+            GetCarouselData(SelectedFilter);
+
+        });
+        $(document).on('click', '#article-category-list li', function (e) {
+            e.preventDefault();
+            $(this).children(".custom-radio").children("input").prop("checked", true);
+            var SelectedFilter=$(this).attr('value');
+            GetCarouselData(SelectedFilter);
+            
         });
 
     };

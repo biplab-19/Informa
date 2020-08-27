@@ -10,30 +10,22 @@
       display: inline-flex;
       -webkit-flex-wrap: wrap;
       flex-wrap: wrap;
-      width: 100%;
       .sectorpage-strengths-list-item{
         background-color: white;
         height: 100%;
-        .btn-container{
-          position: absolute;
-          bottom: 0;
-          right: 15px;  
-        }
         .bottom-container{
-          height: 93px;
-          display: inline-block;
+          display: block;
+          margin: 0 10px 30px 0;
         }
       }
     }
       .main-container{
+        overflow: hidden;
         position: relative;
-        //height: 277px;
-        img{
-          //height: 277px;
-        }
-        h3{
+        width: 100%;
+        h3 {
           font-size: 24px;
-          font-family: FSMe-light;
+          font-weight: 200;
         }
       }
       .yellow-container{
@@ -48,12 +40,18 @@
       .text-description{
           line-height: 22px;
           background: white;
-          padding: 3% 3% 7% 2%;
+          margin: 10px 10px 20px;
           position: relative;
           overflow: hidden;
-
+          @include mobile {
+            margin-left: 5px;
+            margin-right: 5px;
+          }
+          p {
+            margin-bottom: 0;
+          }
       }
-      .marg1{
+      .marg1 {
         margin-bottom: 20px;
         overflow: hidden;
         float: left;
@@ -116,9 +114,7 @@
 				}
 			}
       .btn-container {
-        padding: 15px;
         background: #fff;
-        padding-bottom: 30px;
       }
 }
 

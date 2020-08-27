@@ -1,0 +1,130 @@
+.two-column-grid-section {
+  .two-column-grid-list {
+    .container {
+      padding: 20px 0px;
+      min-width: 1400px;
+      @media only screen and (max-width: 1400px) {
+        min-width: 100%;
+      }
+      @include tablet {
+        padding: 10px 15px;
+        min-width: 100%;
+      }
+      @include mobile {
+        padding: 10px 0px;
+        min-width: 100%;
+      }
+      .row {
+        margin: 0;
+        padding: 0 40px;
+        @include mobile {
+          display: flex;
+          flex-direction: column;
+          padding: 0;
+        }
+        @include tablet {
+          display: flex;
+          flex-direction: column;
+          padding: 0;
+        }
+        .image-section {
+          padding-left: 0;
+          padding-right: 0;
+          @media only screen and (max-width: 1400px) and (min-width: 1024px) {
+            width: 50%;
+          }
+          @include mobile {
+            order: 1;
+            width: 100%;
+          }
+          @include tablet {
+            order: 1;
+            width: 100%;
+          }
+        }
+        .content-section {
+          padding-left: 0;
+          padding-right: 0;
+          @media only screen and (max-width: 1400px) and (min-width: 1024px) {
+            width: 50%;
+          }
+          @include mobile {
+            order: 2;
+            width: 100%;
+          }
+          @include tablet {
+            order: 2;
+            width: 100%;
+          }
+        }
+      }
+      .image-container {
+        height: 380px;
+
+        @include tablet {
+          width: 100%;
+          height: 100%;
+        }
+        @include mobile {
+          width: 100%;
+          height: 100%;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .content-container {
+        padding: 60px 106px;
+        width: 100%;
+        height: 380px;
+
+        @include tablet {
+          width: 100%;
+          height: auto;
+          padding: 20px;
+        }
+        @include mobile {
+          width: 100%;
+          height: auto;
+          padding: 20px;
+        }
+
+        .subtitle {
+          font-weight: bold;
+          font-size: 30px;
+          color: #002244;
+          line-height: 30px;
+        }
+        .discription {
+          font-weight: 200;
+          font-size: 18px;
+          padding: 20px 0px;
+          color: #000;
+          line-height: 28px;
+          p {
+            font-weight: 200;
+            font-size: 18px;
+            padding: 20px 0px;
+            color: #000;
+          }
+          @include desktop {
+            overflow: hidden;
+            height: 215px;
+          }
+        }
+      }
+      .rich-text-editor {
+        .col-md-12 {
+          padding: 0px;
+          @include mobile {
+            padding: 0 7.5px;
+          }
+          .row {
+            padding: 0px;
+          }
+        }
+      }
+    }
+  }
+}

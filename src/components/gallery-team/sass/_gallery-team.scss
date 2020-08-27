@@ -1,0 +1,74 @@
+section#gallery-team {
+    .team-container {
+        .team-row {
+            .teammember {
+                padding-top: 30px;
+                padding-bottom: 60px;
+                color: $tech-indigo;
+
+                @include not-desktop {
+                    padding-top: 15px;
+                    padding-bottom: 30px;
+                }
+
+                .tm-img {
+                    position: relative;
+                    display: block;
+                    overflow: hidden;
+                    max-width: 360px;
+                    padding-bottom: 100%;
+                    margin: 0 auto;
+                    border-radius: 10%;
+
+                    img {
+                        position: absolute;
+                        display: block;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%,-50%);
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                    
+                    &.ie {
+                        background-size: cover;
+                        background-position: center;
+                        img {
+                            visibility: hidden;
+                        }
+                    }
+                }
+
+                h4 {
+                    margin: 0.75em 0 0.25em;
+                    padding: 0 8%;
+                    font-size: 20px;
+                    font-weight: normal !important;
+                    color: inherit;
+
+                    @include not-desktop {
+                        padding: 0 4%;
+                    }
+
+                    a {
+                        color: inherit;
+                    }
+                }
+
+                p {
+                    padding: 0 8%;
+                    font-size: 20px;
+                    color: inherit;
+                    word-wrap:break-word;
+                    @include not-desktop {
+                        padding: 0 4%;
+                    }
+                    @include tablet{
+                        min-height: 70px;
+                    }
+                }
+            }
+        }
+    }
+}

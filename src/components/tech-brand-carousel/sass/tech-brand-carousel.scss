@@ -1,0 +1,106 @@
+
+.feature-brand-corousel.brand_list {
+    background: #024;
+    padding: 50px 0px;
+
+    .sub-headline {
+        font-family: 'SWTechBrandFont';
+        font-weight: normal;
+        font-size: 48px;
+        line-height: 60px;
+        text-transform: uppercase;
+        color: $indgo-color;
+        position: relative;
+        margin: 0;
+    }
+    
+    // primary button
+    .tech-theme .btn.btnprimary.border-button {
+        width: auto !important;
+        color: #fff;
+        background-color: #002244;
+        border-color: #002244;
+        border-radius: 25px;
+        padding: 10px 45px;
+    }
+}
+
+.feature-brand-corousel.brand_list .sub-headline {
+    color: #ffffff;
+}
+
+.feature-brand-corousel.brand_list .border-button {
+    color: #fff;
+    border-color: #94bb17;
+    border-radius: 25px;
+    padding: 8px 30px;
+    font-size: 21px !important;
+    font-weight: 400 !important;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.feature-brand-corousel.brand_list .customers_list_slider.slick-slider {
+    height: auto !important;
+}
+
+.feature-brand-corousel.brand_list .slick-prev {
+    border-bottom-right-radius: 100px;
+    border-top-right-radius: 100px;
+    height: 80px !important;
+    width: 40px !important;
+    left: -5px;
+    background: #94bb17 !important;
+}
+
+.feature-brand-corousel.brand_list .slick-next {
+    height: 80px !important;
+    width: 40px !important;
+    right: -5px;
+    border-bottom-left-radius: 100px;
+    border-top-left-radius: 100px;
+    background: #94bb17 !important;
+}
+
+.feature-brand-corousel.brand_list .img-right {
+    margin-top: 20px;
+}
+
+.feature-brand-corousel.brand_list {
+    .text-right.nopadding {
+        padding: 0;
+    }
+}
+
+@media only screen and (min-width: 1299px) {
+    .feature-brand-corousel.brand_list .text-right {
+        overflow: hidden;
+        .sub-text-n-img {
+            float: right;
+            max-width: 60%;
+        }
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .feature-brand-corousel.brand_list .img-right {
+        margin-top: 10px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .feature-brand-corousel.brand_list .container-fluid {
+        padding-left: 7.5px;
+        padding-right: 7.5px;
+    }
+
+    .feature-brand-corousel.brand_list .img-right {
+        margin-top: 0px;
+    }
+
+    .feature-brand-corousel.brand_list .slick-arrow {
+        display: none !important;
+    }
+
+    .feature-brand-corousel.brand_list .sub-headline {
+    }
+}

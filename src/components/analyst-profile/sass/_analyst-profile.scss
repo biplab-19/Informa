@@ -1,3 +1,198 @@
+.tmt-newco { 
+	#analyst-profile {
+		background-color: #ffffff;
+		.introduction {
+			background-color: #f8f8f8;
+			padding: 90px 0 0;
+			height: 330px;
+			margin-bottom: 65px;
+			@include tablet {
+				padding: 50px 0 0;
+				margin-bottom: 15px;
+			}
+			@include mobile {
+				padding: 0px 0 0;
+				margin-bottom: 15px;
+			}
+			.container {
+				background-image: url(../../Static/images/tmt-newco/analyst-profile-bg.png);
+				background-repeat: no-repeat;
+				background-position: right bottom;
+				height: 240px;
+				@include tablet {
+					background-size: auto 55%;
+					height: 280px;
+				}
+				@include mobile {
+					height: 330px;
+					padding-top: 50px;
+					background: linear-gradient(356deg, rgba(40,201,247,1) 0%, rgba(212,149,236,1) 77%, rgba(252,125,239,1) 100%);
+				}
+			}
+			.details {
+				width: calc(100% - 197px);
+				@include mobile {
+					width: calc(100% - 110px);
+				}
+				h1 {
+					font-size: 60px;
+					line-height: 66px;
+					color: #000;
+					font-weight: normal;
+					@include mobile {
+						font-size: 36px;
+						line-height: 42px;
+						color: #fff;
+					}
+				}
+				p {
+					font-size: 14px;
+					font-weight: 400;
+					color: #000;
+					margin-bottom: 0px;
+					@include mobile {
+						color: #fff;
+					}
+					span {
+						font-weight: bold;
+					}
+				}
+				p.designation {
+					margin-top: 18px;
+					@include mobile {
+						margin-top: 10px;
+					}
+				}
+				p.place {
+					padding-left: 0px;
+					margin-top: 18px;
+					@include mobile {
+						margin-top: 10px;
+					}
+					&:before {
+						background: none;
+					}
+				}
+				p.experience {
+					padding-left: 0px;
+					margin-top: 5px;
+					&:before {
+						background: none;
+					}
+				}
+			}
+			.image {
+				width: 172px;
+				height: 172px;
+				margin-top: 0px;
+				@include tablet {
+					width: 150px;
+					height: 150px;
+				}
+				@include mobile {
+					width: 100px;
+					height: 100px;
+				}
+				img {
+					border: none;
+				}
+			}
+			.social-links {
+				.at-icon-wrapper {
+					background: #fff !important;
+				}
+			}
+			.nav-links {
+				.at-icon {
+					fill: #8e96e9;
+					color: #8e96e9;
+				}
+			}
+		}
+		.more-stories {
+			.heading {
+				font-size: 14px;
+				font-weight: bold;
+				color: #000;
+				margin-top: 45px;
+				margin-bottom: 3px;
+			}
+			.feature {
+				list-style-type: disc;
+				padding-left: 14px;
+				font-weight: normal;
+				color: #000;
+				margin-bottom: 0px;
+				li {
+					width: 100%;
+					float: none;
+					padding-right: 0px;
+					&:before {
+						content: '';
+					}
+				}
+			}
+		}
+		.nav-links {
+			bottom: -26px;
+			top: auto;
+			@include tablet {
+				margin-top: 20px;
+				float: none;
+				display: block;
+			}
+			@include mobile {
+				margin-top: 20px;
+				float: none;
+				display: block;
+			}
+			li {
+				background-color: #fff;
+				.addthis_button_twitter_follow, .addthis_button_linkedin_follow {
+					.at-icon-wrapper {
+						.at-icon {
+							margin-top: 2px;
+						}
+					}
+				}
+			}
+		}
+		.analyst-content {
+			margin-top: 45px;
+		}
+		.descriptions {
+			padding-right: 0px;
+			.bold {
+				color: #000;
+			}
+			p {
+				color: #000;
+				font-size: 14px;
+				line-height: 25px;
+			}
+		}
+		.btn-container {
+			padding-right: 0px;
+		}
+		.show-options {
+			border-bottom: 2px solid #fff;
+			color: #000;
+			&:after {
+				color: #a54eac;
+			}
+			&:hover {
+				&:after {
+					color: #b650be;
+				}
+			}
+		}
+	}
+	.feature li {
+		&:before {
+			content: inherit;
+		}
+	}
+}
 #analyst-profile {
 	overflow: hidden;
 	h2 {
@@ -7,6 +202,9 @@
 	}
 	.analyst-content {
 		margin-top: 20px;
+	}
+	.analyst-features {
+		margin-bottom: 30px;
 	}
 	.introduction {
 		padding: 30px 0 15px 0;
@@ -47,7 +245,7 @@
 			p {
 				margin-bottom: 25px;
 			    font-size: 16px;
-			    font-family: 'FSMe-Light';
+				font-weight: 200;
 				@include mobile {
 					font-size: 13px;
 				}

@@ -1,0 +1,340 @@
+﻿
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Main page</title>
+
+    <!-- build:css(.tmp) Static/css/global.css -->
+    <link rel="stylesheet" href="Static/css/global.css">
+    <!-- endbuild -->
+    <!-- build:css(.tmp) Static/css/component.css -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) Static/css/agri-theme.css -->
+    <link rel="stylesheet" href="Static/css/agri-theme.css">
+    <!-- build:css(.tmp) Static/css/pharma-theme.css -->
+    <link rel="stylesheet" href="Static/css/pharma-theme.css">
+    <!-- build:css(.tmp) Static/css/finance-theme.css -->
+    <link rel="stylesheet" href="Static/css/financial-theme.css">
+    <!-- build:css(.tmp) Static/css/tmt-theme.css -->
+    <link rel="stylesheet" href="Static/css/tmt-theme.css">
+    <link rel="stylesheet" href="Static/css/component.css">
+    <link rel="stylesheet" href="Static/css/tech-theme.css">
+    
+    <!--<link rel="stylesheet" href="Static/css/importsfile.css">-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- endbuild -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+
+
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">-->
+
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">-->
+
+
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-81001424-3', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+    <script type="text/javascript">
+        INFORMA = {
+            initUI: {},
+            addModule: function (module, selector) {
+                this.initUI[selector] = module;
+            },
+            verticalName: "Pharma Intelligence"
+        };
+        AnalyticsSettings = {
+            GAProfileKey: "UA-81001424-2",
+            GAEnabled: true,
+            AdobeUserKey: "informashopwindowpharmadev",
+            AdobeEnabled: true,
+            Channel: "Agri Intelligence or Pharma Intelligence"
+        };
+
+
+    </script>
+
+    <!-- build:js Static/js/vendor.js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="bower_components/handlebars/handlebars.js"></script>
+    <script src="bower_components/slick-carousel/slick/slick.js"></script>
+    <script src="bower_components/chosen/chosen.jquery.js"></script>
+    <!--<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="bower_components/bootstrap-multiselect/dist/js/bootstrap-multiselect.js"></script>
+    <script src="bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="bower_components/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="bower_components/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="bower_components/moment/min/moment.min.js"></script>
+    <script src="bower_components/typed/typed.min.js"></script>
+    <script src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+    <script src="bower_components/picturefill/src/picturefill.js"></script>
+    <!--<script src="bower_components/vimeo-player-js/dist/player.min.js"></script>-->
+    <!--<script src="https://www.youtube.com/iframe_api"></script>-->
+    <!--<script src="https://player.vimeo.com/api/player.js"></script>
+    <script src="http://fast.wistia.com/static/concat/E-v1.js" integrity="sha384-nWvkFXcjWAVWXZukHp3CAe1WOvGwfh362xZIDSj7WnCHeFZ20kpRjpgMKrpIntf0" crossorigin="anonymous"></script>-->
+    <!-- endbuild -->
+    <!--  only for local development-->
+    <script src="Static/js/components/handlebar-helper.js"></script>
+
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>-->
+
+
+
+    <script>$INFORMA = jQuery.noConflict();</script>
+</head>
+<body>
+    <script>
+        var theme = "agri-theme";
+        var language = "en";
+        if (window.location.href.indexOf("agri") > -1) {
+            theme = "agri-theme";
+            jQuery('body').addClass(theme);
+            jQuery('body').addClass(language);
+        } else if (window.location.href.indexOf("pharma") > -1) {
+            theme = "pharma-theme";
+            jQuery('body').addClass(theme);
+            jQuery('body').addClass(language);
+        } else if (window.location.href.indexOf("finance") > -1) {
+            theme = "financial-theme";
+            jQuery('body').addClass(theme);
+            jQuery('body').addClass(language);
+        } else if (window.location.href.indexOf("tech") > -1) {
+            theme = "tech-theme";
+            jQuery('body').addClass(theme);
+            jQuery('body').addClass(language);
+        } else if (window.location.href.indexOf("tmt") > -1) {
+            theme = "tmt-theme";
+            jQuery('body').addClass(theme);
+            jQuery('body').addClass(language);
+        } else {
+            jQuery('body').addClass(theme);
+            jQuery('body').addClass(language);
+        }
+    </script>
+
+
+    <div class="page-content my-theme">
+        <header id="informa-main-header">
+            <section class="informa-header-copyright">
+                <div class="header-copyright">
+                    <div class="header-copyright-inner">
+                        <!--//******* Display Logo Image *******//-->
+                        <a href="#" class="toggle" onclick="this.parentNode.classList.toggle('open');return false"><img src="cms-images/tech-header/header.png" alt="Informa pharma logo"></a>
+                        <div class="header-copyright-content">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 header-copyright-text">
+                                        <!--//******* Display Title *******//-->
+                                        <p>Vertical.Name.For.Global.Header is part of the Business Intelligence Division of Informa PLC</p>
+                                        <!--//******** Display Links ********//-->
+                                        <div class="clearfix">
+                                            <ul>
+                                                <li>
+                                                    <a href="http://informa.com" target="_blank">Informa PLC</a>
+                                                </li>
+                                                <li>
+                                                    <a href="http://informa.com/About-Us/" target="_blank">About Us</a>
+                                                </li>
+                                                <li>
+                                                    <a href="http://informa.com/Investors/" target="_blank">Investor Relations</a>
+                                                </li>
+                                                <li>
+                                                    <a href="http://informa.com/Talent/" target="_blank">Talent</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!--//******* Display Description *******//-->
+                                    <div class="col-md-6 col-sm-6 col-xs-12 header-copyright-text">
+                                        <p>This is operated by a business or businesses owned by Informa PLC and all copyright resides with them. Informa PLC's registered office is 5 Howick Place, London SW1P 1WG. Registered in England and Wales. Number 8860726.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <input id="EnableHamburger" name="EnableHamburger" type="hidden" value="True">
+        </header>
+    </div>
+    <div id="tech-main-header" class="container-fluid">
+        <div>
+            <div class="nav-bar">
+                <a class="log-img">
+                    <img src="cms-images/tech/tech-logo.png">
+                </a>
+                <div class="stellarnav">
+                    <a href="#" class="menu-mobile">
+                            <span class="bars">
+                                <span></span>
+                            </span> 
+                        </a>
+                        <div class="outer-search-icon">
+                    <div class="search-icons">
+                        <input type="text" name="search" placeholder="Search Informa Tech">
+                        <i class="fa fa-search search-active" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="menu-container">
+                    <ul class="main-nav-bar">
+                        
+                        <li class="mnb-child">
+                            <a href="">
+                                <img class="arrow-right" src="cms-images/tech-header/add.svg" />
+                                about
+                            </a>
+                            <ul>
+                                <li>
+                                    <a class="text-arrow" href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /><span class="lititle">How deep ?</span> </a>
+                                    <ul>
+                                        <li>
+                                            <a class="text-arrow" href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /> Deep</a>
+                                            <ul>
+                                                <li>
+                                                    <a class="text-arrow" href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /> Even deeper</a>
+                                                    <ul>
+                                                        <li><a class="text-arrow" href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /> Item</a></li>
+                                                        <li><a class="text-arrow" href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /> Item</a></li>
+                                                        <li><a class="text-arrow" href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /> Item</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /> Item</a></li>
+                                                <li><a href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /> Item</a></li>
+                                                <li><a href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /> Item</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /> Item</a></li>
+                                        <li><a href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /> Item</a></li>
+                                        <li><a href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /> Item</a></li>
+                                        <li><a href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /> Item</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /><span class="lititle"></span> Item</a>
+                                    <ul>
+                                        <li><a class="text-arrow" href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /><span class="lititle">Consider a page with a basic</span></a></li>
+                                        <li><a class="text-arrow" href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /><span class="lititle">Consider a page with a basic</span></a></li>
+                                        <li><a class="text-arrow" href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /><span class="lititle"></span> Item</a></li>
+                                        <li><a class="text-arrow" href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /><span class="lititle">Consider a page with a basic</span></a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /> Item</a>
+                                    <ul>
+                                        <li>
+                                            <a href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /> Deeper</a>
+                                            <ul>
+                                                <li><a class="text-arrow" href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /><span class="lititle">Consider a </span></a></li>
+                                                <li><a class="text-arrow" href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /><span class="lititle">Consider a </span></a></li>
+                                                <li><a class="text-arrow" href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /><span class="lititle">Consider a </span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a class="text-arrow" href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /><span class="lititle">Consider a page with a basic</span></a></li>
+                                        <li><a class="text-arrow" href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /><span class="lititle">Consider a page with a basic</span></a></li>
+                                        <li><a class="text-arrow" href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /><span class="lititle">Consider a page with a basic</span></a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /> Here's a very</a>
+                                    <ul>
+                                        <li><a class="text-arrow" href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /><span class="lititle">Consider a page with a basic</span></a></li>
+                                        <li><a class="text-arrow" href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /><span class="lititle">Consider a page with a basic</span></a></li>
+                                        <li><a class="text-arrow" href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /><span class="lititle">Consider a page with a basic</span></a></li>
+                                        <li><a class="text-arrow" href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /><span class="lititle">Consider a page with a basic</span></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="mnb-child"><a href=""><img class="arrow-right" src="cms-images/tech-header/add.svg" /> Brands</a></li>
+                        <li class="mnb-child"><a href=""><img class="arrow-right" src="cms-images/tech-header/add.svg" /> Contact</a></li>
+                        <li class="mnb-child"><a href=""><img class="arrow-right" src="cms-images/tech-header/add.svg" /> Segments</a></li>
+
+                        <li class="mnb-child drop-left">
+                            <a href=""><img class="arrow-right" src="cms-images/tech-header/add.svg" /> Solutions</a>
+                            <ul>
+                                <li>
+                                    <a href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /> How deep?</a>
+                                    <ul>
+                                        <li>
+                                            <a href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" />Deep</a>
+                                            <ul>
+                                                <li>
+                                                    <a href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /> Even deeper</a>
+                                                    <ul>
+                                                        <li><a href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /> Item</a></li>
+                                                        <li><a href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /> Item</a></li>
+                                                        <li><a href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /> Item</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /> Item</a></li>
+                                                <li><a href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /> Item</a></li>
+                                                <li><a href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /> Item</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a class="text-arrow" href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /><span class="lititle">Consider a page with a basic</span></a></li>
+                                        <li><a class="text-arrow" href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /><span class="lititle">Consider a page with a basic</span></a></li>
+                                        <li><a class="text-arrow" href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /><span class="lititle">Consider a page with a basic</span></a></li>
+                                        <li><a class="text-arrow" href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /><span class="lititle">Consider a page with a basic</span></a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="text-arrow" href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /><span class="lititle">Consider a page with a basic</span></a></li>
+                                <li><a class="text-arrow" href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /><span class="lititle">Consider a page with a basic</span></a></li>
+                                <li><a class="text-arrow" href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /><span class="lititle">Consider a page with a basic</span></a></li>
+                                <li><a class="text-arrow" href="#"><img class="arrow-right" src="cms-images/tech-header/right-arrow.svg" /><span class="lititle">Consider a page with a basic</span></a></li>
+                            </ul>
+                        </li>
+                        
+                    </ul>
+                    </div>
+                    
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+
+
+
+

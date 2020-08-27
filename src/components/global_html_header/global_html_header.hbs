@@ -1,4 +1,4 @@
----
+﻿---
 component: global_html_header
 ---
 <!doctype html>
@@ -6,33 +6,48 @@ component: global_html_header
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
-<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js">
+<!--<![endif]-->
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Main page</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Main page</title>
 
-    <!-- build:css(.tmp) Static/css/global.css -->
-    <link rel="stylesheet" href="Static/css/global.css">
-    <!-- endbuild -->
+  <!-- build:css(.tmp) Static/css/global.css -->
+  <link rel="stylesheet" href="Static/css/global.css">
+  <!-- endbuild -->
 
     <!-- build:css(.tmp) Static/css/component.css -->
-    <link rel="stylesheet" href="Static/css/component.css">
+   
     <!-- endbuild -->
-
+   
+    {{#if themefile}}
+      <link rel="stylesheet" href="Static/css/{{themefile}}-theme.css">
+    {{/if}}
     <!-- build:css(.tmp) Static/css/agri-theme.css -->
-    <link rel="stylesheet" href="Static/css/agri-theme.css">
+    {{!-- <link rel="stylesheet" href="Static/css/agri-theme.css">
     <!-- build:css(.tmp) Static/css/pharma-theme.css -->
     <link rel="stylesheet" href="Static/css/pharma-theme.css">
     <!-- build:css(.tmp) Static/css/finance-theme.css -->
     <link rel="stylesheet" href="Static/css/financial-theme.css">
     <!-- build:css(.tmp) Static/css/tmt-theme.css -->
     <link rel="stylesheet" href="Static/css/tmt-theme.css">
+    <link rel="stylesheet" href="Static/css/tech-theme.css">
+    <link rel="stylesheet" href="Static/css/tech-theme.css"> --}}
+    <link rel="stylesheet" href="Static/css/component.css">
+    <link rel="stylesheet" href="Static/css/importsfile.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">  
     <!-- endbuild -->
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/owl.carousel.min.js"></script>
     <style type="text/css">
         body{
             margin:0;
@@ -44,77 +59,111 @@ component: global_html_header
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-81001424-3', 'auto');
-      ga('send', 'pageview');
-    </script>
+    ga('create', 'UA-81001424-3', 'auto');
+    ga('send', 'pageview');
+  </script>
 
-    <script type="text/javascript">
-        INFORMA = {
-            initUI : {},
-            addModule : function(module, selector) {
-                this.initUI[selector] = module;
-            },
-            verticalName: "Pharma Intelligence"
-        };
-        AnalyticsSettings = {
-		    GAProfileKey: "UA-81001424-2",
-		    GAEnabled: true,
-		    AdobeUserKey: "informashopwindowpharmadev",
-		    AdobeEnabled: true,
-		    Channel: "Agri Intelligence or Pharma Intelligence"
-		};
+  <script type="text/javascript">
+    INFORMA = {
+      initUI: {},
+      addModule: function (module, selector) {
+        this.initUI[selector] = module;
+      },
+      verticalName: "Pharma Intelligence"
+    };
+    AnalyticsSettings = {
+      GAProfileKey: "UA-81001424-2",
+      GAEnabled: true,
+      AdobeUserKey: "informashopwindowpharmadev",
+      AdobeEnabled: true,
+      Channel: "Agri Intelligence or Pharma Intelligence"
+    };
 
 
-    </script>
+  </script>
 
-    <!-- build:js Static/js/vendor.js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/handlebars/handlebars.js"></script>
-    <script src="bower_components/slick-carousel/slick/slick.js"></script>
-    <script src="bower_components/chosen/chosen.jquery.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
-    <script src="bower_components/bootstrap-multiselect/dist/js/bootstrap-multiselect.js"></script>
-    <script src="bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="bower_components/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="bower_components/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-    <script src="bower_components/moment/min/moment.min.js"></script>
-    <script src="bower_components/typed/typed.min.js"></script>
-    <script src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
-    <script src="bower_components/picturefill/src/picturefill.js"></script>
-    <!--<script src="bower_components/vimeo-player-js/dist/player.min.js"></script>-->
-    <!--<script src="https://www.youtube.com/iframe_api"></script>-->
-    <!--<script src="https://player.vimeo.com/api/player.js"></script>
+  <!-- build:js Static/js/vendor.js -->
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/handlebars/handlebars.js"></script>
+  <script src="bower_components/slick-carousel/slick/slick.js"></script>
+  <script src="bower_components/chosen/chosen.jquery.js"></script>
+  <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+  <script src="bower_components/bootstrap-multiselect/dist/js/bootstrap-multiselect.js"></script>
+  <script src="bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="bower_components/jquery-validation/dist/jquery.validate.min.js"></script>
+  <script src="bower_components/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+  <script src="bower_components/moment/min/moment.min.js"></script>
+  <script src="bower_components/typed/typed.min.js"></script>
+  <script src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+  <script src="bower_components/picturefill/src/picturefill.js"></script>
+  <script src="bower_components/pdf.js-viewer/pdf.js"></script>
+  <script src="bower_components/pdf.js-viewer/pdf.worker.js"></script>
+  <!--<script src="bower_components/vimeo-player-js/dist/player.min.js"></script>-->
+  <!--<script src="https://www.youtube.com/iframe_api"></script>-->
+  <!--<script src="https://player.vimeo.com/api/player.js"></script>
     <script src="http://fast.wistia.com/static/concat/E-v1.js" integrity="sha384-nWvkFXcjWAVWXZukHp3CAe1WOvGwfh362xZIDSj7WnCHeFZ20kpRjpgMKrpIntf0" crossorigin="anonymous"></script>-->
     <!-- endbuild -->
     <!--  only for local development-->
     <script src="Static/js/components/handlebar-helper.js"></script>
+   
 
   <script> 
-        $INFORMA = jQuery.noConflict(); 
-  </script>
+    $INFORMA = jQuery.noConflict();
+
+    function openPdf(file) {
+
+// patch for ISW-3125 (PDF Viewer does not always load content)
+// viewer will load and re-assign it's currentScaleValue prop as per it's own resize handler
+// >>>
+// check if object and prop exists
+if (PDFViewerApplication) {
+  if (PDFViewerApplication.pdfViewer) {
+    // keep checking on interval, if viewer is visible
+    window.pdfvtimer = setInterval(function () {
+      if (jQuery(PDFViewerApplication.pdfViewer.viewer).is(':visible')) {
+        // trigger fix after 1s delay and kill interval
+        setTimeout(function () {
+          if (PDFViewerApplication.pdfViewer.currentScaleValue)
+            PDFViewerApplication.pdfViewer.currentScaleValue = PDFViewerApplication.pdfViewer.currentScaleValue;
+        }, 100);
+        clearInterval(window.pdfvtimer);
+      }
+    }, 500);
+    // kill interval after 30s
+    setTimeout(function () {
+      clearInterval(window.pdfvtimer);
+    }, 30000);
+  }
+}
+      PDFJS.webViewerLoad(file);
+      if (navigator.userAgent.indexOf('Edge') != -1) {
+        var iframe = document.createElement("iframe");
+        iframe.setAttribute("src", file);
+        iframe.setAttribute("id", "PDFtoPrint");
+        iframe.setAttribute("width", "100%");
+        iframe.setAttribute("height", "100%");
+        document.getElementById('hiddenIframe').appendChild(iframe);
+      }
+    }
+  </script>
 </head>
+
 <body>
   <script> 
-        var theme= "agri-theme";
-        var language ="en";
-        if(window.location.href.indexOf("agri") > -1) {
-              theme="agri-theme";
-              jQuery('body').addClass(theme);
-              jQuery('body').addClass(language);
-        }else if(window.location.href.indexOf("pharma") > -1) {
-              theme="pharma-theme";
-              jQuery('body').addClass(theme);
-              jQuery('body').addClass(language);
-        }else if(window.location.href.indexOf("finance") > -1) {
-              theme="financial-theme";
-              jQuery('body').addClass(theme);
-              jQuery('body').addClass(language);
-        }else if(window.location.href.indexOf("tmt") > -1) {
-              theme="tmt-theme";
-              jQuery('body').addClass(theme);
-              jQuery('body').addClass(language);
-        }else {
-              jQuery('body').addClass(theme);
-              jQuery('body').addClass(language);
-        }
-  </script>
+    var theme = "agri-theme tmt-newco";
+    var language = "en";
+    if (window.location.href.indexOf("agri") > -1) {
+      theme = "agri-theme";
+    } else if (window.location.href.indexOf("pharma") > -1) {
+      theme = "pharma-theme";
+    } else if (window.location.href.indexOf("finance") > -1) {
+      theme = "financial-theme";
+    } else if (window.location.href.indexOf("tmt") > -1) {
+      theme = "tmt-theme";
+      if (window.location.href.indexOf("tmt-newco") > -1) {
+        theme = "tmt-newco";
+      }
+    }
+    jQuery('body').addClass(theme);
+    jQuery('body').addClass(language);
+  </script>

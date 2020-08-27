@@ -1,0 +1,336 @@
+.pro-stats-background {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.inf-pro-stats-section {
+    min-height: 1000px;
+    .pro-stats-left {
+        position: relative;
+        margin: 50px 0 0;
+        .left-wrapper {
+            display: inline-block;
+            position: relative;
+            img.left-hand {
+                margin-left: -15px;
+                max-width: 100%;
+                @include greater-desktop {
+                    max-width: 610px;
+                }
+                @include mobile {
+                    max-width: 305px;
+                }
+            }
+            h3 {
+                font-weight: 700;
+                color: #fff;
+                padding: 10px 15px;
+                position: absolute;
+                transform: rotate(-11deg);
+                -ms-transform: rotate(-11deg);
+                overflow: hidden;
+                text-transform: uppercase;
+                right: 39px;
+                bottom: 54px;
+                width: 127px;
+                max-width: 127px;
+                font-size: 12px;
+                max-height: 53px;
+                line-height: 17px;
+                text-align: center;
+                @include tablet {
+                    right: 73px;
+                    bottom: 111px;
+                    width: 190px;
+                    max-width: 190px;
+                    font-size: 20px;
+                    max-height: 55px;
+                    line-height: 22px;
+                }
+                @include mid-tablet {
+                    right: 35px;
+                    bottom: 61px;
+                    width: 125px;
+                    max-width: 125px;
+                    font-size: 12px;
+                    max-height: 34px;
+                    line-height: 12px;
+                }
+                @include desktop {
+                    right: 39px;
+                    bottom: 59px;
+                    width: 127px;
+                    max-width: 127px;
+                    font-size: 12px;
+                    max-height: 47px;
+                    line-height: 17px;
+                }
+                @include greater-desktop {
+                    right: 40px;
+                    bottom: 91px;
+                    width: 170px;
+                    max-width: 170px;
+                    font-size: 16px;
+                    max-height: 53px;
+                    line-height: 20px;
+                }
+                @include mobile {
+                    right: 8px;
+                    bottom: 44px;
+                    width: 106px;
+                    max-width: 106px;
+                    font-size: 9px;
+                    max-height: 35px;
+                    line-height: 12px;
+                }
+            }
+            .content-box {
+                width: 300px;
+                background-image: url(../../Static/images/pro-stats-content-box-bg.png);
+                background-repeat: no-repeat;
+                background-position: left bottom;
+                position: absolute;
+                right: 60px;
+                bottom: -375px;
+                height: 380px;
+                .heading-wrapper {
+                    overflow: hidden;
+                    .icon {
+                        float: left;
+                        padding: 15px 10px 5px;
+                        width: 100px;
+                        text-align: right;
+                    }
+                    .heading {
+                        width: calc(100% - 100px);
+                        float: left;
+                        font-size: 16px;
+                        font-weight: 700;
+                        color: #fff;
+                        padding: 13px 20px 8px 0;
+                        height: 63px;
+                        overflow: hidden;
+                    }
+                }
+                .content {
+                    padding: 35px 60px 0px 60px;
+                    font-size: 16px;
+                    color: #fff;
+                    line-height: 19px;
+                    height: 210px;
+                    overflow: hidden;
+                    p {
+                        font-size: 16px;
+                        color: #fff;
+                        line-height: 19px;
+                        font-weight: 400;
+                    }
+                    a {
+                        color: #fff;
+                        text-decoration: underline;
+                    }
+                }
+                @include tablet {
+                    right: 100px;
+                }
+                @include mobile {
+                    right: 0px;
+                    bottom: -390px;
+                }
+            }
+        }
+        @include tablet {
+            min-height: 1090px;
+        }
+        @include mid-tablet {
+            min-height: 800px;
+        }
+        @include mobile {
+            min-height: 720px;
+        }
+    }
+    .pro-stats-center {
+        background-image: url(../../Static/images/pillar-bg.jpg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        text-align: center;
+        min-height: 1000px;
+        img {
+            max-width: 70%;
+            @include mid-tablet {
+                max-width: 100%;
+            }
+            @include greater-desktop {
+                max-width: 70%;
+            }
+        }
+        @include tablet {
+            min-height: 1090px;
+        }
+        @include mid-tablet {
+            min-height: 925px;
+        }
+        @include greater-desktop {
+            min-height: 1000px;
+        }
+        @include mobile {
+            min-height: 720px;
+        }
+    }
+    .pro-stats-right {
+        position: relative;
+        margin: 50px 0 0;
+        text-align: right;
+        .right-wrapper {
+            display: inline-block;
+            position: relative;
+            img.right-hand {
+                margin-right: -15px;
+                max-width: 100%;
+                @include greater-desktop {
+                    max-width: 610px;
+                }
+                @include mobile {
+                    max-width: 305px;
+                }
+            }
+            h3 {
+                font-weight: 700;
+                color: #fff;
+                padding: 10px 15px;
+                position: absolute;
+                transform: rotate(11deg);
+                -ms-transform: rotate(11deg);
+                overflow: hidden;
+                text-align: left;
+                text-transform: uppercase;
+                left: 39px;
+                bottom: 54px;
+                width: 127px;
+                max-width: 127px;
+                font-size: 12px;
+                max-height: 53px;
+                line-height: 17px;
+                text-align: center;
+                @include tablet {
+                    left: 73px;
+                    bottom: 111px;
+                    width: 200px;
+                    max-width: 200px;
+                    font-size: 20px;
+                    max-height: 55px;
+                    line-height: 22px;
+                }
+                @include mid-tablet {
+                    left: 36px;
+                    bottom: 60px;
+                    width: 128px;
+                    max-width: 128px;
+                    font-size: 12px;
+                    max-height: 34px;
+                    line-height: 12px;
+                }
+                @include desktop {
+                    left: 40px;
+                    bottom: 59px;
+                    width: 127px;
+                    max-width: 127px;
+                    font-size: 12px;
+                    max-height: 47px;
+                    line-height: 17px;
+                }
+                @include greater-desktop {
+                    left: 47px;
+                    bottom: 88px;
+                    width: 170px;
+                    max-width: 170px;
+                    font-size: 16px;
+                    max-height: 53px;
+                    line-height: 20px;
+                }
+                @include mobile {
+                    left: 13px;
+                    bottom: 43px;
+                    width: 106px;
+                    max-width: 106px;
+                    font-size: 9px;
+                    max-height: 35px;
+                    line-height: 12px;
+                }
+            }
+            .content-box {
+                width: 300px;
+                background-image: url(../../Static/images/pro-stats-content-box-bg.png);
+                background-repeat: no-repeat;
+                background-position: left bottom;
+                position: absolute;
+                left: 60px;
+                bottom: -375px;
+                height: 380px;
+                text-align: left;
+                .heading-wrapper {
+                    overflow: hidden;
+                    .icon {
+                        float: left;
+                        padding: 15px 10px 5px;
+                        width: 100px;
+                        text-align: right;
+                    }
+                    .heading {
+                        width: calc(100% - 100px);
+                        float: left;
+                        font-size: 16px;
+                        font-weight: 700;
+                        color: #fff;
+                        padding: 13px 20px 8px 0;
+                        height: 63px;
+                        overflow: hidden;
+                    }
+                }
+                .content {
+                    padding: 35px 60px 0px 60px;
+                    font-size: 16px;
+                    color: #fff;
+                    line-height: 19px;
+                    height: 210px;
+                    overflow: hidden;
+                    p {
+                        font-size: 16px;
+                        color: #fff;
+                        line-height: 19px;
+                        font-weight: 400;
+                    }
+                    a {
+                        color: #fff;
+                        text-decoration: underline;
+                    }
+                }
+                @include tablet {
+                    left: 90px;
+                }
+                @include mobile {
+                    left: -10px;
+                    bottom: -390px;
+                }
+            }
+        }
+        @include tablet {
+            min-height: 1090px;
+        }
+        @include mid-tablet {
+            min-height: 800px;
+        }
+        @include mobile {
+            min-height: 720px;
+        }
+    }
+    @include mid-tablet {
+        min-height: 925px;
+    }
+    @include greater-desktop {
+        min-height: 1000px;
+    }
+}

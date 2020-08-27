@@ -1,0 +1,166 @@
+.tmt-newco{
+  section.hero-banner-texture.dark-banner-subscribe.bg-gray-dark.product.supergraphic.product-hero-banner{
+    background: rgb(40,201,247);
+    background: linear-gradient(356deg, rgba(40,201,247,1) 0%, rgba(212,149,236,1) 77%, rgba(252,125,239,1) 100%);
+
+    h1{
+        font-weight: normal;
+        color: $font-color-white;
+        font-size: $super-headline-text;
+        line-height: $super-headline-lineheight;
+        padding: 51px 0 12px;
+        @include mobile{
+            font-size: 34px;
+            line-height: 40px;
+            padding: 35px 0 20px;
+        }
+    }
+    span{
+        font-weight: normal;
+        font-size: $subhead-text;
+        color: $font-color-white;
+        line-height: $subhead-text-lineheight;
+    }
+    .description{
+        font-weight: normal;
+        font-size: $subhead-text;
+        color: $font-color-white;
+        line-height: $subhead-text-lineheight;
+        width: 80%;
+        padding-bottom: 8px;
+        float:left;
+        @include mobile{
+            width: 100%;
+            text-align: justify;
+        }
+    }
+    .subtext{
+        display: none;
+    }
+    .cta-semitrans-width {
+        padding: 0;
+        margin-right: 5px;
+        @include mobile-to-midtab{
+            margin-right: 5px;
+        }
+        @include mobile{
+            margin: 0;
+        }
+    }
+    .cta2 {
+        border-radius: 22px;
+        background-color: transparent;
+        border: 1px solid #fff;
+        font-weight: 600;
+        font-size: $subhead-text;
+        text-align: center;
+        padding: 6px 20px;
+        display: inline-block;
+        min-width: 120px;
+        color: $font-color-white;
+        line-height: 25px;
+        width: 180px;
+        margin: 0 0 25px 0;
+        &.semi-trans{
+            background-color: rgba(255,255,255,.85);
+            text-align: center;
+            color: $font-color;
+            background-image: none;
+            &:hover{
+                background-color: rgba(255,255,255,1);
+            }
+        }
+        &.subscribe-stick{
+            font-weight: 400;
+            &:hover{
+                background-color: rgba(109,44,167,.85);
+            }
+        }
+        &.btn:after {
+            content: " ";
+        }
+        @include tablet {
+            padding: 9px 10px;
+            width: 160px;
+        }
+        @include mobile{
+            width: 250px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+    }
+    .follow-row {
+        float: right;
+        margin-top: -60px;
+        @include mobile-to-midtab{
+            width: 100%;
+            float: none;
+            margin-top: 13px;
+        }
+        @include mobile{
+            width: 100%;
+            float: none;
+            margin-top: 13px;
+        }
+        .follow {
+            &.share-tab{
+                width: auto;
+                display: inline-block;
+                float: none;
+                margin-right: 6px;
+                vertical-align: top;
+                margin-top: 6px;
+                @include tablet {
+                    padding-top: 0px;
+                }
+                .share{
+                     text-align: left;
+                     padding-top: 0;
+                     &::after {
+                         content: " ";
+                     }
+                 }
+             }
+        }
+        .share-tab{
+            display: inline;
+            float: none;
+            padding-right: 0px;
+            .follow-button{
+                a{
+                    margin-left: 16px;
+                    color: #fff;
+                    width: 35px;
+                    height: 35px;
+                    display: inline-block;
+                    background: #fff;
+                    border-radius: 50px;
+                    text-align: center;
+                    .at-icon-wrapper{
+                        display: inline-block;
+                        overflow: hidden;
+                        width: 35px !important;
+                        height: 35px !important;
+                        line-height: 45px !important;
+                        background-color: transparent !important;
+                        @include mobile{
+                            width: 33px !important;
+                            height: 33px !important;
+                        }
+                        .at-icon{
+                            fill: #7daff2;
+                            width: 20px !important;
+                            height: 20px !important;
+                        }
+                    }
+                    @include mobile{
+                        width: 33px;
+                        height: 33px;
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+}

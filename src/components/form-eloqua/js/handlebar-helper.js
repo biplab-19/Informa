@@ -2,6 +2,8 @@
 // 	I knew it, unicorns are just low-quality ponies!
 // {{/compare}}
 
+// any additional helpers need to be copied into /scripts/handlebar-helper-grunt.js for compile time
+
 Handlebars.registerHelper('compare', function(lvalue, rvalue, options) {
 
   if (arguments.length < 3)
@@ -61,13 +63,50 @@ Handlebars.registerHelper('splitURL', function(string, substring) {
   }
 });
 
+Handlebars.registerHelper('IfNotBlank', function(strvalue,options) {
+  if(strvalue==null || strvalue==undefined) ( strvalue="")
+  strvalue = strvalue.trim();
+  if( strvalue.length > 0 ) {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+});
+
 Handlebars.registerHelper('AnalystData', function(profile) {
   if(profile){
     var u = profile.split("#");
-    if(profile.includes('#') && u[1]){
+    if(profile.indexOf('#')!== -1 && u[1]){
           return "<a href="+u[1]+">"+u[0]+"</a>";
     }else{
       return profile;
     }
+  }
+});
+
+Handlebars.registerHelper({
+  eq: function (v1, v2) {
+      return v1 === v2;
+  },
+  ne: function (v1, v2) {
+      return v1 !== v2;
+  },
+  lt: function (v1, v2) {
+      return v1 < v2;
+  },
+  gt: function (v1, v2) {
+      return v1 > v2;
+  },
+  lte: function (v1, v2) {
+      return v1 <= v2;
+  },
+  gte: function (v1, v2) {
+      return v1 >= v2;
+  },
+  and: function () {
+      return Array.prototype.slice.call(arguments).every(Boolean);
+  },
+  or: function () {
+      return Array.prototype.slice.call(arguments, 0, -1).some(Boolean);
   }
 });

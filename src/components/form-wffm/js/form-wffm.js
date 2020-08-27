@@ -27,6 +27,10 @@ INFORMA.forms = (function (window, $, namespace) {
         _bindSelectOptions,
         _showOverlay,
         _showOverlayQueryString,
+        _getCookies,
+        _checkCookie,
+        _getQueryString,
+        _getUtmSource,
         _validateAllForms,
         _reCaptchaHandler,
         _disableSubmit,
@@ -214,17 +218,92 @@ INFORMA.forms = (function (window, $, namespace) {
                     });
                 });
             }
+            var checkboxFields = $form.find('.checkbox-required .custom-checkbox input');
+                checkboxFields.each(function (index, checkboxField) {
+                    var $checkboxField = $(checkboxField);
+					var error=$checkboxField.attr("data-val-required");
+                    var helpBlock = $checkboxField.parents(".checkbox-required").find('span.help-block');
+					result=$checkboxField.val();
+					if(result=="false" && error!=null)
+					{
+						$(helpBlock).text(error);
+						result=false;
+					}
+					else
+					{
+						$(helpBlock).text("");
+						result=true;
+					}
+                });
         } catch (e) {
             console.log(e);
         }
         return result;
     }
 
+    _getCookies = function(cookiepara) {
+        var cookieName = cookiepara + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(cookieName) == 0) {
+            return c.substring(cookieName.length, c.length);
+          }
+        }
+        return "";
+    }
+    _checkCookie=function() {
+        var cookieval=_getCookies("_utmz");
+        if (cookieval != "") {
+            return cookieval;
+        } 
+        else {
+            return "";
+        }
+    }
+    _getQueryString=function(key) {
+        var url = location.search;
+        var qs = url.substring(url.indexOf('?') + 1).split('&');
+        if(qs.length > 1) {
+            for(var i = 0, result = {}; i < qs.length; i++) {
+            qs[i] = qs[i].split('=');
+            result[qs[i][0]] = decodeURIComponent(qs[i][1]);
+            var querystring=qs[i][0];
+            var value=qs[i][1];
+            if(querystring==key)
+            {
+                return value;
+            }
+            
+            
+            }
+            return "";
+        }
+        return "";
+    }
+    _getUtmSource=function() {
+        var utmsource=_getQueryString("utm_source");
+        if(utmsource){
+            return utmsource;
+
+        }
+        else {
+            return _checkCookie();      
+         }
+        
+        
+    }
     //Recaptcha handler on click of submit and google analytics changes
+    //test123absoats
     _reCaptchaHandler = function () {
         $("form.get-in-touch, form.request-a-demo, form.single-step-form").on('click', 'input[type="submit"]', function (e) {
             getCurrentform = $(this).parents('form');
             if (_isValidForm() == true) {
+                $(getCurrentform).find('.utm-source').val(_getUtmSource());
                 var grecaptchaDiv = $(getCurrentform).find('.g-recaptcha');
                 if (grecaptchaDiv.length > 0) {
                     e.preventDefault();
@@ -444,26 +523,35 @@ INFORMA.forms = (function (window, $, namespace) {
 
     _showOverlay = function () {
         var formSubmitResponseModal;
+//14/02/19
         if (_formSubmitStatus.length > 0) {
-            if (_formSubmitStatus.attr('data-status') == "") {
-                formSubmitResponseModal = _formSubmitStatus.parents('.form-modal:first');
+            var submmitedFormResponseStatus = $(_formSubmitStatus[0]);
+            if (submmitedFormResponseStatus.attr('data-status') == "") {
+
+                formSubmitResponseModal = submmitedFormResponseStatus.parents('.form-modal:first');
                 if (formSubmitResponseModal.length > 0) {
                     formSubmitResponseModal.find('form').removeClass('hide');
                     formSubmitResponseModal.find('.submit-response, .error-response').addClass('hide');
                     formSubmitResponseModal.removeClass('centreAlign');
                 }
-            } else if (_formSubmitStatus.attr('data-status').length > 0) {
-                formSubmitResponseModal = _formSubmitStatus.parents('.form-modal:first');
-                if (formSubmitResponseModal.length > 0) {
+            } else if (submmitedFormResponseStatus.attr('data-status').length > 0) {
 
-                    formSubmitResponseModal.find('form').addClass('hide');
-                    formSubmitResponseModal.find('.submit-response, .error-response').removeClass('hide');
-                    formSubmitResponseModal.addClass('centreAlign');
-                    _resetForm(formSubmitResponseModal.find('form'));
-                    formSubmitResponseModal.modal({
-                        show: true
-                    })
+                var divInlineForm = submmitedFormResponseStatus.parents("div[data-modal]");
+                //do not show overlay if its in-line form submit
+                if(divInlineForm.length==0)
+                {
+                    formSubmitResponseModal = submmitedFormResponseStatus.parents('.form-modal:first');
+                    if (formSubmitResponseModal.length > 0) {
 
+                        formSubmitResponseModal.find('form').addClass('hide');
+                        formSubmitResponseModal.find('.submit-response, .error-response').removeClass('hide');
+                        formSubmitResponseModal.addClass('centreAlign');
+                        _resetForm(formSubmitResponseModal.find('form'));
+                        formSubmitResponseModal.modal({
+                            show: true
+                        })
+
+                    }
                 }
 
                 //Checking The status and Displaying that section
@@ -498,20 +586,14 @@ INFORMA.forms = (function (window, $, namespace) {
                 } else {
                     Parent.find('.submit-response, .error-response').addClass('hide');
                 }
-                // var a = Math.ceil(Math.random() * 9)+ '';
-                // var b = Math.ceil(Math.random() * 9)+ '';
-                // var c = Math.ceil(Math.random() * 9)+ '';
-                // var d = Math.ceil(Math.random() * 9)+ '';
-                // var e = Math.ceil(Math.random() * 9)+ '';
 
-                // var code = a + b + c + d + e;
-                // $('.txtCaptcha').val(code);
-                // $(".CaptchaDiv").html(code);
             })
 
         }
 
     }
+
+
 
 
     _validateAllForms = function () {
@@ -1012,6 +1094,10 @@ INFORMA.forms = (function (window, $, namespace) {
         _bindNumber();
         _showOverlay();
         _showOverlayQueryString();
+        _getCookies();
+        _checkCookie();
+        _getQueryString();
+        _getUtmSource();
         _reCaptchaHandler();
         _bindToolTip();
         _bindCalendar();

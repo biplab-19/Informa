@@ -1,0 +1,119 @@
+.inf-sign-up-box {
+    background-color: #ee456c;
+    width: 225px;
+    padding: 9px 20px 40px;
+    position: fixed;
+    right: 17px;
+    bottom: 17px;
+    text-align: center;
+    overflow: hidden;
+    z-index: 9;
+    img {
+        max-width: 100%;
+    }
+    p {
+        font-size: 18px;
+        color: #fff;
+        margin: 5px 0 0;
+    }
+    input[type=text] {
+        border: 0px;
+        background-color: #fff;
+        font-size: 12px;
+        padding: 3px 10px 5px;
+        margin: 4px 0 0;
+        width: 100%;
+        border-radius: 7px;
+        -webkit-border-radius: 7px;
+        -moz-border-radius: 7px;
+        float: left;
+        height: 25px;
+        text-align: center;
+    }
+    button, a {
+        border: 0px !important;
+        background-color: #494a58 !important;
+        color: #868c90 !important;
+        font-size: 14px;
+        padding: 0px 13px 5px;
+        margin: 25px 0 0;
+        max-width: 100%;
+        border-radius: 7px !important;
+        -webkit-border-radius: 7px !important;
+        -moz-border-radius: 7px !important;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: auto !important;
+        height: auto !important;
+    }
+    button.inf-sign-up, a.inf-sign-up {
+        opacity: 0.8;
+        cursor: not-allowed;
+    }
+    button.inf-sign-up.inf-btn-active, a.inf-sign-up.inf-btn-active {
+        opacity: 1;
+        cursor: pointer;
+    }
+    img.collapse-box {
+        position: absolute;
+        right: 6px;
+        bottom: 9px;
+        cursor: pointer;
+    }
+    @include mobile {
+        display: none;
+        bottom: 50px;
+    }
+    label.error-msg {
+        display: none;
+        color: $white;
+        font-size: 11px;
+        font-weight: normal;
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        bottom: 67px;
+        &.active {
+            display: block;
+        }
+    }
+}
+
+.inf-sign-up-box-expand {
+    background-color: #ee456c;
+    width: 155px;
+    padding: 6px 6px 3px;
+    position: fixed;
+    right: 17px;
+    bottom: 17px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    cursor: pointer;
+    z-index: 9;
+    display: none;
+    a {
+        background-color: #494a58;
+        color: #f7bdc6 !important;
+        font-size: 14px;
+        padding: 3px 17px 7px;
+        max-width: 112px;
+        border-radius: 7px;
+        -webkit-border-radius: 7px;
+        -moz-border-radius: 7px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        display: inline-block;
+    }
+    img.expand-box {
+        position: absolute;
+        right: 6px;
+        bottom: 9px;
+    }
+    @include mobile {
+        display: block;
+        bottom: 50px;
+    }
+}

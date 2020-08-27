@@ -1,0 +1,77 @@
+section#gallery-team-profile {
+    margin: 2em 0;
+
+    .tm-img {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        max-width: 400px;
+        border-radius: 30px;
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .content {
+        @include mobile {
+            margin-top: 20px;
+        }
+
+        header {
+            padding: 0 30px;
+
+            h1 {
+                font-weight: 600;
+                font-size: 34px;
+                line-height: 1.4;
+                color: $tech-indigo;
+                @include mobile {
+                    font-size: 30px;
+                    line-height: 1.5;
+                }
+            }
+
+            p {
+                padding: 0;
+                font-weight: 300;
+                font-size: 34px;
+                line-height: 1.4;
+                color: $tech-indigo;
+                @include mobile {
+                    font-size: 30px;
+                    line-height: 1.5;
+                }
+            }
+
+            .social-icons {
+                margin-left: -20px;
+                margin-bottom: 20px;
+                padding-left: 0;
+                overflow: hidden;
+
+                li {
+                    float: left;
+                    padding-left: 20px;
+
+                    a, img {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+
+    .detail {
+        padding: 0 30px;
+
+        & > * {
+            font-weight: 300;
+            font-size: 18px;
+            line-height: 1.5;
+            color: black;
+        }
+    }
+}

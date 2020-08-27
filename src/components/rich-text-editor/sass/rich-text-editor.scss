@@ -1,0 +1,26 @@
+@media only screen and (max-width: 768px) {
+   
+
+    .bio-detail {
+        .parent-node {
+            display: flex;
+            flex-direction: column;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+
+
+            .moveColumnTop1 {
+                order: 2;
+                margin-bottom: 25px;
+            }
+
+            .moveColumnTop2 {
+                order: 1;
+                margin-bottom: 15px;
+            }
+        }
+    }
+}

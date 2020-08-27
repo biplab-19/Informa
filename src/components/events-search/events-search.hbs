@@ -1,39 +1,496 @@
+<section id="event-title">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>UPCOMING EVENTS AND TRAINING PROGRAMME</h1>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="events-search">
-	<div class="container">
-		<div class="row">
-			<div class="select-section col-sm-12 col-md-12">
-				<div class="row">
-					<div class="col-xs-12 col-sm-3 form-group">
-						<label for="sector">View by sector</label>
-	                    <select class="chosen-select" name="sector" id="sector">
-	                        <option value="All">All</option>
-	                        <option value="latest">latest</option>
-	                    </select>
-					</div>
-					<div class="col-xs-12 col-sm-3 form-group">
-						<label for="month">View by month</label>
-	                    <select class="chosen-select" name="month" id="month">
-	                        <option value="June 2016">All</option>
-	                        <option value="July 2016">latest</option>
-	                    </select>
-					</div>
-					<div class="col-xs-12 col-sm-3 form-group">
-						<label for="event-type">Type</label>
-	                    <select class="chosen-select" name="eventType" id="event-type">
-	                        <option value="June 2016">All</option>
-	                        <option value="July 2016">latest</option>
-	                    </select>
-					</div>
-				</div>
-			</div>
-			<div class="views-section col-xs-12 col-sm-3 col-md-offset-3 col-md-3">
-				<div class="views">
-					<a href="#" data-viewport="list-view" class="icon-list-view active">Tile View</a>
-				</div>
-				<div class="views">
-					<a href="#" data-viewport="calendar-view" class="icon-calendar">Calendar View</a>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="row select-section">
+            <div class="col-xs-12 col-sm-3 form-group">
+                <label for="Eventmonth">Date</label>
+                <select class="chosen-select" name="MonthYear" id="Eventmonth">
+                    <option value="">All</option>
+                </select>
+            </div>
+            <div class="col-xs-12 col-sm-3 custom-dd-menu singletier-menu" name="MonthYear" id="Eventmonth"
+                data-selected="" data-ignore="" data-values="" tabindex="1">
+                <a id="date-menu"><span class="triangle-right"></span>Date</a>
+                <div class="dropdown-content dropdown-content-second">
+                    <div class="wrapper-dropdown-1 drop-content">
+                        <ul class="custom-drop-options">
+                            <li id="" class="date-item" attr-index="0">
+                                <label class="round-checkbox active">
+                                    <input type="checkbox" class="input-checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <p class="sub-seg single-level-dropdown">All</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-3 form-group">
+                <label for="Eventssector">Sector</label>
+                <select class="chosen-select" name="SectorId" id="Eventssector">
+                    <option value="">All</option>
+                    <option value="fc396499fdc142caa1d0c69b5f01925a">Business and portfolio strategy</option>
+                    <option value="9d64151e82624e0cbfa038a011e0aa5f">Business development and licensing</option>
+                    <option value="064001b79cd749569d1999ba915d92fc">Clinical research and development intelligence
+                    </option>
+                    <option value="b61d1e0a6c2a4e079ec6b4b7cc6333ea">Competitive and market intelligence</option>
+                    <option value="0c8857c46d8646b3a37249eb1e38527f">how-we-help</option>
+                    <option value="59963676bdc54d4aa82ddcd576af8eb6">Marketing Services</option>
+                    <option value="a850f873835a4ef2ab40b8974d5df9c5">Medtech market intelligence</option>
+                    <option value="524b17bd00144651b4d72c02453b1305">Pharma Consulting</option>
+                    <option value="a392916f122d4dc5b3e1710bec0fc729">Regulatory approval</option>
+                </select>
+            </div>
+            <div class="col-xs-12 col-sm-3 form-group">
+                <label for="eventType">Type</label>
+                <select class="chosen-select" name="EventType" id="eventType">
+                    <option value="">All</option>
+                    <option value="{16B664FF-743B-40DD-BAFA-A41D72BA80E8}" selected>Awards</option>
+                    <option value="{38CA08C3-9D97-4B6E-8536-99C61CF94F25}">Client event</option>
+                    <option value="{997EDCA3-9F3C-449B-AA7D-7E1BD9919779}">Conference</option>
+                    <option value="{1B8914EF-1FA0-40B4-B979-329B6723AF33}">Industry conference</option>
+                    <option value="{458DF619-5501-48F0-A982-B76868683F2D}">Roundtable</option>
+                    <option value="{C014098E-0165-447E-B95A-C16E97D5AFFC}">Training</option>
+                    <option value="{D3D58B74-5EF1-4624-955B-68698D1CE94A}">Webinar</option>
+                </select>
+            </div>
+            <div class="col-xs-12 col-sm-3 form-group">
+                <label for="Eventcountry">Country</label>
+                <select class="chosen-select" name="Country" id="Eventcountry">
+                    <option value="">All</option>
+                    <option value="{6D506EDE-F0E4-4964-93FF-D8A3DA23BDA0}">USA</option>
+                    <option value="{A1EF0A44-49EE-467F-964C-F748991F5552}">UK</option>
+                    <option value="{D5B99037-EEA3-4359-8B38-9375D5A0B219}">Angola</option>
+                    <option value="{B9C6CE4A-9795-4344-B826-4F16A4FBFFE4}">Argentina</option>
+                    <option value="{3227A722-2F53-44C0-9CB4-F47E01A737A9}">Australia</option>
+                    <option value="{912984C6-5D45-4F1B-B99C-9D10EE052C2A}">Austria</option>
+                    <option value="{8F6A6248-F3C5-4DE1-BE41-866AAD0A7BC7}">Bahrain</option>
+                    <option value="{476C7303-E6F4-4E8A-80EB-59A0C6EAC9BB}">Belgium</option>
+                    <option value="{DD1F0317-77E9-4190-9260-D9A7BA5F5739}">Benelux</option>
+                    <option value="{800347B7-F5FA-4C1A-A7FE-F0B024E04DB9}">Bermuda</option>
+                    <option value="{21C61518-963F-4437-9A1B-87DE370E54C9}">Brazil</option>
+                    <option value="{0EE04D7D-081D-4B1D-B774-1B838FFBD4A0}">Bulgaria</option>
+                    <option value="{356BF69A-5E45-42E8-B8F6-26DCFF7796F5}">Canada</option>
+                    <option value="{8E32F4F0-6E02-4BA6-BF38-54163706231F}">Cayman Islands</option>
+                    <option value="{44B58988-C22A-4774-99C4-37166F55A207}">Chile</option>
+                    <option value="{3A218235-4950-4E7E-BF00-20828FF5F810}">China</option>
+                    <option value="{C19D7D87-CBDB-4556-AD07-06740C85A097}">Colombia</option>
+                    <option value="{A8A3F51B-B387-4A20-BB22-58AC759405EA}">Czech Republic</option>
+                    <option value="{1F8FB908-4006-486F-9FC4-A7792CF6FC03}">Denmark</option>
+                    <option value="{F581B904-6617-4FB5-A195-5DD8D0C35E56}">Egypt</option>
+                    <option value="{2EA213F8-023B-4012-84DC-12276922C3B9}">Finland</option>
+                    <option value="{711E7043-9BBA-439A-AD8D-9BA0A9F7BCF4}">France</option>
+                    <option value="{A1CCAC77-A496-47F5-912E-F76CB0D4A6E0}">Germany</option>
+                    <option value="{4F932972-BD12-4B85-844C-D7749E0BA1E2}">Greece</option>
+                    <option value="{D8F5FA70-0743-4D39-A210-F1DA5B0E5D34}">Hong Kong</option>
+                    <option value="{5DDF52D7-F554-4265-AE12-D2680374F54B}">Hungary</option>
+                    <option value="{552A1C46-4F5F-49D4-95ED-3A30B4BA2693}">India</option>
+                    <option value="{EF6061BE-2253-4850-A563-47ECBF422CBB}">Indonesia</option>
+                    <option value="{C4A39F5F-E87E-4594-A6B1-45FA2C415F2E}">Iran</option>
+                    <option value="{5E322C17-98C6-494D-89ED-8827CF7BFB62}">Ireland</option>
+                    <option value="{D43D19CA-1283-41AA-B5DC-AC7A5B062905}">Israel</option>
+                    <option value="{243DE2FB-D7B8-4973-A204-2DDA72A2E8D5}">Italy</option>
+                    <option value="{675535D2-41D9-4614-9813-3BAF3BBA3F4A}">Japan</option>
+                    <option value="{C65B4276-3336-41B5-B0D1-8AE6131339AC}">Kenya</option>
+                    <option value="{969226CB-695C-4083-9EEE-2A00F610A391}">Kuwait</option>
+                    <option value="{E4ECA4CB-2D43-4537-A65E-7EFAD5619C8E}">Malaysia</option>
+                    <option value="{F1D94E86-50DA-4F78-A145-4314B82EFE68}">Mexico</option>
+                    <option value="{6F2E5316-83EA-495D-8495-1F243F81A0DC}">Monaco</option>
+                    <option value="{C273BBDD-FC27-42E7-95B9-45C789727C66}">Morocco</option>
+                    <option value="{6B90F62E-0A9F-4122-83BC-0CDFEB1E1175}">Mozambique</option>
+                    <option value="{B9143E30-2F14-43DE-A52C-83728AD6BF7F}">Myanmar</option>
+                    <option value="{0BFBAF73-BD97-4B51-A5D2-5C6516EF9C0C}">Netherlands</option>
+                    <option value="{167FCC42-48EC-47B1-B812-66355A1127DB}">New Zealand</option>
+                    <option value="{A65E88D4-B97B-4241-9A50-6CE6A81E1D73}">Nigeria</option>
+                    <option value="{2FF8020E-A2F4-4BEA-AF93-FC5CA52288A5}">Norway</option>
+                    <option value="{98DD9DA0-69E5-452D-9531-AFB9B7601E16}">Oman</option>
+                    <option value="{AD03F21B-E11C-48F1-B752-64F00B3AA656}">Philippines</option>
+                    <option value="{5F2EFA38-977D-40AD-8851-1C8419521766}">Poland</option>
+                    <option value="{868AFBF7-DB58-45C7-8FFE-FEB7F524E350}">Portugal</option>
+                    <option value="{11E37D68-2171-4100-93D1-3E3643E4BF15}">Qatar</option>
+                    <option value="{52E7E380-5231-4205-BE95-909B15C36307}">Romania</option>
+                    <option value="{D1464549-6A6E-4C68-B62A-D7E735ECEF20}">Russian Federation</option>
+                    <option value="{EFC1B42B-30FC-4D5A-87AE-ACD9ECB69D8F}">Saudi Arabia</option>
+                    <option value="{14B9561D-868C-4192-9F88-90A34D1AD5E9}">Senegal</option>
+                    <option value="{B309987E-C3F0-4609-BA9C-EB23E8FD4167}">Serbia</option>
+                    <option value="{15BA7DAA-E9A5-4E89-858E-3C99DA537124}">Singapore</option>
+                    <option value="{948A80FE-D4A0-453F-8370-71082DF8B690}">Slovakia</option>
+                    <option value="{F6ED1836-32B4-405D-A62B-5B252D6A30A6}">South Africa</option>
+                    <option value="{62A5A61B-4135-486E-9AE4-14F5ADA58BEA}">South Korea</option>
+                    <option value="{C039004B-7A7C-498F-AD2B-10D7BB6B31C8}">Spain</option>
+                    <option value="{6F36C088-14AB-4B59-85D6-992FD9A0E9B2}">Sweden</option>
+                    <option value="{D8DD33CA-BC64-42E4-9338-9D906E255F8E}">Switzerland</option>
+                    <option value="{F9D8CA7D-9390-411A-B87B-276511B983D3}">Taiwan</option>
+                    <option value="{132F4DD3-B6FC-4BE8-85F7-94B9C2C721D5}">Thailand</option>
+                    <option value="{C389DED5-DAB2-4F85-A722-C4A6D80D6F50}">Turkey</option>
+                    <option value="{B2112D93-0C97-4FA4-B7DF-55002694DA7E}">UAE</option>
+                    <option value="{CECEE3D0-48C2-4C6C-AFCC-D939F6D8B58F}">Ukraine</option>
+                    <option value="{DC78ECAA-7DEB-4A2C-9E1C-C684FE684467}">Vietnam</option>
+                </select>
+            </div>
+            <div class="col-xs-12 col-sm-3 custom-dd-menu singletier-menu" name="productType" id="productType"
+                data-selected="" data-ignore="" data-values="" tabindex="1">
+                <a id="products-menu"><span class="triangle-right"></span>Product</a>
+                <div class="dropdown-content dropdown-content-second">
+                    <div class="wrapper-dropdown-1 drop-content">
+                        <ul class="custom-drop-options">
+                            <li id="0abdd0b635524d0d9e999dc769db7da0" class="producttype-item" attr-index="0">
+                                <label class="round-checkbox active">
+                                    <input type="checkbox" class="input-checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <p class="sub-seg single-level-dropdown">Event</p>
+                            </li>
+                            <li id="6edef3b8168445708a85eba3c48f36c0" class="producttype-item" attr-index="1">
+                                <label class="round-checkbox active">
+                                    <input type="checkbox" class="input-checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <p class="sub-seg single-level-dropdown">Media</p>
+                            </li>
+                            <li id="120f9ba56d0e4d31a4e186548525188e" class="producttype-item" attr-index="2">
+                                <label class="round-checkbox active">
+                                    <input type="checkbox" class="input-checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <p class="sub-seg single-level-dropdown">Research</p>
+                            </li>
+                            <li id="0fb00808f7fb4aeabdb8dc5f2a442180" class="producttype-item" attr-index="3">
+                                <label class="round-checkbox active">
+                                    <input type="checkbox" class="input-checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <p class="sub-seg single-level-dropdown">Training</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="wrapper-dropdown-1 col-xs-12 col-sm-3 custom-dd-menu multitier-menu" name="segment"
+                id="EventSegment" data-selected="" data-ignore="" data-values="">
+                <a id="segments-menu"><span class="triangle-right"></span>Segment</a>
+                <div class="dropdown-content dropdown-content-first">
+                    <div class="drop-content">
+                        <ul class="custom-drop-options">
+                            <li id="3b4ea4efbc9443f3bec797f4b384bf88" class="segmanet-head-mob">
+                                <span class="triangle-right"></span>
+                                <label class="round-checkbox">
+                                    <input type="checkbox" class="input-checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <p class="segmanet-head">Critical Communications</p>
+                                <ul class="sub-seg-mob">
+                                    <li class="selectall" parentsegmentid="3b4ea4efbc9443f3bec797f4b384bf88">
+                                        <label class="round-checkbox active">
+                                            <input type="checkbox" class="input-checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p class="sub-seg sub-segment">Select All Subsegment</p>
+                                    </li>
+                                    <li id="9f6e7cfd0609418dbed961334544a378"
+                                        parentsegmentid="3b4ea4efbc9443f3bec797f4b384bf88">
+                                        <label class="round-checkbox active">
+                                            <input type="checkbox" class="input-checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p class="sub-seg sub-segment">First Responders and Emergency Services</p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li id="f0c1f4f4d4934fcca370b9b0d005c520" class="segmanet-head-mob">
+                                <span class="triangle-right"></span>
+                                <label class="round-checkbox">
+                                    <input type="checkbox" class="input-checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <p class="segmanet-head">Emerging Technologies</p>
+                                <ul class="sub-seg-mob">
+                                    <li class="selectall" parentsegmentid="f0c1f4f4d4934fcca370b9b0d005c520">
+                                        <label class="round-checkbox active">
+                                            <input type="checkbox" class="input-checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p class="sub-seg sub-segment">Select All Subsegment</p>
+                                    </li>
+                                    <li id="986978f3c5c44aabac553fa8aadb5a77"
+                                        parentsegmentid="f0c1f4f4d4934fcca370b9b0d005c520">
+                                        <label class="round-checkbox active">
+                                            <input type="checkbox" class="input-checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p class="sub-seg sub-segment">AI</p>
+                                    </li>
+                                    <li id="7de72fc0067c48e3a8b2b6308294bd6c"
+                                        parentsegmentid="f0c1f4f4d4934fcca370b9b0d005c520">
+                                        <label class="round-checkbox active">
+                                            <input type="checkbox" class="input-checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p class="sub-seg sub-segment">Blockchain</p>
+                                    </li>
+                                    <li id="07a0d48363d746189cd8b7cfc31fc804"
+                                        parentsegmentid="f0c1f4f4d4934fcca370b9b0d005c520">
+                                        <label class="round-checkbox active">
+                                            <input type="checkbox" class="input-checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p class="sub-seg sub-segment">IoT</p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li id="d958f1773b044beb9796fd249cd64047" class="segmanet-head-mob">
+                                <span class="triangle-right"></span>
+                                <label class="round-checkbox">
+                                    <input type="checkbox" class="input-checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <p class="segmanet-head">Enterprise IT</p>
+                                <ul class="sub-seg-mob">
+                                    <li class="selectall" parentsegmentid="d958f1773b044beb9796fd249cd64047">
+                                        <label class="round-checkbox active">
+                                            <input type="checkbox" class="input-checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p class="sub-seg sub-segment">Select All Subsegment</p>
+                                    </li>
+                                    <li id="0809426f4baa42e4a6be07407fb4fc8a"
+                                        parentsegmentid="d958f1773b044beb9796fd249cd64047">
+                                        <label class="round-checkbox active">
+                                            <input type="checkbox" class="input-checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p class="sub-seg sub-segment">Cloud / Data Centre</p>
+                                    </li>
+                                    <li id="d64fb2b9394c48389987dd77484c889b"
+                                        parentsegmentid="d958f1773b044beb9796fd249cd64047">
+                                        <label class="round-checkbox active">
+                                            <input type="checkbox" class="input-checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p class="sub-seg sub-segment">Contact Center</p>
+                                    </li>
+                                    <li id="1c5c6361bd9344108ce76c0d749b3db1"
+                                        parentsegmentid="d958f1773b044beb9796fd249cd64047">
+                                        <label class="round-checkbox active">
+                                            <input type="checkbox" class="input-checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p class="sub-seg sub-segment">Enterprise Communications</p>
+                                    </li>
+                                    <li id="2db0c5361ae9409aadad14fec0cdf88f"
+                                        parentsegmentid="d958f1773b044beb9796fd249cd64047">
+                                        <label class="round-checkbox active">
+                                            <input type="checkbox" class="input-checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p class="sub-seg sub-segment">Service Management</p>
+                                    </li>
+                                    <li id="282e089e4afa48d687db4c20ecae2e52"
+                                        parentsegmentid="d958f1773b044beb9796fd249cd64047">
+                                        <label class="round-checkbox active">
+                                            <input type="checkbox" class="input-checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p class="sub-seg sub-segment">Channels</p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li id="0affcd36646147508145de927ca518a4" class="segmanet-head-mob">
+                                <span class="triangle-right de-active"></span>
+                                <label class="round-checkbox active">
+                                    <input type="checkbox" class="input-checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <p class="segmanet-head">Marketing Technologies</p>
+                            </li>
+                            <li id="aa7590abe3df48e393f4510714aea312" class="segmanet-head-mob">
+                                <span class="triangle-right"></span>
+                                <label class="round-checkbox">
+                                    <input type="checkbox" class="input-checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <p class="segmanet-head">Media And Entertainment</p>
+                                <ul class="sub-seg-mob">
+                                    <li class="selectall" parentsegmentid="aa7590abe3df48e393f4510714aea312">
+                                        <label class="round-checkbox active">
+                                            <input type="checkbox" class="input-checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p class="sub-seg sub-segment">Select All Subsegment</p>
+                                    </li>
+                                    <li id="e4df4c5114c349299e98e408ee7b426f"
+                                        parentsegmentid="aa7590abe3df48e393f4510714aea312">
+                                        <label class="round-checkbox active">
+                                            <input type="checkbox" class="input-checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p class="sub-seg sub-segment">Game and VR Development</p>
+                                    </li>
+                                    <li id="962b282d273847fc915a3a4db0f805c8"
+                                        parentsegmentid="aa7590abe3df48e393f4510714aea312">
+                                        <label class="round-checkbox active">
+                                            <input type="checkbox" class="input-checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p class="sub-seg sub-segment">TV, Video and Devices</p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li id="e32b1467ad124af8b3ac1620467171b7" class="segmanet-head-mob">
+                                <span class="triangle-right de-active"></span>
+                                <label class="round-checkbox active">
+                                    <input type="checkbox" class="input-checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <p class="segmanet-head">Security</p>
+                            </li>
+                            <li id="19faf59231614944a91ca663f257f944" class="segmanet-head-mob">
+                                <span class="triangle-right"></span>
+                                <label class="round-checkbox">
+                                    <input type="checkbox" class="input-checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <p class="segmanet-head">Service Providers</p>
+                                <ul class="sub-seg-mob">
+                                    <li class="selectall" parentsegmentid="19faf59231614944a91ca663f257f944">
+                                        <label class="round-checkbox active">
+                                            <input type="checkbox" class="input-checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p class="sub-seg sub-segment">Select All Subsegment</p>
+                                    </li>
+                                    <li id="b6e11ecb4dbb469faffac49c93915faf"
+                                        parentsegmentid="19faf59231614944a91ca663f257f944">
+                                        <label class="round-checkbox active">
+                                            <input type="checkbox" class="input-checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p class="sub-seg sub-segment">5G</p>
+                                    </li>
+                                    <li id="b6e76ed49c45438c922b6d690089dacb"
+                                        parentsegmentid="19faf59231614944a91ca663f257f944">
+                                        <label class="round-checkbox active">
+                                            <input type="checkbox" class="input-checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p class="sub-seg sub-segment">Broadband and Optical</p>
+                                    </li>
+                                    <li id="f651785231024e8eae7325282f620bda"
+                                        parentsegmentid="19faf59231614944a91ca663f257f944">
+                                        <label class="round-checkbox active">
+                                            <input type="checkbox" class="input-checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p class="sub-seg sub-segment">Connecting the world</p>
+                                    </li>
+                                    <li id="1e236233dc684a9d9d9c6bee112440ba"
+                                        parentsegmentid="19faf59231614944a91ca663f257f944">
+                                        <label class="round-checkbox active">
+                                            <input type="checkbox" class="input-checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p class="sub-seg sub-segment">MVNO</p>
+                                    </li>
+                                    <li id="45f2db5948a94049aca4a9a5aee2c730"
+                                        parentsegmentid="19faf59231614944a91ca663f257f944">
+                                        <label class="round-checkbox active">
+                                            <input type="checkbox" class="input-checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p class="sub-seg sub-segment">Telco Infrastructure</p>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-3 form-group">
+                <label for="EventSegment">Segment</label>
+                <select class="chosen-select" name="SegmentId" id="EventSegment">
+                    <option value="">All</option>
+                    <option value="cbde2c41b1564c019024a7ee628adc22">Critical Communications</option>
+                    <option value="c59d650bb82a4a53a01b076451621ad8">Emerging Technologies</option>
+                    <option value="ec2d52a2fd1245aa857be23c35413257">Enterprise IT</option>
+                    <option value="00382666637b440ab4769d8f52229c78">Marketing Technologies</option>
+                    <option value="4e4c0279def34d64b4f6a33e6af9136f">Media &amp; Entertainment</option>
+                    <option value="e2abd73e85724d9c9a8ab986d1034cd4">Security</option>
+                    <option value="afc81e182591465d9d61b6ea3a636cca">Service Providers</option>
+                </select>
+            </div>
+            <div class="col-xs-12 col-sm-3 form-group">
+                <label for="EventRegion">Region</label>
+                <select class="chosen-select" name="RegionId" id="EventRegion">
+                    <option value="">All</option>
+                    <option value="71cda58ad65d4231a0a95d6907fcde23">Americas</option>
+                    <option value="e296b40389ee4ddea164489174242dee">APAC</option>
+                    <option value="9c188ce1cb774402a064a80590a73fd3">EMEA</op>
+                </select>
+            </div>
+            <div class="col-xs-12 col-sm-3 form-group">
+                <label for="EventProduct">Product</label>
+                <select class="chosen-select" name="ProductId" id="EventProduct">
+                    <option value="">All</option>
+                    <option value="71cda58ad65d4231a0a95d6907fcde23">Americas</option>
+                    <option value="e296b40389ee4ddea164489174242dee">APAC</option>
+                    <option value="9c188ce1cb774402a064a80590a73fd3">EMEA</op>
+                </select>
+            </div>
+            <div class="col-xs-12 col-sm-3 form-group">
+                <label for="EventsProductLine">Product Line</label>
+                <select class="chosen-select" name="ProductLineId" id="EventsProductLine">
+                    <option value="">All</option>
+                    <option value="71cda58ad65d4231a0a95d6907fcde23">Events</option>
+                    <option value="e296b40389ee4ddea164489174242dee">Media</option>
+                    <option value="9c188ce1cb774402a064a80590a73fd3">Training</op>
+                </select>
+            </div>
+            <a href="#" id="closeFilterBtn">Hide filters</a>
+        </div>
+        <a href="#" id="showFiltersBtn" class="btn btn-primary" data-state="select">Select filters</a>
+        <div class="row filter-section" data-count="0">
+            <div class="col-12">
+                <div class="heading">
+                    Active filters (<span class="active-count">0</span>)
+                </div>
+                <div class="active-filters">
+                </div>
+            </div>
+        </div>
+        <div class="row views-section">
+            <div class="col-12">
+                <div class="event-count">
+                    <p>Showing <span class="total">0</span> events found</p>
+                    <a href="#" class="btn export ical"><span class="text">Export Link</span></a>
+                </div>
+                <div class="views">
+                    <div class="state-views">
+                        <div class="view">
+                            <a href="#" data-viewport="list-view" class="icon-list-view">List View</a>
+                        </div>
+                        <div class="view">
+                            <a href="#" data-viewport="tile-view" class="icon-tile-view">Tile View</a>
+                        </div>
+                        <div class="view">
+                            <a href="#" data-viewport="calendar-view" class="icon-calendar-view">Calendar View</a>
+                        </div>
+                    </div>
+                    <div class="date-views">
+                        <div class="dview">
+                            month <input id="dvmonth" type="radio" name="dview" value="month" checked="checked" />
+                            <input id="dvyear" type="radio" name="dview" value="year" /> year
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>

@@ -1,0 +1,252 @@
+@import '_variables';
+@import '_mixins';
+
+.featured-products {
+    /*  height: 842px;*/
+    div#owlcarousel-item {
+        position: relative;
+        overflow: hidden;
+        /*  height: 842px;
+        */
+    }
+
+    .sub-headline {
+        font-family: 'SWTechBrandFont';
+        font-weight: normal;
+        font-size: 48px;
+        line-height: 60px;
+        text-transform: uppercase;
+        color: $indgo-color;
+        position: relative;
+        margin: 0;
+        width:calc(100% - 30px);
+    }
+    
+    // primary button
+    .tech-theme .btn.btnprimary.border-button {
+        width: auto !important;
+        color: #fff;
+        background-color: #002244;
+        border-color: #002244;
+        border-radius: 25px;
+        padding: 10px 45px;
+    }
+
+    .container-fluid {
+        .row {
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+        padding: 0;
+    }
+
+    .carousel-img {
+        position: relative;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .connect-box {
+            position: absolute;
+            bottom: 0;
+            padding: 35px 25px;
+            background: rgba(255, 255, 255, 0.8);
+            color: #011e3e;
+            opacity: 1;
+            height: 280px;
+            text-align: left;
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            .inside-box {
+                position: relative;
+                padding: 0px;
+
+                .readmore {
+                    color: #11a7d9 !important;
+                    font-weight: normal;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+
+                    &:visited {
+                        color: #14416e;
+                    }
+
+                    .fa.fa-long-arrow-right {
+                        vertical-align: middle;
+                    }
+                }
+
+                span.time {
+                    font-weight: bold;
+                    font-size: 16px;
+                    margin-bottom: 10px;
+                    display: block;
+                    font-family: 'SWBrandFont' !important;
+                    font-weight: bold !important;
+                    font-size: 16px !important;
+                    line-height: 26px !important;
+                    color: #555555 !important;
+
+                    @media only screen and (max-width: 768px) {
+                        font-size: 14px !important;
+                        line-height: 20px !important;
+                    }
+                }
+
+                span.Short.description {
+                    font-size: 18px;
+                    font-weight: 100;
+                    margin-bottom: 5px;
+                    font-family: 'SWBrandFont' !important;
+                    font-weight: 200 !important;
+                    font-size: 18px !important;
+                    line-height: 28px !important;
+                    color: #555555 !important;
+
+                    @media only screen and (max-width: 768px) {
+                        font-size: 16px !important;
+                        line-height: 20px !important;
+                    }
+                }
+
+                h3 {
+                    font-size: 34px;
+                    color: #002244 !important;
+                    margin-bottom: 15px;
+                    font-weight: 100;
+                    line-height: 48px;
+                    margin-top: 0
+                }
+
+                button {
+                    font-weight: normal;
+                    font-size: 18px;
+                    line-height: normal;
+                    text-transform: uppercase;
+                    position: absolute;
+                    top: -79px;
+                    left: -25px;
+                    z-index: 99;
+                    padding: 10px 20px;
+                    border-radius: 0px 40px 40px 0px;
+                    border: 0;
+                    background: #dbd600;
+                    min-width: 100px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center
+                }
+            }
+        }
+    }
+
+    .owl-buttons {
+        display: none;
+    }
+
+    .owl-carousel:hover .owl-buttons {
+        display: block;
+    }
+
+    .owl-item {
+        text-align: center;
+    }
+
+    .owl-theme .owl-controls .owl-buttons div {
+        background: transparent;
+        color: #869791;
+        font-size: 40px;
+        line-height: 300px;
+        margin: 0;
+        padding: 0 60px;
+        position: absolute;
+        top: 0;
+    }
+
+    .owl-theme .owl-controls .owl-buttons .owl-prev {
+        left: 0;
+        padding-left: 20px;
+    }
+
+    .owl-theme .owl-controls .owl-buttons .owl-next {
+        right: 0;
+        padding-right: 20px;
+    }
+}
+
+.featured-products {
+    div#owlcarousel-item {
+        position: relative;
+        overflow: hidden;
+
+        .owl-nav {
+            position: absolute;
+            top: 35%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .custom-owl-previous {
+        top: 35%;
+        width: 90px;
+        height: 90px;
+        border-radius: 100%;
+        right: auto;
+        padding-left: 50px !important;
+        background: #fff;
+        position: absolute;
+        left: -50px;
+        z-index: 99;
+        border: 0;
+
+
+        i.fa.fa-angle-left {
+            color: #dbd600;
+            font-size: 46px;
+            margin-right: -3px;
+        }
+    }
+
+    .custom-owl-next {
+        top: 35%;
+        width: 90px;
+        height: 90px;
+        border-radius: 100%;
+        padding-right: 50px !important;
+        background: #fff;
+        position: absolute;
+        right: -50px;
+        z-index: 99;
+        border: 0;
+
+        i.fa.fa-angle-right {
+            color: #dbd600;
+            font-size: 46px;
+            margin-left: -3px;
+        }
+    }
+
+    @include not-mid-tablet {
+
+        .featured-products .carousel-img .connect-box {
+            height: 260px;
+            padding: 20px;
+            padding-right: 60px;
+        }
+
+        .featured-products .carousel-img .connect-box .inside-box button {
+            top: -64px;
+        }
+    }
+}

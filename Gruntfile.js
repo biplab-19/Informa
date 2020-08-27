@@ -94,7 +94,8 @@ module.exports = function(grunt) {
                     layout: 'main-layout.hbs',
                     layoutdir: '<%= config.src %>/templates/layouts',
                     data: ['<%= config.src %>/components/**/*.{json,yml}'],
-                    partials: ['<%= config.src %>/components/**/*.hbs']
+                    partials: ['<%= config.src %>/components/**/*.hbs'],
+                    helpers: ['<%= config.src %>/build-scripts/handlebar-helper-grunt.js']
                 },
                 files: {
                     '<%= config.tmp %>/': ['<%= config.src %>/templates/pages/**/*.hbs']
@@ -129,15 +130,25 @@ module.exports = function(grunt) {
             prod: {
                 files: {
                     '<%= config.dist %>/unminified/Static/js/main.js': ['<%= config.tmp %>/Static/js/*.js','!<%= config.tmp %>/Static/js/analytics.js', '<%= config.tmp %>/Static/js/components/*.js'],
-                    '<%= config.dist %>/unminified/Static/js/vendor.js': ['bower_components/jquery/dist/jquery.min.js','bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js','bower_components/slick-carousel/slick/slick.js','bower_components/handlebars/handlebars.js', 'bower_components/chosen/chosen.jquery.js','bower_components/bootstrap-multiselect/dist/js/bootstrap-multiselect.js', 'bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js', 'bower_components/jquery-validation/dist/jquery.validate.min.js', 'bower_components/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js', 'bower_components/moment/min/moment.min.js', 'bower_components/fullcalendar/dist/fullcalendar.min.js', 'bower_components/picturefill/src/picturefill.js' , 'bower_components/typed.js/lib/typed.min.js'],
+                    '<%= config.dist %>/unminified/Static/js/vendor.js': ['bower_components/jquery/dist/jquery.min.js', 'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js', 'bower_components/slick-carousel/slick/slick.js', 'bower_components/handlebars/handlebars.js', 'bower_components/chosen/chosen.jquery.js', 'bower_components/bootstrap-multiselect/dist/js/bootstrap-multiselect.js', 'bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js', 'bower_components/jquery-validation/dist/jquery.validate.min.js', 'bower_components/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js', 'bower_components/moment/min/moment.min.js', 'bower_components/fullcalendar/dist/fullcalendar.min.js', 'bower_components/picturefill/src/picturefill.js', 'src/scripts/typed.min.js', 'bower_components/owl-carousel/lib/owl.carousel.min.js', 'bower_components/masonry-pkgd/lib/masonry.pkgd.js','bower_components/jquery-ui/jquery-ui.js'],
                     '<%= config.dist %>/unminified/Static/js/pdf.js': ['bower_components/pdf.js-viewer/pdf.js'],
                     '<%= config.dist %>/unminified/Static/js/pdf.worker.js': ['bower_components/pdf.js-viewer/pdf.worker.js'],
+                    '<%= config.dist %>/unminified/Static/js/amcharts.js': ['src/scripts/amcharts/amcharts.js'],
+                    '<%= config.dist %>/unminified/Static/js/animate.min.js': ['src/scripts/amcharts/animate.min.js'],
+                    '<%= config.dist %>/unminified/Static/js/light.js': ['src/scripts/amcharts/light.js'],
+                    '<%= config.dist %>/unminified/Static/js/pie.js': ['src/scripts/amcharts/pie.js'],
+                    '<%= config.dist %>/unminified/Static/js/serial.js': ['src/scripts/amcharts/serial.js'],
+                    '<%= config.dist %>/unminified/Static/js/wow.min.js': ['src/scripts/animation/wow.min.js'],
+                    '<%= config.dist %>/unminified/Static/js/ammap.js': ['src/scripts/amcharts/ammap.js'],
+                    '<%= config.dist %>/unminified/Static/js/worldlow.js': ['src/scripts/amcharts/worldlow.js'],
                     '<%= config.dist %>/unminified/Static/css/component.css': ['<%= config.tmp %>/Static/css/component.css'],
                     '<%= config.dist %>/unminified/Static/css/global.css': ['<%= config.tmp %>/Static/css/global.css'],
                     '<%= config.dist %>/unminified/Static/css/agri-theme.css': ['<%= config.tmp %>/Static/css/agri-theme.css'],
                     '<%= config.dist %>/unminified/Static/css/pharma-theme.css': ['<%= config.tmp %>/Static/css/pharma-theme.css'],
+                    '<%= config.dist %>/unminified/Static/css/tech-theme.css': ['<%= config.tmp %>/Static/css/tech-theme.css'],
                     '<%= config.dist %>/unminified/Static/css/financial-theme.css': ['<%= config.tmp %>/Static/css/financial-theme.css'],
                     '<%= config.dist %>/unminified/Static/css/tmt-theme.css': ['<%= config.tmp %>/Static/css/tmt-theme.css'],
+                    '<%= config.dist %>/unminified/Static/css/tmt-newco-theme.css': ['<%= config.tmp %>/Static/css/tmt-newco-theme.css'],
                     '<%= config.dist %>/unminified/Static/css/maritime-theme.css': ['<%= config.tmp %>/Static/css/maritime-theme.css', '<%= config.tmp %>/Static/css/law-theme.css'],
                     '<%= config.dist %>/unminified/Static/css/law-theme.css': ['<%= config.tmp %>/Static/css/law-theme.css'],
                     '<%= config.dist %>/unminified/Static/css/marketing-module.css': ['src/sass/marketing-module.css'],
@@ -167,14 +178,14 @@ module.exports = function(grunt) {
                             'bower_components/picturefill/src/picturefill.js',
                             'bower_components/chosen/chosen.jquery.js',
                             'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
-                            'bower_components/bootstrap-multiselect//dist/js/bootstrap-multiselect.js',
+                            'bower_components/bootstrap-multiselect/dist/js/bootstrap-multiselect.js',
                             'bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js',
                             'bower_components/jquery-validation/dist/jquery.validate.min.js',
                             'bower_components/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js',
                             'bower_components/moment/min/moment.min.js',
                             'bower_components/fullcalendar/dist/fullcalendar.min.js',
                             'bower_components/picturefill/src/picturefill.js',
-                            'bower_components/typed.js/lib/typed.min.js',
+                            'src/scripts/typed.min.js',
                             'bower_components/pdf.js-viewer/pdf.js',
                             'bower_components/pdf.js-viewer/pdf.worker.js'
                             
