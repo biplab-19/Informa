@@ -1,30 +1,41 @@
 var INFORMA = window.INFORMA || {};
-INFORMA.circleinfo = (function(window, $, namespace) {
+INFORMA.infocirclecarousel = (function (window, $, namespace) {
     'use strict';
     //variables
-    var _circleli = $('.info-circle-container .list-inline li'),
-    // methods
-        init,
-        _circlelicontainer;
+    var init,
+        _container = $(".infocircle-carousel"),
+        _autoplay = _container.data('autorotate'),
+        _dots = _container.data('pagination'),
+        _slideCount = _container.data('itemsperframe'),
+        _speed = _container.data('transitionspeed'),
+        _duration = _container.data('slideduration'),
+        _rtl;
 
-        _circlelicontainer = function() {
-            _circleli.on("click",function(){
-                var clircleid = $(this).attr("data-image");
-                $(".circle-content .content-holder").removeClass("active");
-                $(".circle-container li").removeClass("active");
-                $("#"+clircleid).addClass("active");
-                $(this).addClass("active");
-            });
-        }
+    if(_container.data('rtl') !== undefined) {
+        _rtl = _container.data('rtl');
+    }
 
+    if(_rtl === true && _autoplay === true) {
+        _container.on('init', function() {
+            window.setInterval(function() {
+                _container.slick('slickPrev');
+            }, _duration);
+        });
+    }
 
-
-    init = function() {
-        _circlelicontainer();
+    init = function () {
+        $(".infocircle-carousel").slick({
+            arrows: false,
+            autoplay: _autoplay,
+            dots: _dots,
+            slidesToShow: _slideCount,
+            speed: _speed,
+            autoplaySpeed: _duration
+        });
     };
 
     return {
         init: init
     };
-}(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
-jQuery(INFORMA.circleinfo.init());
+}(this, jQuery, 'INFORMA'));
+jQuery(INFORMA.infocirclecarousel.init());
