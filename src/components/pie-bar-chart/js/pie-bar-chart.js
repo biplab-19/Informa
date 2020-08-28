@@ -15,7 +15,8 @@ INFORMA.piebarchart = (function(window, $, namespace) {
         _createPieBarChartSection,
         _createPie,
         _createBar,
-        _initializeSlider
+        _initializeSlider,
+        _buttonMargin
 
     _getPieBarChartData = function(obj) {
         _results = JSON.parse($(obj).find("input[type=hidden]").val());
@@ -35,10 +36,18 @@ INFORMA.piebarchart = (function(window, $, namespace) {
         $(obj).find(".inf-pie-bar-chart-section").append(_html);
         if( _results.Type == "pie") {
             $(obj).addClass("chart-background");
+            $(obj).find("p.heading").addClass("pie-heading");
+            $(obj).find("img.icon").addClass("pie-icon-sub-head");
+            $(obj).find("p.sub-heading").addClass("pie-icon-sub-head");
+            $(obj).find(".pie-bar-chart-container").addClass("pie-animation");
             _createPie(obj);
         }
         if( _results.Type == "bar") {
             $(obj).addClass("bar-chart-background");
+            $(obj).find("p.heading").addClass("bar-heading");
+            $(obj).find("img.icon").addClass("bar-icon-sub-head");
+            $(obj).find("p.sub-heading").addClass("bar-icon-sub-head");
+            $(obj).find(".pie-bar-chart-container").addClass("bar-animation");
             _createBar(obj);
         }
         _initializeSlider(obj);
@@ -47,23 +56,22 @@ INFORMA.piebarchart = (function(window, $, namespace) {
     _createPie = function(obj) {
         $(obj).find('.pie-bar-chart-col .pie-bar-chart-container').each(function() {
             var pieId = (this.id);
-            var facet = _results.FacetList.filter(facet=>facet.Id+_results.UniqueId == pieId);
+            var facet = _results.FacetList.filter(function(n){return n.Id+_results.UniqueId === pieId});
             var chart = AmCharts.makeChart(pieId, {
                 "type": "pie",
+                "radius": mobileRadius().Radius,
                 "hideCredits":"true",
-                "labelTickAlpha": "0",
+                "labelTickAlpha": "50",
+                "labelTickColor": "#fff",
+                "labelRadius": 20,
                 "labelText": "[[title]]\n",
                 "labelFunction": function (category) {
                     var title = category.title;
-                    title = title.replace(" ","\n") + "\n";
                     var value = category.value;
-                    if(title.length > 15) {
-                        title = title.substring(0,15) + '...';
-                    }
                     return title +"\n"+ value;
                 },
                 "theme": "light",
-                "fontSize": 12,
+                "fontSize": 11,
                 "color": "#ffffff",
                 "colorField": "Color",
                 "titleField": "Name",
@@ -78,19 +86,29 @@ INFORMA.piebarchart = (function(window, $, namespace) {
                     "menu": []
                 }
             });
-        
+            function mobileRadius() {
+                var obj = {
+                    Radius: 110
+                }
+                var currentWidth = window.screen.width;
+                if (currentWidth >= 320 && currentWidth < 767) {
+                    obj.Radius = 60
+    
+                return obj;
+                }
+                return obj;
+            }
         });
     }
 
     _createBar = function(obj) {
         $(obj).find('.pie-bar-chart-col .pie-bar-chart-container').each(function() {
             var barChartId = (this.id);
-            var facet = _results.FacetList.filter(facet=>facet.Id+_results.UniqueId == barChartId);
+            var facet = _results.FacetList.filter(function(n){return n.Id+_results.UniqueId === barChartId});
             var chart = AmCharts.makeChart(barChartId, {
                 "type": "serial",
                 "hideCredits": "true",
                 "theme": "none",
-                "marginRight": 70,
                 "fontSize": 10,
                 "color": "#FFFFFF",
                 "titleField": "Name",
@@ -104,16 +122,19 @@ INFORMA.piebarchart = (function(window, $, namespace) {
                     "axisAlpha": 0,
                     "position": "left",
                     "gridColor": "transparent",
+                    "minimum": 0,
+                    "maximum": facet[0].maximumValue + (.20*facet[0].maximumValue),
+                    "strictMinMax": "true"
                 }],       
                 "startDuration": 1,
                 "graphs": [{
-                    "balloonText": "<b>[[Name]]\n[[value]]</b>",
+                    "balloonText": "<b>[[category]]\n[[value]]</b>",
                     "fillColorsField": "Color",
                     "fillAlphas": 1,
                     "lineAlpha": 0,
                     "type": "column",
                     "valueField": "Count",
-                    "labelText": '[[Name]]\n[[value]]',
+                    "labelText": '[[category]]\n[[value]]',
                     "labelPosition": 'top',
                     "labelFunction": function(value, category, graphs) {
                         return category.replace(" ","\n") + "\n";
@@ -135,7 +156,7 @@ INFORMA.piebarchart = (function(window, $, namespace) {
                     "gridThickness": 0,
                     "axisColor": "#FFFFFF",
                     "labelsEnabled": false,
-                    "startOnAxis": false,
+                    "startOnAxis": false
                 }
             });
         
@@ -169,11 +190,23 @@ INFORMA.piebarchart = (function(window, $, namespace) {
         });
     }
 
+    _buttonMargin = function() {
+        var _nextPrevButton = $(".bar-chart-background .pie-bar-chart-carousel").find("button").length,
+            _button = $(".bar-chart-background a.world-chart-read-more")
+        if(_nextPrevButton > 0) {
+            _button.css("margin-top", "80px");
+        } else {
+            _button.css("margin-top", "0px");
+        }
+    }
+
     init = function() {
 
         $('.chart-bc').each(function(index){
 	        _getPieBarChartData(this);
         });
+
+        _buttonMargin();
 
     };
 

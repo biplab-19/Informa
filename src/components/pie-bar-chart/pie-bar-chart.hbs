@@ -2,8 +2,9 @@
 type="hidden"
 class="initialize-swanimate"
 value='
-[{ "itemidentifier": "pie-bar-chart-col", "data-swanimate-type": "fadein", "data-swanimate-direction": "down", "data-swanimate-delay": 200 },
- { "itemidentifier": "pie-bar-chart-container", "data-swanimate-type": "fadein", "data-swanimate-direction": "right", "data-swanimate-delay": 200 }]
+[{ "itemidentifier": "pie-bar-chart-col", "data-swanimate-type": "fadeOut", "data-swanimate-direction": "Down", "data-swanimate-delay": 200 },
+ { "itemidentifier": "pie-animation", "data-swanimate-type": "shake", "data-swanimate-direction": "", "data-swanimate-delay": 200 },
+ { "itemidentifier": "bar-animation", "data-swanimate-type": "heartBeat", "data-swanimate-direction": "", "data-swanimate-delay": 200 }]
 ' />
 
 <!--START PRODUCT STATS PIE CHART SECTION-->
@@ -13,6 +14,7 @@ value='
     "Heading": " Coverage and format of coverage across Pink, Scrip, Generics and MTI since Brexit began",
     "LargeImage": " ./Static/images/static-map.png",
     "Type": "pie",
+    "SubHeadingColor": "#ff0000",
     "FacetList": [
         {
         "Id": "Publication",
@@ -131,7 +133,7 @@ value='
             "Color": "#ab3192"
             },
             {
-            "Name": "Policy",
+            "Name": "Medtech test on the name",
             "Count": "110",
             "Color": "#f9bec9"
             },
@@ -172,27 +174,8 @@ value='
         "Id": "Publication",
         "Title": "Articles By Publication",
         "Logo": "./Static/images/pie-icon-1.png",
+        "maximumValue": 1000,
         "SectionList": [
-            {
-            "Name": "Medtech Insight",
-            "Count": "100",
-            "Color": "#ef456c"
-            },
-            {
-            "Name": "Pink Sheet",
-            "Count": "400",
-            "Color": "#ab3192"
-            },
-            {
-            "Name": "Generics Bulletin",
-            "Count": "50",
-            "Color": "#f9bec9"
-            },
-            {
-            "Name": "HBW Insight",
-            "Count": "80",
-            "Color": "#3551a3"
-            },
             {
             "Name": "In Vivo",
             "Count": "300",
@@ -202,6 +185,11 @@ value='
             "Name": "Scrip",
             "Count": "150",
             "Color": "#007ac1"
+            },
+            {
+            "Name": "Bio",
+            "Count": "667",
+            "Color": "#00A7B5"
             }
         ]
         },
@@ -209,6 +197,7 @@ value='
         "Id": "Subject",
         "Title": "Subject",
         "Logo": "./Static/images/pie-icon-1.png",
+        "maximumValue": 2000,
         "SectionList": [
             {
             "Name": "Commercial",
@@ -217,7 +206,7 @@ value='
             },
             {
             "Name": "Brexit",
-            "Count": "100",
+            "Count": "476",
             "Color": "#ab3192"
             },
             {
@@ -236,10 +225,11 @@ value='
         "Id": "Publication1",
         "Title": "Articles",
         "Logo": "./Static/images/pie-icon-1.png",
+        "maximumValue": 790,
         "SectionList": [
             {
             "Name": "Medtech Insight",
-            "Count": "500",
+            "Count": "790",
             "Color": "#ef456c"
             },
             {
@@ -273,6 +263,7 @@ value='
         "Id": "Subject1",
         "Title": "Subject",
         "Logo": "./Static/images/pie-icon-1.png",
+        "maximumValue": 4000,
         "SectionList": [
             {
             "Name": "Commercial",
@@ -310,6 +301,10 @@ value='
         </div>
 
     </div>
+
+    <a href="javascript:void(0);" class="world-chart-read-more" data-ga-category="test1"  data-ga-action="test2" data-ga-label="test3" data-ga-value="test4">
+        Read more
+    </a>
 
 </section>
 <!--END PRODUCT BAR CHART SECTION-->
